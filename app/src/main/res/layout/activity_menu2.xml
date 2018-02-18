@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.icsd.game.thesis.Menu">
+    tools:context="com.icsd.game.thesis.Menu2">
 
 
 
@@ -15,19 +15,20 @@
         android:layout_height="109dp"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="8dp"
-        android:text="Game1"
+        android:text="Game9"
         app:layout_constraintBottom_toTopOf="@+id/button15"
         app:layout_constraintEnd_toStartOf="@+id/button11"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="goToMenu1"/>
 
     <Button
         android:id="@+id/button11"
         android:layout_width="111dp"
         android:layout_height="109dp"
         android:layout_marginEnd="44dp"
-        android:text="Game2"
+        android:text="Game10"
         app:layout_constraintBottom_toTopOf="@+id/button16"
         app:layout_constraintEnd_toStartOf="@+id/button12"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +38,7 @@
         android:layout_width="111dp"
         android:layout_height="109dp"
         android:layout_marginEnd="48dp"
-        android:text="Game3"
+        android:text="Game11"
         app:layout_constraintBottom_toTopOf="@+id/button17"
         app:layout_constraintEnd_toStartOf="@+id/button13"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +48,7 @@
         android:layout_width="111dp"
         android:layout_height="109dp"
         android:layout_marginEnd="8dp"
-        android:text="Game4"
+        android:text="Game12"
         app:layout_constraintBottom_toTopOf="@+id/button18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,7 +59,7 @@
         android:layout_height="109dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="56dp"
-        android:text="Game5"
+        android:text="Game13"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button16"
         app:layout_constraintHorizontal_bias="0.5"
@@ -71,7 +72,7 @@
         android:layout_height="109dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="56dp"
-        android:text="Game6"
+        android:text="Game14"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button17"
         app:layout_constraintHorizontal_bias="0.5"
@@ -84,7 +85,7 @@
         android:layout_height="109dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="56dp"
-        android:text="Game7"
+        android:text="Game15"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button18"
         app:layout_constraintHorizontal_bias="0.5"
@@ -98,7 +99,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="56dp"
-        android:text="Game8"
+        android:text="Game16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -106,20 +107,16 @@
         app:layout_constraintTop_toBottomOf="@+id/button13" />
 
     <Button
-        android:id="@+id/change"
+        android:id="@+id/button"
         android:layout_width="59dp"
         android:layout_height="36dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
-        android:onClick="goToMenu2"
-        android:text="->"
-        app:layout_constraintBottom_toTopOf="@+id/button18"
+        android:text="back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.959"
+        app:layout_constraintHorizontal_bias="0.058"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button13"
-        app:layout_constraintVertical_bias="0.15"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/button10" />
 
 </android.support.constraint.ConstraintLayout>
