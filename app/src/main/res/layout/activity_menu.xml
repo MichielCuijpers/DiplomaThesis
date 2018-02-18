@@ -108,7 +108,8 @@
             android:id="@+id/button13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Game13" />
+            android:text="Game13"
+            android:onClick="play13"/>
 
         <Button
             android:id="@+id/button14"
