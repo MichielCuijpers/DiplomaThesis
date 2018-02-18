@@ -1,7 +1,7 @@
 package com.icsd.game.thesis;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
 
 public class Menu extends AppCompatActivity {
 
