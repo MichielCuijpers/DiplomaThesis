@@ -16,6 +16,7 @@
         android:layout_marginEnd="40dp"
         android:layout_marginStart="8dp"
         android:text="Game1"
+        android:onClick="game13"
         app:layout_constraintBottom_toTopOf="@+id/button15"
         app:layout_constraintEnd_toStartOf="@+id/button11"
         app:layout_constraintHorizontal_bias="0.5"
