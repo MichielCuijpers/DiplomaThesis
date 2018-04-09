@@ -30,9 +30,7 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
     public Handler handlerDof;
     public Handler change;
     public Handler waitPlayer;
-    public Boolean check = true;
-    public Boolean check2 = false;
-    Boolean[] array;
+    ArrayList<String> list;
     Button buttonD;
     Button buttonR;
     Button buttonM;
@@ -46,7 +44,7 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
         init();
 
         try {
-            gamePlay();
+            playPattern();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -71,26 +69,12 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
         handlerDof = new Handler();
         change = new Handler();
         waitPlayer = new Handler();
-
-        array = new Boolean[4];
-        array[0] = false;
-        array[1] = false;
-        array[2] = false;
-        array[3] = false;
-
-        //  list = (ArrayList<Boolean>) Arrays.asList(false, false, false, false);
+        list = new ArrayList<>();
     }
 
-    protected void gamePlay() throws IOException {
-
-        Log.e("Debug", "pre-playpattern ");
-
-        playPattern();
-
-
-    }
 
     protected void playPattern() throws IOException {
+        list.clear();
         Log.e("Debug", "start playpattern");
         switch (turn) {
             case 1:
@@ -202,12 +186,13 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
 
     protected void checkPattern() {
 
-        Log.e("Debug", "check inside");
+
         waitPlayer.postDelayed(new Runnable() {
             @Override
             public void run() {
+                Log.e("Debug", "check inside" + list.get(0) +" "+list.get(1));
                 if (turn == 1) {
-                    if (array[0] && array[1] && !array[2] && !array[3]) {
+                    if (list.get(0).equals("do") && list.get(1).equals("re") && list.size() == 2) {
                         Log.e("Debug", "Correct");
                         turn++;
                         try {
@@ -224,7 +209,7 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
                         }
                     }
                 } else if (turn == 2) {
-                    if (!array[0] && array[1] && array[2] && array[3]) {
+                    if (list.get(0).equals("re") && list.get(1).equals("mi") && list.get(2).equals("la") && list.size() == 3) {
                         Log.e("Debug", "Correct");
                         turn++;
                         try {
@@ -242,7 +227,7 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
                     }
 
                 } else if (turn == 3) {
-                    if (array[0] && array[1] && array[2] && array[3]) {
+                    if (list.get(0).equals("re") && list.get(1).equals("mi") && list.get(2).equals("la") && list.get(3).equals("do") && list.size() == 4) {
                         Log.e("Debug", "Correct");
                         turn++;
                         try {
@@ -269,23 +254,23 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
 
     public void playDo(View view) {
         dof.start();
-        this.array[0] = true;
+        list.add("do");
 
     }
 
     public void palyRe(View view) {
         re.start();
-        this.array[1] = true;
+        list.add("re");
     }
 
     public void playMi(View view) {
         mi.start();
-        this.array[2] = true;
+        list.add("mi");
     }
 
     public void playla(View view) {
         la.start();
-        this.array[3] = true;
+        list.add("la");
     }
 
     public void onPrepared(MediaPlayer player) {
