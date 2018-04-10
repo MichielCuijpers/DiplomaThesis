@@ -231,9 +231,62 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
                     }
                 }, 2200);
                 break;
+            case 4:
+                Log.e("Debug", " playpattern case 3");
+                handlerLa.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        changeColor(noteNumnber);
+                        noteNumnber = 10;
+                        noteNumnber = r.nextInt(4);
+                        playNote(noteNumnber);
+
+                    }
+                }, 800);
+
+                handlerRe.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        changeColor(noteNumnber);
+                        noteNumnber = 10;
+                        noteNumnber = r.nextInt(4);
+                        playNote(noteNumnber);
+
+                    }
+                }, 1200);
+
+                handlerMi.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        changeColor(noteNumnber);
+                        noteNumnber = 10;
+                        noteNumnber = r.nextInt(4);
+                        playNote(noteNumnber);
+
+                    }
+                }, 1600);
+                handlerDof.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        changeColor(noteNumnber);
+                        noteNumnber = 10;
+                        noteNumnber = r.nextInt(4);
+                        playNote(noteNumnber);
+
+                    }
+                }, 2000);
+                change.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        changeColor(noteNumnber);
+                        checkPattern();
+                    }
+                }, 2200);
+                break;
 
 
         }
+
 
     }
 
