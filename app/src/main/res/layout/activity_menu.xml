@@ -98,6 +98,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="56dp"
         android:text="Game8"
+        android:onClick="game8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

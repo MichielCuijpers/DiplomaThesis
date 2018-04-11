@@ -11,8 +11,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Menu"
-            android:screenOrientation="landscape">>
-
+            android:screenOrientation="landscape">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,14 +21,15 @@
         </activity>
         <activity
             android:name=".Menu2"
-            android:screenOrientation="landscape">>
-
-
+            android:screenOrientation="landscape">
+            >
         </activity>
         <activity
             android:name=".Game13"
-            android:screenOrientation="landscape">>
+            android:screenOrientation="landscape">
+            >
         </activity>
+        <activity android:name=".game8.Game8"  android:screenOrientation="landscape">></activity>
     </application>
 
 </manifest>

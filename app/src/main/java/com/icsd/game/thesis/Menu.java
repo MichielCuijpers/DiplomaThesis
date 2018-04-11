@@ -6,6 +6,8 @@ package com.icsd.game.thesis;
         import android.os.Bundle;
         import android.view.View;
 
+        import com.icsd.game.thesis.game8.Game8;
+
 
 public class Menu extends AppCompatActivity {
     private GestureDetectorCompat mDetector;
@@ -22,5 +24,8 @@ public class Menu extends AppCompatActivity {
     }
 
 
-
+    public void game8(View view) {
+        Intent c = new Intent(this,Game8.class);
+        startActivity(c);
+    }
 }
