@@ -61,7 +61,8 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
         re.pause();
         mi.pause();
         dof.pause();
-        handlerLa.removeCallbacks();
+        Game13.this.finish();
+
     }
 
     protected void onStop(Bundle savedInstanceState) {
@@ -70,6 +71,7 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
         re.pause();
         mi.pause();
         dof.pause();
+        Game13.this.finish();
     }
 
 
@@ -112,7 +114,7 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
                         playNote(noteNumnber);
                     }
                 }, 800);
-                change.postDelayed( new Runnable() {
+                change.postDelayed(new Runnable() {
                     @Override
                     public void run() {
 
