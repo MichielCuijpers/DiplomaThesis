@@ -55,6 +55,24 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
 
     }
 
+    protected void onPause(Bundle savedInstanceState) {
+        super.onPause();
+        la.pause();
+        re.pause();
+        mi.pause();
+        dof.pause();
+        handlerLa.removeCallbacks();
+    }
+
+    protected void onStop(Bundle savedInstanceState) {
+        super.onStop();
+        la.pause();
+        re.pause();
+        mi.pause();
+        dof.pause();
+    }
+
+
     protected void init() {
         buttonD = (Button) findViewById(id.dof);
         buttonR = (Button) findViewById(R.id.re);
@@ -94,7 +112,7 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
                         playNote(noteNumnber);
                     }
                 }, 800);
-                change.postDelayed(new Runnable() {
+                change.postDelayed( new Runnable() {
                     @Override
                     public void run() {
 
@@ -112,7 +130,7 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
                         changeColor(noteNumnber);
                         noteNumnber = 10;
                         noteNumnber = r.nextInt(4);
-                        Log.e("Debug", " playpattern case 1 prwti nota"+" >>"+noteNumnber);
+                        Log.e("Debug", " playpattern case 1 prwti nota" + " >>" + noteNumnber);
                         playNote(noteNumnber);
 
                     }
@@ -124,7 +142,7 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
                         changeColor(noteNumnber);
                         noteNumnber = 10;
                         noteNumnber = r.nextInt(4);
-                        Log.e("Debug", " playpattern case 1 deferi nota"+" >>"+noteNumnber);
+                        Log.e("Debug", " playpattern case 1 deferi nota" + " >>" + noteNumnber);
                         playNote(noteNumnber);
 
 
