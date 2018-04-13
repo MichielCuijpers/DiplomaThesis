@@ -17,27 +17,37 @@ import java.util.Random;
 import static com.icsd.game.thesis.R.*;
 
 public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
+
     private static Context mContext;
-    private Integer turn;
+    protected Integer turn;
     private MediaPlayer la;
     private MediaPlayer mi;
     private MediaPlayer re;
     private MediaPlayer dof;
-    public Handler handlerMi;
-    public Handler handlerLa;
-    public Handler handlerRe;
-    public Handler handlerDof;
-    public Handler change;
-    public Handler waitPlayer;
-    ArrayList<String> checkList;
-    ArrayList<String> patternList;
-    Button buttonD;
-    Button buttonR;
-    Button buttonM;
-    Button buttonL;
-    Random r;
-    int noteNumnber;
-    int delay;
+    private Handler handlerMi;
+    private Handler handlerLa;
+    private Handler handlerRe;
+    private Handler handlerDof;
+    private Handler change;
+    private Handler change2;
+    private Handler waitPlayer;
+    private ArrayList<String> checkList;
+    private ArrayList<String> patternList;
+    protected int checkRand;
+    private Button buttonD;
+    private Button buttonR;
+    private Button buttonM;
+    private Button buttonL;
+    private Random r;
+    private int noteNumnber;
+    protected int delay;
+    private Runnable run1;
+    private Runnable run2;
+    private Runnable run3;
+    private Runnable run4;
+    private Runnable runChange1;
+    private Runnable runChange2;
+    private Runnable runCheck;
 
 
     @Override
@@ -55,25 +65,132 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
 
     }
 
-    protected void onPause(Bundle savedInstanceState) {
+    public void onPause() {
         super.onPause();
         la.pause();
         re.pause();
         mi.pause();
         dof.pause();
-        Game13.this.finish();
+        handlerLa.removeCallbacks(run1);
+        handlerDof.removeCallbacks(run3);
+        handlerRe.removeCallbacks(run4);
+        change.removeCallbacks(runChange1);
+        change2.removeCallbacks(runChange2);
+        waitPlayer.removeCallbacks(runCheck);
+
 
     }
 
-    protected void onStop(Bundle savedInstanceState) {
+    public void onStop() {
         super.onStop();
         la.pause();
         re.pause();
         mi.pause();
         dof.pause();
-        Game13.this.finish();
+        this.turn = 10;
+        handlerLa.removeCallbacks(run1);
+        handlerDof.removeCallbacks(run3);
+        handlerRe.removeCallbacks(run4);
+        change.removeCallbacks(runChange1);
+        change2.removeCallbacks(runChange2);
+        waitPlayer.removeCallbacks(runCheck);
+
     }
 
+
+    
+    protected void initRunnables() {
+        runCheck = new Runnable() {
+            @Override
+            public void run() {
+                if (checkList.equals(patternList)) {
+
+                    Log.e("Debug", "Correct");
+                    turn++;
+                    try {
+                        playPattern();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+
+                } else {
+                    Log.e("Debug", "InCorrect");
+                    try {
+                        playPattern();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+            }
+        };
+        run1 = new Runnable() {
+            @Override
+            public void run() {
+
+                changeColor(noteNumnber);
+                do {
+                    noteNumnber = r.nextInt(4);
+                } while (noteNumnber == checkRand);
+                checkRand = noteNumnber;
+                playNote(noteNumnber);
+            }
+        };
+        run2 = new Runnable() {
+            @Override
+            public void run() {
+
+                changeColor(noteNumnber);
+                do {
+                    noteNumnber = r.nextInt(4);
+                } while (noteNumnber == checkRand);
+                checkRand = noteNumnber;
+                playNote(noteNumnber);
+            }
+        };
+        run3 = new Runnable() {
+            @Override
+            public void run() {
+
+                changeColor(noteNumnber);
+                do {
+                    noteNumnber = r.nextInt(4);
+                } while (noteNumnber == checkRand);
+                checkRand = noteNumnber;
+                playNote(noteNumnber);
+            }
+        };
+        run4 = new Runnable() {
+            @Override
+            public void run() {
+
+                changeColor(noteNumnber);
+                do {
+                    noteNumnber = r.nextInt(4);
+                } while (noteNumnber == checkRand);
+                checkRand = noteNumnber;
+                playNote(noteNumnber);
+            }
+        };
+        runChange1 = new Runnable() {
+            @Override
+            public void run() {
+                changeColor(noteNumnber);
+                checkPattern();
+            }
+        };
+        runChange2 = new Runnable() {
+            @Override
+            public void run() {
+                changeColor(noteNumnber);
+                checkPattern();
+            }
+        };
+
+
+    }
 
     protected void init() {
         buttonD = (Button) findViewById(id.dof);
@@ -90,12 +207,15 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
         handlerRe = new Handler();
         handlerMi = new Handler();
         handlerDof = new Handler();
+        change2 = new Handler();
         change = new Handler();
         waitPlayer = new Handler();
         checkList = new ArrayList<>();
         patternList = new ArrayList<>();
         r = new Random();
         delay = 800;
+        initRunnables();
+
     }
 
 
@@ -106,204 +226,36 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
         switch (turn) {
             case 0:
                 Log.e("Debug", " playpattern case 0");
-                handlerLa.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        playNote(noteNumnber);
-                    }
-                }, 800);
-                change.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        changeColor(noteNumnber);
-                        checkPattern();
-                    }
-                }, 1400);
+                handlerLa.postDelayed(run1, 800);
+                change.postDelayed(runChange1, 1200);
                 break;
             case 1:
-                Log.e("Debug", " playpattern case 1");
-                handlerLa.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.e("Debug", " playpattern case 1 prwti nota");
-                        changeColor(noteNumnber);
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        Log.e("Debug", " playpattern case 1 prwti nota" + " >>" + noteNumnber);
-                        playNote(noteNumnber);
-
-                    }
-                }, 800);
-                handlerRe.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        ;
-                        changeColor(noteNumnber);
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        Log.e("Debug", " playpattern case 1 deferi nota" + " >>" + noteNumnber);
-                        playNote(noteNumnber);
-
-
-                    }
-                }, 1200);
-                change.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        checkPattern();
-                    }
-                }, 1400);
+                handlerDof.postDelayed(run3, 800);
+                handlerRe.postDelayed(run2, 1200);
+                change2.postDelayed(runChange2, 1400);
                 break;
             case 2:
-                Log.e("Debug", " playpattern case 2");
-                handlerLa.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        playNote(noteNumnber);
-
-                    }
-                }, 800);
-
-                handlerRe.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        playNote(noteNumnber);
-
-                    }
-                }, 1200);
-
-                handlerMi.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        playNote(noteNumnber);
-                    }
-                }, 1600);
-                change.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        checkPattern();
-                    }
-                }, 1800);
+                handlerDof.postDelayed(run3, 800);
+                handlerRe.postDelayed(run4, 1200);
+                handlerLa.postDelayed(run1, 1400);
+                change2.postDelayed(runChange2, 1600);
                 break;
             case 3:
-                Log.e("Debug", " playpattern case 3");
-                handlerLa.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        playNote(noteNumnber);
+                handlerDof.postDelayed(run3, 800);
+                handlerRe.postDelayed(run4, 1200);
+                handlerLa.postDelayed(run1, 1400);
+                handlerMi.postDelayed(run2, 1600);
+                change2.postDelayed(runChange2, 1800);
 
-                    }
-                }, 800);
-
-                handlerRe.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        playNote(noteNumnber);
-
-                    }
-                }, 1200);
-
-                handlerMi.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        playNote(noteNumnber);
-
-                    }
-                }, 1600);
-                handlerDof.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        playNote(noteNumnber);
-
-                    }
-                }, 2000);
-                change.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        checkPattern();
-                    }
-                }, 2200);
                 break;
             case 4:
-                Log.e("Debug", " playpattern case 3");
-                handlerLa.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        playNote(noteNumnber);
+                handlerDof.postDelayed(run3, 800);
+                handlerRe.postDelayed(run4, 1200);
+                handlerLa.postDelayed(run1, 1400);
+                handlerMi.postDelayed(run2, 1600);
+                change2.postDelayed(runChange2, 1800);
 
-                    }
-                }, 800);
-
-                handlerRe.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        playNote(noteNumnber);
-
-                    }
-                }, 1200);
-
-                handlerMi.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        playNote(noteNumnber);
-
-                    }
-                }, 1600);
-                handlerDof.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        noteNumnber = 10;
-                        noteNumnber = r.nextInt(4);
-                        playNote(noteNumnber);
-
-                    }
-                }, 2000);
-                change.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        changeColor(noteNumnber);
-                        checkPattern();
-                    }
-                }, 2200);
                 break;
-
 
         }
 
@@ -358,33 +310,7 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
 
     protected void checkPattern() {
 
-
-        waitPlayer.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (checkList.equals(patternList)) {
-
-                    Log.e("Debug", "Correct");
-                    turn++;
-                    try {
-                        playPattern();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-
-                } else {
-                    Log.e("Debug", "InCorrect");
-                    try {
-                        playPattern();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-
-            }
-        }, 6000);
+        waitPlayer.postDelayed(runCheck, 4000);
 
     }
 
@@ -410,10 +336,11 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
         checkList.add("la");
     }
 
+
+
     public void onPrepared(MediaPlayer player) {
 
     }
-
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
