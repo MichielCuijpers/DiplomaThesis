@@ -16,7 +16,7 @@ public class Occurs {
     public Occurs() {
     }
 //zzz
-
+//uyihi
     public String get_pattern() {
         return pattern;
     }
