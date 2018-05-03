@@ -12,10 +12,11 @@ public class Occurs {
         this.pattern = pattern;
         phrase = new ArrayList<String>();
     }
-
+//df
     public Occurs() {
     }
-//zzz
+// asfkjadfksf
+    //zzz
 //uyihi
     public String get_pattern() {
         return pattern;
@@ -47,8 +48,6 @@ public class Occurs {
         }
         return tobeshuffled = output.toString().replaceAll(" ", "").toCharArray();
     }
-
-
 
 
 }

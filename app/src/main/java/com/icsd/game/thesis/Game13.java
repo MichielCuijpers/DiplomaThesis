@@ -50,6 +50,7 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
     private Runnable runCheck;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,7 +99,6 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
     }
 
 
-    
     protected void initRunnables() {
         runCheck = new Runnable() {
             @Override
@@ -337,10 +337,10 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
     }
 
 
-
     public void onPrepared(MediaPlayer player) {
 
     }
+
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
