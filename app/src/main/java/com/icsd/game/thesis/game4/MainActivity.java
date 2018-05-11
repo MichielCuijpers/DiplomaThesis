@@ -1,13 +1,26 @@
 package com.icsd.game.thesis.game4;
 
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 
+import com.icsd.game.thesis.R;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class Main {
-
-    public static void main(String[] args) {
+public class MainActivity extends AppCompatActivity {
+        private ArrayList<Button> letters;
+        private View a;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        letters = new ArrayList<Button>();
+        a = findViewById(R.id.view);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         ArrayList<String> phrases = new ArrayList<String>();
         ArrayList<String> similars = new ArrayList<String>();
 
@@ -55,10 +68,16 @@ public class Main {
             Character[] something = c.shuffleCharArray(tobeshuffled);
             for(int i = 0; i<something.length;i++)
             {
-                String m =" ";
-                JButton nb = new JButton(m = Character.toString(something[i].replaceAll(" ","").trim()));
-                System.out.println("To  onoma tou koumpioy "+ nb.getText());
+                String m = Character.toString(something[i]);
+                //JButton nb = new JButton(m = Character.toString(something[i]));
+                Button nb = findViewById(R.id.gramma);
+                nb.setVisibility(View.INVISIBLE);
+                nb.setText(m);
+                letters.add(nb);
+
+
             }
+           //Kwsta ama to deis  edw exo thema sto na valw ta koumpia sto view.. oi methodoi douleuoun. apla prospathw na to kanw dinamikA
             System.out.println("I swsti leksi : " + tobeshuffled);
             StringBuilder anakatemeni = new StringBuilder();
             for(int i = 0;i<something.length;i++)
@@ -70,6 +89,7 @@ public class Main {
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
         }
+
     }
 
 }

@@ -48,7 +48,7 @@ public class Occurs {
        Character[] array = new Character[len];
        for(int i = 0;i<len;i++)
        {
-           array[i] = Character.valueOf(s.charAt[i]);
+           array[i] = Character.valueOf(s.charAt(i));
        }
         List<Character> sh_chars = Arrays.asList(array);
        Collections.shuffle(sh_chars);
