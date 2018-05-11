@@ -39,7 +39,7 @@ public class Occurs {
     }
 
     public Character[] shuffleCharArray(String s) { //pernaei tin parapanw leksi os orisma kai anakateuei ta grammata
-
+//done
        if(s == null)
        {
            return null;
