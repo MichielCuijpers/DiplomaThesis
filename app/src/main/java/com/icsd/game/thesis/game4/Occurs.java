@@ -1,6 +1,9 @@
 package com.icsd.game.thesis.game4;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class Occurs {
@@ -17,7 +20,7 @@ public class Occurs {
     }
 // asfkjadfksf
     //zzz
-//uyihi
+
     public String get_pattern() {
         return pattern;
     }
@@ -35,18 +38,22 @@ public class Occurs {
         return ChosenWord;
     }
 
-    public char[] shuffleCharArray(String s) { //pernaei tin parapanw leksi os orisma kai anakateuei ta grammata
-        char[] tobeshuffled;
-        ArrayList<Character> characters = new ArrayList<Character>();
-        for (char c : s.toCharArray()) {
-            characters.add(c);
-        }
-        StringBuilder output = new StringBuilder(s.length());
-        while (characters.size() != 0) {
-            int randPicker = (int) (Math.random() * characters.size());
-            output.append(characters.remove(randPicker));
-        }
-        return tobeshuffled = output.toString().replaceAll(" ", "").toCharArray();
+    public Character[] shuffleCharArray(String s) { //pernaei tin parapanw leksi os orisma kai anakateuei ta grammata
+
+       if(s == null)
+       {
+           return null;
+       }
+       int len = s.length();
+       Character[] array = new Character[len];
+       for(int i = 0;i<len;i++)
+       {
+           array[i] = Character.valueOf(s.charAt[i]);
+       }
+        List<Character> sh_chars = Arrays.asList(array);
+       Collections.shuffle(sh_chars);
+       Character[] myShuffledArray = (Character[]) sh_chars.toArray();
+       return myShuffledArray;
     }
 
 

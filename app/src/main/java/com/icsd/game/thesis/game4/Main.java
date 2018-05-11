@@ -52,9 +52,20 @@ public class Main {
         Occurs c = new Occurs();
         try {
             String tobeshuffled = c.PickPhrases(phrases);
-            String something = Arrays.toString(c.shuffleCharArray(tobeshuffled));
+            Character[] something = c.shuffleCharArray(tobeshuffled);
+            for(int i = 0; i<something.length;i++)
+            {
+                String m =" ";
+                JButton nb = new JButton(m = Character.toString(something[i].replaceAll(" ","").trim()));
+                System.out.println("To  onoma tou koumpioy "+ nb.getText());
+            }
             System.out.println("I swsti leksi : " + tobeshuffled);
-            System.out.println("I anakatemeni : " + something);
+            StringBuilder anakatemeni = new StringBuilder();
+            for(int i = 0;i<something.length;i++)
+            {
+                anakatemeni.append(Character.toString(something[i]));
+            }
+            System.out.println("I anakatemeni : " + anakatemeni);
 
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
