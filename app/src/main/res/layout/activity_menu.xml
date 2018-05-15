@@ -17,7 +17,6 @@
         android:text="Game1"
         app:layout_constraintBottom_toTopOf="@+id/button15"
         app:layout_constraintEnd_toStartOf="@+id/button11"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,7 +24,7 @@
         android:id="@+id/button11"
         android:layout_width="111dp"
         android:layout_height="109dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginEnd="184dp"
         android:text="Game2"
         app:layout_constraintBottom_toTopOf="@+id/button16"
         app:layout_constraintEnd_toStartOf="@+id/button12"
@@ -35,7 +34,7 @@
         android:id="@+id/button12"
         android:layout_width="111dp"
         android:layout_height="109dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginEnd="184dp"
         android:text="Game3"
         app:layout_constraintBottom_toTopOf="@+id/button17"
         app:layout_constraintEnd_toStartOf="@+id/button13"
@@ -45,8 +44,9 @@
         android:id="@+id/button13"
         android:layout_width="111dp"
         android:layout_height="109dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="144dp"
         android:text="Game4"
+        android:onClick="game4"
         app:layout_constraintBottom_toTopOf="@+id/button18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

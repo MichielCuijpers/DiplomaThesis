@@ -29,7 +29,15 @@
             android:screenOrientation="landscape">
             >
         </activity>
-        <activity android:name=".game8.Game8"  android:screenOrientation="landscape">></activity>
+        <activity
+            android:name=".game8.Game8"
+            android:screenOrientation="landscape">
+            >
+        </activity>
+        <activity
+            android:name=".game4.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
