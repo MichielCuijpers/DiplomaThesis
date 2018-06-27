@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/Thesis.iml" filepath="$PROJECT_DIR$/Thesis.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/DiplomaThesisAndroid.iml" filepath="$PROJECT_DIR$/DiplomaThesisAndroid.iml" />
->>>>>>> f9db665aecabef28be813af55833e4521bbec359
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
