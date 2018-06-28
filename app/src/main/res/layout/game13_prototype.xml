@@ -21,7 +21,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/re"
-        app:layout_constraintVertical_bias="0.709" />
+        app:layout_constraintVertical_bias="0.522" />
 
     <Button
         android:id="@+id/dof"
@@ -64,7 +64,7 @@
         android:background="#f9f906"
         android:onClick="palyRe"
         tools:layout_editor_absoluteX="711dp"
-        tools:layout_editor_absoluteY="45dp" />
+        tools:layout_editor_absoluteY="24dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
