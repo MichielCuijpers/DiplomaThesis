@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c7a96c">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="180dp"
+        android:layout_height="155dp"
+        app:srcCompat="@android:color/holo_orange_dark"
+        tools:layout_editor_absoluteX="985dp"
+        tools:layout_editor_absoluteY="104dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="180dp"
+        android:layout_height="155dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:srcCompat="@android:color/holo_orange_dark"
+        tools:layout_editor_absoluteY="104dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="180dp"
+        android:layout_height="155dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:srcCompat="@android:color/holo_orange_dark"
+        tools:layout_editor_absoluteY="104dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="180dp"
+        android:layout_height="155dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:srcCompat="@android:color/holo_orange_dark"
+        tools:layout_editor_absoluteY="104dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="180dp"
+        android:layout_height="155dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:srcCompat="@android:color/holo_orange_dark"
+        tools:layout_editor_absoluteY="104dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="107dp"
+        android:layout_height="65dp"
+        android:background="@android:color/holo_orange_light"
+        android:text="CHECK"
+        tools:layout_editor_absoluteX="587dp"
+        tools:layout_editor_absoluteY="379dp" />
+</android.support.constraint.ConstraintLayout>

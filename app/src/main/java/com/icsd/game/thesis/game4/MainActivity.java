@@ -14,13 +14,13 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
         private ArrayList<Button> letters;
-        private View a;
+       // private View a;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         letters = new ArrayList<Button>();
-        a = findViewById(R.id.view);
+      //  a = findViewById(R.id.view);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.game4protype);
         ArrayList<String> phrases = new ArrayList<String>();
         ArrayList<String> similars = new ArrayList<String>();
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             String tobeshuffled = c.PickPhrases(phrases);
             Character[] something = c.shuffleCharArray(tobeshuffled);
-            for(int i = 0; i<something.length;i++)
+           /* for(int i = 0; i<something.length;i++)
             {
                 String m = Character.toString(something[i]);
                 //JButton nb = new JButton(m = Character.toString(something[i]));
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 letters.add(nb);
 
 
-            }
+            }*/
            //Kwsta ama to deis  edw exo thema sto na valw ta koumpia sto view.. oi methodoi douleuoun. apla prospathw na to kanw dinamikA
             System.out.println("I swsti leksi : " + tobeshuffled);
             StringBuilder anakatemeni = new StringBuilder();
