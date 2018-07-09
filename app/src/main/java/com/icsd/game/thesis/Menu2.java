@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.icsd.game.thesis.database.AndroidDatabaseManager;
+import com.icsd.game.thesis.game13.Game13;
+
 
 public class Menu2 extends AppCompatActivity {
 
@@ -22,5 +25,10 @@ public class Menu2 extends AppCompatActivity {
     public void game13(View view) {
         Intent c = new Intent(this,Game13.class);
         startActivity(c);
+    }
+
+    public void dbTest(View view) {
+        Intent dbmanager = new Intent(this,AndroidDatabaseManager.class);
+        startActivity(dbmanager);
     }
 }

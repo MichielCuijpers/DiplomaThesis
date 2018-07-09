@@ -1,4 +1,4 @@
-package com.icsd.game.thesis;
+package com.icsd.game.thesis.game13;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.icsd.game.thesis.R;
 
 import java.io.IOException;
 import java.util.ArrayList;

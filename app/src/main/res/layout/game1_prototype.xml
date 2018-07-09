@@ -23,16 +23,20 @@
         android:id="@+id/textView"
         android:layout_width="1036dp"
         android:layout_height="89dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="QUESTION"
         android:textAllCaps="true"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         android:textSize="50sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="70dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.048" />
 
 
     <Button

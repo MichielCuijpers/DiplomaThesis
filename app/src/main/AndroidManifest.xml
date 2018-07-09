@@ -25,19 +25,25 @@
             >
         </activity>
         <activity
-            android:name=".Game13"
+            android:name=".game13.Game13"
             android:screenOrientation="landscape">
             >
         </activity>
         <activity
-            android:name=".game8.Game8"
+        android:name=".game8.Game8"
+        android:screenOrientation="landscape">
+        >
+    </activity>
+        <activity
+            android:name=".database.AndroidDatabaseManager"
             android:screenOrientation="landscape">
             >
         </activity>
         <activity
             android:name=".game4.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".game1.game1Activity"></activity>
     </application>
 
 </manifest>
