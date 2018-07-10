@@ -14,14 +14,19 @@ import com.icsd.game.thesis.game1.QuestionDBEntry;
 
 import java.util.ArrayList;
 
+
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "database.db";
 
+    private SQLiteDatabase db = this.getWritableDatabase();
+
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -49,13 +54,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     public void addSessionToDB(Session session) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
 
+        ContentValues values = new ContentValues();
+        SQLiteDatabase db = getWritableDatabase();
         values.put(Session.GameSessionDBEntry.SCORE, session.getScore());
         values.put(Session.GameSessionDBEntry.STAGES_COMPLETED, session.getStage());
         values.put(Session.GameSessionDBEntry.FAILS, session.getFails());
-        values.put(Session.GameSessionDBEntry.TIME__PLAYED, (session.getTimeEnd()-session.getTimeStart()));
+        values.put(Session.GameSessionDBEntry.TIME__PLAYED, (session.getTimeEnd() - session.getTimeStart()));
         values.put(Session.GameSessionDBEntry.HELP_USED, session.getHelpUsed());
         values.put(Session.GameSessionDBEntry.USER_ID, session.getUserId());
         values.put(Session.GameSessionDBEntry.GAME_ID, session.getGameID());
@@ -64,9 +69,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
-    public  void addUserToDB(User user) {
+    public void addUserToDB(User user) {
 
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(User.UserDBEntry.NICKNAME, user.getUsername());
         db.insert(User.UserDBEntry.TABLE_NAME, null, values);

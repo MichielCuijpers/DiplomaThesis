@@ -27,6 +27,8 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         testUser = new User(1);
+        DatabaseHandler dbUsertest = new DatabaseHandler(this);
+        dbUsertest.addUserToDB(testUser);
 
     }
 
