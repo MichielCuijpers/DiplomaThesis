@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.icsd.game.thesis.R;
 
-public class game1Activity extends AppCompatActivity {
+public class Game1Activity extends AppCompatActivity {
 
 
     private static Context myCont;

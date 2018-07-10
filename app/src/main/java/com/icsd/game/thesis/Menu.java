@@ -1,22 +1,17 @@
 package com.icsd.game.thesis;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.User;
-import com.icsd.game.thesis.game1.game1Activity;
+import com.icsd.game.thesis.game1.Game1Activity;
 import com.icsd.game.thesis.game4.MainActivity;
+import com.icsd.game.thesis.game5.Game5;
 import com.icsd.game.thesis.game8.Game8;
-
-import java.util.ArrayList;
 
 
 public class Menu extends AppCompatActivity {
@@ -49,7 +44,12 @@ public class Menu extends AppCompatActivity {
         startActivity(c);
     }
     public void game1(View view) {
-        Intent c = new Intent(this, game1Activity.class);
+        Intent c = new Intent(this, Game1Activity.class);
+        startActivity(c);
+    }
+
+    public void game5(View view) {
+        Intent c = new Intent(this, Game5.class);
         startActivity(c);
     }
 }

@@ -5,13 +5,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
 import com.icsd.game.thesis.database.DatabaseHandler;
-import com.icsd.game.thesis.database.Session;
-import com.icsd.game.thesis.database.User;
 
 public class Question {
 
     protected static void addTestQuestionToDB() {
-        DatabaseHandler dh = new DatabaseHandler(game1Activity.getMyCont());
+        DatabaseHandler dh = new DatabaseHandler(Game1Activity.getMyCont());
         SQLiteDatabase db = dh.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(QuestionDBEntry.QUESTION,"QUESTION 1");
