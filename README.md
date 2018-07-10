@@ -1,1 +1,2 @@
-Η διπλωματική εργασία έχει ως σκοπό της εξάσκηση ατόμων με προβλήματα μνήμης (π.χ. ηλικιωμένοι, άτομα στα πρόθυρα νόσου Αλτσχαιμερ)  μέσω μιας πληθώρας παιχνιδιών. Τα παιχνίδια αυτά χωρίζονται σε 4 κατηγορίες αναλόγως με τη νοητική λειτουργία που εξασκούν. Οι κατηγορίες είναι: μνήμη, επίλυση προβλημάτων, προσοχή του χρήστη και η ταχύτητα επεξεργασίας ερεθισμάτων) . 
+«Design and development of mobile games to support people with memory problems »
+This project aims at practicing people with memory problems (eg elderly people, people on the verge of Alzheimer's disease) through a variety of games. These games are divided into 4 categories depending on their mental function. Categories are: memory, problem solving, user attention, and brain processing speed.
