@@ -12,6 +12,7 @@ import android.view.View;
 
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.User;
+import com.icsd.game.thesis.game1.game1Activity;
 import com.icsd.game.thesis.game4.MainActivity;
 import com.icsd.game.thesis.game8.Game8;
 
@@ -45,6 +46,10 @@ public class Menu extends AppCompatActivity {
 
     public void game4(View view) {
         Intent c = new Intent(this, MainActivity.class);
+        startActivity(c);
+    }
+    public void game1(View view) {
+        Intent c = new Intent(this, game1Activity.class);
         startActivity(c);
     }
 }

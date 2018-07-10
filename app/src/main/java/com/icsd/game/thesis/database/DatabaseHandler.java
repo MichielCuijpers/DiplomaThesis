@@ -8,9 +8,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.icsd.game.thesis.game1.QuestionDBEntry;
+import com.icsd.game.thesis.game1.Question;
 
 import java.util.ArrayList;
 
@@ -20,24 +19,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "database.db";
 
-    private SQLiteDatabase db = this.getWritableDatabase();
+
+    private SQLiteDatabase db =getWritableDatabase();
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
 
-
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("DROP TABLE IF EXISTS " + QuestionDBEntry.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + Question.QuestionDBEntry.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + User.UserDBEntry.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + GameDBEntry.TABLE_NAME);
 
         db.execSQL("DROP TABLE IF EXISTS " + Session.GameSessionDBEntry.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + HighscoreDBEntry.TABLE_NAME);
 
-        db.execSQL(QuestionDBEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(Question.QuestionDBEntry.SQL_CREATE_ENTRIES);
         db.execSQL(GameDBEntry.SQL_CREATE_ENTRIES);
         db.execSQL(User.UserDBEntry.SQL_CREATE_ENTRIES);
 
@@ -65,6 +64,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(Session.GameSessionDBEntry.USER_ID, session.getUserId());
         values.put(Session.GameSessionDBEntry.GAME_ID, session.getGameID());
         db.insert(Session.GameSessionDBEntry.TABLE_NAME, null, values);
+        db.close();
         Log.e("DEBUGMY", "Session save to db");
 
     }
@@ -122,6 +122,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             return alc;
         }
     }
+
 
 
 }

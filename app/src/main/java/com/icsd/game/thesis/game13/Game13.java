@@ -60,7 +60,7 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
     private Runnable runCheck;
     private Session curSession;
 
-    private DatabaseHandler dbHandler = new DatabaseHandler(this);
+    private DatabaseHandler dbHandler;
 
 
     @Override
@@ -68,8 +68,9 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
         curSession = new Session(Menu.testUser.getUsername(), 13);
         super.onCreate(savedInstanceState);
         setContentView(layout.game13_prototype);
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
         init();
-        curSession.setTimeStart(System.currentTimeMillis()/1000);
+        curSession.setTimeStart(System.currentTimeMillis() / 1000);
         try {
             playPattern();
         } catch (IOException e) {
@@ -81,14 +82,14 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
 
     public void onPause() {
         super.onPause();
-        //  killAll();
+        killAll();
 
 
     }
 
     public void onStop() {
         super.onStop();
-        //  killAll();
+        killAll();
     }
 
 
@@ -105,6 +106,7 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
                     try {
                         if (turn == 5) {
                             Toast.makeText(mContext, "YOU WON ", Toast.LENGTH_LONG).show();
+                            saveSessionToDB();
                             killAll();
                         } else {
                             playPattern();
@@ -357,7 +359,14 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
         change2.removeCallbacks(runChange2);
         waitPlayer.removeCallbacks(runCheck);
         dbHandler.addSessionToDB(this.curSession);
-        curSession.setTimeEnd(System.currentTimeMillis()/1000);
+        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+    }
+
+    public void saveSessionToDB() {
+        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+
+        dbHandler.addSessionToDB(this.curSession);
+
     }
 
     @Override

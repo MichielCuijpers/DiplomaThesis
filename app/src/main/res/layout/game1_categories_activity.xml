@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/textView6"
         android:layout_width="745dp"
-        android:layout_height="100dp"
+        android:layout_height="149dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -19,10 +19,9 @@
         android:textSize="80sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.597"
+        app:layout_constraintHorizontal_bias="0.599"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.471" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/category1"
@@ -47,6 +46,7 @@
         android:layout_marginBottom="176dp"
         android:layout_marginStart="44dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="category2"
         android:text="History"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -108,6 +108,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="category1"
         android:text="Planet"
         android:textSize="30sp"
         android:textStyle="bold"
