@@ -364,7 +364,6 @@ public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedL
 
     public void saveSessionToDB() {
         curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-
         dbHandler.addSessionToDB(this.curSession);
 
     }
