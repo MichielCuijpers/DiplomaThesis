@@ -11,7 +11,7 @@ public class QuestionDBEntry implements BaseColumns {
 
     public static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + TABLE_NAME + " (" +
-                    _ID + " INTEGER PRIMARY KEY," +
+                    _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     QUESTION + " TEXT, "
                     + CATEGORY + " TEXT)";
 }
