@@ -1,9 +1,14 @@
 package com.icsd.game.thesis;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.icsd.game.thesis.database.AndroidDatabaseManager;
+import com.icsd.game.thesis.database.DatabaseHandler;
+import com.icsd.game.thesis.game13.Game13;
 
 
 public class Menu2 extends AppCompatActivity {
@@ -15,12 +20,22 @@ public class Menu2 extends AppCompatActivity {
 
 
     }
+
     public void goToMenu1(View view) {
-        Intent c = new Intent(Menu2.this,Menu.class);
+        Intent c = new Intent(Menu2.this, Menu.class);
         startActivity(c);
     }
+
     public void game13(View view) {
-        Intent c = new Intent(this,Game13.class);
+        Intent c = new Intent(this, Game13.class);
         startActivity(c);
+    }
+
+    public void dbTest(View view) {
+        Intent dbmanager = new Intent(this, AndroidDatabaseManager.class);
+        DatabaseHandler dh = new DatabaseHandler(this);
+        SQLiteDatabase db = dh.getWritableDatabase();
+       // dh.onCreate(db);
+        startActivity(dbmanager);
     }
 }
