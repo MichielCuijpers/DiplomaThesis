@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="197dp" />
+        tools:layout_editor_absoluteY="3dp" />
 
     <Button
         android:id="@+id/button10"
@@ -42,7 +42,7 @@
         android:id="@+id/button11"
         android:layout_width="174dp"
         android:layout_height="174dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="116dp"
         android:background="@android:color/holo_orange_dark"
         android:text="Game10"
         android:textSize="30sp"
@@ -55,7 +55,7 @@
         android:id="@+id/button12"
         android:layout_width="174dp"
         android:layout_height="174dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="132dp"
         android:background="@android:color/holo_orange_dark"
         android:text="Game11"
         android:textSize="30sp"
@@ -66,12 +66,11 @@
 
     <Button
         android:id="@+id/button13"
-        android:onClick="Game12"
         android:layout_width="174dp"
         android:layout_height="174dp"
-        android:layout_marginEnd="52dp"
+        android:layout_marginEnd="112dp"
         android:background="@android:color/holo_orange_dark"
-        android:text="@string/game12"
+        android:text="Game12"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button18"

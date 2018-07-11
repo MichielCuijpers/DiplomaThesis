@@ -12,15 +12,26 @@ import com.icsd.game.thesis.R;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+
 public class MainActivity extends AppCompatActivity {
         private ArrayList<Button> letters;
-       // private View a;
+        private Button s;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         letters = new ArrayList<Button>();
-      //  a = findViewById(R.id.view);
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game4protype);
+        s = (Button) findViewById(R.id.button24);
+        s.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String newf = s.getText().toString();
+
+            }
+        });
         ArrayList<String> phrases = new ArrayList<String>();
         ArrayList<String> similars = new ArrayList<String>();
 

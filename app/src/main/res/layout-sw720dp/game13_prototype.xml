@@ -10,23 +10,23 @@
 
     <Button
         android:id="@+id/la"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="497dp"
+        android:layout_height="274dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="72dp"
         android:layout_marginTop="8dp"
-        android:background="#ca350c"
+        android:background="#22de4b"
         android:onClick="playla"
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/re"
-        app:layout_constraintVertical_bias="0.389" />
+        app:layout_constraintVertical_bias="0.522" />
 
     <Button
         android:id="@+id/dof"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="497dp"
+        android:layout_height="274dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -35,18 +35,18 @@
         android:onClick="playDo"
         app:layout_constraintBottom_toTopOf="@+id/mi"
         app:layout_constraintEnd_toStartOf="@+id/re"
-        app:layout_constraintHorizontal_bias="0.211"
+        app:layout_constraintHorizontal_bias="0.204"
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toTopOf="parent"
 
 
-        app:layout_constraintVertical_bias="0.465" />
+        app:layout_constraintVertical_bias="0.156" />
 
     <Button
         android:id="@+id/mi"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="497dp"
+        android:layout_height="274dp"
         android:layout_marginBottom="52dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -59,10 +59,10 @@
 
     <Button
         android:id="@+id/re"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="497dp"
+        android:layout_height="274dp"
         android:layout_marginEnd="72dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:background="#f9f906"
         android:onClick="palyRe"
         app:layout_constraintEnd_toEndOf="parent"
