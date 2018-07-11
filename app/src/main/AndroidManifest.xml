@@ -29,6 +29,12 @@
             android:name=".game13.Game13"
             android:screenOrientation="landscape">
             >
+
+        </activity>
+        <activity
+            android:name=".Game12.Game12"
+            android:screenOrientation="landscape">
+            >
         </activity>
         <activity
             android:name=".game8.Game8"
