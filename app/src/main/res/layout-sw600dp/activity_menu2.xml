@@ -71,6 +71,7 @@
         android:layout_marginEnd="32dp"
         android:background="@android:color/holo_orange_dark"
         android:text="Game12"
+        android:onClick="Game12"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button18"
