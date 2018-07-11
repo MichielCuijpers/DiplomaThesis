@@ -1,5 +1,6 @@
 package com.icsd.game.thesis;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +15,7 @@ import com.icsd.game.thesis.game5.Game5;
 import com.icsd.game.thesis.game8.Game8;
 
 
-public class Menu extends AppCompatActivity {
+public class Menu extends Activity {
     private GestureDetectorCompat mDetector;
     public static User testUser;
 
