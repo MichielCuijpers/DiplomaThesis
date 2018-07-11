@@ -60,7 +60,7 @@ public class Question {
 
         protected static void addTestQuestionToDB() {
 
-            db = dh.getWritableDatabase()
+            db = dh.getWritableDatabase();
             db.execSQL("DROP TABLE IF EXISTS " + Question.QuestionDBEntry.TABLE_NAME);
             db.execSQL(Question.QuestionDBEntry.SQL_CREATE_ENTRIES);
             ContentValues values = new ContentValues();
