@@ -32,7 +32,7 @@
         android:text="S"
 
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/answer1Button"
         app:layout_constraintEnd_toStartOf="@+id/button24"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +49,7 @@
         android:background="@android:color/holo_orange_dark"
         android:text="H"
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/answer1Button"
         app:layout_constraintEnd_toStartOf="@+id/button25"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -114,7 +114,7 @@
         android:text="E"
 
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/answer1Button"
         app:layout_constraintEnd_toStartOf="@+id/button30"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -129,7 +129,7 @@
         android:background="@android:color/holo_orange_dark"
         android:text="D"
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/answer1Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -145,7 +145,7 @@
         android:background="@android:color/holo_orange_dark"
         android:text="W"
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/answer1Button"
         app:layout_constraintEnd_toStartOf="@+id/button32"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -163,7 +163,7 @@
         android:background="@android:color/holo_orange_dark"
         android:text="O"
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/answer1Button"
         app:layout_constraintEnd_toStartOf="@+id/button33"
         app:layout_constraintTop_toBottomOf="@+id/button26"
         app:layout_constraintVertical_bias="0.0" />
@@ -179,7 +179,7 @@
         android:background="@android:color/holo_orange_dark"
         android:text="R"
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/answer1Button"
         app:layout_constraintEnd_toStartOf="@+id/button34"
         app:layout_constraintTop_toBottomOf="@+id/button27"
         app:layout_constraintVertical_bias="0.0" />
@@ -195,13 +195,13 @@
         android:background="@android:color/holo_orange_dark"
         android:text="D"
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/answer1Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button28"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/answer1Button"
         android:layout_width="120dp"
         android:layout_height="80dp"
         android:layout_marginBottom="8dp"

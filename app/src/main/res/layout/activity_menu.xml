@@ -136,8 +136,8 @@
 
     <Button
         android:id="@+id/change"
-        android:layout_width="48dp"
-        android:layout_height="27dp"
+        android:layout_width="63dp"
+        android:layout_height="31dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -148,10 +148,10 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintHorizontal_bias="0.982"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.441"
+        app:layout_constraintVertical_bias="0.444"
         tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>

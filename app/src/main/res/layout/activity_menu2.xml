@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.icsd.game.thesis.Menu2"
-    android:background="#c7a96c">
+    android:background="#c7a96c"
+    tools:context="com.icsd.game.thesis.Menu2">
 
 
     <Button
         android:id="@+id/button19"
-        android:layout_width="64dp"
+        android:layout_width="86dp"
         android:layout_height="37dp"
         android:onClick="dbTest"
         android:text="dbTest"
-        tools:layout_editor_absoluteX="473dp"
+        tools:layout_editor_absoluteX="443dp"
         tools:layout_editor_absoluteY="105dp" />
 
     <Button
