@@ -26,7 +26,8 @@ import static com.icsd.game.thesis.R.id;
 import static com.icsd.game.thesis.R.layout;
 import static com.icsd.game.thesis.R.raw;
 
-public class Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
+public class
+Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
     private static Context mContext;
     protected Integer turn;
