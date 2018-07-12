@@ -91,7 +91,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String[] columns = new String[]{"message"};
         //an array list of cursor to save two cursors one has results from the query
         //other cursor stores error message if any errors are triggered
-        ArrayList<Cursor> alc = new ArrayList<Cursor>(2);
+        ArrayList<Cursor> alc = new ArrayList<>(2);
         MatrixCursor Cursor2 = new MatrixCursor(columns);
         alc.add(null);
         alc.add(null);
@@ -112,12 +112,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
                 return alc;
             }
-            return alc;
-        } catch (SQLException sqlEx) {
-            Log.d("printing exception", sqlEx.getMessage());
-            //if any exceptions are triggered save the error message to cursor an return the arraylist
-            Cursor2.addRow(new Object[]{"" + sqlEx.getMessage()});
-            alc.set(1, Cursor2);
             return alc;
         } catch (Exception ex) {
             Log.d("printing exception", ex.getMessage());

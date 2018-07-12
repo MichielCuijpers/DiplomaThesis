@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/help_button3"
-        android:layout_width="237dp"
-        android:layout_height="108dp"
+        android:layout_width="179dp"
+        android:layout_height="91dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
@@ -21,8 +21,8 @@
 
     <TextView
         android:id="@+id/questionView"
-        android:layout_width="1036dp"
-        android:layout_height="89dp"
+        android:layout_width="944dp"
+        android:layout_height="162dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -30,13 +30,14 @@
         android:text="QUESTION"
         android:textAllCaps="true"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
-        android:textSize="60sp"
+        android:textSize="38sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
     <Button

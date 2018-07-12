@@ -48,8 +48,10 @@
         </activity>
         <activity
             android:name=".database.AndroidDatabaseManager"
-            android:screenOrientation="landscape">
-            >
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+
+
         </activity>
         <activity
             android:name=".game4.MainActivity"

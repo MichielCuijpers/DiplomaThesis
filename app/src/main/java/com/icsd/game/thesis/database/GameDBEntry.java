@@ -2,8 +2,6 @@ package com.icsd.game.thesis.database;
 
 import android.provider.BaseColumns;
 
-import java.util.Locale;
-
 public class GameDBEntry implements BaseColumns {
     public static final String TABLE_NAME = "game";
     public static final String DESCRIPTION = "description";

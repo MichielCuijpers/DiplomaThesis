@@ -16,10 +16,8 @@ import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
+
 import java.util.Random;
 
 import static com.icsd.game.thesis.R.id;
@@ -29,7 +27,7 @@ import static com.icsd.game.thesis.R.raw;
 public class
 Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
-    private static Context mContext;
+
     protected Integer turn;
     private MediaPlayer la;
     private MediaPlayer mi;
@@ -66,17 +64,14 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        curSession = new Session(Menu.testUser.getUsername(), 13);
+
         super.onCreate(savedInstanceState);
         setContentView(layout.game13_prototype);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         init();
+        curSession = new Session(Menu.testUser.getUsername(), 13);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
-        try {
-            playPattern();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        playPattern();
 
 
     }
@@ -95,6 +90,8 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
 
     protected void initRunnables() {
+        final Context mContext;
+        mContext = this;
         runCheck = new Runnable() {
             @Override
             public void run() {
@@ -104,28 +101,20 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
                     curSession.setScore(turn);
                     curSession.setStage(turn);
                     turn++;
-                    try {
-                        if (turn == 5) {
-                            Toast.makeText(mContext, "YOU WON ", Toast.LENGTH_LONG).show();
-                            saveSessionToDB();
-                            killAll();
-                        } else {
-                            playPattern();
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    if (turn == 5) {
+                        Toast.makeText(mContext, "YOU WON ", Toast.LENGTH_LONG).show();
+                        saveSessionToDB();
+                        killAll();
+                    } else {
+                        playPattern();
                     }
 
 
                 } else {
                     Log.e("Debug", "InCorrect");
-                    try {
-                        curSession.setFails(curSession.getFails() + 1);
-                        Toast.makeText(mContext, "FAIL,TRY AGAIN ", Toast.LENGTH_LONG).show();
-                        playPattern();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    curSession.setFails(curSession.getFails() + 1);
+                    Toast.makeText(mContext, "FAIL,TRY AGAIN ", Toast.LENGTH_LONG).show();
+                    playPattern();
                 }
 
 
@@ -203,7 +192,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
         buttonR = (Button) findViewById(R.id.re);
         buttonM = (Button) findViewById(id.mi);
         buttonL = (Button) findViewById(R.id.la);
-        mContext = this;
+
         this.turn = 0;
         la = MediaPlayer.create(this, raw.la);
         re = MediaPlayer.create(this, raw.re);
@@ -225,7 +214,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     }
 
 
-    protected void playPattern() throws IOException {
+    protected void playPattern() {
         checkList.clear();
         patternList.clear();
         Log.e("Debug", "start playpattern");
@@ -296,6 +285,8 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     }
 
     protected void changeColor(int noteNumber) {
+        final Context mContext;
+        mContext = this;
         switch (noteNumber) {
             case 0:
                 buttonD.setBackgroundColor(mContext.getResources().getColor(android.R.color.holo_green_light));
