@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class Game1Activity extends AppCompatActivity {
     private String correctAnswer;
     private ArrayList<String> a;
     private Session curSession;
+    private DatabaseHandler dbHandler;
 
 
     @Override
@@ -48,6 +50,7 @@ public class Game1Activity extends AppCompatActivity {
         view2 = getLayoutInflater().inflate(R.layout.game1_prototype, null);
         setContentView(view1);
         pickCategoryView = findViewById(R.id.textView6);
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
         curSession = new Session(Menu.testUser.getUsername(), 1);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
         myCont = this.getApplicationContext();
@@ -62,7 +65,7 @@ public class Game1Activity extends AppCompatActivity {
         setContentView(view2);
         initGuiComps();
         this.currentCategorie = CATEGORY1;
-        question = new Question(CATEGORY1);
+        question = new Question(currentCategorie);
 
         initTheQuestion();
     }
@@ -71,7 +74,7 @@ public class Game1Activity extends AppCompatActivity {
         setContentView(view2);
         initGuiComps();
         this.currentCategorie = CATEGORY2;
-        question = new Question(CATEGORY2);
+        question = new Question(currentCategorie);
         initTheQuestion();
     }
 
@@ -79,7 +82,7 @@ public class Game1Activity extends AppCompatActivity {
         setContentView(view2);
         initGuiComps();
         this.currentCategorie = CATEGORY3;
-        question = new Question(CATEGORY3);
+        question = new Question(currentCategorie);
         initTheQuestion();
 
     }
@@ -88,7 +91,7 @@ public class Game1Activity extends AppCompatActivity {
         setContentView(view2);
         initGuiComps();
         this.currentCategorie = CATEGORY4;
-        question = new Question(CATEGORY4);
+        question = new Question(currentCategorie);
         initTheQuestion();
 
     }
@@ -97,15 +100,16 @@ public class Game1Activity extends AppCompatActivity {
         setContentView(view2);
         initGuiComps();
         this.currentCategorie = CATEGORY5;
-        question = new Question(CATEGORY5);
+        question = new Question(currentCategorie);
         initTheQuestion();
+
     }
 
     public void category6OnClick(View view) {
         setContentView(view2);
         initGuiComps();
         this.currentCategorie = CATEGORY6;
-        question = new Question(CATEGORY6);
+        question = new Question(currentCategorie);
         initTheQuestion();
     }
 
@@ -139,7 +143,7 @@ public class Game1Activity extends AppCompatActivity {
 
         correctAnswer = this.question.answers.get(0);
         this.questionView.setText(this.question.getQuestion());
-//        Random r = new Random();
+
         this.answer1Button.setText(this.question.answers.get(0));
         this.answer2Button.setText(this.question.answers.get(1));
         this.answer3Button.setText(this.question.answers.get(2));
@@ -155,6 +159,7 @@ public class Game1Activity extends AppCompatActivity {
             curSession.setTimeEnd(System.currentTimeMillis() / 1000);
             setContentView(view1);
             pickCategoryView.setText("Please choose another category");
+
 
         } else {
             Toast.makeText(this, "Wrong aswer, try one more time !!  ", Toast.LENGTH_SHORT).show();

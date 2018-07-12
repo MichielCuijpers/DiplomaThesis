@@ -23,9 +23,6 @@ public class Question {
         this.answers.add(temp.get(2));
         this.answers.add(temp.get(3));
         this.answers.add(temp.get(4));
-       // Log.e("QU", question + "__" + answers.get(4));
-
-
     }
 
     public String getQuestion() {
