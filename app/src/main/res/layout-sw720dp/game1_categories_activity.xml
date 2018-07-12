@@ -109,7 +109,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
-        android:onClick="category5OnClick"
+        android:onClick="category1OnClick"
         android:text="directory"
         android:textSize="30sp"
         android:textStyle="bold"
