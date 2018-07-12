@@ -45,12 +45,12 @@ public class Game12 extends AppCompatActivity{
                 p2.setId(numforp2);
                 p2.setImageResource(numforp2);
 
-                who = CheckWinner(p1.getId(),p2.getId(),p1,p2);
+                who = CheckWinner(p1.getId(),p2.getId(),p1,p2); //PAIRNW STIN WHO TO ID TOU NIKITI
                 if(p1.getId() == p2.getId())
                 {
                     Toast.makeText(getApplicationContext(),"That is a Tie!!", Toast.LENGTH_LONG).show();
                 }
-                p1.setOnClickListener(new View.OnClickListener() {
+                p1.setOnClickListener(new View.OnClickListener() { //DES KAI EDW TA LISTENER MIPOS ERXETAI APO EDW ALLA DEN NOMIZW
                     @Override
                     public void onClick(View v) {
 
@@ -86,7 +86,7 @@ public class Game12 extends AppCompatActivity{
     public ImageView getP2() {
         return p2;
     }
-    public Integer CheckWinner(int Player1,int Player2,ImageView P1,ImageView P2)
+    public Integer CheckWinner(int Player1,int Player2,ImageView P1,ImageView P2) //PAIRNEI TO ID APO TA IMAGEVIEW KAI TA IMAGEVIEW KAI BGAZEI EXPORT TO TEXT KAI ELENGXEI.(EDW PREPEI NA EXW ERROR) -- TREKSTO PRWTA!!!!
     {
         int winner = p1.getId();
       if((P1.getResources().equals("rock")) && (P2.getResources().equals("pencil")))
