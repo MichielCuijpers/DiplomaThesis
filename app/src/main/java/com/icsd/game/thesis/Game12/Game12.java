@@ -13,7 +13,7 @@ public class Game12 extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-     
+
 
     }
 }
