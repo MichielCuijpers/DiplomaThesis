@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.icsd.game.thesis.Menu2"
-    android:background="#c7a96c">
+    android:background="#c7a96c"
+    tools:context="com.icsd.game.thesis.Menu2">
 
 
     <Button
@@ -70,6 +70,7 @@
         android:layout_height="174dp"
         android:layout_marginEnd="112dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="Game12"
         android:text="Game12"
         android:textSize="30sp"
         android:textStyle="bold"
