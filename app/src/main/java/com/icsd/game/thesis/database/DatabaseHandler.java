@@ -18,9 +18,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "database.db";
+    private static Context myCont;
 
-
-    private SQLiteDatabase db =getWritableDatabase();
+    private SQLiteDatabase db = getWritableDatabase();
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -53,7 +53,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-
     public void addSessionToDB(Session session) {
 
         ContentValues values = new ContentValues();
@@ -80,7 +79,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void addHighscoreToDB(Highscore highscore){
+    public void addHighscoreToDB(Highscore highscore) {
 
     }
 
@@ -123,6 +122,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
     }
 
+    public static Context getMyCont() {
+        return myCont;
+    }
 
 
 }

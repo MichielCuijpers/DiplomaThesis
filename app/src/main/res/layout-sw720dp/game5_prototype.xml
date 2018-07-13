@@ -7,7 +7,7 @@
     android:background="#c7a96c">
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/choise1Button"
         android:layout_width="387dp"
         android:layout_height="139dp"
         android:layout_marginBottom="24dp"
@@ -15,51 +15,55 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="choice1OnClick"
         android:text="CHOICE 1 "
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
+        app:layout_constraintBottom_toTopOf="@+id/choise3Button"
+        app:layout_constraintEnd_toStartOf="@+id/choise2Button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewObject" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/choise2Button"
         android:layout_width="387dp"
         android:layout_height="139dp"
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="88dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="choice2OnClick"
         android:text="CHOICE 2"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button9"
+        app:layout_constraintBottom_toTopOf="@+id/choise4Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewObject" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/choise3Button"
         android:layout_width="387dp"
         android:layout_height="139dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="236dp"
         android:layout_marginStart="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="choice3OnClick"
         android:text="CHOICE 3"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button9"
+        app:layout_constraintEnd_toStartOf="@+id/choise4Button"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/choise4Button"
         android:layout_width="387dp"
         android:layout_height="139dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="88dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="choice4OnClick"
         android:text="CHOICE 4"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -67,7 +71,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewObject"
         android:layout_width="1043dp"
         android:layout_height="258dp"
         android:layout_marginBottom="8dp"
@@ -84,8 +88,8 @@
 
     <Button
         android:id="@+id/help_button"
-        android:layout_width="214dp"
-        android:layout_height="92dp"
+        android:layout_width="224dp"
+        android:layout_height="104dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
