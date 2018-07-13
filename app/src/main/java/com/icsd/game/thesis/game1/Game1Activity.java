@@ -1,6 +1,7 @@
 package com.icsd.game.thesis.game1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class Game1Activity extends AppCompatActivity {
@@ -142,6 +144,7 @@ public class Game1Activity extends AppCompatActivity {
     private void initTheQuestion() {
 
         correctAnswer = this.question.answers.get(0);
+        Collections.shuffle(this.question.answers);
         this.questionView.setText(this.question.getQuestion());
 
         this.answer1Button.setText(this.question.answers.get(0));
@@ -165,9 +168,18 @@ public class Game1Activity extends AppCompatActivity {
             Toast.makeText(this, "Wrong aswer, try one more time !!  ", Toast.LENGTH_SHORT).show();
             curSession.setFails(curSession.getFails() + 1);
         }
+        if (curSession.getStage() == 6) {
+            dbHandler = new DatabaseHandler(this.getApplicationContext());
+            Toast.makeText(this, "Congrats!! You found all answers!! Game End Play another game ", Toast.LENGTH_LONG).show();
+
+            Intent c = new Intent(this, Menu.class);
+            startActivity(c);
+        }
     }
 
     public static Context getMyCont() {
         return myCont;
     }
+
+
 }

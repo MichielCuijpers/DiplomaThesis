@@ -19,12 +19,7 @@ public class Object {
 
     protected Object() {
         answers = new ArrayList<>();
-        ArrayList<String> temp = ObjectDBEntry.takeQuestionFromDB();
-        this.name = temp.get(0);
-        this.answers.add(temp.get(1));
-        this.answers.add(temp.get(2));
-        this.answers.add(temp.get(3));
-        this.answers.add(temp.get(4));
+
     }
 
 
@@ -64,19 +59,34 @@ public class Object {
             values.put(ANSWER1, "drink water");
             values.put(ANSWER2, "eat food");
             values.put(ANSWER3, "goldfish house");
-            values.put(ANSWER4, "");
+            values.put(ANSWER4, "pot for flowers");
             db.insert(TABLE_NAME, null, values);
+            values.clear();
+            values.put(NAME, "toaster");
+            values.put(ANSWER1, "make toasts");
+            values.put(ANSWER2, "roast meat");
+            values.put(ANSWER3, "make tea");
+            values.put(ANSWER4, "call a friend ");
+            db.insert(TABLE_NAME, null, values);
+            values.clear();
+            values.put(NAME, "fireex");
+            values.put(ANSWER1, "extinguish fire");
+            values.put(ANSWER2, "make fire");
+            values.put(ANSWER3, "blow up leafs");
+            values.put(ANSWER4, "smash rocks ");
+            db.insert(TABLE_NAME, null, values);
+
 
             db.close();
 
         }
 
-        private static ArrayList<String> takeQuestionFromDB() {
-            Log.e("DEBUGMY", "AAA");
+        static ArrayList<Object> takeObjectsFromDB() {
+
             //Query from db
-            ArrayList<String> queryResultsList = new ArrayList<>();
+            ArrayList<Object> queryResultsList = new ArrayList<>();
             db = dh.getWritableDatabase();
-            String question = "AAF";
+            String data;
             String[] projection = {
                     _ID,
                     NAME,
@@ -91,16 +101,18 @@ public class Object {
             Cursor cursor = db.rawQuery(selectQuery, null);
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
-                question = cursor.getString(cursor.getColumnIndexOrThrow(NAME));
-                queryResultsList.add(question);
-                question = cursor.getString(cursor.getColumnIndexOrThrow(ANSWER1));
-                queryResultsList.add(question);
-                question = cursor.getString(cursor.getColumnIndexOrThrow(ANSWER2));
-                queryResultsList.add(question);
-                question = cursor.getString(cursor.getColumnIndexOrThrow(ANSWER3));
-                queryResultsList.add(question);
-                question = cursor.getString(cursor.getColumnIndexOrThrow(ANSWER4));
-                queryResultsList.add(question);
+                Object tempObject = new Object();
+                data = cursor.getString(cursor.getColumnIndexOrThrow(NAME));
+                tempObject.name = data;
+                data = cursor.getString(cursor.getColumnIndexOrThrow(ANSWER1));
+                tempObject.answers.add(data);
+                data = cursor.getString(cursor.getColumnIndexOrThrow(ANSWER2));
+                tempObject.answers.add(data);
+                data = cursor.getString(cursor.getColumnIndexOrThrow(ANSWER3));
+                tempObject.answers.add(data);
+                data = cursor.getString(cursor.getColumnIndexOrThrow(ANSWER4));
+                tempObject.answers.add(data);
+                queryResultsList.add(tempObject);
                 cursor.moveToNext();
 
 

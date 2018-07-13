@@ -44,11 +44,11 @@ public class Game12 extends AppCompatActivity {
                 Random randId = new Random();
                 int numforp1 = randimg.get(randId.nextInt(4));
                 int numforp2 = randimg.get(randId.nextInt(4));
-                Log.e("DEBGMY",numforp1+"!!");
                 p1.setImageResource(numforp1);
                 p1.setId(numforp1);
                 p2.setId(numforp2);
                 p2.setImageResource(numforp2);
+
                 Log.e("DEBGMY",p1.getId()+")))"+p1.getResources());
                 Log.e("DEBGMY",p2.getId()+")))"+p1.getResources());
 
@@ -92,6 +92,7 @@ public class Game12 extends AppCompatActivity {
     public Integer CheckWinner(int Player1, int Player2, ImageView P1, ImageView P2) //PAIRNEI TO ID APO TA IMAGEVIEW KAI TA IMAGEVIEW KAI BGAZEI EXPORT TO TEXT KAI ELENGXEI.(EDW PREPEI NA EXW ERROR) -- TREKSTO PRWTA!!!!
     {
         Log.e("DEBGMY",p2.getId()+")))"+p1.getResources());
+
         int winner = p1.getId();
         if ((P1.getResources().equals("rock")) && (P2.getResources().equals("pencil"))) {
             winner = P1.getId();

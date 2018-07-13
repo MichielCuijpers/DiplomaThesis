@@ -22,7 +22,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button15"
         app:layout_constraintEnd_toStartOf="@+id/button11"
-        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,7 +30,7 @@
         android:id="@+id/button11"
         android:layout_width="174dp"
         android:layout_height="174dp"
-        android:layout_marginEnd="112dp"
+        android:layout_marginEnd="132dp"
         android:background="@android:color/holo_orange_dark"
         android:text="Game2"
         android:textSize="30sp"
@@ -105,15 +105,15 @@
         android:layout_height="174dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="56dp"
+        android:background="@android:color/holo_orange_dark"
         android:text="Game7"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button18"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button16"
-        app:layout_constraintTop_toBottomOf="@+id/button12"
-        android:background="@android:color/holo_orange_dark"
-        android:textSize="30sp"/>
+        app:layout_constraintTop_toBottomOf="@+id/button12" />
 
     <Button
         android:id="@+id/button18"
@@ -135,21 +135,21 @@
 
     <Button
         android:id="@+id/change"
-        android:layout_width="106dp"
+        android:layout_width="178dp"
         android:layout_height="57dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="goToMenu2"
-        android:text="->"
+        android:text="next page"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/button18"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintHorizontal_bias="0.97"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button13"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.41"
         tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
