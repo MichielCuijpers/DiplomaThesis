@@ -229,6 +229,7 @@ public class Game8 extends AppCompatActivity {
         handler1.removeCallbacks(null);
         handler2.removeCallbacks(null);
         sound.stop();
+        dbHandler.close();
     }
 
     //Tough Events Methods
