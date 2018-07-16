@@ -32,7 +32,7 @@
         android:layout_height="55dp"
         android:layout_width="55dp" />
     <com.icsd.game.thesis.game8.Ball
-        android:id="@+id/ball7"
+        android:id="@+id/ball3"
         android:layout_height="55dp"
         android:layout_width="55dp" />
     <com.icsd.game.thesis.game8.Ball
