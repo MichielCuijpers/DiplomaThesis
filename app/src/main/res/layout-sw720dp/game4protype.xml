@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button23"
+        android:id="@+id/button1"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="8dp"
@@ -34,7 +34,7 @@
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/checkButton5"
         app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -44,7 +44,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="116dp"
         android:layout_marginTop="112dp"
         android:background="@android:color/holo_orange_dark"
         android:text="H"
@@ -58,8 +58,8 @@
         android:id="@+id/button3"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginTop="108dp"
         android:background="@android:color/holo_orange_dark"
         android:text="U"
         android:textSize="40dp"
@@ -70,8 +70,8 @@
         android:id="@+id/button4"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginTop="108dp"
         android:background="@android:color/holo_orange_dark"
         android:text="F"
         android:textSize="40dp"
@@ -82,8 +82,8 @@
         android:id="@+id/button5"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="108dp"
         android:background="@android:color/holo_orange_dark"
         android:text="F"
         android:textSize="40dp"
@@ -135,7 +135,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button31"
+        android:id="@+id/button9"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="8dp"
@@ -147,17 +147,17 @@
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/checkButton5"
         app:layout_constraintEnd_toStartOf="@+id/button10"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.357"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.1" />
 
     <Button
         android:id="@+id/button10"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="104dp"
         android:layout_marginTop="32dp"
 
         android:background="@android:color/holo_orange_dark"
@@ -166,14 +166,14 @@
         app:layout_constraintBottom_toTopOf="@+id/checkButton5"
         app:layout_constraintEnd_toStartOf="@+id/button11"
         app:layout_constraintTop_toBottomOf="@+id/button4"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.104" />
 
     <Button
         android:id="@+id/button11"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="118dp"
+        android:layout_height="92dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="176dp"
         android:layout_marginTop="32dp"
 
         android:background="@android:color/holo_orange_dark"
@@ -182,14 +182,14 @@
         app:layout_constraintBottom_toTopOf="@+id/checkButton5"
         app:layout_constraintEnd_toStartOf="@+id/button12"
         app:layout_constraintTop_toBottomOf="@+id/button5"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.1" />
 
     <Button
         android:id="@+id/button12"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="280dp"
+        android:layout_marginEnd="396dp"
         android:layout_marginTop="32dp"
 
         android:background="@android:color/holo_orange_dark"
@@ -198,7 +198,7 @@
         app:layout_constraintBottom_toTopOf="@+id/checkButton5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button6"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.035" />
 
     <Button
         android:id="@+id/checkButton5"

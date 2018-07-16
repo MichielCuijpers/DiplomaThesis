@@ -17,7 +17,6 @@ import com.icsd.game.thesis.database.Session;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 public class Game1Activity extends AppCompatActivity {
 
@@ -113,6 +112,7 @@ public class Game1Activity extends AppCompatActivity {
         this.currentCategorie = CATEGORY6;
         question = new Question(currentCategorie);
         initTheQuestion();
+
     }
 
 
@@ -135,7 +135,7 @@ public class Game1Activity extends AppCompatActivity {
     //funcionality methods
     private void initGuiComps() {
         this.questionView = findViewById(R.id.questionView);
-        this.answer1Button = findViewById(R.id.answer1Button);
+        this.answer1Button = findViewById(R.id.checkButton5);
         this.answer2Button = findViewById(R.id.answer2Button);
         this.answer3Button = findViewById(R.id.answer3Button);
         this.answer4Button = findViewById(R.id.answer4Button);
@@ -152,6 +152,7 @@ public class Game1Activity extends AppCompatActivity {
         this.answer3Button.setText(this.question.answers.get(2));
         this.answer4Button.setText(this.question.answers.get(3));
 
+        Log.e("MYDEBUg", this.answer2Button.getBackground() + "");
     }
 
     private void checkAnswer(Button button) {
