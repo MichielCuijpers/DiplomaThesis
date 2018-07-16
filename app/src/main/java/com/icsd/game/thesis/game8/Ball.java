@@ -6,10 +6,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.animation.TranslateAnimation;
 
 public class Ball extends View {
-
     private static final int DEFAULT_CIRCLE_COLOR = Color.RED;
     private Paint paint;
 
@@ -40,6 +38,5 @@ public class Ball extends View {
         paint.setColor(Color.RED);
         canvas.drawCircle(cx, cy, radius, paint);
     }
-
 
 }
