@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.icsd.game.thesis.Menu;
-import com.icsd.game.thesis.Menu2;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
@@ -24,24 +23,18 @@ import java.util.Random;
 
 public class Game8 extends AppCompatActivity {
 
-    private View ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9, bombBall;
+    private View ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9;
     private TextView scoreView;
     private ArrayList<View> balls;
     private ConstraintLayout lo;
     private int delay;
     private Handler handler1, handler2;
-    private Runnable run1;
-    private Runnable run2;
-    private Runnable run3;
-
     private int score;
     private MediaPlayer sound;
     private ArrayList<Runnable> runs;
-
     private Session curSession;
     private DatabaseHandler dbHandler;
-
-    ObjectAnimator animation1, animation2, animation3, animation4, animation5, animation6, animation7, animation8, animation9;
+    private ObjectAnimator animation1, animation2, animation3, animation4, animation5, animation6, animation7, animation8, animation9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,17 +46,17 @@ public class Game8 extends AppCompatActivity {
     }
 
     private void initGui() {
-        ball1 = (View) findViewById(R.id.ball1);
-        ball2 = (View) findViewById(R.id.ball2);
-        ball3 = (View) findViewById(R.id.ball3);
-        ball4 = (View) findViewById(R.id.ball4);
-        ball5 = (View) findViewById(R.id.ball5);
-        ball6 = (View) findViewById(R.id.ball6);
-        ball7 = (View) findViewById(R.id.ball7);
-        ball8 = (View) findViewById(R.id.ball8);
-        ball9 = (View) findViewById(R.id.ball9);
+        ball1 = findViewById(R.id.ball1);
+        ball2 = findViewById(R.id.ball2);
+        ball3 = findViewById(R.id.ball3);
+        ball4 = findViewById(R.id.ball4);
+        ball5 = findViewById(R.id.ball5);
+        ball6 = findViewById(R.id.ball6);
+        ball7 = findViewById(R.id.ball7);
+        ball8 = findViewById(R.id.ball8);
+        ball9 = findViewById(R.id.ball9);
 
-        scoreView = (TextView) findViewById(R.id.scoreView);
+        scoreView = findViewById(R.id.scoreView);
 
         balls = new ArrayList<>();
         balls.add(ball1);
@@ -115,7 +108,7 @@ public class Game8 extends AppCompatActivity {
     }
 
     private void initRunnables() {
-        run1 = new Runnable() {
+        Runnable run1 = new Runnable() {
             @Override
             public void run() {
                 Log.e("YODEBUG", "run1");
@@ -133,14 +126,15 @@ public class Game8 extends AppCompatActivity {
 
                 ball7.setVisibility(View.VISIBLE);
                 animation7.start();
-                delay = delay + 3000;
+                delay = delay + 700;
+
                 startTurn();
 
 
             }
         };
 
-        run2 = new Runnable() {
+        Runnable run2 = new Runnable() {
             @Override
             public void run() {
                 Log.e("YODEBUG", "run2");
@@ -159,12 +153,14 @@ public class Game8 extends AppCompatActivity {
                 animation9.setDuration(4000);
                 ball9.setVisibility(View.VISIBLE);
                 animation9.start();
-                delay = delay + 3000;
+                delay = delay + 700;
+
+
                 startTurn();
             }
         };
 
-        run3 = new Runnable() {
+        Runnable run3 = new Runnable() {
             @Override
             public void run() {
                 Log.e("YODEBUG", "run3");
@@ -172,7 +168,7 @@ public class Game8 extends AppCompatActivity {
                 animation5.setDuration(4000);
                 ball5.setVisibility(View.VISIBLE);
                 animation5.start();
-                delay = delay + 3000;
+                delay = delay + 1000;
 
                 animation2.setDuration(4000);
                 ball2.setVisibility(View.VISIBLE);
@@ -182,6 +178,7 @@ public class Game8 extends AppCompatActivity {
                 ball8.setVisibility(View.VISIBLE);
                 animation8.start();
 
+                delay = delay + 700;
                 startTurn();
 
 
@@ -203,8 +200,9 @@ public class Game8 extends AppCompatActivity {
 
         Collections.shuffle(runs);
         Random r = new Random();
+        Log.e("DELA", this.delay + "");
         handler1.postDelayed(runs.get(r.nextInt(3)), delay);
-        delay = delay - 2000;
+
 
     }
 
