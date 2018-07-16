@@ -1,9 +1,15 @@
 package com.icsd.game.thesis.game4;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.icsd.game.thesis.R;
 
@@ -13,6 +19,11 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
         private ArrayList<Button> letters;
         private Button s;
+        private Button one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve;
+        private ArrayList<Button> buttonkeep ;
+        private Button dynamic;
+        private ConstraintLayout lay;
+        private TextView v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,70 +33,54 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game4protype);
         s = (Button) findViewById(R.id.button24);
+        buttonkeep = new ArrayList<Button>();
+
+
         s.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String newf = s.getText().toString();
+            public void onClick(View v) {
+                ColorDrawable buttoncolor = (ColorDrawable) s.getBackground();
+                int colorId = buttoncolor.getColor();
+                if(colorId == (Color.argb(255,176,102,18)))
+                {
+                    s.setPressed(false);
+                    s.setBackgroundColor(Color.argb(255,255,136,0));
 
+
+                }
+                else{
+                    s.setPressed(true);
+                    s.setBackgroundColor(Color.argb(255,176,102,18));
+
+
+                }
             }
         });
+
         ArrayList<String> phrases = new ArrayList<String>();
-        ArrayList<String> similars = new ArrayList<String>();
 
-        phrases.add("ΕΝΑ ΚΟΚΚΙΝΟ ΜΗΛΟ");
-        phrases.add("ΔΙΑΝΝΟΙΑ");
-        phrases.add("ΣΗΜΕΡΑ ΘΑ ΒΡΕΞΕΙ");
-        phrases.add("ΑΥΡΙΟ ΔΕΝ ΘΑ ΒΡΕΞΕΙ");
-        phrases.add("ΕΧΕΙ ΣΥΝΝΕΦΙΑ");
-        phrases.add("Η ΘΑΛΑΣΣΑ ΕΙΝΑΙ ΗΡΕΜΗ");
-        phrases.add("ΤΟ ΚΡΑΣΙ ΕΙΝΑΙ ΓΕΥΣΤΙΚΟ");
-        phrases.add("ΟΜΟΡΦΟΣ ΣΚΥΛΟΣ");
-        phrases.add("ΣΚΟΥΛΗΚΟΤΡΥΠΑ");
-        phrases.add("ΕΝΑΣ ΑΛΕΞΙΠΤΩΤΙΣΤΗΣ");
-        phrases.add("ΚΟΙΤΑ ΕΝΑ ΑΛΕΞΙΣΦΑΙΡΟ");
-        phrases.add("ΜΠΡΟΥΤΖΙΝΟ ΑΓΑΛΜΑ");
-        phrases.add("ΚΑΥΤΕΡΗ ΠΙΠΕΡΙΑ");
-        phrases.add("ΦΑΣΟΛΑΔΑ ΤΡΟΜΕΡΗ");
-        phrases.add("ΑΡΑΧΤΟΣ ΕΛΕΦΑΝΤΑΣ");
-        phrases.add("ΜΙΑ ΚΙΤΡΙΝΗ ΜΠΕΚΑΤΣΑ");
-        phrases.add("Ο ΡΟΦΟΣ ΕΣΚΑΣΕ");
-        phrases.add("ΜΙΑ ΤΡΥΠΑ ΣΤΟ ΝΕΡΟ");
 
-        similars.add("Η ΜΗΛΟΠΙΤΑ ΒΡΩΜΑΕΙ");
-        similars.add("ΝΟΗΜΟΣΥΝΗ");
-        similars.add("ΣΗΜΕΡΑ ΘΑ ΕΧΕΙ ΗΛΙΟ");
-        similars.add("ΣΗΜΕΡΑ ΘΑ ΕΧΕΙ ΒΡΟΧΟΠΤΩΣΗ");
-        similars.add("ΑΥΡΙΟ ΕΙΝΑΙ ΠΡΩΤΟΜΑΓΙΑ");
-        similars.add("ΑΡΡΑΙΗ ΣΥΝΝΕΦΙΑ");
-        similars.add("ΣΥΝΝΕΦΙΑΣΜΕΝΗ ΜΕΡΑ");
-        similars.add("ΚΡΑΣΟΚΑΝΑΤΑ");
-        similars.add("ΚΡΑΣΟΠΗΓΗ");
-        similars.add("ΕΧΩ ΕΝΑ ΚΡΑΣΙ");
-        similars.add("ΑΛΕΞΙΣΦΑΙΡΟ ΓΙΛΕΚΟ");
-        similars.add("ΚΟΙΤΑ ΕΝΑ ΑΛΕΞΙΠΤΩΤΙΣΤΗ");
-        similars.add("ΒΡΩΜΕΡΗ ΦΑΣΟΛΑΔΑ");
-        similars.add("Ο ΦΟΡΟΣ ΕΠΕΣΕ");
-        similars.add("ΤΡΥΠΟΥΛΑ ΤΟΥ ΝΕΡΟΥ");
-        similars.add("ΜΑΛΑΓΑΝΑΣ ΜΠΡΑΤΣΑΡΑΣ");
-        similars.add("ΠΗΓΑ ΣΤΗ ΜΗΛΟΚΟΠΗ");
-        similars.add("ΚΛΕΙΣΤΟ ΠΕΡΙΠΤΕΡΟ");
+        phrases.add("SMART");
+
+
 
         Occurs c = new Occurs();
         try {
             String tobeshuffled = c.PickPhrases(phrases);
+
             Character[] something = c.shuffleCharArray(tobeshuffled);
-           /* for(int i = 0; i<something.length;i++)
+
+            for(int i = 0; i<something.length;i++)
             {
                 String m = Character.toString(something[i]);
-                //JButton nb = new JButton(m = Character.toString(something[i]));
-                Button nb = findViewById(R.id.gramma);
-                nb.setVisibility(View.INVISIBLE);
-                nb.setText(m);
-                letters.add(nb);
 
+                dynamic = findViewById(R.id.button23);
+                dynamic.setVisibility(View.INVISIBLE);
+                dynamic.setText(m);
+                v.findViewById(R.id.textView7);
+                v.setText(m);
+            }
 
-            }*/
-           //Kwsta ama to deis  edw exo thema sto na valw ta koumpia sto view.. oi methodoi douleuoun. apla prospathw na to kanw dinamikA
             System.out.println("I swsti leksi : " + tobeshuffled);
             StringBuilder anakatemeni = new StringBuilder();
             for(int i = 0;i<something.length;i++)

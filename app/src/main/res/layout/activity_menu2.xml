@@ -26,7 +26,7 @@
         android:layout_marginTop="16dp"
 
         android:background="@android:color/holo_orange_dark"
-        android:onClick="goToMenu1"
+        android:onClick="Game9"
         android:text="Game9"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/button11"
@@ -43,6 +43,7 @@
 
         android:background="@android:color/holo_orange_dark"
         android:text="Game10"
+
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/button12"
         app:layout_constraintTop_toTopOf="parent" />
