@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.Menu2;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.database.DatabaseHandler;
+import com.icsd.game.thesis.database.Session;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,7 +24,7 @@ import java.util.Random;
 
 public class Game8 extends AppCompatActivity {
 
-    private View ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9;
+    private View ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9, bombBall;
     private TextView scoreView;
     private ArrayList<View> balls;
     private ConstraintLayout lo;
@@ -31,10 +33,13 @@ public class Game8 extends AppCompatActivity {
     private Runnable run1;
     private Runnable run2;
     private Runnable run3;
-    private int crt;
+
     private int score;
     private MediaPlayer sound;
     private ArrayList<Runnable> runs;
+
+    private Session curSession;
+    private DatabaseHandler dbHandler;
 
     ObjectAnimator animation1, animation2, animation3, animation4, animation5, animation6, animation7, animation8, animation9;
 
@@ -42,9 +47,8 @@ public class Game8 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game8);
-        initRunnables();
         init();
-        gameplay(crt);
+        startTurn();
 
     }
 
@@ -58,6 +62,7 @@ public class Game8 extends AppCompatActivity {
         ball7 = (View) findViewById(R.id.ball7);
         ball8 = (View) findViewById(R.id.ball8);
         ball9 = (View) findViewById(R.id.ball9);
+
         scoreView = (TextView) findViewById(R.id.scoreView);
 
         balls = new ArrayList<>();
@@ -71,20 +76,23 @@ public class Game8 extends AppCompatActivity {
         balls.add(ball8);
         balls.add(ball9);
 
-//        ball1.setVisibility(View.INVISIBLE);
-//        for (int i = 1; i < balls.size(); i++) {
-//            Log.e("DEBUGMY",balls.get(i).toString()+"");
-//            balls.get(i).setVisibility(View.INVISIBLE);
-//}
-//
+
+        for (int i = 0; i < balls.size(); i++) {
+            Log.e("DEBUGMY", balls.get(i).toString() + "");
+            balls.get(i).setVisibility(View.INVISIBLE);
+        }
+
     }
 
     private void init() {
-        initGui();
         initRunnables();
+        initGui();
         initGameplay();
         initAnimations();
 
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        curSession = new Session(Menu.testUser.getUsername(), 8);
+        curSession.setTimeStart(System.currentTimeMillis() / 1000);
 
     }
 
@@ -102,7 +110,6 @@ public class Game8 extends AppCompatActivity {
 
     private void initGameplay() {
         sound = MediaPlayer.create(this, R.raw.ballsound1);
-        crt = 0;
         score = 0;
         this.delay = 100;
     }
@@ -127,7 +134,7 @@ public class Game8 extends AppCompatActivity {
                 ball7.setVisibility(View.VISIBLE);
                 animation7.start();
                 delay = delay + 3000;
-                gameplay(crt++);
+                startTurn();
 
 
             }
@@ -153,7 +160,7 @@ public class Game8 extends AppCompatActivity {
                 ball9.setVisibility(View.VISIBLE);
                 animation9.start();
                 delay = delay + 3000;
-                gameplay(crt++);
+                startTurn();
             }
         };
 
@@ -175,7 +182,7 @@ public class Game8 extends AppCompatActivity {
                 ball8.setVisibility(View.VISIBLE);
                 animation8.start();
 
-                gameplay(crt++);
+                startTurn();
 
 
             }
@@ -191,12 +198,7 @@ public class Game8 extends AppCompatActivity {
 
     }
 
-    private void gameplay(int turn) {
-        startTurn(turn);
-
-    }
-
-    private void startTurn(int turn) {
+    private void startTurn() {
 
 
         Collections.shuffle(runs);
@@ -219,11 +221,13 @@ public class Game8 extends AppCompatActivity {
     private void updateScore() {
         score++;
         scoreView.setText("Score:" + score);
-
+        this.curSession.setScore(this.score);
         checkForEndGame();
     }
 
     private void killAll() {
+        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+        dbHandler.addSessionToDB(this.curSession);
         handler1.removeCallbacks(null);
         handler2.removeCallbacks(null);
         sound.stop();
