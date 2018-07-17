@@ -45,7 +45,7 @@ public class Game5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game5_prototype);
         myCont = this.getApplicationContext();
-         Object.ObjectDBEntry.addTestQuestionToDB();
+        // Object.ObjectDBEntry.addTestQuestionToDB();
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         curSession = new Session(Menu.testUser.getUsername(), 5);
         curSession.setTimeStart(System.currentTimeMillis() );
