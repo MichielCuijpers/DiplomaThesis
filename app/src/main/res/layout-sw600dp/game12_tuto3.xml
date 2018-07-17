@@ -26,36 +26,40 @@
         app:layout_constraintVertical_bias="0.495" />
 
     <ImageView
-        android:id="@+id/pencil4"
+        android:id="@+id/pencil3"
         android:layout_width="101dp"
         android:layout_height="72dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintEnd_toStartOf="@+id/help_button10"
-        app:layout_constraintStart_toEndOf="@+id/rock3"
+        app:layout_constraintStart_toEndOf="@+id/paper3"
         app:srcCompat="@drawable/pencil"
         tools:layout_editor_absoluteY="309dp" />
 
     <ImageView
-        android:id="@+id/scissors3"
+        android:id="@+id/rock33"
         android:layout_width="100dp"
         android:layout_height="74dp"
+        android:layout_marginBottom="40dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/pencil3"
         app:layout_constraintEnd_toStartOf="@+id/help_button10"
-        app:layout_constraintHorizontal_bias="0.213"
-        app:layout_constraintStart_toEndOf="@+id/rock3"
-        app:srcCompat="@drawable/rock"
-        tools:layout_editor_absoluteY="194dp" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:srcCompat="@drawable/rock" />
 
     <ImageView
-        android:id="@+id/rock3"
+        android:id="@+id/paper3"
         android:layout_width="101dp"
         android:layout_height="74dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="268dp"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="236dp"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintEnd_toStartOf="@+id/rock33"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.733"
@@ -65,15 +69,15 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="412dp"
         android:layout_marginStart="8dp"
         android:text="Winner"
         android:textColor="@android:color/black"
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/rock3"
+        app:layout_constraintBottom_toTopOf="@+id/paper3"
         app:layout_constraintEnd_toStartOf="@+id/help_button10"
-        app:layout_constraintHorizontal_bias="0.992"
+        app:layout_constraintHorizontal_bias="0.948"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
