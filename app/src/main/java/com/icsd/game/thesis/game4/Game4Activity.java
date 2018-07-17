@@ -55,11 +55,11 @@ public class Game4Activity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game4protype);
-
+       // Word.WordDBEntry.addTestWordsToDB();
         initGameplay();
         initGui();
         gameplay(turn);
-        Word.WordDBEntry.addTestWordsToDB();
+
 
 
     }
