@@ -18,6 +18,9 @@ import java.util.ArrayList;
 
 public class Game12 extends AppCompatActivity {
     private Button play;
+    private Button con;
+    private Button con2;
+    private Button con3;
     private ImageView p1;
     private ImageView p2;
     private int who;
@@ -33,6 +36,27 @@ public class Game12 extends AppCompatActivity {
         randimg.add(R.drawable.scissors);
         randimg.add(R.drawable.paper);
         play = (Button) findViewById(R.id.play);
+        con = (Button) findViewById(R.id.con1);
+        con.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              setContentView(R.layout.game12_tuto2);
+            }
+        });
+        con2 = (Button) findViewById(R.id.con2);
+        con2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.game12_tuto3);
+            }
+        });
+        con3 = (Button) findViewById(R.id.con3);
+        con3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.game12_tuto4);
+            }
+        });
 
 
         play.setOnClickListener(new View.OnClickListener() {
@@ -61,9 +85,9 @@ public class Game12 extends AppCompatActivity {
                     public void onClick(View v) {
 
                         if (p1.getId() == who) {
-                            Toast.makeText(getApplicationContext(), "GG YOU WON,Player1 is the Winner", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "YOU WON,Player1 is the Winner", Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(getApplicationContext(), "EZ LOSE, Player2 is the Winner", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "LOSE, Player2 is the Winner", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -71,9 +95,9 @@ public class Game12 extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if (p2.getId() == who) {
-                            Toast.makeText(getApplicationContext(), "GG YOU WON,Player2 is the Winner", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "YOU WON,Player2 is the Winner", Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(getApplicationContext(), "EZ LOSE, Player1 is the Winner", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "LOSE, Player1 is the Winner", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
