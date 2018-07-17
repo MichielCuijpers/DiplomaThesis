@@ -15,14 +15,11 @@ import java.util.ArrayList;
 public class Game12 extends AppCompatActivity {
     private Button play;
     private Button tutorialButton;
+    private Button tutorialButton2;
     private Button ObjectButton;
     private Button ObjectButton2;
     private Button ObjectButton3;
     private Button ObjectButton4;
-    private Button rockb;
-    private Button paperb;
-    private Button scissorsb;
-    private Button pencilb;
     private ImageView p1;
     private ImageView p2;
     private int who;
@@ -36,18 +33,11 @@ public class Game12 extends AppCompatActivity {
         initGraphics();
         initScreen();
     }
-
-    public ImageView getP1() {
-        return p1;
-    }
-
-    public ImageView getP2() {
-        return p2;
-    }
     private void initGraphics()
     {
         play = (Button)findViewById(R.id.play);
-        tutorialButton = (Button)findViewById(R.id.tutorialbutton);
+        tutorialButton = (Button)findViewById(R.id.tutorialbutton); //con button
+        tutorialButton2 = (Button)findViewById(R.id.tutorialbutton2); //back button
         ObjectButton = (Button)findViewById(R.id.tutorialObjectIcon);
         ObjectButton2 = (Button)findViewById(R.id.tutorialObjectIcon2);
         ObjectButton3 = (Button)findViewById(R.id.tutorialObjectIcon3);
@@ -55,6 +45,9 @@ public class Game12 extends AppCompatActivity {
     }
     public void continueonClick(View view) {
         initScreen();
+    }
+    public void backonClick(View view) {
+        clearScreen();
     }
     private void initScreen()
     {
@@ -66,6 +59,7 @@ public class Game12 extends AppCompatActivity {
         {
             Page2();
         }
+
         else if(getTutorial()==2)
         {
             Page3();
@@ -75,9 +69,31 @@ public class Game12 extends AppCompatActivity {
             Page4();
         }
     }
-    private int tutorial()
+    private void clearScreen()
     {
-        return turn_tutorial = turn_tutorial = +1;
+        if(getTutorial()==1)
+        {
+            Page1();
+            minustutorial();
+        }
+        else if(getTutorial()==2)
+        {
+            Page2();
+            minustutorial();
+        }
+        else if(getTutorial()==3)
+        {
+            Page3();
+            minustutorial();
+        }
+    }
+    private void plustutorial()
+    {
+        turn_tutorial+=1;
+    }
+    private void minustutorial()
+    {
+        turn_tutorial-=1;
     }
     private int getTutorial()
     {
@@ -85,33 +101,49 @@ public class Game12 extends AppCompatActivity {
     }
     private void Page1()
     {
-        tutorial();
-        ObjectButton.setBackground(Drawable.createFromPath("pencil.png"));
-        ObjectButton2.setBackground(Drawable.createFromPath("paper.png"));
+        tutorialButton2.setVisibility(View.INVISIBLE);
+        ObjectButton.setBackground(getDrawable(R.drawable.pencil));
+        ObjectButton2.setBackground(getDrawable(R.drawable.paper));
+        ObjectButton3.setVisibility(View.INVISIBLE);
+        ObjectButton4.setVisibility(View.INVISIBLE);
+        plustutorial();
     }
     private void Page2()
     {
-        tutorial();
-        ObjectButton.setBackground(Drawable.createFromPath("paper.png"));
-        ObjectButton2.setBackground(Drawable.createFromPath("rock.png"));
+        ObjectButton.setBackground(getDrawable(R.drawable.paper));
+        ObjectButton.setText("PAPER");
+        ObjectButton2.setBackground(getDrawable(R.drawable.rock));
+        ObjectButton2.setText("ROCK");
+        tutorialButton2.setVisibility(View.VISIBLE);
+        plustutorial();
     }
     private void Page3()
     {
-        tutorial();
-        ObjectButton.setBackground(Drawable.createFromPath("rock.png"));
-        ObjectButton3.setBackground(Drawable.createFromPath("scissors.png"));
-        ObjectButton4.setBackground(Drawable.createFromPath("pencil.png"));
+        ObjectButton.setBackground(getDrawable(R.drawable.rock));
+        ObjectButton.setText("ROCK");
+        ObjectButton2.setVisibility(View.INVISIBLE);
         ObjectButton3.setVisibility(View.VISIBLE);
         ObjectButton4.setVisibility(View.VISIBLE);
+        ObjectButton3.setBackground(getDrawable(R.drawable.scissors));
+        ObjectButton4.setBackground(getDrawable(R.drawable.pencil));
+        ObjectButton3.setText("SCISSORS");
+        ObjectButton4.setText("PENCIL");
+        tutorialButton2.setVisibility(View.VISIBLE);
+        plustutorial();
     }
     private void Page4()
     {
-        tutorial();
-        ObjectButton.setBackground(Drawable.createFromPath("scissors.png"));
-        ObjectButton3.setBackground(Drawable.createFromPath("pencil.png"));
-        ObjectButton4.setBackground(Drawable.createFromPath("paper.png"));
+        ObjectButton.setBackground(getDrawable(R.drawable.scissors));
+        ObjectButton.setText("SCISSORS");
+        ObjectButton2.setVisibility(View.INVISIBLE);
         ObjectButton3.setVisibility(View.VISIBLE);
         ObjectButton4.setVisibility(View.VISIBLE);
+        ObjectButton3.setBackground(getDrawable(R.drawable.pencil));
+        ObjectButton4.setBackground(getDrawable(R.drawable.paper));
+        ObjectButton3.setText("PENCIL");
+        ObjectButton4.setText("PAPER");
+        tutorialButton2.setVisibility(View.VISIBLE);
+        plustutorial();
     }
     private void initGameplay()
     {
