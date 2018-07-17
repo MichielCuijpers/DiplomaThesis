@@ -1,13 +1,14 @@
 package com.icsd.game.thesis.Game12;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
-import java.util.Random;
+import java.util.Collections;
 import com.icsd.game.thesis.R;
 import java.util.ArrayList;
 
@@ -20,11 +21,17 @@ public class Game12 extends AppCompatActivity {
     private Button ObjectButton2;
     private Button ObjectButton3;
     private Button ObjectButton4;
-    private ImageView p1;
-    private ImageView p2;
+    private Button gprock;
+    private Button gpscissors;
+    private Button gppaper;
+    private Button gppencil;
+    private Button tie;
+    private TextView title;
+    private ViewGroup.LayoutParams scale;
+    private StringBuilder combinefile;
+    private ArrayList<Button> gameplayimages;
     private int who;
-    private int turn_tutorial;
-    private ArrayList<Integer> randimg;
+    private int turn_tutorial = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,19 +42,34 @@ public class Game12 extends AppCompatActivity {
     }
     private void initGraphics()
     {
-        play = (Button)findViewById(R.id.play);
         tutorialButton = (Button)findViewById(R.id.tutorialbutton); //con button
         tutorialButton2 = (Button)findViewById(R.id.tutorialbutton2); //back button
         ObjectButton = (Button)findViewById(R.id.tutorialObjectIcon);
         ObjectButton2 = (Button)findViewById(R.id.tutorialObjectIcon2);
+        ObjectButton.setOnClickListener(null);
+        ObjectButton2.setOnClickListener(null);
         ObjectButton3 = (Button)findViewById(R.id.tutorialObjectIcon3);
         ObjectButton4 = (Button)findViewById(R.id.tutorialObjectIcon4);
+        tie = (Button) findViewById(R.id.tieb);
+        gameplayimages = new ArrayList<Button>();
+        gprock = (Button) findViewById(R.id.gameplayrock);
+        gppencil = (Button) findViewById(R.id.gameplaypencil);
+        gpscissors = (Button) findViewById(R.id.gameplayscissors);
+        gppaper = (Button) findViewById(R.id.gameplaypaper);
+        gameplayimages.add(gprock);
+        gameplayimages.add(gppencil);
+        gameplayimages.add(gpscissors);
+        gameplayimages.add(gppaper);
+        combinefile = new StringBuilder();
+        title = (TextView) findViewById(R.id.textView);
+        scale = title.getLayoutParams();
     }
     public void continueonClick(View view) {
         initScreen();
     }
     public void backonClick(View view) {
         clearScreen();
+        Log.e("MyDEbou", getTutorial()+"");
     }
     private void initScreen()
     {
@@ -68,32 +90,34 @@ public class Game12 extends AppCompatActivity {
         {
             Page4();
         }
+        else if(getTutorial()==4)
+        {
+            initGameplay();
+            tutorialButton.setText("ROLL");
+            tutorialButton2.setVisibility(View.INVISIBLE);
+        }
     }
     private void clearScreen()
     {
-        if(getTutorial()==1)
+        Log.e("MyDEbou", getTutorial()+"clear");
+         if(getTutorial()==2)
         {
+            minustutorial();
             Page1();
-            minustutorial();
-        }
-        else if(getTutorial()==2)
-        {
-            Page2();
-            minustutorial();
         }
         else if(getTutorial()==3)
         {
-            Page3();
             minustutorial();
+            Page2();
         }
     }
     private void plustutorial()
     {
-        turn_tutorial+=1;
+        turn_tutorial++;
     }
     private void minustutorial()
     {
-        turn_tutorial-=1;
+        turn_tutorial--;
     }
     private int getTutorial()
     {
@@ -143,98 +167,42 @@ public class Game12 extends AppCompatActivity {
         ObjectButton3.setText("PENCIL");
         ObjectButton4.setText("PAPER");
         tutorialButton2.setVisibility(View.VISIBLE);
+        tutorialButton.setText("PLAY");
         plustutorial();
     }
     private void initGameplay()
     {
-        play.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.gameplay12);
-                p1 = (ImageView) findViewById(R.id.p1);
-                p2 = (ImageView) findViewById(R.id.p2);
-                Random randId = new Random();
-                int numforp1 = randimg.get(randId.nextInt(4));
-                int numforp2 = randimg.get(randId.nextInt(4));
-                p1.setImageResource(numforp1);
-                p1.setId(numforp1);
-                p2.setId(numforp2);
-                p2.setImageResource(numforp2);
+        ObjectButton.callOnClick();
+        ObjectButton2.callOnClick();
+        Log.e("MyDEbou", "Initgameplay called");
+       ObjectButton3.setVisibility(View.INVISIBLE);
+       ObjectButton4.setVisibility(View.INVISIBLE);
+       ObjectButton.setVisibility(View.VISIBLE);
+       ObjectButton2.setVisibility(View.VISIBLE);
+       for(int i =0;i<gameplayimages.size();i++)
+       {
+           Collections.shuffle(gameplayimages);
+           ObjectButton.setBackground(gameplayimages.get(i).getBackground());
+           ObjectButton.setText(" ");
+           Collections.shuffle(gameplayimages);
+           ObjectButton2.setBackground(gameplayimages.get(i).getBackground());
+           ObjectButton2.setText(" ");
+           title.setText("Click on the Winner");
+           title.setWidth(scale.width=500);
+           tie.setVisibility(View.VISIBLE);
+       }
 
-                Log.e("DEBGMY",p1.getId()+")))"+p1.getResources());
-                Log.e("DEBGMY",p2.getId()+")))"+p1.getResources());
-
-                who = CheckWinner(p1.getId(), p2.getId(), p1, p2); //PAIRNW STIN WHO TO ID TOU NIKITI
-                if (p1.getId() == p2.getId()) {
-                    Toast.makeText(getApplicationContext(), "That is a Tie!!", Toast.LENGTH_LONG).show();
-                }
-                p1.setOnClickListener(new View.OnClickListener() { //DES KAI EDW TA LISTENER MIPOS ERXETAI APO EDW ALLA DEN NOMIZW
-                    @Override
-                    public void onClick(View v) {
-
-                        if (p1.getId() == who) {
-                            Toast.makeText(getApplicationContext(), "YOU WON,Player1 is the Winner", Toast.LENGTH_LONG).show();
-                        } else {
-                            Toast.makeText(getApplicationContext(), "LOSE, Player2 is the Winner", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-                p2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (p2.getId() == who) {
-                            Toast.makeText(getApplicationContext(), "YOU WON,Player2 is the Winner", Toast.LENGTH_LONG).show();
-                        } else {
-                            Toast.makeText(getApplicationContext(), "LOSE, Player1 is the Winner", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-            }
-        });
     }
 
-    public Integer CheckWinner(int Player1, int Player2, ImageView P1, ImageView P2) //PAIRNEI TO ID APO TA IMAGEVIEW KAI TA IMAGEVIEW KAI BGAZEI EXPORT TO TEXT KAI ELENGXEI.(EDW PREPEI NA EXW ERROR) -- TREKSTO PRWTA!!!!
+    public void CheckWinner(int Player1, int Player2, ImageView P1, ImageView P2)
     {
-        Log.e("DEBGMY",p2.getId()+")))"+p1.getResources());
+      //auto einai palio den isxuei to ftiaxnw to prwi
+    }
 
-        int winner = p1.getId();
-        if ((P1.getResources().equals("rock")) && (P2.getResources().equals("pencil"))) {
-            winner = P1.getId();
-        }
-        if ((P1.getResources().equals("rock")) && (P2.getResources().equals("scissors"))) {
-            winner = P1.getId();
-        }
-        if ((P1.getResources().equals("rock")) && (P2.getResources().equals("paper"))) {
-            winner = P2.getId();
-        }
+    public void p2onClick(View view) {
+        ObjectButton.getBackground();  //kwsta to sinexizw to prwi...den exw kapoio thema ola ok, den exo valei to TIE koumpi sto diko sou layout
+    }
 
-        if ((P1.getResources().equals("pencil")) && (P2.getResources().equals("paper"))) {
-            winner = P1.getId();
-        }
-        if ((P1.getResources().equals("pencil")) && (P2.getResources().equals("rock"))) {
-            winner = P2.getId();
-        }
-        if ((P1.getResources().equals("pencil")) && (P2.getResources().equals("scissors"))) {
-            winner = P2.getId();
-        }
-        if ((P1.getResources().equals("paper")) && (P2.getResources().equals("rock"))) {
-            winner = P1.getId();
-        }
-        if ((P1.getResources().equals("paper")) && (P2.getResources().equals("pencil"))) {
-            winner = P2.getId();
-        }
-        if ((P1.getResources().equals("paper")) && (P2.getResources().equals("scissors"))) {
-            winner = P2.getId();
-        }
-        if ((P1.getResources().equals("scissors")) && (P2.getResources().equals("paper"))) {
-            winner = P1.getId();
-        }
-        if ((P1.getResources().equals("scissors")) && (P2.getResources().equals("pencil"))) {
-            winner = P1.getId();
-        }
-        if ((P1.getResources().equals("scissors")) && (P2.getResources().equals("rock"))) {
-            winner = P2.getId();
-        }
-        return winner;
+    public void p1onClick(View view) {
     }
 }
