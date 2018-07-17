@@ -9,11 +9,11 @@
 
 
     <Button
-        android:id="@+id/play"
+        android:id="@+id/con1"
         android:layout_width="169dp"
         android:layout_height="85dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="44dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
@@ -22,178 +22,48 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.769"
-        app:layout_constraintStart_toEndOf="@+id/pencil3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/paper"
         app:layout_constraintTop_toBottomOf="@+id/help_button9"
-        app:layout_constraintVertical_bias="0.495" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Winner"
-        android:textColor="@android:color/black"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/rock"
-        app:layout_constraintEnd_toStartOf="@+id/scissors"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintVertical_bias="0.507" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="44dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="300dp"
         android:text="Winner"
         android:textColor="@android:color/black"
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/pencil2"
-        app:layout_constraintEnd_toStartOf="@+id/pencil"
+        app:layout_constraintBottom_toTopOf="@+id/pencil1"
+        app:layout_constraintEnd_toStartOf="@+id/paper"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Winner"
-        android:textColor="@android:color/black"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/paper2"
-        app:layout_constraintEnd_toStartOf="@+id/rock2"
-        app:layout_constraintHorizontal_bias="0.707"
-        app:layout_constraintStart_toEndOf="@+id/scissors" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Winner"
-        android:textColor="@android:color/black"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/scissors2"
-        app:layout_constraintEnd_toStartOf="@+id/pencil3"
-        app:layout_constraintHorizontal_bias="0.707"
-        app:layout_constraintStart_toEndOf="@+id/paper" />
-
     <ImageView
-        android:id="@+id/paper3"
+        android:id="@+id/pencil1"
         android:layout_width="101dp"
         android:layout_height="74dp"
-        android:layout_marginBottom="44dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="72dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/help_button9"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/scissors2"
-        app:srcCompat="@drawable/paper" />
-
-    <ImageView
-        android:id="@+id/pencil3"
-        android:layout_width="101dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="72dp"
-        app:layout_constraintBottom_toTopOf="@+id/paper3"
-        app:layout_constraintEnd_toStartOf="@+id/help_button9"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/scissors2"
-        app:srcCompat="@drawable/pencil" />
-
-    <ImageView
-        android:id="@+id/paper2"
-        android:layout_width="101dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/scissors2"
-        app:layout_constraintStart_toEndOf="@+id/scissors"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.556"
-        app:srcCompat="@drawable/paper" />
-
-    <ImageView
-        android:id="@+id/pencil2"
-        android:layout_width="101dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="44dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginBottom="116dp"
+        android:layout_marginStart="312dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/pencil" />
 
     <ImageView
-        android:id="@+id/rock2"
+        android:id="@+id/paper1"
         android:layout_width="101dp"
         android:layout_height="74dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/pencil3"
+        android:layout_marginBottom="116dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginStart="76dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/help_button9"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/paper2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77"
-        app:srcCompat="@drawable/rock" />
-
-    <ImageView
-        android:id="@+id/scissors2"
-        android:layout_width="101dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="44dp"
-        android:layout_marginStart="148dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/paper"
-        app:srcCompat="@drawable/scissors" />
-
-    <ImageView
-        android:id="@+id/pencil"
-        android:layout_width="101dp"
-        android:layout_height="72dp"
-        android:layout_marginBottom="56dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="96dp"
-        app:layout_constraintBottom_toTopOf="@+id/paper"
-        app:layout_constraintEnd_toStartOf="@+id/scissors2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/rock"
-        app:srcCompat="@drawable/pencil" />
-
-    <ImageView
-        android:id="@+id/paper"
-        android:layout_width="101dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="44dp"
-        android:layout_marginStart="96dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toEndOf="@+id/pencil2"
         app:srcCompat="@drawable/paper" />
-
-    <ImageView
-        android:id="@+id/scissors"
-        android:layout_width="101dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/pencil"
-        app:layout_constraintStart_toEndOf="@+id/rock"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/scissors" />
 
     <Button
         android:id="@+id/help_button9"
@@ -211,27 +81,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/rock"
-        android:layout_width="101dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.733"
-        app:srcCompat="@drawable/rock" />
-
     <TextView
         android:id="@+id/textView"
-        android:layout_width="590dp"
-        android:layout_height="45dp"
-        android:text="Have a look at the Rules Below"
+        android:layout_width="164dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Tutorial1"
         android:textColor="@android:color/black"
         android:textSize="40dp"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="25dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintEnd_toStartOf="@+id/help_button9"
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.461" />
 
 </android.support.constraint.ConstraintLayout>

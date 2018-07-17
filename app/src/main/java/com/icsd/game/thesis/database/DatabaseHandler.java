@@ -122,9 +122,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
     }
 
-    public static Context getMyCont() {
-        return myCont;
-    }
+//    public static Context getMyCont() {
+//        return myCont;
+//    }
 
 
 }
