@@ -9,7 +9,53 @@
 
 
     <Button
-        android:id="@+id/con1"
+        android:id="@+id/tutorialObjectIcon4"
+        android:layout_width="133dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="512dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/pencil"
+        android:text=" Pencil"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tutorialbutton"
+        app:layout_constraintHorizontal_bias="0.012"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.97" />
+
+    <Button
+        android:id="@+id/tutorialObjectIcon3"
+        android:layout_width="133dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/pencil"
+        android:text=" Pencil"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/tutorialObjectIcon2"
+        app:layout_constraintEnd_toStartOf="@+id/help_button9"
+        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.8" />
+
+    <Button
+        android:id="@+id/tutorialObjectIcon2"
+        android:layout_width="133dp"
+        android:layout_height="104dp"
+        android:layout_marginEnd="164dp"
+        android:background="@drawable/paper"
+        android:text="Paper"
+        app:layout_constraintEnd_toStartOf="@+id/tutorialbutton"
+        tools:layout_editor_absoluteY="218dp" />
+
+    <Button
+        android:id="@+id/tutorialbutton"
         android:layout_width="169dp"
         android:layout_height="85dp"
         android:layout_marginBottom="8dp"
@@ -17,6 +63,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="continueonClick"
         android:text="continue"
         android:textColor="@android:color/black"
         android:textSize="25dp"
@@ -27,57 +74,16 @@
         app:layout_constraintTop_toBottomOf="@+id/help_button9"
         app:layout_constraintVertical_bias="0.507" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginBottom="44dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="300dp"
-        android:text="Winner"
-        android:textColor="@android:color/black"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/pencil1"
-        app:layout_constraintEnd_toStartOf="@+id/paper"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/pencil1"
-        android:layout_width="101dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="116dp"
-        android:layout_marginStart="312dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/pencil" />
-
-    <ImageView
-        android:id="@+id/paper1"
-        android:layout_width="101dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="116dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginStart="76dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/help_button9"
-        app:layout_constraintHorizontal_bias="0.139"
-        app:layout_constraintStart_toEndOf="@+id/pencil2"
-        app:srcCompat="@drawable/paper" />
-
     <Button
         android:id="@+id/help_button9"
         android:layout_width="214dp"
         android:layout_height="92dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/help_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -85,18 +91,32 @@
         android:id="@+id/textView"
         android:layout_width="164dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Tutorial1"
+        android:layout_marginTop="16dp"
+        android:text="Tutorial"
         android:textColor="@android:color/black"
         android:textSize="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toStartOf="@+id/help_button9"
-        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintHorizontal_bias="0.614"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.461" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/tutorialObjectIcon"
+        android:layout_width="133dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/pencil"
+        android:text=" Pencil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tutorialObjectIcon2"
+        app:layout_constraintHorizontal_bias="0.408"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.503" />
 
 </android.support.constraint.ConstraintLayout>
