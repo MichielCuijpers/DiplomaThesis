@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class Word {
     private ArrayList<Character> letters;
     ;
+
     public Word() {
 
     }
@@ -43,6 +44,33 @@ public class Word {
             values.put(WORD, "android");
             db.insert(TABLE_NAME, null, values);
             values.clear();
+            values.put(WORD, "desk");
+            db.insert(TABLE_NAME, null, values);
+
+            values.clear();
+            values.put(WORD, "database");
+            db.insert(TABLE_NAME, null, values);
+
+            values.clear();
+            values.put(WORD, "computer");
+            db.insert(TABLE_NAME, null, values);
+            values.clear();
+            values.put(WORD, "chair");
+            db.insert(TABLE_NAME, null, values);
+            values.clear();
+            values.put(WORD, "benefit");
+            db.insert(TABLE_NAME, null, values);
+            values.clear();
+            values.put(WORD, "science");
+            db.insert(TABLE_NAME, null, values);
+            values.clear();
+            values.put(WORD, "secretary");
+            db.insert(TABLE_NAME, null, values);
+            values.clear();
+            values.put(WORD, "security");
+            db.insert(TABLE_NAME, null, values);
+            values.clear();
+            db.close();
         }
 
         protected static ArrayList<String> takeWorldsFromDB() {
@@ -54,7 +82,7 @@ public class Word {
             while (!cursor.isAfterLast()) {
                 String word = cursor.getString(cursor.getColumnIndexOrThrow(WORD));
                 queryResultsList.add(word);
-               // Log.e("MyDEb",cursor.getString(cursor.getColumnIndexOrThrow(WORD)));
+                // Log.e("MyDEb",cursor.getString(cursor.getColumnIndexOrThrow(WORD)));
                 cursor.moveToNext();
 
             }
