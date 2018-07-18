@@ -66,7 +66,7 @@
         android:layout_height="80dp"
         android:layout_marginEnd="52dp"
         android:layout_marginTop="16dp"
-
+        android:onClick="Game12"
         android:background="@android:color/holo_orange_dark"
         android:text="Game12"
         android:textStyle="bold"
