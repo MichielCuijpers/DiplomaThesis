@@ -16,9 +16,9 @@ public class Game9 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game9);
-        view1.findViewById(R.id.imageView);
-        view2.findViewById(R.id.imageView12);
-        view3.findViewById(R.id.green);
+        view1=findViewById(R.id.imageView);
+        view2=findViewById(R.id.imageView12);
+        view3=findViewById(R.id.green);
         view3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

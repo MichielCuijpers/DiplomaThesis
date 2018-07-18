@@ -9,7 +9,7 @@ import android.view.View;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.User;
 import com.icsd.game.thesis.game1.Game1Activity;
-import com.icsd.game.thesis.game4.MainActivity;
+import com.icsd.game.thesis.game4.Game4Activity;
 import com.icsd.game.thesis.game5.Game5;
 import com.icsd.game.thesis.game8.Game8;
 
@@ -40,7 +40,7 @@ public class Menu extends Activity {
     }
 
     public void game4(View view) {
-        Intent c = new Intent(this, MainActivity.class);
+        Intent c = new Intent(this, Game4Activity.class);
         startActivity(c);
     }
     public void game1(View view) {
