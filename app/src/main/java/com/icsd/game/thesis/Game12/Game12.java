@@ -26,6 +26,12 @@ public class Game12 extends AppCompatActivity {
     private Button gppaper;
     private Button gppencil;
     private Button tie;
+    private String answerp1;
+    private String answerp2;
+    private String useranswer;
+    private int turn = 0;
+    private int countwins = 0;
+    private int countloses = 0;
     private TextView title;
     private ViewGroup.LayoutParams scale;
     private StringBuilder combinefile;
@@ -172,8 +178,8 @@ public class Game12 extends AppCompatActivity {
     }
     private void initGameplay()
     {
-        ObjectButton.callOnClick();
-        ObjectButton2.callOnClick();
+        //ObjectButton.callOnClick();
+        //ObjectButton2.callOnClick();
         Log.e("MyDEbou", "Initgameplay called");
        ObjectButton3.setVisibility(View.INVISIBLE);
        ObjectButton4.setVisibility(View.INVISIBLE);
@@ -191,18 +197,70 @@ public class Game12 extends AppCompatActivity {
            title.setWidth(scale.width=500);
            tie.setVisibility(View.VISIBLE);
        }
-
     }
 
-    public void CheckWinner(int Player1, int Player2, ImageView P1, ImageView P2)
-    {
-      //auto einai palio den isxuei to ftiaxnw to prwi
+
+    public void CheckWinner(String answer1, String answer2, String usranswer)
+    {   Log.e("MyDEbou", answer1+"douleuei");
+
+        if((answer1.equals(gprock.getBackground().toString())) && (answer2.equals(gppaper.getBackground().toString())) && (useranswer.equals(gppaper.getBackground().toString())))
+        {
+            Toast.makeText(this, "You won  ", Toast.LENGTH_SHORT).show();
+            countwins++;
+        }
+        else if((answer1.equals(gprock.getBackground().toString())) && (answer2.equals(gppencil.getBackground().toString())) && (useranswer.equals(gprock.getBackground().toString())))
+        {
+            Toast.makeText(this, "You won  ", Toast.LENGTH_SHORT).show();
+            countwins++;
+        }
+        else if((answer1.equals(gprock.getBackground().toString())) && (answer2.equals(gpscissors.getBackground().toString())) && (useranswer.equals(gpscissors.getBackground().toString())))
+        {
+            Toast.makeText(this, "You won  ", Toast.LENGTH_SHORT).show();
+            countwins++;
+        }
+        else if((answer1.equals(gppencil.getBackground().toString())) && (answer2.equals(gppaper.getBackground().toString())) && (useranswer.equals(gppencil.getBackground().toString())))
+        {
+            Toast.makeText(this, "You won  ", Toast.LENGTH_SHORT).show();
+            countwins++;
+        }
+        else if((answer1.equals(gpscissors.getBackground().toString())) && (answer2.equals(gppencil.getBackground().toString())) && (useranswer.equals(gpscissors.getBackground().toString())))
+        {
+            Toast.makeText(this, "You won  ", Toast.LENGTH_SHORT).show();
+            countwins++;
+        }
+        else if((answer1.equals(gpscissors.getBackground().toString())) && (answer2.equals(gppaper.getBackground().toString())) && (useranswer.equals(gpscissors.getBackground().toString())))
+        {
+            Toast.makeText(this, "You won  ", Toast.LENGTH_SHORT).show();
+            countwins++;
+        }
+        else if((answer1.equals(gppaper.getBackground().toString())) && (answer2.equals(gprock.getBackground().toString())) && (useranswer.equals(gppaper.getBackground().toString())))
+        {
+            Toast.makeText(this, "You won  ", Toast.LENGTH_SHORT).show();
+            countwins++;
+        }
+        else{
+            Toast.makeText(this, "You Lost  ", Toast.LENGTH_SHORT).show();
+            countloses++;
+        }
     }
 
     public void p2onClick(View view) {
-        ObjectButton.getBackground();  //kwsta to sinexizw to prwi...den exw kapoio thema ola ok, den exo valei to TIE koumpi sto diko sou layout
+        Log.e("p2", "Etrekse");
+        turn++;
+        answerp2 = ObjectButton2.getBackground().toString();
+        answerp1 = ObjectButton.getBackground().toString();
+        useranswer = answerp2;
+        CheckWinner(answerp1,answerp2,useranswer);
+
     }
 
     public void p1onClick(View view) {
+        Log.e("p1", "Etrekse");
+        turn++;
+        answerp1 = ObjectButton.getBackground().toString();
+        answerp2 = ObjectButton2.getBackground().toString();
+        useranswer = answerp1;
+        CheckWinner(answerp1,answerp2,useranswer);
+
     }
 }
