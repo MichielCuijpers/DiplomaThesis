@@ -72,6 +72,7 @@ public class Game12 extends AppCompatActivity {
     }
     public void continueonClick(View view) {
         initScreen();
+        plustutorial();
     }
     public void backonClick(View view) {
         clearScreen();
@@ -136,7 +137,6 @@ public class Game12 extends AppCompatActivity {
         ObjectButton2.setBackground(getDrawable(R.drawable.paper));
         ObjectButton3.setVisibility(View.INVISIBLE);
         ObjectButton4.setVisibility(View.INVISIBLE);
-        plustutorial();
     }
     private void Page2()
     {
@@ -145,7 +145,6 @@ public class Game12 extends AppCompatActivity {
         ObjectButton2.setBackground(getDrawable(R.drawable.rock));
         ObjectButton2.setText("ROCK");
         tutorialButton2.setVisibility(View.VISIBLE);
-        plustutorial();
     }
     private void Page3()
     {
@@ -159,7 +158,6 @@ public class Game12 extends AppCompatActivity {
         ObjectButton3.setText("SCISSORS");
         ObjectButton4.setText("PENCIL");
         tutorialButton2.setVisibility(View.VISIBLE);
-        plustutorial();
     }
     private void Page4()
     {
@@ -174,7 +172,6 @@ public class Game12 extends AppCompatActivity {
         ObjectButton4.setText("PAPER");
         tutorialButton2.setVisibility(View.VISIBLE);
         tutorialButton.setText("PLAY");
-        plustutorial();
     }
     private void initGameplay()
     {
