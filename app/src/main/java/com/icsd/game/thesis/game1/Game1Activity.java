@@ -172,7 +172,7 @@ public class Game1Activity extends AppCompatActivity {
         if (curSession.getStage() == 6) {
             dbHandler = new DatabaseHandler(this.getApplicationContext());
             dbHandler.addSessionToDB(this.curSession);
-            Toast.makeText(this, "Congrats!! You found all answers!! Game End Play another game ", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Congrats!! You found all answers!! Game End ,Play another game ", Toast.LENGTH_LONG).show();
             Intent c = new Intent(this, Menu.class);
             startActivity(c);
         }

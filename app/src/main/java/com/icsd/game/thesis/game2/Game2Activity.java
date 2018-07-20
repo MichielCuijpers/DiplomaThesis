@@ -1,10 +1,13 @@
 package com.icsd.game.thesis.game2;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +16,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.database.DatabaseHandler;
+import com.icsd.game.thesis.database.Session;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,19 +33,27 @@ public class Game2Activity extends AppCompatActivity {
     private Button button2;
     private Button button3;
     private Button button4;
-    private ArrayList cities;
     private ArrayList<String> countriesEurope;
     private ArrayList<String> countriesAfrica;
-    private ArrayList countriesAsia;
+    private ArrayList<String> countriesDone;
+    private ArrayList<String> countriesAsia;
     private int turn;
     private String currectCorrect;
+    private Session curSession;
+    private DatabaseHandler dbHandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game2);
-        initGameplay();
 
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        curSession = new Session(Menu.testUser.getUsername(), 2);
+        curSession.setTimeStart(System.currentTimeMillis() / 1000);
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+
+        initGameplay();
         initGui();
         initTurn();
 
@@ -47,10 +61,11 @@ public class Game2Activity extends AppCompatActivity {
     }
 
     private void initGameplay() {
-        cities = new ArrayList();
+      
         countriesEurope = new ArrayList();
         countriesAfrica = new ArrayList();
         countriesAsia = new ArrayList();
+        countriesDone = new ArrayList();
 
         countriesEurope.add("Italy");
         countriesEurope.add("Greece");
@@ -61,6 +76,11 @@ public class Game2Activity extends AppCompatActivity {
         countriesAfrica.add("Egypt");
         countriesAfrica.add("Morocco");
         countriesAfrica.add("Algeria");
+
+        countriesAsia.add("China");
+        countriesAsia.add("India");
+        countriesAsia.add("Iran");
+        countriesAsia.add("Kazakhstan");
         turn = 1;
 
 
@@ -82,7 +102,12 @@ public class Game2Activity extends AppCompatActivity {
             mapImageView.setImageResource(R.drawable.europe_map);
 
             Collections.shuffle(countriesEurope);
-            currectCorrect = countriesEurope.get(0);
+            if (countriesDone.contains(countriesEurope.get(0))) {
+                currectCorrect = countriesEurope.get(1);
+            } else {
+                currectCorrect = countriesEurope.get(0);
+            }
+
             addPinOnMap();
             Collections.shuffle(countriesEurope);
             button1.setText(countriesEurope.get(0) + "");
@@ -95,8 +120,13 @@ public class Game2Activity extends AppCompatActivity {
             //Africa Turn
             mapImageView.setImageResource(R.drawable.africa_map);
 
-            // Collections.shuffle(countriesAfrica);
-            currectCorrect = countriesAfrica.get(3);
+            Collections.shuffle(countriesAfrica);
+            if (countriesDone.contains(countriesEurope.get(0))) {
+                currectCorrect = countriesAfrica.get(1);
+            } else {
+                currectCorrect = countriesAfrica.get(0);
+            }
+
             addPinOnMap();
             Collections.shuffle(countriesAfrica);
             button1.setText(countriesAfrica.get(0) + "");
@@ -105,7 +135,21 @@ public class Game2Activity extends AppCompatActivity {
             button4.setText(countriesAfrica.get(3) + "");
 
         }
-        if (turn == 4 || turn == 5) {
+        if (turn == 5 || turn == 6) {
+            mapImageView.setImageResource(R.drawable.asia_map);
+            Collections.shuffle(countriesAsia);
+            if (countriesDone.contains(countriesAsia.get(0))) {
+                currectCorrect = countriesAsia.get(1);
+            } else {
+                currectCorrect = countriesAsia.get(0);
+            }
+
+            addPinOnMap();
+            Collections.shuffle(countriesAsia);
+            button1.setText(countriesAsia.get(0) + "");
+            button2.setText(countriesAsia.get(1) + "");
+            button3.setText(countriesAsia.get(2) + "");
+            button4.setText(countriesAsia.get(3) + "");
 
         }
 
@@ -153,6 +197,18 @@ public class Game2Activity extends AppCompatActivity {
             drawPinOnMap(500, 200, R.drawable.africa_map);
         } else if (currectCorrect.equals("Algeria")) {
             drawPinOnMap(300, 150, R.drawable.africa_map);
+        } else if (currectCorrect.equals("China")) {
+            drawPinOnMap(500, 500, R.drawable.asia_map);
+
+        } else if (currectCorrect.equals("India")) {
+            drawPinOnMap(450, 650, R.drawable.asia_map);
+
+        } else if (currectCorrect.equals("Iran")) {
+            drawPinOnMap(230, 520, R.drawable.asia_map);
+
+        } else if (currectCorrect.equals("Kazakhstan")) {
+            drawPinOnMap(400, 380, R.drawable.asia_map);
+
         }
 
 
@@ -161,13 +217,24 @@ public class Game2Activity extends AppCompatActivity {
 
     private void check(String answer) {
         if (answer.equals(currectCorrect)) {
-            Toast.makeText(this, "Congrats!!  ", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Congrats!!  ", Toast.LENGTH_SHORT).show();
             turn++;
-            initTurn();
-        } else {
-            Toast.makeText(this, "Fail ", Toast.LENGTH_LONG).show();
+            if (this.turn == 7) {
+                curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+                dbHandler.addSessionToDB(this.curSession);
+                Toast.makeText(this, "Congrats!! You found all countries!! Game End, Play another game ", Toast.LENGTH_LONG).show();
+                Intent c = new Intent(this, Menu.class);
+                startActivity(c);
+            }
+            countriesDone.add(currectCorrect);
+            curSession.setScore(turn);
 
             initTurn();
+        } else {
+            Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
+
+            curSession.setFails(curSession.getFails() + 1);
+            //initTurn();
 
         }
 
