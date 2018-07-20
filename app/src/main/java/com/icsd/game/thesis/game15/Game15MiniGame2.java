@@ -14,6 +14,18 @@ public class Game15MiniGame2 extends AppCompatActivity {
         setContentView(R.layout.activity_game15_mini_game2);
     }
 
+    private void initGui() {
+
+    }
+
+    private void initGameplay() {
+
+    }
+
+    private void initTurn() {
+
+    }
+
     public void number1OnClick(View view) {
     }
 

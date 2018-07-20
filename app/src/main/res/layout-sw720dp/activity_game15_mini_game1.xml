@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".game15.Game15MiniGame1"
-    android:background="#c7a96c">
+    android:background="#c7a96c"
+    tools:context=".game15.Game15MiniGame1">
 
     <TextView
         android:id="@+id/number2view"
-        android:layout_width="221dp"
-        android:layout_height="236dp"
+        android:layout_width="281dp"
+        android:layout_height="271dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="220dp"
         android:layout_marginTop="8dp"
         android:text="30"
-        android:textSize="180sp"
+        android:textSize="100sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,18 +24,18 @@
 
     <TextView
         android:id="@+id/number1view"
-        android:layout_width="221dp"
-        android:layout_height="236dp"
+        android:layout_width="269dp"
+        android:layout_height="265dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="212dp"
+        android:layout_marginStart="144dp"
         android:layout_marginTop="8dp"
         android:text="30"
-        android:textSize="180sp"
+        android:textSize="100sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.233" />
+        app:layout_constraintVertical_bias="0.201" />
 
     <TextView
         android:id="@+id/textView1"
@@ -45,14 +45,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="+"
+        android:text="?"
         android:textSize="200sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/number2view"
-        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toEndOf="@+id/number1view"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.021" />
 
     <Button
         android:id="@+id/button1_game15"
@@ -64,6 +64,7 @@
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="button1OnClick"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/button3_game15"
         app:layout_constraintEnd_toStartOf="@+id/button2_game15"
         app:layout_constraintHorizontal_bias="0.603"
@@ -78,9 +79,10 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="336dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="button2OnClick"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="button2OnClick"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/button2_game15"
@@ -90,11 +92,12 @@
         android:layout_marginEnd="336dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="button3OnClick"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/button4_game15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.99"
-        android:onClick="button3OnClick"/>
+        app:layout_constraintVertical_bias="0.99" />
 
     <Button
         android:id="@+id/button3_game15"
@@ -104,11 +107,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="button4OnClick"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button4_game15"
         app:layout_constraintHorizontal_bias="0.604"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="button4OnClick"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
