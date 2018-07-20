@@ -61,7 +61,7 @@ public class Game2Activity extends AppCompatActivity {
     }
 
     private void initGameplay() {
-      
+
         countriesEurope = new ArrayList();
         countriesAfrica = new ArrayList();
         countriesAsia = new ArrayList();

@@ -11,6 +11,7 @@ import com.icsd.game.thesis.Game9.Game9;
 import com.icsd.game.thesis.database.AndroidDatabaseManager;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.game13.Game13;
+import com.icsd.game.thesis.game15.Game15Menou;
 
 
 public class Menu2 extends AppCompatActivity {
@@ -47,5 +48,10 @@ public class Menu2 extends AppCompatActivity {
         SQLiteDatabase db = dh.getWritableDatabase();
        // dh.onCreate(db);
         startActivity(dbmanager);
+    }
+
+    public void game15(View view) {
+        Intent c = new Intent(this, Game15Menou.class);
+        startActivity(c);
     }
 }

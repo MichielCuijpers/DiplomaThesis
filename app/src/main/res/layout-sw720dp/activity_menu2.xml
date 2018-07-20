@@ -118,6 +118,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="56dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="game15"
         android:text="Game15"
         android:textSize="30sp"
         android:textStyle="bold"

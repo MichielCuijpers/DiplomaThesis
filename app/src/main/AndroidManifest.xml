@@ -47,7 +47,7 @@
         <activity
             android:name=".database.AndroidDatabaseManager"
             android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".game4.Game4Activity"
             android:label="@string/title_activity_main"
@@ -61,7 +61,20 @@
             android:name=".Game9.Game9"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".game2.Game2Activity"></activity>
+        <activity android:name=".game2.Game2Activity" />
+        <activity
+            android:name=".game15.Game15Menou"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".game15.Game15MiniGame1"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".game15.Game15MiniGame2"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".game15.Game15MiniGame3"
+            android:screenOrientation="landscape" />
+        <activity android:name=".game15.Game15MiniGame4"></activity>
     </application>
 
 </manifest>
