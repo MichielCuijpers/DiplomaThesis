@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c7a96c">
+
+    <Button
+        android:id="@+id/start_gp"
+        android:layout_width="185dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="120dp"
+        android:background="@android:color/holo_orange_dark"
+        android:onClick="startgponClick"
+        android:text="START"
+        android:textColor="@android:color/black"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/help_button10" />
+
+    <Button
+        android:id="@+id/tutorialbutton_g14"
+        android:layout_width="243dp"
+        android:layout_height="171dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_orange_dark"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/tuto_test"
+        app:layout_constraintEnd_toStartOf="@+id/tutorialbutton_g15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_14"
+        app:layout_constraintVertical_bias="0.181" />
+
+    <Button
+        android:id="@+id/tutorialbutton_g15"
+        android:layout_width="243dp"
+        android:layout_height="171dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_orange_dark"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/start_gp"
+        app:layout_constraintEnd_toStartOf="@+id/help_button10"
+        app:layout_constraintTop_toBottomOf="@+id/title_14"
+        app:layout_constraintVertical_bias="0.181" />
+
+    <Button
+        android:id="@+id/help_button10"
+        android:layout_width="214dp"
+        android:layout_height="92dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/help_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/title_14"
+        android:layout_width="298dp"
+        android:layout_height="68dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:text="Tutorial"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/help_button10"
+        app:layout_constraintHorizontal_bias="0.969"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/tuto_test"
+        android:layout_width="185dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="252dp"
+        android:background="@android:color/holo_orange_dark"
+        android:onClick="tutoonClick"
+        android:text="AGAIN"
+        android:textColor="@android:color/black"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/start_gp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
