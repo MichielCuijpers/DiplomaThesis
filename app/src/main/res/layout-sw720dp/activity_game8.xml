@@ -5,7 +5,7 @@
     android:id="@+id/lo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="#c7a96c"
     tools:context=".game8.Game8">
 
     <com.icsd.game.thesis.game8.Ball
