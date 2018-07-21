@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c7a96c"
+    tools:context="com.icsd.game.thesis.Game12.Game12">
+
+
+    <Button
+        android:id="@+id/tieb"
+        android:layout_width="139dp"
+        android:layout_height="71dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_orange_dark"
+        android:onClick="backonClick"
+        android:text="TIE"
+        android:textColor="@android:color/black"
+        android:textSize="25dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tutorialbutton"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toEndOf="@+id/tutorialbutton2"
+        app:layout_constraintTop_toBottomOf="@+id/tutorialObjectIcon"
+        app:layout_constraintVertical_bias="0.354" />
+
+    <Button
+        android:id="@+id/tutorialObjectIcon4"
+        android:layout_width="133dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/pencil"
+        android:text=" Pencil"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tutorialbutton"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toEndOf="@+id/tutorialObjectIcon"
+        app:layout_constraintTop_toBottomOf="@+id/tutorialObjectIcon3"
+        app:layout_constraintVertical_bias="0.375" />
+    <Button
+        android:id="@+id/gameplayrock"
+        android:layout_width="133dp"
+        android:layout_height="104dp"
+        android:background="@drawable/rock"
+        android:text=" Pencil"
+        android:visibility="invisible"
+        />
+    <Button
+    android:id="@+id/gameplaypencil"
+        android:layout_width="133dp"
+        android:layout_height="104dp"
+    android:background="@drawable/pencil"
+    android:text=" Pencil"
+    android:visibility="invisible"
+    />
+    <Button
+        android:id="@+id/gameplayscissors"
+        android:layout_width="133dp"
+        android:layout_height="104dp"
+        android:background="@drawable/scissors"
+        android:text=" Pencil"
+        android:visibility="invisible"
+        />
+    <Button
+        android:id="@+id/gameplaypaper"
+        android:layout_width="133dp"
+        android:layout_height="104dp"
+        android:background="@drawable/paper"
+        android:text=" Pencil"
+        android:visibility="invisible"
+        />
+
+    <Button
+        android:id="@+id/tutorialObjectIcon3"
+        android:layout_width="133dp"
+        android:layout_height="104dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="88dp"
+        android:background="@drawable/pencil"
+        android:text=" Pencil"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/tutorialbutton"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toEndOf="@+id/tutorialObjectIcon"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/tutorialObjectIcon2"
+        android:layout_width="133dp"
+        android:layout_height="104dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginTop="136dp"
+        android:background="@drawable/paper"
+        android:onClick="p2onClick"
+        android:text="Paper"
+        app:layout_constraintEnd_toStartOf="@+id/tutorialbutton"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/tutorialbutton"
+        android:layout_width="169dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_orange_dark"
+        android:onClick="continueonClick"
+        android:text="continue"
+        android:textColor="@android:color/black"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/paper"
+        app:layout_constraintTop_toBottomOf="@+id/help_button9"
+        app:layout_constraintVertical_bias="0.476" />
+
+    <Button
+        android:id="@+id/help_button9"
+        android:layout_width="214dp"
+        android:layout_height="92dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/help_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="164dp"
+        android:layout_height="59dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="Tutorial"
+        android:textColor="@android:color/black"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/help_button9"
+        app:layout_constraintHorizontal_bias="0.633"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/tutorialObjectIcon"
+        android:layout_width="133dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/pencil"
+        android:onClick="p1onClick"
+        android:text=" Pencil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tutorialObjectIcon2"
+        app:layout_constraintStart_toEndOf="@+id/tutorialbutton2"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.507" />
+
+    <Button
+        android:id="@+id/tutorialbutton2"
+        android:layout_width="169dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="144dp"
+        android:background="@android:color/holo_orange_dark"
+        android:onClick="backonClick"
+        android:text="BACK"
+        android:textColor="@android:color/black"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.014" />
+
+</android.support.constraint.ConstraintLayout>

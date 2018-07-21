@@ -1,0 +1,1346 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    android:background="#c7a96c"
+
+    tools:context="com.icsd.game.thesis.Game9.Game9">
+
+
+    <Button
+
+        android:id="@+id/tutorial_test"
+
+        android:layout_width="145dp"
+
+        android:layout_height="72dp"
+
+        android:layout_marginBottom="56dp"
+
+        android:layout_marginStart="268dp"
+
+        android:background="@android:color/holo_orange_dark"
+
+        android:onClick="testonClick"
+
+        android:text="test"
+
+        android:textSize="30dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+
+        android:id="@+id/gpbutton6"
+
+        android:layout_width="144dp"
+
+        android:layout_height="131dp"
+
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="15dp"
+
+        android:layout_marginTop="8dp"
+
+        android:background="@drawable/yl2"
+
+        android:onClick="gpbutton6onClick"
+
+        app:layout_constraintBottom_toTopOf="@+id/goplay"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.0"
+
+        app:layout_constraintStart_toEndOf="@+id/gpbutton5"
+
+        app:layout_constraintTop_toBottomOf="@+id/help_button8"
+
+        app:layout_constraintVertical_bias="0.312" />
+
+
+    <Button
+
+        android:id="@+id/gpbutton4"
+
+        android:layout_width="144dp"
+
+        android:layout_height="131dp"
+
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginStart="15dp"
+
+        android:layout_marginTop="8dp"
+
+        android:background="@drawable/bl2"
+
+        android:onClick="gpbutton4onClick"
+
+        app:layout_constraintBottom_toTopOf="@+id/goplay"
+
+        app:layout_constraintStart_toEndOf="@+id/gpbutton1"
+
+        app:layout_constraintTop_toBottomOf="@+id/help_button8"
+
+        app:layout_constraintVertical_bias="0.312" />
+
+
+    <Button
+
+        android:id="@+id/gpbutton3"
+
+        android:layout_width="144dp"
+
+        android:layout_height="131dp"
+
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginStart="15dp"
+
+        android:layout_marginTop="8dp"
+
+        android:background="@drawable/blc2"
+
+        android:onClick="gpbutton3onClick"
+
+        app:layout_constraintBottom_toTopOf="@+id/goplay"
+
+        app:layout_constraintStart_toEndOf="@+id/gpbutton4"
+
+        app:layout_constraintTop_toBottomOf="@+id/help_button8"
+
+        app:layout_constraintVertical_bias="0.312" />
+
+
+    <Button
+
+        android:id="@+id/gpbutton2"
+
+        android:layout_width="144dp"
+
+        android:layout_height="131dp"
+
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginStart="15dp"
+
+        android:layout_marginTop="8dp"
+
+        android:background="@drawable/r2"
+
+        android:onClick="gpbutton2onClick"
+
+        app:layout_constraintBottom_toTopOf="@+id/goplay"
+
+        app:layout_constraintStart_toEndOf="@+id/gpbutton3"
+
+        app:layout_constraintTop_toBottomOf="@+id/help_button8"
+
+        app:layout_constraintVertical_bias="0.312" />
+
+
+    <Button
+
+        android:id="@+id/gpbutton5"
+
+        android:layout_width="144dp"
+
+        android:layout_height="131dp"
+
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginStart="15dp"
+
+        android:layout_marginTop="8dp"
+
+        android:background="@drawable/pr3"
+
+        android:onClick="gpbutton5onClick"
+
+        app:layout_constraintBottom_toTopOf="@+id/goplay"
+
+        app:layout_constraintStart_toEndOf="@+id/gpbutton2"
+
+        app:layout_constraintTop_toBottomOf="@+id/help_button8"
+
+        app:layout_constraintVertical_bias="0.312" />
+
+
+    <Button
+
+        android:id="@+id/yellow5"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="yellow"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/yellow4"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="yellow"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/yellow3"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="yellow"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/yellow2"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="yellow"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/yellow1"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="yellow"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/black5"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="black"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/black4"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="black"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/black3"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="black"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/black2"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="black"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/black1"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="black"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/purple5"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="purple"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/purple4"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="purple"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/purple3"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="purple"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/purple2"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="purple"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/purple1"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="purple"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/blue5"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="blue"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/blue4"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="blue"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/blue3"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="blue"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/blue2"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="blue"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/blue1"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="blue"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/red5"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="red"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/red4"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="red"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/red3"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="red"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/red2"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="red"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/red1"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="red"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/green4"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="green"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/green3"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="green"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/green2"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="green"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/green5"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="green"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <TextView
+
+        android:id="@+id/textView12"
+
+        android:layout_width="224dp"
+
+        android:layout_height="71dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="40dp"
+
+        android:text="Tutorial"
+
+        android:textColor="@android:color/black"
+
+        android:textSize="40dp"
+
+        app:layout_constraintEnd_toStartOf="@+id/help_button8"
+
+        app:layout_constraintHorizontal_bias="0.682"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+
+        android:id="@+id/help_button8"
+
+        android:layout_width="214dp"
+
+        android:layout_height="92dp"
+
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginEnd="16dp"
+
+        android:layout_marginTop="16dp"
+
+        android:background="@drawable/help_icon"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <Button
+
+        android:id="@+id/green1"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="green"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.008"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <Button
+
+        android:id="@+id/gpbutton1"
+
+        android:layout_width="144dp"
+
+        android:layout_height="131dp"
+
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginStart="4dp"
+
+        android:layout_marginTop="8dp"
+
+        android:background="@drawable/gr2"
+
+        android:onClick="gpbutton1onClick"
+
+        app:layout_constraintBottom_toTopOf="@+id/goplay"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/help_button8"
+
+        app:layout_constraintVertical_bias="0.316" />
+
+
+    <Button
+
+        android:id="@+id/goplay"
+
+        android:layout_width="145dp"
+
+        android:layout_height="72dp"
+
+        android:layout_marginBottom="56dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:background="@android:color/holo_orange_dark"
+
+        android:onClick="goplayonClick"
+
+        android:text="PLAY"
+
+        android:textSize="30dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.415"
+
+        app:layout_constraintStart_toEndOf="@+id/tutorial_test" />
+
+
+    <TextView
+
+        android:id="@+id/command"
+
+        android:layout_width="535dp"
+
+        android:layout_height="54dp"
+
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="CLICK THE GREEN ITEMS"
+
+        android:textSize="40dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/tutorial_test"
+
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.549"
+
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/gpbutton2"
+
+        app:layout_constraintVertical_bias="0.486" />
+
+
+    <TextView
+
+        android:id="@+id/found"
+
+        android:layout_width="242dp"
+
+        android:layout_height="115dp"
+
+        android:layout_marginBottom="8dp"
+
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginTop="8dp"
+
+        android:text="TextView"
+
+        android:textSize="40dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toStartOf="@+id/goplay"
+
+        app:layout_constraintTop_toBottomOf="@+id/command"
+
+        app:layout_constraintVertical_bias="0.343" />
+
+
+</android.support.constraint.ConstraintLayout>
