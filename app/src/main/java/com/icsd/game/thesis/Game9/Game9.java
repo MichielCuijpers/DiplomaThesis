@@ -1,8 +1,6 @@
 package com.icsd.game.thesis.Game9;
 
 
-import android.graphics.drawable.Drawable;
-
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
@@ -13,17 +11,12 @@ import android.view.View;
 
 import android.widget.Button;
 
-import android.widget.ImageView;
-
 import android.widget.TextView;
 
 import android.widget.Toast;
 
 
 import com.icsd.game.thesis.R;
-
-
-import org.w3c.dom.Text;
 
 
 import java.util.ArrayList;
@@ -476,13 +469,13 @@ public class Game9 extends AppCompatActivity {
 
     private void initGamePlayButtons() {
 
-        randomcolor1 = (Button) findViewById(R.id.gpbutton1);
+        randomcolor1 = (Button) findViewById(R.id.gp1);
 
         randomcolor2 = (Button) findViewById(R.id.gpbutton4);
 
         randomcolor3 = (Button) findViewById(R.id.gpbutton3);
 
-        randomcolor4 = (Button) findViewById(R.id.gpbutton2);
+        randomcolor4 = (Button) findViewById(R.id.gp2);
 
         randomcolor5 = (Button) findViewById(R.id.gpbutton5);
 
@@ -507,13 +500,13 @@ public class Game9 extends AppCompatActivity {
 
     private void initAnswerButtons() {
 
-        answergp1 = (Button) findViewById(R.id.gpbutton1);
+        answergp1 = (Button) findViewById(R.id.gp1);
 
         answergp2 = (Button) findViewById(R.id.gpbutton4);
 
         answergp3 = (Button) findViewById(R.id.gpbutton3);
 
-        answergp4 = (Button) findViewById(R.id.gpbutton2);
+        answergp4 = (Button) findViewById(R.id.gp2);
 
         answergp5 = (Button) findViewById(R.id.gpbutton5);
 

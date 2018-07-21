@@ -93,7 +93,7 @@
 
         app:layout_constraintBottom_toTopOf="@+id/goplay"
 
-        app:layout_constraintStart_toEndOf="@+id/gpbutton1"
+        app:layout_constraintStart_toEndOf="@+id/gp1"
 
         app:layout_constraintTop_toBottomOf="@+id/help_button8"
 
@@ -129,7 +129,7 @@
 
     <Button
 
-        android:id="@+id/gpbutton2"
+        android:id="@+id/gp2"
 
         android:layout_width="144dp"
 
@@ -174,7 +174,7 @@
 
         app:layout_constraintBottom_toTopOf="@+id/goplay"
 
-        app:layout_constraintStart_toEndOf="@+id/gpbutton2"
+        app:layout_constraintStart_toEndOf="@+id/gp2"
 
         app:layout_constraintTop_toBottomOf="@+id/help_button8"
 
@@ -1227,7 +1227,7 @@
 
     <Button
 
-        android:id="@+id/gpbutton1"
+        android:id="@+id/gp1"
 
         android:layout_width="144dp"
 
@@ -1311,7 +1311,7 @@
 
         app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toBottomOf="@+id/gpbutton2"
+        app:layout_constraintTop_toBottomOf="@+id/gp2"
 
         app:layout_constraintVertical_bias="0.486" />
 

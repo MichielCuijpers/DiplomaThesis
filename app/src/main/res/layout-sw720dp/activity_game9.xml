@@ -47,7 +47,7 @@
         android:background="@drawable/bl2"
         android:onClick="gpbutton4onClick"
         app:layout_constraintBottom_toTopOf="@+id/goplay"
-        app:layout_constraintStart_toEndOf="@+id/gpbutton1"
+        app:layout_constraintStart_toEndOf="@+id/gp1"
         app:layout_constraintTop_toBottomOf="@+id/help_button8"
         app:layout_constraintVertical_bias="0.312" />
 
@@ -66,7 +66,7 @@
         app:layout_constraintVertical_bias="0.312" />
 
     <Button
-        android:id="@+id/gpbutton2"
+        android:id="@+id/gp2"
         android:layout_width="190dp"
         android:layout_height="160dp"
         android:layout_marginBottom="8dp"
@@ -89,7 +89,7 @@
         android:background="@drawable/pr3"
         android:onClick="gpbutton5onClick"
         app:layout_constraintBottom_toTopOf="@+id/goplay"
-        app:layout_constraintStart_toEndOf="@+id/gpbutton2"
+        app:layout_constraintStart_toEndOf="@+id/gp2"
         app:layout_constraintTop_toBottomOf="@+id/help_button8"
         app:layout_constraintVertical_bias="0.312" />
 
@@ -597,7 +597,7 @@
         android:text="Tutorial"
         android:textColor="@android:color/black"
         android:textSize="60dp"
-        app:layout_constraintBottom_toTopOf="@+id/gpbutton2"
+        app:layout_constraintBottom_toTopOf="@+id/gp2"
         app:layout_constraintEnd_toStartOf="@+id/help_button8"
         app:layout_constraintHorizontal_bias="0.697"
         app:layout_constraintStart_toStartOf="parent"
@@ -635,7 +635,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/gpbutton1"
+        android:id="@+id/gp1"
         android:layout_width="190dp"
         android:layout_height="160dp"
         android:layout_marginBottom="8dp"
@@ -678,7 +678,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gpbutton2"
+        app:layout_constraintTop_toBottomOf="@+id/gp2"
         app:layout_constraintVertical_bias="0.486" />
 
     <TextView
