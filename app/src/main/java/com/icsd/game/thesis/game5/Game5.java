@@ -45,10 +45,10 @@ public class Game5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game5_prototype);
         myCont = this.getApplicationContext();
-        // Object.ObjectDBEntry.addTestQuestionToDB();
+        Object.ObjectDBEntry.addTestObjectToDB();
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         curSession = new Session(Menu.testUser.getUsername(), 5);
-        curSession.setTimeStart(System.currentTimeMillis() );
+        curSession.setTimeStart(System.currentTimeMillis());
 
         init();
         play(turn);
@@ -71,7 +71,7 @@ public class Game5 extends AppCompatActivity {
         if (endGame()) {
 
             Toast.makeText(this, "Congrats!! You found all answers!! Game End Play another game ", Toast.LENGTH_LONG).show();
-            curSession.setTimeEnd(System.currentTimeMillis() );
+            curSession.setTimeEnd(System.currentTimeMillis());
             dbHandler.addSessionToDB(this.curSession);
             Intent c = new Intent(this, Menu.class);
             startActivity(c);
@@ -127,7 +127,7 @@ public class Game5 extends AppCompatActivity {
     }
 
     public Boolean endGame() {
-        if (turn == 3) {
+        if (turn == 4) {
             return true;
 
         }

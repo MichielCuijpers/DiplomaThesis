@@ -41,7 +41,7 @@ public class Object {
                 + ANSWER3 + " TEXT, "
                 + ANSWER4 + " TEXT)";
 
-        protected static void addTestQuestionToDB() {
+        protected static void addTestObjectToDB() {
 
             db = dh.getWritableDatabase();
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
@@ -87,15 +87,7 @@ public class Object {
             ArrayList<Object> queryResultsList = new ArrayList<>();
             db = dh.getWritableDatabase();
             String data;
-            String[] projection = {
-                    _ID,
-                    NAME,
-                    ANSWER1,
-                    ANSWER2,
-                    ANSWER3,
-                    ANSWER4
 
-            };
             String selectQuery = "SELECT * FROM " + TABLE_NAME;
 
             Cursor cursor = db.rawQuery(selectQuery, null);

@@ -57,7 +57,7 @@ public class Game1Activity extends AppCompatActivity {
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
         myCont = this.getApplicationContext();
         questions = new ArrayList<>();
-        //  Question.QuestionDBEntry.addTestQuestionToDB();
+          Question.QuestionDBEntry.addTestQuestionToDB();
 
 
     }
