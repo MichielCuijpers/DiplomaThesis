@@ -97,7 +97,7 @@ public class Game15MiniGame1 extends AppCompatActivity {
         } else if (kindOfTurn == 3) {
             button1.setText("<");
             button2.setText(">");
-            
+
             button3.setVisibility(View.INVISIBLE);
             button4.setVisibility(View.INVISIBLE);
             textView2.setVisibility(View.INVISIBLE);
