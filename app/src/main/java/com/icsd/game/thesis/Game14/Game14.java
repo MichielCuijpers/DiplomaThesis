@@ -8,12 +8,15 @@ import android.widget.TextView;
 
 import com.icsd.game.thesis.R;
 
+import java.util.ArrayList;
+
 public class Game14 extends AppCompatActivity {
     private Button test_again;
     private Button start_game;
     private TextView titletext;
     private Button object1;
     private Button object2;
+    private ArrayList<String> keepweight;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,7 @@ public class Game14 extends AppCompatActivity {
         object1 = (Button) findViewById(R.id.tutorialbutton_g14);
         object2 = (Button) findViewById(R.id.tutorialbutton_g15);
         titletext = (TextView) findViewById(R.id.title_14);
+        keepweight = new ArrayList<String>();
     }
     public void tutoonClick(View view) {
     }
