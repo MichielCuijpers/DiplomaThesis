@@ -27,14 +27,21 @@ public class Game12 extends AppCompatActivity {
     private Button gppencil;
     private Button tie;
     private Button RandomPosition;
+    private Button gameplayb1;
+    private Button gameplayb2;
     private TextView title;
     private ViewGroup.LayoutParams scale;
     private StringBuilder combinefile;
     private ArrayList<Button> gameplayimages;
-    private int pos;
+    private ArrayList<String> knownwinner;
+    private static int corrects;
+    private static int wrongs;
     private int turn_tutorial = 0;
     private String takeTextFrom1;
     private String takeTextFrom2;
+    private String kwinner;
+    private String chosenwinner;
+    private TextView corans;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,8 @@ public class Game12 extends AppCompatActivity {
     {
         takeTextFrom1 = " ";
         takeTextFrom2 = " ";
+        kwinner = " ";
+        chosenwinner = " ";
         tutorialButton = (Button)findViewById(R.id.tutorialbutton); //con button
         tutorialButton2 = (Button)findViewById(R.id.tutorialbutton2); //back button
         ObjectButton = (Button)findViewById(R.id.tutorialObjectIcon);
@@ -61,14 +70,27 @@ public class Game12 extends AppCompatActivity {
         gppencil = (Button) findViewById(R.id.gameplaypencil);
         gpscissors = (Button) findViewById(R.id.gameplayscissors);
         gppaper = (Button) findViewById(R.id.gameplaypaper);
+        gprock.setText("rock");
+        gppencil.setText("pencil");
+        gpscissors.setText("scissors");
+        gppaper.setText("paper");
         gameplayimages.add(gprock);
         gameplayimages.add(gppencil);
         gameplayimages.add(gpscissors);
         gameplayimages.add(gppaper);
+        gameplayb1 = (Button) findViewById(R.id.gp1);
+        gameplayb2 = (Button) findViewById(R.id.gp2);
+        gameplayb1.setVisibility(View.INVISIBLE);
+        gameplayb2.setVisibility(View.INVISIBLE);
         combinefile = new StringBuilder();
         title = (TextView) findViewById(R.id.textView);
         scale = title.getLayoutParams();
-        pos = 0;
+        wrongs = 0;
+        corrects = 0;
+        knownwinner = new ArrayList<String>();
+        corans = (TextView) findViewById(R.id.correctans);
+        corans.setVisibility(View.INVISIBLE);
+
 
     }
     public void continueonClick(View view) {
@@ -100,7 +122,7 @@ public class Game12 extends AppCompatActivity {
         else if(getTutorial()==4)
         {
             initGameplay();
-            tutorialButton.setText("ROLL");
+            tutorialButton.setVisibility(View.INVISIBLE);
             tutorialButton2.setVisibility(View.INVISIBLE);
         }
     }
@@ -179,60 +201,169 @@ public class Game12 extends AppCompatActivity {
     }
     private void initGameplay()
     {
-        //ObjectButton.callOnClick();
-        //ObjectButton2.callOnClick();
         Log.e("MyDEbou", "Initgameplay called");
        ObjectButton3.setVisibility(View.INVISIBLE);
        ObjectButton4.setVisibility(View.INVISIBLE);
-       ObjectButton.setVisibility(View.VISIBLE);
-       ObjectButton2.setVisibility(View.VISIBLE);
-       for(int i =0;i<gameplayimages.size();i++)
-       {
-           Collections.shuffle(gameplayimages);
-           pos = i;
-           ObjectButton.setBackground(gameplayimages.get(pos).getBackground());
-           ObjectButton.setText(gameplayimages.get(pos).getText());  ///BUG BUG BUG
-           ObjectButton.setTextSize(0);
-           Collections.shuffle(gameplayimages);
-           ObjectButton2.setBackground(gameplayimages.get(i).getBackground());
-           ObjectButton2.setTextSize(0);
-           title.setText("Click on the Winner");
-           title.setWidth(scale.width=500);
-           tie.setVisibility(View.VISIBLE);
-       }
+       ObjectButton.setVisibility(View.INVISIBLE);
+       ObjectButton2.setVisibility(View.INVISIBLE);
+       gameplayb1.setVisibility(View.VISIBLE);
+       gameplayb2.setVisibility(View.VISIBLE);
 
-       ObjectButton.setOnClickListener(new View.OnClickListener() {
+       Collections.shuffle(gameplayimages);
+      // do {
+           for (int i = 0; i < gameplayimages.size(); i++) { //na thumithw dowhile
+               if (gameplayimages.get(i).getText().equals("scissors")) {
+                   gameplayb1.setBackground(getDrawable(R.drawable.scissors));
+                   gameplayb1.setText("scissors");
+                   //gpscissors.setVisibility(View.VISIBLE);
+                   knownwinner.add("scissors");
 
-           @Override
-           public void onClick(View v) {
-               Log.e("MyDEbou", ObjectButton.getText()+" onclick called ");
-               takeTextFrom1 = (String) ObjectButton.getText();
-               Log.e("MyDEbou", takeTextFrom1+"  called ");
-               takeTextFrom2 = ObjectButton2.getText().toString();
-               CheckObalWinner(takeTextFrom1,takeTextFrom2);
+
+               } else if (gameplayimages.get(i).getText().equals("paper")) {
+                   gameplayb1.setBackground(getDrawable(R.drawable.paper));
+                   gameplayb1.setText("paper");
+                   knownwinner.add("paper");
+
+               } else if (gameplayimages.get(i).getText().equals("rock")) {
+                   gameplayb1.setBackground(getDrawable(R.drawable.rock));
+                   gameplayb1.setText("rock");
+                   knownwinner.add("rock");
+
+               } else if (gameplayimages.get(i).getText().equals("pencil")) {
+                   gameplayb1.setBackground(getDrawable(R.drawable.pencil));
+                   gameplayb1.setText("pencil");
+                   knownwinner.add("pencil");
+
+               }
+
            }
-       });
+        Collections.shuffle(gameplayimages);
+        for (int i = 0; i < gameplayimages.size(); i++) { //na thumithw dowhile
+            if (gameplayimages.get(i).getText().equals("scissors")) {
+                gameplayb2.setBackground(getDrawable(R.drawable.scissors));
+                gameplayb2.setText("scissors");
+                //gpscissors.setVisibility(View.VISIBLE);
+                knownwinner.add("scissors");
+
+
+            } else if (gameplayimages.get(i).getText().equals("paper")) {
+                gameplayb2.setBackground(getDrawable(R.drawable.paper));
+                gameplayb2.setText("paper");
+                knownwinner.add("paper");
+
+            } else if (gameplayimages.get(i).getText().equals("rock")) {
+                gameplayb2.setBackground(getDrawable(R.drawable.rock));
+                gameplayb2.setText("rock");
+                knownwinner.add("rock");
+
+            } else if (gameplayimages.get(i).getText().equals("pencil")) {
+                gameplayb2.setBackground(getDrawable(R.drawable.pencil));
+                gameplayb2.setText("pencil");
+                knownwinner.add("pencil");
+
+            }
+
+        }
+      // }while (pos<2);
+       //CheckKnownWinner();
+        title.setText("Click on the Winner");
+        title.setWidth(scale.width=500);
+        tie.setVisibility(View.VISIBLE);
+        corans.setText("Corrects : "+corrects);
+
 
     }
-    public void CheckObalWinner(String chosenWinnerbyUser1,String chosenWinnerbyUser2)
+    public String  CheckKnownWinner(String one, String two)
     {
-      if(takeTextFrom1.equals("scissors")){
-          Toast.makeText(this, "correct  ", Toast.LENGTH_SHORT).show();
+      if((one.equals("rock")) && (two.equals("pencil"))){
+          return "rock";
+    }
+    else if((one.equals("rock")) && (two.equals("scissors"))){
+          return "rock";
       }
-      else{
-          Toast.makeText(this, "incorrect  ", Toast.LENGTH_SHORT).show();
+      else if((one.equals("rock")) && (two.equals("paper"))){
+         return  "paper";
       }
+      else if((one.equals("pencil")) && (two.equals("paper"))){
+          return "pencil";
+      }
+      else if((one.equals("pencil")) && (two.equals("scissors"))){
+         return "scissors";
+      }
+      else if((one.equals("pencil")) && (two.equals("rock"))){
+          return "rock";
+      }
+      else if((one.equals("scissors")) && (two.equals("rock"))){
+          return "rock";
+      }
+      else if((one.equals("scissors")) && (two.equals("pencil"))){
+          return "scissors";
+      }
+      else if((one.equals("scissors")) && (two.equals("paper"))){
+         return "scissors";
+      }
+      else if((one.equals("paper")) && (two.equals("scissors"))){
+         return  "scissors";
+      }
+      else if((one.equals("paper")) && (two.equals("pencil"))){
+          return "pencil";
+      }
+      else if((one.equals("paper")) && (two.equals("rock"))){
+          return "paper";
+      }
+      else {
+          return "tie";
+      }
+    }
+    public void CheckWins(Button one,Button two){
+        if((gameplayb1.getText().equals("rock")) && (gameplayb2.getText().equals("scissors")))
+        {
+
+        }
+    }
+    public void p1onClick(View view) {
+
+        kwinner =  CheckKnownWinner((String) gameplayb1.getText(),(String) gameplayb2.getText());
+        Log.e("MyDEbou", "To 1 exei "+gameplayb1.getText()+"kai to kwiner :" +kwinner);
+        if(gameplayb1.getText().equals(kwinner)){
+            Toast.makeText(this, "CORRECT", Toast.LENGTH_SHORT).show();
+            corrects++;
+            initGameplay();
+        }
+        else{
+            Toast.makeText(this, "INCORRECT", Toast.LENGTH_SHORT).show();
+            wrongs++;
+            initGameplay();
+        }
+    }
+    public void p2onClick(View view) {
+        kwinner =  CheckKnownWinner((String) gameplayb1.getText(),(String) gameplayb2.getText());
+        Log.e("MyDEbou", "To 2 exei "+gameplayb2.getText()+"kai to kwiner :" +kwinner);
+        if(gameplayb2.getText().equals(kwinner)){
+            Toast.makeText(this, "CORRECT", Toast.LENGTH_SHORT).show();
+            corrects++;
+            initGameplay();
+        }
+        else{
+            Toast.makeText(this, "INCORRECT", Toast.LENGTH_SHORT).show();
+            wrongs++;
+            initGameplay();
+        }
     }
 
-    public void p2onClick(View view) {
-       String takeTextFrom1 = ObjectButton2.getText().toString();
-       String takeTextFrom2 = ObjectButton.getText().toString();
-       //CheckWinner(takeTextFrom1,takeTextFrom2);
+    public void tieonClick(View view) {
+        kwinner =  CheckKnownWinner((String) gameplayb1.getText(),(String) gameplayb2.getText());
+        Log.e("MyDEbou", "To 2 exei "+gameplayb2.getText()+"kai to kwiner :" +kwinner);
+        if(kwinner.equals("tie")){
+            Toast.makeText(this, "CORRECT", Toast.LENGTH_SHORT).show();
+            corrects++;
+            initGameplay();
+        }
+        else{
+            Toast.makeText(this, "INCORRECT", Toast.LENGTH_SHORT).show();
+            wrongs++;
+            initGameplay();
+
+        }
     }
-    //public void p1onClick(View view) {
-      //  Toast.makeText(this, "correct  ", Toast.LENGTH_SHORT).show();
-        //String takeTextFrom1 = ObjectButton.getText().toString();
-        //String takeTextFrom2 = ObjectButton2.getText().toString();
-       // CheckWinner(takeTextFrom1,takeTextFrom2);
-  //  }
 }

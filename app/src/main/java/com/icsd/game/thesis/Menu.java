@@ -6,6 +6,7 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.os.Bundle;
 import android.view.View;
 
+import com.icsd.game.thesis.Game6.Game6;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.User;
 import com.icsd.game.thesis.game1.Game1Activity;
@@ -56,6 +57,10 @@ public class Menu extends Activity {
 
     public void game2(View view) {
         Intent c = new Intent(this, Game2Activity.class);
+        startActivity(c);
+    }
+    public void game6(View view){
+        Intent c = new Intent(this,Game6.class);
         startActivity(c);
     }
 }
