@@ -22,7 +22,7 @@ public class Game1Activity extends AppCompatActivity {
 
 
     private static Context myCont;
-    private String currentCategorie;
+    private String currentCategory;
     private View view1, view2;
     private TextView questionView;
     private TextView pickCategoryView;
@@ -41,6 +41,7 @@ public class Game1Activity extends AppCompatActivity {
     private ArrayList<String> a;
     private Session curSession;
     private DatabaseHandler dbHandler;
+    private ArrayList<String> questions;
 
 
     @Override
@@ -55,18 +56,82 @@ public class Game1Activity extends AppCompatActivity {
         curSession = new Session(Menu.testUser.getUsername(), 1);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
         myCont = this.getApplicationContext();
-        //Question.QuestionDBEntry.addTestQuestionToDB();
+        questions = new ArrayList<>();
+        //  Question.QuestionDBEntry.addTestQuestionToDB();
 
 
     }
 
 
+    private void initGuiComps() {
+        this.questionView = findViewById(R.id.questionView);
+        this.answer1Button = findViewById(R.id.checkButton5);
+        this.answer2Button = findViewById(R.id.answer2Button);
+        this.answer3Button = findViewById(R.id.answer3Button);
+        this.answer4Button = findViewById(R.id.answer4Button);
+    }
+
+    private void initTheQuestion() {
+
+        question = new Question(questions);
+
+
+        this.questionView.setText(question.getQuestion());
+        correctAnswer = question.getAnswers().get(0);
+        Collections.shuffle(question.getAnswers());
+        this.answer1Button.setText(this.question.answers.get(0));
+        this.answer2Button.setText(this.question.answers.get(1));
+        this.answer3Button.setText(this.question.answers.get(2));
+        this.answer4Button.setText(this.question.answers.get(3));
+
+        for (int i = 0; i<5; i++) {
+//            Log.e("MYDEBUG",questions.get(i) + i );
+            questions.remove(0);
+
+        }
+
+
+
+    }
+
+    private void checkAnswer(Button button) {
+        if (button.getText().equals(correctAnswer)) {
+            Toast.makeText(this, "Congratulations. Your answer is correct!! ", Toast.LENGTH_SHORT).show();
+            curSession.setScore(curSession.getScore() + 1);
+            curSession.setStage(curSession.getStage() + 1);
+            initTheQuestion();
+
+
+
+
+        } else {
+            Toast.makeText(this, "Wrong aswer, try one more time !!  ", Toast.LENGTH_SHORT).show();
+            curSession.setFails(curSession.getFails() + 1);
+        }
+        if(this.questions.isEmpty()){
+            setContentView(view1);
+            pickCategoryView.setText("Please choose another category");
+        }
+        if (curSession.getStage() == 15) {
+            dbHandler = new DatabaseHandler(this.getApplicationContext());
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            dbHandler.addSessionToDB(this.curSession);
+            Toast.makeText(this, "Congrats!! You found all answers!! Game End ,Play another game ", Toast.LENGTH_LONG).show();
+            Intent c = new Intent(this, Menu.class);
+            startActivity(c);
+        }
+    }
+
+    public static Context getMyCont() {
+        return myCont;
+    }
+
     //onClickMethods
     public void category1OnClick(View view) {
         setContentView(view2);
         initGuiComps();
-        this.currentCategorie = CATEGORY1;
-        question = new Question(currentCategorie);
+        this.currentCategory = CATEGORY1;
+        questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
 
         initTheQuestion();
     }
@@ -74,16 +139,16 @@ public class Game1Activity extends AppCompatActivity {
     public void category2OnClick(View view) {
         setContentView(view2);
         initGuiComps();
-        this.currentCategorie = CATEGORY2;
-        question = new Question(currentCategorie);
+        this.currentCategory = CATEGORY2;
+        questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
         initTheQuestion();
     }
 
     public void category3OnClick(View view) {
         setContentView(view2);
         initGuiComps();
-        this.currentCategorie = CATEGORY3;
-        question = new Question(currentCategorie);
+        this.currentCategory = CATEGORY3;
+        questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
         initTheQuestion();
 
     }
@@ -91,8 +156,8 @@ public class Game1Activity extends AppCompatActivity {
     public void category4OnClick(View view) {
         setContentView(view2);
         initGuiComps();
-        this.currentCategorie = CATEGORY4;
-        question = new Question(currentCategorie);
+        this.currentCategory = CATEGORY4;
+        questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
         initTheQuestion();
 
     }
@@ -100,8 +165,8 @@ public class Game1Activity extends AppCompatActivity {
     public void category5OnClick(View view) {
         setContentView(view2);
         initGuiComps();
-        this.currentCategorie = CATEGORY5;
-        question = new Question(currentCategorie);
+        this.currentCategory = CATEGORY5;
+        questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
         initTheQuestion();
 
     }
@@ -109,8 +174,8 @@ public class Game1Activity extends AppCompatActivity {
     public void category6OnClick(View view) {
         setContentView(view2);
         initGuiComps();
-        this.currentCategorie = CATEGORY6;
-        question = new Question(currentCategorie);
+        this.currentCategory = CATEGORY6;
+        questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
         initTheQuestion();
 
     }
@@ -130,56 +195,6 @@ public class Game1Activity extends AppCompatActivity {
 
     public void answer4OnClick(View view) {
         checkAnswer((Button) view);
-    }
-
-    //funcionality methods
-    private void initGuiComps() {
-        this.questionView = findViewById(R.id.questionView);
-        this.answer1Button = findViewById(R.id.checkButton5);
-        this.answer2Button = findViewById(R.id.answer2Button);
-        this.answer3Button = findViewById(R.id.answer3Button);
-        this.answer4Button = findViewById(R.id.answer4Button);
-    }
-
-    private void initTheQuestion() {
-
-        correctAnswer = this.question.answers.get(0);
-        Collections.shuffle(this.question.answers);
-        this.questionView.setText(this.question.getQuestion());
-
-        this.answer1Button.setText(this.question.answers.get(0));
-        this.answer2Button.setText(this.question.answers.get(1));
-        this.answer3Button.setText(this.question.answers.get(2));
-        this.answer4Button.setText(this.question.answers.get(3));
-
-        Log.e("MYDEBUg", this.answer2Button.getBackground() + "");
-    }
-
-    private void checkAnswer(Button button) {
-        if (button.getText().equals(correctAnswer)) {
-            Toast.makeText(this, "Congratulations. Your answer is correct!! ", Toast.LENGTH_SHORT).show();
-            curSession.setScore(curSession.getScore() + 1);
-            curSession.setStage(curSession.getStage() + 1);
-            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-            setContentView(view1);
-            pickCategoryView.setText("Please choose another category");
-
-
-        } else {
-            Toast.makeText(this, "Wrong aswer, try one more time !!  ", Toast.LENGTH_SHORT).show();
-            curSession.setFails(curSession.getFails() + 1);
-        }
-        if (curSession.getStage() == 6) {
-            dbHandler = new DatabaseHandler(this.getApplicationContext());
-            dbHandler.addSessionToDB(this.curSession);
-            Toast.makeText(this, "Congrats!! You found all answers!! Game End ,Play another game ", Toast.LENGTH_LONG).show();
-            Intent c = new Intent(this, Menu.class);
-            startActivity(c);
-        }
-    }
-
-    public static Context getMyCont() {
-        return myCont;
     }
 
 
