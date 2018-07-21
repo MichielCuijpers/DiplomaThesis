@@ -34,12 +34,14 @@ public class Game12 extends AppCompatActivity {
     private StringBuilder combinefile;
     private ArrayList<Button> gameplayimages;
     private ArrayList<String> knownwinner;
-    private int pos;
+    private static int corrects;
+    private static int wrongs;
     private int turn_tutorial = 0;
     private String takeTextFrom1;
     private String takeTextFrom2;
     private String kwinner;
     private String chosenwinner;
+    private TextView corans;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +85,12 @@ public class Game12 extends AppCompatActivity {
         combinefile = new StringBuilder();
         title = (TextView) findViewById(R.id.textView);
         scale = title.getLayoutParams();
-        pos = 0;
+        wrongs = 0;
+        corrects = 0;
         knownwinner = new ArrayList<String>();
+        corans = (TextView) findViewById(R.id.correctans);
+        corans.setVisibility(View.INVISIBLE);
+
 
     }
     public void continueonClick(View view) {
@@ -116,7 +122,7 @@ public class Game12 extends AppCompatActivity {
         else if(getTutorial()==4)
         {
             initGameplay();
-            tutorialButton.setText("ROLL");
+            tutorialButton.setVisibility(View.INVISIBLE);
             tutorialButton2.setVisibility(View.INVISIBLE);
         }
     }
@@ -211,23 +217,23 @@ public class Game12 extends AppCompatActivity {
                    gameplayb1.setText("scissors");
                    //gpscissors.setVisibility(View.VISIBLE);
                    knownwinner.add("scissors");
-                   pos++;
+
 
                } else if (gameplayimages.get(i).getText().equals("paper")) {
                    gameplayb1.setBackground(getDrawable(R.drawable.paper));
                    gameplayb1.setText("paper");
                    knownwinner.add("paper");
-                   pos++;
+
                } else if (gameplayimages.get(i).getText().equals("rock")) {
                    gameplayb1.setBackground(getDrawable(R.drawable.rock));
                    gameplayb1.setText("rock");
                    knownwinner.add("rock");
-                   pos++;
+
                } else if (gameplayimages.get(i).getText().equals("pencil")) {
                    gameplayb1.setBackground(getDrawable(R.drawable.pencil));
                    gameplayb1.setText("pencil");
                    knownwinner.add("pencil");
-                   pos++;
+
                }
 
            }
@@ -238,23 +244,23 @@ public class Game12 extends AppCompatActivity {
                 gameplayb2.setText("scissors");
                 //gpscissors.setVisibility(View.VISIBLE);
                 knownwinner.add("scissors");
-                pos++;
+
 
             } else if (gameplayimages.get(i).getText().equals("paper")) {
                 gameplayb2.setBackground(getDrawable(R.drawable.paper));
                 gameplayb2.setText("paper");
                 knownwinner.add("paper");
-                pos++;
+
             } else if (gameplayimages.get(i).getText().equals("rock")) {
                 gameplayb2.setBackground(getDrawable(R.drawable.rock));
                 gameplayb2.setText("rock");
                 knownwinner.add("rock");
-                pos++;
+
             } else if (gameplayimages.get(i).getText().equals("pencil")) {
                 gameplayb2.setBackground(getDrawable(R.drawable.pencil));
                 gameplayb2.setText("pencil");
                 knownwinner.add("pencil");
-                pos++;
+
             }
 
         }
@@ -263,6 +269,7 @@ public class Game12 extends AppCompatActivity {
         title.setText("Click on the Winner");
         title.setWidth(scale.width=500);
         tie.setVisibility(View.VISIBLE);
+        corans.setText("Corrects : "+corrects);
 
 
     }
@@ -320,10 +327,12 @@ public class Game12 extends AppCompatActivity {
         Log.e("MyDEbou", "To 1 exei "+gameplayb1.getText()+"kai to kwiner :" +kwinner);
         if(gameplayb1.getText().equals(kwinner)){
             Toast.makeText(this, "CORRECT", Toast.LENGTH_SHORT).show();
+            corrects++;
             initGameplay();
         }
         else{
             Toast.makeText(this, "INCORRECT", Toast.LENGTH_SHORT).show();
+            wrongs++;
             initGameplay();
         }
     }
@@ -332,10 +341,12 @@ public class Game12 extends AppCompatActivity {
         Log.e("MyDEbou", "To 2 exei "+gameplayb2.getText()+"kai to kwiner :" +kwinner);
         if(gameplayb2.getText().equals(kwinner)){
             Toast.makeText(this, "CORRECT", Toast.LENGTH_SHORT).show();
+            corrects++;
             initGameplay();
         }
         else{
             Toast.makeText(this, "INCORRECT", Toast.LENGTH_SHORT).show();
+            wrongs++;
             initGameplay();
         }
     }
@@ -345,10 +356,12 @@ public class Game12 extends AppCompatActivity {
         Log.e("MyDEbou", "To 2 exei "+gameplayb2.getText()+"kai to kwiner :" +kwinner);
         if(kwinner.equals("tie")){
             Toast.makeText(this, "CORRECT", Toast.LENGTH_SHORT).show();
+            corrects++;
             initGameplay();
         }
         else{
             Toast.makeText(this, "INCORRECT", Toast.LENGTH_SHORT).show();
+            wrongs++;
             initGameplay();
 
         }
