@@ -74,7 +74,8 @@
         <activity
             android:name=".game15.Game15MiniGame3"
             android:screenOrientation="landscape" />
-        <activity android:name=".game15.Game15MiniGame4"></activity>
+        <activity android:name=".game15.Game15MiniGame4" />
+        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>
