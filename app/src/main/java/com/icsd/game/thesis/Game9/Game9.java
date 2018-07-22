@@ -1,12 +1,20 @@
 package com.icsd.game.thesis.Game9;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.icsd.game.thesis.Menu;
+import com.icsd.game.thesis.Menu2;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.SoundHandler;
+import com.icsd.game.thesis.database.DatabaseHandler;
+import com.icsd.game.thesis.database.Session;
+
 import java.util.ArrayList;
 import java.util.Random;
 public class Game9 extends AppCompatActivity {
@@ -36,11 +44,18 @@ public class Game9 extends AppCompatActivity {
     //private boolean clicked1=false,clicked2=false,clicked3=false,clicked4=false,clicked5=false;
     private ArrayList<Boolean> clicked;
     private int position=0,position1=0;
+    private Session currentSession;
+    private DatabaseHandler dbHandler;
+    private SoundHandler soundHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game9);
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        currentSession = new Session(Menu.testUser.getUsername(),9);
+        currentSession.setTimeStart(System.currentTimeMillis()/1000);
+        soundHandler = new SoundHandler(getApplicationContext());
         initTest();
 
     }
@@ -549,8 +564,6 @@ public class Game9 extends AppCompatActivity {
     }
 
     public void checkWin(){
-
-
         for(Button b : images){
             if(!b.getText().equals("")){
                 right_color.add(b);
@@ -558,8 +571,20 @@ public class Game9 extends AppCompatActivity {
         }
     }
 
+    public void checkEndGame(){
+        if(sc==15){
+            currentSession.setTimeEnd(System.currentTimeMillis()/1000);
+            dbHandler.addSessionToDB(currentSession);
+            soundHandler.stopSound();
+            Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this , Menu2.class);
+            startActivity(intent);
+        }
+    }
+
     public void checkOnClick(View v){
         checkWin();
+        checkEndGame();
         if(right_color.size()==clicked.size() && lose.size()==0){
             Toast.makeText(this, "YOU FOUND THEM ALL", Toast.LENGTH_SHORT).show();
             //right_color.remove(b);
@@ -570,8 +595,12 @@ public class Game9 extends AppCompatActivity {
             for(int i=0;i<clicked.size();i++){
                 clicked.remove(i);
             }
+            currentSession.setScore(sc);
+            soundHandler.playOkSound();
             initGame();
         }else if(lose.size()!=0){
+            currentSession.setFails(currentSession.getFails()+1);
+            soundHandler.playWrongSound();
             for(int i=0;i<lose.size();i++){
                 lose.remove(i);
             }
@@ -579,6 +608,8 @@ public class Game9 extends AppCompatActivity {
             position=0;
             Toast.makeText(this, "YOU CLICKED MORE,TRY AGAIN", Toast.LENGTH_SHORT).show();
         }else if(clicked.size()<right_color.size()){
+            currentSession.setFails(currentSession.getFails()+1);
+            soundHandler.playWrongSound();
             //Toast.makeText(this, String.valueOf(clicked.size()), Toast.LENGTH_SHORT).show();
             //Toast.makeText(this, String.valueOf(right_color.size()), Toast.LENGTH_SHORT).show();
 

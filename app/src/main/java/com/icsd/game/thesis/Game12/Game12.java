@@ -1,4 +1,5 @@
 package com.icsd.game.thesis.Game12;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -9,7 +10,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Collections;
+
+import com.icsd.game.thesis.Menu;
+import com.icsd.game.thesis.Menu2;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.SoundHandler;
+import com.icsd.game.thesis.database.DatabaseHandler;
+import com.icsd.game.thesis.database.Session;
+
 import java.util.ArrayList;
 
 
@@ -42,11 +50,18 @@ public class Game12 extends AppCompatActivity {
     private String kwinner;
     private String chosenwinner;
     private TextView corans;
+    private Session currentSession;
+    private DatabaseHandler dbHandler;
+    private SoundHandler soundHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game12);
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        currentSession = new Session(Menu.testUser.getUsername(),12);
+        currentSession.setTimeStart(System.currentTimeMillis()/1000);
+        soundHandler = new SoundHandler(getApplicationContext());
         initGraphics();
         initScreen();
     }
@@ -321,6 +336,16 @@ public class Game12 extends AppCompatActivity {
 
         }
     }
+    public void checkEndGame(){
+        if(corrects==8){
+            currentSession.setTimeEnd(System.currentTimeMillis()/1000);
+            dbHandler.addSessionToDB(currentSession);
+            soundHandler.stopSound();
+            Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this , Menu2.class);
+            startActivity(intent);
+        }
+    }
     public void p1onClick(View view) {
 
         kwinner =  CheckKnownWinner((String) gameplayb1.getText(),(String) gameplayb2.getText());
@@ -328,11 +353,16 @@ public class Game12 extends AppCompatActivity {
         if(gameplayb1.getText().equals(kwinner)){
             Toast.makeText(this, "CORRECT", Toast.LENGTH_SHORT).show();
             corrects++;
+            currentSession.setScore(corrects);
+            soundHandler.playOkSound();
+            checkEndGame();
             initGameplay();
         }
         else{
             Toast.makeText(this, "INCORRECT", Toast.LENGTH_SHORT).show();
             wrongs++;
+            currentSession.setFails(currentSession.getFails()+1);
+            soundHandler.playWrongSound();
             initGameplay();
         }
     }
@@ -342,11 +372,16 @@ public class Game12 extends AppCompatActivity {
         if(gameplayb2.getText().equals(kwinner)){
             Toast.makeText(this, "CORRECT", Toast.LENGTH_SHORT).show();
             corrects++;
+            currentSession.setScore(corrects);
+            soundHandler.playOkSound();
+            checkEndGame();
             initGameplay();
         }
         else{
             Toast.makeText(this, "INCORRECT", Toast.LENGTH_SHORT).show();
             wrongs++;
+            currentSession.setFails(currentSession.getFails()+1);
+            soundHandler.playWrongSound();
             initGameplay();
         }
     }
@@ -357,11 +392,16 @@ public class Game12 extends AppCompatActivity {
         if(kwinner.equals("tie")){
             Toast.makeText(this, "CORRECT", Toast.LENGTH_SHORT).show();
             corrects++;
+            currentSession.setScore(corrects);
+            soundHandler.playOkSound();
+            checkEndGame();
             initGameplay();
         }
         else{
             Toast.makeText(this, "INCORRECT", Toast.LENGTH_SHORT).show();
             wrongs++;
+            currentSession.setFails(currentSession.getFails()+1);
+            soundHandler.playWrongSound();
             initGameplay();
 
         }
