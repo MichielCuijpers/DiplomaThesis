@@ -1,6 +1,7 @@
 package com.icsd.game.thesis.Game14;
 
 import android.os.Bundle;
+import android.support.v4.app.INotificationSideChannel;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,8 @@ public class Game14 extends AppCompatActivity {
     private TextView titletext;
     private Button object1;
     private Button object2;
+    private Button objgameplay;
+    private Button objgameplay2;
     private ArrayList<Button> heavy;
     private ArrayList<Button> light;
     private Button heavy1,heavy2,heavy3,heavy4,heavy5,heavy6,heavy7,heavy8;
@@ -33,7 +36,11 @@ public class Game14 extends AppCompatActivity {
         start_game = (Button) findViewById(R.id.start_gp);
         object1 = (Button) findViewById(R.id.tutorialbutton_g14);
         object2 = (Button) findViewById(R.id.tutorialbutton_g15);
+        objgameplay = (Button) findViewById(R.id.gameplaybutton_g14);
+        objgameplay2 = (Button) findViewById(R.id.gameplaybutton_g15);
         titletext = (TextView) findViewById(R.id.title_14);
+        heavy = new ArrayList<Button>();
+        light = new ArrayList<Button>();
 
     }
     private void initTutorial(){
@@ -61,7 +68,24 @@ public class Game14 extends AppCompatActivity {
       }
     }
     private void initGamePlayScreen(){
-
+        test_again.setVisibility(View.INVISIBLE);
+        start_game.setVisibility(View.INVISIBLE);
+        object1.setVisibility(View.INVISIBLE);
+        object2.setVisibility(View.INVISIBLE);
+        Collections.shuffle(heavy);
+        for(int i = 0; i<heavy.size();i++)
+        {
+            objgameplay.setBackground(heavy.get(i).getBackground());
+            objgameplay.setText("heavy");
+            objgameplay.setTextSize(0);
+        }
+        Collections.shuffle(light);
+        for(int i = 0; i <light.size();i++)
+        {
+            objgameplay2.setBackground(light.get(i).getBackground());
+            objgameplay2.setText("light");
+            objgameplay2.setTextSize(0);
+        }
     }
     private void initGamePlayImages() {
         heavy1 = (Button) findViewById(R.id.heavy);
