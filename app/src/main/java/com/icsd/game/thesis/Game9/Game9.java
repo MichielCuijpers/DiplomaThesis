@@ -1,1317 +1,674 @@
 package com.icsd.game.thesis.Game9;
 
-
 import android.os.Bundle;
-
 import android.support.v7.app.AppCompatActivity;
-
-import android.util.Log;
-
 import android.view.View;
-
 import android.widget.Button;
-
 import android.widget.TextView;
-
 import android.widget.Toast;
-
-
 import com.icsd.game.thesis.R;
-
-
 import java.util.ArrayList;
-
-import java.util.Collections;
-
 import java.util.Random;
-
-
 public class Game9 extends AppCompatActivity {
-
-    private ArrayList<Button> colorObjects;   /* list with all color objects */
-
-    private ArrayList<String> allColor;      /* list with all color name */
-
-    private ArrayList<Button> correctAnswers; /* list with all correct answers PER turn */ /*Initialize in every turn*/
-
-    private ArrayList<String> clickedAnswers; /* list with all all answers user answered PER turn */ /*Initialize in every turn*/
-
-    private ArrayList<Button> correctColorButtons; /* list with all buttons initialized in tutorial and gameplay */
-
-    /* $$$$$$ */
-
-
-    private Button randomcolor1;      /*     BUTTONS   */
-
-    private Button randomcolor2;        /* FOR */
-
-    private Button randomcolor3;        /*   GAMEPLAY */
-
-    private Button randomcolor4;
-
-    private Button randomcolor5;
-
-    private Button randomcolor6;
-
-    private Button removeTest;
-
-    private Button answergp1;
-
-    private Button answergp2;
-
-    private Button answergp3;
-
-    private Button answergp4;
-
-    private Button answergp5;
-
-    private Button answergp6;
-
-    private Button controlgp;
-
-    private Button controltuto;
-
-    private TextView cmd;
-
-    private TextView feedback;
-
-    private TextView title;
-
-    /* $$$$$$ */
-
-    private Button green1, green2, green3, green4, green5;
-
-    private Button red1, red2, red3, red4, red5;
-
-    private Button blue1, blue2, blue3, blue4, blue5;                 /*     BUTTONS   */
-
-    private Button purple1, purple2, purple3, purple4, purple5;        /* FOR */
-
-    private Button black1, black2, black3, black4, black5;            /*   ImageBackground */
-
-    private Button yel1, yel2, yel3, yel4, yel5;
-
-    /* $$$$$$ */
-
-    private int turn; /* keeps the round */
-
-    private static int countCorrectAnswers = 0;
-
-    private static int countWrongAnswers = 0;
-
-    private int positionofrandomcolor;
-
-    private int positionofshuffledarraylist;/* for the random method in PickRandColor */
-
-    private Random randC;
-
-    private Random randP;
-
-    private String getColor;
-
-    private String answer1;
-
-    private String answer2;
-
-    private String answer3;
-
-    private String answer4;
-
-    private String answer5;
-
-    private String answer6;
-
+    private Button iimage1;
+    private Button iimage2;
+    private Button iimage3;
+    private Button iimage4;
+    private Button iimage5;
+    private ArrayList<Button> images;
+    private ArrayList<Button> blue;
+    private ArrayList<Button> black;
+    private ArrayList<Button> green;
+    private ArrayList<Button> purple;
+    private ArrayList<Button> red;
+    private ArrayList<Button> yellow;
+    private TextView score;
+    private  int which_color;
+    private TextView what_to_click;
+    // private Categories category;
+    private Random rand;
+    private ArrayList<ArrayList> cat;
+    private Button b1,b2,b3,b4,b5,bl1,bl2,bl3,bl4,bl5,g1,g2,g3,g4,g5,p1,p2,p3,p4,p5,r1,r2,r3,r4,r5,y1,y2,y3,y4,y5,shuffle;
+    private int sc=0;
+    private ArrayList <Button> win;
+    private ArrayList <Button> lose;
+    private ArrayList <Button> right_color;
+    //private boolean clicked1=false,clicked2=false,clicked3=false,clicked4=false,clicked5=false;
+    private ArrayList<Boolean> clicked;
+    private int position=0,position1=0;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_game9);
-
-        initTutorialGui();
-
-    }
-
-
-    private void initVariables() {
-
-        turn = 0;
+        initTest();
 
     }
 
-
-    private void initGeneralGraphics() {
-
-        colorObjects = new ArrayList<Button>();
-
-        allColor = new ArrayList<String>();
-
-        correctAnswers = new ArrayList<Button>();
-
-        clickedAnswers = new ArrayList<String>();
-
-        correctColorButtons = new ArrayList<Button>();
-
-        randC = new Random();
-
-        randP = new Random();
-
-        cmd = (TextView) findViewById(R.id.command);
-
-        controlgp = (Button) findViewById(R.id.goplay);
-
-        controltuto = (Button) findViewById(R.id.tutorial_test);
-
-        feedback = (TextView) findViewById(R.id.found);
-
-        title = (TextView) findViewById(R.id.textView12);
-
-    } /* Initialize all General Items */
-
-
-    private void initAllColor() /* Init all Colors ArrayList */ {
-
-        allColor.add("green");
-
-        allColor.add("red");
-
-        allColor.add("black");
-
-        allColor.add("blue");
-
-        allColor.add("purple");
-
-        allColor.add("yellow");
-
-    }
-
-
-    private void initColorObjects() {
-
-
-        green1 = (Button) findViewById(R.id.green1);
-
-        green2 = (Button) findViewById(R.id.green2);
-
-        green3 = (Button) findViewById(R.id.green3);
-
-        green4 = (Button) findViewById(R.id.green4);
-
-        green5 = (Button) findViewById(R.id.green5);
-
-
-        green1.setBackground(getDrawable(R.drawable.gr1));
-
-        green2.setBackground(getDrawable(R.drawable.gr2));
-
-        green3.setBackground(getDrawable(R.drawable.gr3));
-
-        green4.setBackground(getDrawable(R.drawable.gr4));
-
-        green5.setBackground(getDrawable(R.drawable.gr5));
-
-
-        red1 = (Button) findViewById(R.id.red1);
-
-        red2 = (Button) findViewById(R.id.red2);
-
-        red3 = (Button) findViewById(R.id.red3);
-
-        red4 = (Button) findViewById(R.id.red4);
-
-        red5 = (Button) findViewById(R.id.red5);
-
-
-        red1.setBackground(getDrawable(R.drawable.r1));
-
-        red2.setBackground(getDrawable(R.drawable.r2));
-
-        red3.setBackground(getDrawable(R.drawable.r3));
-
-        red4.setBackground(getDrawable(R.drawable.r4)); //problima auti i eikona i r4
-
-        red5.setBackground(getDrawable(R.drawable.r5));
-
-
-        blue1 = (Button) findViewById(R.id.blue1);
-
-        blue2 = (Button) findViewById(R.id.blue2);
-
-        blue3 = (Button) findViewById(R.id.blue3);
-
-        blue4 = (Button) findViewById(R.id.blue4);
-
-        blue5 = (Button) findViewById(R.id.blue5);
-
-
-        blue1.setBackground(getDrawable(R.drawable.bl1));
-
-        blue2.setBackground(getDrawable(R.drawable.bl2));
-
-        blue3.setBackground(getDrawable(R.drawable.bl3));
-
-        blue4.setBackground(getDrawable(R.drawable.bl4));
-
-        blue5.setBackground(getDrawable(R.drawable.bl5));
-
-
-        purple1 = (Button) findViewById(R.id.purple1);
-
-        purple2 = (Button) findViewById(R.id.purple2);
-
-        purple3 = (Button) findViewById(R.id.purple3);
-
-        purple4 = (Button) findViewById(R.id.purple4);
-
-        purple5 = (Button) findViewById(R.id.purple5);
-
-
-        purple1.setBackground(getDrawable(R.drawable.pr1));
-
-        purple2.setBackground(getDrawable(R.drawable.pr2));
-
-        purple3.setBackground(getDrawable(R.drawable.pr3));
-
-        purple4.setBackground(getDrawable(R.drawable.pr4));
-
-        purple5.setBackground(getDrawable(R.drawable.pr5));
-
-
-        black1 = (Button) findViewById(R.id.black1);
-
-        black2 = (Button) findViewById(R.id.black2);
-
-        black3 = (Button) findViewById(R.id.black3);
-
-        black4 = (Button) findViewById(R.id.black4);
-
-        black5 = (Button) findViewById(R.id.black5);
-
-
-        black1.setBackground(getDrawable(R.drawable.blc1));
-
-        black2.setBackground(getDrawable(R.drawable.blc2));
-
-        black3.setBackground(getDrawable(R.drawable.blc3));
-
-        black4.setBackground(getDrawable(R.drawable.blc4));
-
-        black5.setBackground(getDrawable(R.drawable.blc5));
-
-
-        yel1 = (Button) findViewById(R.id.yellow1);
-
-        yel2 = (Button) findViewById(R.id.yellow2);
-
-        yel3 = (Button) findViewById(R.id.yellow3);
-
-        yel4 = (Button) findViewById(R.id.yellow4);
-
-        yel5 = (Button) findViewById(R.id.yellow5);
-
-
-        yel1.setBackground(getDrawable(R.drawable.yl1));
-
-        yel2.setBackground(getDrawable(R.drawable.yl2));
-
-        yel3.setBackground(getDrawable(R.drawable.yl3));
-
-        yel4.setBackground(getDrawable(R.drawable.yl4));
-
-        yel5.setBackground(getDrawable(R.drawable.yl5));
-
-
-        colorObjects.add(green1);
-
-        colorObjects.add(green2);
-
-        colorObjects.add(green3);
-
-        colorObjects.add(green4);
-
-        colorObjects.add(green5);
-
-        colorObjects.add(red1);
-
-        colorObjects.add(red2);
-
-        colorObjects.add(red3);
-
-        colorObjects.add(red4);
-
-        colorObjects.add(red5);
-
-        colorObjects.add(blue1);
-
-        colorObjects.add(blue2);
-
-        colorObjects.add(blue3);
-
-        colorObjects.add(blue4);
-
-        colorObjects.add(blue5);
-
-        colorObjects.add(black1);
-
-        colorObjects.add(black2);
-
-        colorObjects.add(black3);
-
-        colorObjects.add(black4);
-
-        colorObjects.add(black5);
-
-        colorObjects.add(yel1);
-
-        colorObjects.add(yel2);
-
-        colorObjects.add(yel3);
-
-        colorObjects.add(yel4);
-
-        colorObjects.add(yel5);
-
-        colorObjects.add(purple1);
-
-        colorObjects.add(purple2);
-
-        colorObjects.add(purple3);
-
-        colorObjects.add(purple4);
-
-        colorObjects.add(purple5);
-
-
-    } /* Init all buttons with images */
-
-
-    private void initTutorialGui() {
-
-        initVariables();
-
-        initGeneralGraphics();
-
-        initAllColor();
-
-        initColorObjects();
-
-        initGamePlayButtons();
-
-        checkColor(returnColor());
-
-        feedback.setVisibility(View.INVISIBLE);
-
-    }
-
-
-    private void GamePlay() {
-
-        initVariables();
-
-        initGeneralGraphics();
-
-        initAllColor();
-
-        initColorObjects();
-
-        initGamePlayButtons();
-
-        checkColor("green");
-
-        initAnswerButtons();
-
-        removeTest.setVisibility(View.INVISIBLE);
-
-        randomcolor1.setTextSize(0);
-
-        randomcolor2.setTextSize(0);
-
-        randomcolor3.setTextSize(0);
-
-        randomcolor4.setTextSize(0);
-
-        randomcolor5.setTextSize(0);
-
-        randomcolor6.setTextSize(0);
-
-        controlgp.setVisibility(View.INVISIBLE);
-
-        controltuto.setVisibility(View.INVISIBLE);
-
-        title.setText("PLAYTIME");
-
-        initFeedback();
-
-        feedback.setVisibility(View.VISIBLE);
-
-    }
-
-
-    private String PickRandColor(ArrayList<String> turn) /* Shuffle colors arraylist and return a random color */ {
-
-        Collections.shuffle(turn);
-
-        positionofrandomcolor = randC.nextInt(turn.size() - 1) + 1;
-
-        return (String) turn.get(positionofrandomcolor);
-
-    }
-
-
-    private void plusRound() /* counter for rounds */ {
-
-        turn++;
-
-    }
-
-
-    private void initGamePlayButtons() {
-
-        randomcolor1 = (Button) findViewById(R.id.gp1);
-
-        randomcolor2 = (Button) findViewById(R.id.gpbutton4);
-
-        randomcolor3 = (Button) findViewById(R.id.gpbutton3);
-
-        randomcolor4 = (Button) findViewById(R.id.gp2);
-
-        randomcolor5 = (Button) findViewById(R.id.gpbutton5);
-
-        randomcolor6 = (Button) findViewById(R.id.gpbutton6);
-
-        removeTest = (Button) findViewById(R.id.tutorial_test);
-
-        correctColorButtons.add(randomcolor1);
-
-        correctColorButtons.add(randomcolor2);
-
-        correctColorButtons.add(randomcolor3);
-
-        correctColorButtons.add(randomcolor4);
-
-        correctColorButtons.add(randomcolor5);
-
-        correctColorButtons.add(randomcolor6);
-
-    }
-
-
-    private void initAnswerButtons() {
-
-        answergp1 = (Button) findViewById(R.id.gp1);
-
-        answergp2 = (Button) findViewById(R.id.gpbutton4);
-
-        answergp3 = (Button) findViewById(R.id.gpbutton3);
-
-        answergp4 = (Button) findViewById(R.id.gp2);
-
-        answergp5 = (Button) findViewById(R.id.gpbutton5);
-
-        answergp6 = (Button) findViewById(R.id.gpbutton6);
-
-    }
-
-
-    private void checkColor(String color) {
-
-        if (color.equals("green")) {
-
-            CheckGreens();
-
-        } else if (color.equals("blue")) {
-
-            CheckBlue();
-
-        } else if (color.equals("black")) {
-
-            CheckBlack();
-
-        } else if (color.equals("purple")) {
-
-            CheckPurple();
-
-        } else if (color.equals("yellow")) {
-
-            CheckYellow();
-
-        } else if (color.equals("red")) {
-
-            CheckRed();
-
+    private void initTest() {
+
+        images = new ArrayList<Button>();
+        blue = new ArrayList<Button>();
+        black = new ArrayList<Button>();
+        green = new ArrayList<Button>();
+        purple = new ArrayList<Button>();
+        red = new ArrayList<Button>();
+        yellow = new ArrayList<Button>();
+        cat = new ArrayList<ArrayList>();
+
+
+        iimage1 = (Button) findViewById(R.id.button);
+        iimage2 = (Button) findViewById(R.id.button2);
+        iimage3 = (Button) findViewById(R.id.button3);
+        iimage4 = (Button) findViewById(R.id.button4);
+        iimage5 = (Button) findViewById(R.id.button5);
+
+        what_to_click = (TextView) findViewById(R.id.textView);
+
+
+        b1 = (Button) findViewById(R.id.button46);
+        b2 = findViewById(R.id.button8);
+        b3 = (Button) findViewById(R.id.button19);
+        b4 = (Button) findViewById(R.id.button20);
+        b5 = (Button) findViewById(R.id.button21);
+        bl1 = (Button) findViewById(R.id.button22);
+        bl2 = (Button) findViewById(R.id.button23);
+        bl3 = (Button) findViewById(R.id.button24);
+        bl4 = (Button) findViewById(R.id.button25);
+        bl5 = (Button) findViewById(R.id.button26);
+        g1 = (Button) findViewById(R.id.button27);
+        g2 = (Button) findViewById(R.id.button28);
+        g3 = (Button) findViewById(R.id.button29);
+        g4 = (Button) findViewById(R.id.button30);
+        g5 = (Button) findViewById(R.id.button31);
+        p1 = (Button) findViewById(R.id.button32);
+        p2 = (Button) findViewById(R.id.button33);
+        p3 = (Button) findViewById(R.id.button34);
+        p4 = (Button) findViewById(R.id.button35);
+        p5 = (Button) findViewById(R.id.button36);
+        r1 = (Button) findViewById(R.id.button37);
+        r2 = (Button) findViewById(R.id.button38);
+        r3 = (Button) findViewById(R.id.button39);
+        r4 = (Button) findViewById(R.id.button40);
+        r5 = (Button) findViewById(R.id.button41);
+        y1 = (Button) findViewById(R.id.button42);
+        y2 = (Button) findViewById(R.id.button43);
+        y3 = (Button) findViewById(R.id.button44);
+        y4 = (Button) findViewById(R.id.button45);
+        y5 = findViewById(R.id.button9);
+        shuffle= findViewById(R.id.button10);
+
+
+        b1.setBackground(getDrawable(R.drawable.bl1));
+        b2.setBackground(getDrawable(R.drawable.bl2));
+        b3.setBackground(getDrawable(R.drawable.bl3));
+        b4.setBackground(getDrawable(R.drawable.bl4));
+        b5.setBackground(getDrawable(R.drawable.bl5));
+        bl1.setBackground(getDrawable(R.drawable.blc1));
+        bl2.setBackground(getDrawable(R.drawable.blc2));
+        bl3.setBackground(getDrawable(R.drawable.blc3));
+        bl4.setBackground(getDrawable(R.drawable.blc4));
+        bl5.setBackground(getDrawable(R.drawable.blc5));
+        g1.setBackground(getDrawable(R.drawable.gr1));
+        g2.setBackground(getDrawable(R.drawable.gr2));
+        g3.setBackground(getDrawable(R.drawable.gr3));
+        g4.setBackground(getDrawable(R.drawable.gr4));
+        g5.setBackground(getDrawable(R.drawable.gr5));
+        p1.setBackground(getDrawable(R.drawable.pr1));
+        p2.setBackground(getDrawable(R.drawable.pr2));
+        p3.setBackground(getDrawable(R.drawable.pr3));
+        p4.setBackground(getDrawable(R.drawable.pr4));
+        p5.setBackground(getDrawable(R.drawable.pr5));
+        r1.setBackground(getDrawable(R.drawable.r1));
+        r2.setBackground(getDrawable(R.drawable.r2));
+        r3.setBackground(getDrawable(R.drawable.r3));
+        r4.setBackground(getDrawable(R.drawable.r4));
+        r5.setBackground(getDrawable(R.drawable.r5));
+        y1.setBackground(getDrawable(R.drawable.yl1));
+        y2.setBackground(getDrawable(R.drawable.yl2));
+        y3.setBackground(getDrawable(R.drawable.yl3));
+        y4.setBackground(getDrawable(R.drawable.yl4));
+        y5.setBackground(getDrawable(R.drawable.yl5));
+
+
+        blue.add(b1);
+        blue.add(b2);
+        blue.add(b3);
+        blue.add(b4);
+        blue.add(b5);
+
+        black.add(bl1);
+        black.add(bl2);
+        black.add(bl3);
+        black.add(bl4);
+        black.add(bl5);
+
+        green.add(g1);
+        green.add(g2);
+        green.add(g3);
+        green.add(g4);
+        green.add(g5);
+
+        purple.add(p1);
+        purple.add(p2);
+        purple.add(p3);
+        purple.add(p4);
+        purple.add(p5);
+
+        red.add(r1);
+        red.add(r2);
+        red.add(r3);
+        red.add(r4);
+        red.add(r5);
+
+        yellow.add(y1);
+        yellow.add(y2);
+        yellow.add(y3);
+        yellow.add(y4);
+        yellow.add(y5);
+
+        images.add(iimage1);
+        images.add(iimage2);
+        images.add(iimage3);
+        images.add(iimage4);
+        images.add(iimage5);
+
+        //category = new Categories();
+        //flowers=category.getFlowers();
+        //fruits=category.getFruits();
+        // vehicles=category.getVehicles();
+        //smart_devices=category.getSmart_devices();
+
+
+        cat.add(blue);
+        cat.add(black);
+        cat.add(green);
+        cat.add(purple);
+        cat.add(red);
+        cat.add(yellow);
+
+        for(Button b : blue){
+            b.setText("");
+        }
+        for(Button b : black){
+            b.setText("");
+        }
+        for(Button b : green){
+            b.setText("");
+        }
+        for(Button b : purple){
+            b.setText("");
+        }
+        for(Button b : red){
+            b.setText("");
+        }
+        for(Button b : yellow){
+            b.setText("");
         }
 
-    }
-
-
-    private void CheckGreens() {
-
-        for (int correct1 = 0; correct1 < correctColorButtons.size(); correct1++) {
-
-            Collections.shuffle(colorObjects);
-
-            for (int list = 0; list < colorObjects.size(); list++) {
-
-                if (colorObjects.get(list).getText().equals("green")) {
-
-                    cmd.setText("CLICK THE GREEN ITEMS");
-
-                    randomcolor1.setBackground(colorObjects.get(list).getBackground());
-
-                    randomcolor1.setText(colorObjects.get(list).getText());
-
-                    correctColorButtons.remove(randomcolor1);
-
-                }
-
+        rand = new Random();
+        which_color = rand.nextInt(cat.size()); //choose random color
+        if(which_color==0){
+            what_to_click.setText("Click on the blue images");
+            for(Button b : blue){
+                b.setText("BLUE");
             }
-
-        }
-
-        for (int correct2 = 0; correct2 < correctColorButtons.size(); correct2++) {
-
-            Collections.shuffle(colorObjects);
-
-            for (int list2 = 0; list2 < colorObjects.size(); list2++) {
-
-                if (colorObjects.get(list2).getText().equals("green")) {
-
-                    randomcolor5.setBackground(colorObjects.get(list2).getBackground());
-
-                    randomcolor5.setText(colorObjects.get(list2).getText());
-
-                    correctColorButtons.remove(randomcolor5);
-
-                }
-
+        }else if(which_color==1){
+            what_to_click.setText("Click on the black images");
+            for(Button b : black){
+                b.setText("BLACK");
             }
-
-        }
-
-        for (int removable = 0; removable < colorObjects.size(); removable++) {
-
-            if (colorObjects.get(removable).getText().equals("green")) {
-
-                colorObjects.remove(colorObjects.get(removable));
-
+        }else if(which_color==2){
+            what_to_click.setText("Click on the green images");
+            for(Button b : green){
+                b.setText("GREEN");
             }
-
-        }
-
-
-        Collections.shuffle(colorObjects);
-
-        for (int i = 0; i < colorObjects.size(); i++) {
-
-            {
-
-                randomcolor2.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor2.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor3.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor3.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor4.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor4.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor6.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor6.setText(colorObjects.get(i).getText());
-
+        }else if(which_color==3){
+            what_to_click.setText("Click on the purple images");
+            for(Button b : purple){
+                b.setText("PURPLE");
             }
-
-            correctAnswers.add(randomcolor1);
-
-            correctAnswers.add(randomcolor2);
-
-            correctAnswers.add(randomcolor3);
-
-            correctAnswers.add(randomcolor4);
-
-            correctAnswers.add(randomcolor5);
-
-            correctAnswers.add(randomcolor6);
-
+        }else if(which_color==4){
+            what_to_click.setText("Click on the red images");
+            for(Button b : red){
+                b.setText("RED");
+            }
+        }else if(which_color==5){
+            what_to_click.setText("Click on the yellow images");
+            for(Button b : yellow){
+                b.setText("YELLOW");
+            }
         }
+
+        for (int i = 0; i <= 4; i++) {
+            int which_image = rand.nextInt(blue.size()); //choose a random number from the list that was chosen
+            //which_color = rand.nextInt(cat.size()); //choose random color
+            if(which_color==0){
+                images.get(i).setBackground(blue.get(which_image).getBackground());
+                images.get(i).setText(blue.get(which_image).getText());
+            }else if(which_color==1){
+                images.get(i).setBackground(black.get(which_image).getBackground());
+                images.get(i).setText(black.get(which_image).getText());
+            }else if(which_color==2){
+                images.get(i).setBackground(green.get(which_image).getBackground());
+                images.get(i).setText(green.get(which_image).getText());
+            }else if(which_color==3){
+                images.get(i).setBackground(purple.get(which_image).getBackground());
+                images.get(i).setText(purple.get(which_image).getText());
+            }else if(which_color==4){
+                images.get(i).setBackground(red.get(which_image).getBackground());
+                images.get(i).setText(red.get(which_image).getText());
+            }else if(which_color==5){
+                images.get(i).setBackground(yellow.get(which_image).getBackground());
+                images.get(i).setText(yellow.get(which_image).getText());
+            }
+            which_color = rand.nextInt(cat.size()); //choose random color
+        }
+        shuffle();
+    }
+
+    private void initGame() {
+
+        images = new ArrayList<Button>();
+        blue = new ArrayList<Button>();
+        black = new ArrayList<Button>();
+        green = new ArrayList<Button>();
+        purple = new ArrayList<Button>();
+        red = new ArrayList<Button>();
+        yellow = new ArrayList<Button>();
+        cat = new ArrayList<ArrayList>();
+        right_color = new ArrayList<Button>();
+        clicked = new ArrayList<Boolean>();
+        lose = new ArrayList<>();
+
+
+        score = (TextView) findViewById(R.id.text1);
+
+
+        iimage1 = (Button) findViewById(R.id.button);
+        iimage2 = (Button) findViewById(R.id.button2);
+        iimage3 = (Button) findViewById(R.id.button3);
+        iimage4 = (Button) findViewById(R.id.button4);
+        iimage5 = (Button) findViewById(R.id.button5);
+
+        what_to_click = (TextView) findViewById(R.id.textView);
+
+
+        b1 = (Button) findViewById(R.id.button46);
+        b2 = findViewById(R.id.button8);
+        b3 = (Button) findViewById(R.id.button19);
+        b4 = (Button) findViewById(R.id.button20);
+        b5 = (Button) findViewById(R.id.button21);
+        bl1 = (Button) findViewById(R.id.button22);
+        bl2 = (Button) findViewById(R.id.button23);
+        bl3 = (Button) findViewById(R.id.button24);
+        bl4 = (Button) findViewById(R.id.button25);
+        bl5 = (Button) findViewById(R.id.button26);
+        g1 = (Button) findViewById(R.id.button27);
+        g2 = (Button) findViewById(R.id.button28);
+        g3 = (Button) findViewById(R.id.button29);
+        g4 = (Button) findViewById(R.id.button30);
+        g5 = (Button) findViewById(R.id.button31);
+        p1 = (Button) findViewById(R.id.button32);
+        p2 = (Button) findViewById(R.id.button33);
+        p3 = (Button) findViewById(R.id.button34);
+        p4 = (Button) findViewById(R.id.button35);
+        p5 = (Button) findViewById(R.id.button36);
+        r1 = (Button) findViewById(R.id.button37);
+        r2 = (Button) findViewById(R.id.button38);
+        r3 = (Button) findViewById(R.id.button39);
+        r4 = (Button) findViewById(R.id.button40);
+        r5 = (Button) findViewById(R.id.button41);
+        y1 = (Button) findViewById(R.id.button42);
+        y2 = (Button) findViewById(R.id.button43);
+        y3 = (Button) findViewById(R.id.button44);
+        y4 = (Button) findViewById(R.id.button45);
+        y5 = findViewById(R.id.button9);
+
+
+        b1.setBackground(getDrawable(R.drawable.bl1));
+        b2.setBackground(getDrawable(R.drawable.bl2));
+        b3.setBackground(getDrawable(R.drawable.bl3));
+        b4.setBackground(getDrawable(R.drawable.bl4));
+        b5.setBackground(getDrawable(R.drawable.bl5));
+        bl1.setBackground(getDrawable(R.drawable.blc1));
+        bl2.setBackground(getDrawable(R.drawable.blc2));
+        bl3.setBackground(getDrawable(R.drawable.blc3));
+        bl4.setBackground(getDrawable(R.drawable.blc4));
+        bl5.setBackground(getDrawable(R.drawable.blc5));
+        g1.setBackground(getDrawable(R.drawable.gr1));
+        g2.setBackground(getDrawable(R.drawable.gr2));
+        g3.setBackground(getDrawable(R.drawable.gr3));
+        g4.setBackground(getDrawable(R.drawable.gr4));
+        g5.setBackground(getDrawable(R.drawable.gr5));
+        p1.setBackground(getDrawable(R.drawable.pr1));
+        p2.setBackground(getDrawable(R.drawable.pr2));
+        p3.setBackground(getDrawable(R.drawable.pr3));
+        p4.setBackground(getDrawable(R.drawable.pr4));
+        p5.setBackground(getDrawable(R.drawable.pr5));
+        r1.setBackground(getDrawable(R.drawable.r1));
+        r2.setBackground(getDrawable(R.drawable.r2));
+        r3.setBackground(getDrawable(R.drawable.r3));
+        r4.setBackground(getDrawable(R.drawable.r4));
+        r5.setBackground(getDrawable(R.drawable.r5));
+        y1.setBackground(getDrawable(R.drawable.yl1));
+        y2.setBackground(getDrawable(R.drawable.yl2));
+        y3.setBackground(getDrawable(R.drawable.yl3));
+        y4.setBackground(getDrawable(R.drawable.yl4));
+        y5.setBackground(getDrawable(R.drawable.yl5));
+
+
+        blue.add(b1);
+        blue.add(b2);
+        blue.add(b3);
+        blue.add(b4);
+        blue.add(b5);
+
+        black.add(bl1);
+        black.add(bl2);
+        black.add(bl3);
+        black.add(bl4);
+        black.add(bl5);
+
+        green.add(g1);
+        green.add(g2);
+        green.add(g3);
+        green.add(g4);
+        green.add(g5);
+
+        purple.add(p1);
+        purple.add(p2);
+        purple.add(p3);
+        purple.add(p4);
+        purple.add(p5);
+
+        red.add(r1);
+        red.add(r2);
+        red.add(r3);
+        red.add(r4);
+        red.add(r5);
+
+        yellow.add(y1);
+        yellow.add(y2);
+        yellow.add(y3);
+        yellow.add(y4);
+        yellow.add(y5);
+
+        images.add(iimage1);
+        images.add(iimage2);
+        images.add(iimage3);
+        images.add(iimage4);
+        images.add(iimage5);
+
+        //category = new Categories();
+        //flowers=category.getFlowers();
+        //fruits=category.getFruits();
+        // vehicles=category.getVehicles();
+        //smart_devices=category.getSmart_devices();
+
+
+        cat.add(blue);
+        cat.add(black);
+        cat.add(green);
+        cat.add(purple);
+        cat.add(red);
+        cat.add(yellow);
+        for(Button b : blue){
+            b.setText("");
+        }
+        for(Button b : black){
+            b.setText("");
+        }
+        for(Button b : green){
+            b.setText("");
+        }
+        for(Button b : purple){
+            b.setText("");
+        }
+        for(Button b : red){
+            b.setText("");
+        }
+        for(Button b : yellow){
+            b.setText("");
+        }
+
+        iimage1.setTextSize(0);
+        iimage2.setTextSize(0);
+        iimage3.setTextSize(0);
+        iimage4.setTextSize(0);
+        iimage5.setTextSize(0);
+
+        rand = new Random();
+        //int which_cat = rand.nextInt(cat.size());
+        which_color = rand.nextInt(cat.size()); //choose random color
+        if(which_color==0){
+            what_to_click.setText("Click on the blue images");
+            for(Button b : blue){
+                b.setText("BLUE");
+                b.setTextSize(0);
+            }
+        }else if(which_color==1){
+            what_to_click.setText("Click on the black images");
+            for(Button b : black){
+                b.setText("BLACK");
+                b.setTextSize(0);
+            }
+        }else if(which_color==2){
+            what_to_click.setText("Click on the green images");
+            for(Button b : green){
+                b.setText("GREEN");
+                b.setTextSize(0);
+            }
+        }else if(which_color==3){
+            what_to_click.setText("Click on the purple images");
+            for(Button b : purple){
+                b.setText("PURPLE");
+                b.setTextSize(0);
+            }
+        }else if(which_color==4){
+            what_to_click.setText("Click on the red images");
+            for(Button b : red){
+                b.setText("RED");
+                b.setTextSize(0);
+            }
+        }else if(which_color==5){
+            what_to_click.setText("Click on the yellow images");
+            for(Button b : yellow){
+                b.setText("YELLOW");
+                b.setTextSize(0);
+            }
+        }
+
+        for (int i = 0; i <= 4; i++) {
+            int which_image = rand.nextInt(blue.size()); //choose a random number from the list that was chosen
+            //which_color = rand.nextInt(cat.size()); //choose random color
+            if(which_color==0){
+                images.get(i).setBackground(blue.get(which_image).getBackground());
+                images.get(i).setText(blue.get(which_image).getText());
+            }else if(which_color==1){
+                images.get(i).setBackground(black.get(which_image).getBackground());
+                images.get(i).setText(black.get(which_image).getText());
+            }else if(which_color==2){
+                images.get(i).setBackground(green.get(which_image).getBackground());
+                images.get(i).setText(green.get(which_image).getText());
+            }else if(which_color==3){
+                images.get(i).setBackground(purple.get(which_image).getBackground());
+                images.get(i).setText(purple.get(which_image).getText());
+            }else if(which_color==4){
+                images.get(i).setBackground(red.get(which_image).getBackground());
+                images.get(i).setText(red.get(which_image).getText());
+            }else if(which_color==5){
+                images.get(i).setBackground(yellow.get(which_image).getBackground());
+                images.get(i).setText(yellow.get(which_image).getText());
+            }
+            which_color = rand.nextInt(cat.size()); //choose random color
+        }
+        //shuffle();
 
     }
 
+    public void shuffle() {
+        int which_image2 = rand.nextInt(images.size());
 
-    private void CheckBlue() {
-
-        for (int correct1 = 0; correct1 < correctColorButtons.size(); correct1++) {
-
-            Collections.shuffle(colorObjects);
-
-            for (int list = 0; list < colorObjects.size(); list++) {
-
-                if (colorObjects.get(list).getText().equals("blue")) {
-
-                    cmd.setText("CLICK THE BLUE ITEMS");
-
-                    randomcolor1.setBackground(colorObjects.get(list).getBackground());
-
-                    randomcolor1.setText(colorObjects.get(list).getText());
-
-                    correctColorButtons.remove(randomcolor1);
-
-                }
-
-            }
-
-        }
-
-        for (int correct2 = 0; correct2 < correctColorButtons.size(); correct2++) {
-
-            Collections.shuffle(colorObjects);
-
-            for (int list2 = 0; list2 < colorObjects.size(); list2++) {
-
-                if (colorObjects.get(list2).getText().equals("blue")) {
-
-                    randomcolor5.setBackground(colorObjects.get(list2).getBackground());
-
-                    randomcolor5.setText(colorObjects.get(list2).getText());
-
-                    correctColorButtons.remove(randomcolor5);
-
-                }
-
-            }
-
-        }
-
-        for (int removable = 0; removable < colorObjects.size(); removable++) {
-
-            if (colorObjects.get(removable).getText().equals("blue")) {
-
-                colorObjects.remove(colorObjects.get(removable));
-
-            }
-
-        }
-
-        Collections.shuffle(colorObjects);
-
-        for (int i = 0; i < colorObjects.size(); i++) {
-
-            {
-
-                randomcolor2.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor2.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor3.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor3.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor4.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor4.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor6.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor6.setText(colorObjects.get(i).getText());
-
-            }
-
-        }
-
-        correctAnswers.add(randomcolor1);
-
-        correctAnswers.add(randomcolor2);
-
-        correctAnswers.add(randomcolor3);
-
-        correctAnswers.add(randomcolor4);
-
-        correctAnswers.add(randomcolor5);
-
-        correctAnswers.add(randomcolor6);
+        shuffle.setBackground(images.get(0).getBackground());
+        shuffle.setText(images.get(0).getText());
+        images.get(0).setBackground(images.get(which_image2).getBackground());
+        images.get(0).setText(images.get(which_image2).getText());
+        images.get(which_image2).setBackground(shuffle.getBackground());
+        images.get(which_image2).setText(shuffle.getText());
+        shuffle=images.get(which_image2);
 
     }
 
-
-    private void CheckBlack() {
-
-        for (int correct1 = 0; correct1 < correctColorButtons.size(); correct1++) {
-
-            Collections.shuffle(colorObjects);
-
-            for (int list = 0; list < colorObjects.size(); list++) {
-
-                if (colorObjects.get(list).getText().equals("black")) {
-
-                    cmd.setText("CLICK THE BLACK ITEMS");
-
-                    randomcolor1.setBackground(colorObjects.get(list).getBackground());
-
-                    randomcolor1.setText(colorObjects.get(list).getText());
-
-                    correctColorButtons.remove(randomcolor1);
-
-                }
-
-            }
-
+    public void testOnClick(View v){
+        for(Button b : blue){
+            b.setText("");
         }
-
-        for (int correct2 = 0; correct2 < correctColorButtons.size(); correct2++) {
-
-            Collections.shuffle(colorObjects);
-
-            for (int list2 = 0; list2 < colorObjects.size(); list2++) {
-
-                if (colorObjects.get(list2).getText().equals("black")) {
-
-                    randomcolor5.setBackground(colorObjects.get(list2).getBackground());
-
-                    randomcolor5.setText(colorObjects.get(list2).getText());
-
-                    correctColorButtons.remove(randomcolor5);
-
-                }
-
-            }
-
+        for(Button b : black){
+            b.setText("");
         }
-
-        for (int removable = 0; removable < colorObjects.size(); removable++) {
-
-            if (colorObjects.get(removable).getText().equals("black")) {
-
-                colorObjects.remove(colorObjects.get(removable));
-
-            }
-
+        for(Button b : green){
+            b.setText("");
         }
-
-        Collections.shuffle(colorObjects);
-
-        for (int i = 0; i < colorObjects.size(); i++) {
-
-            {
-
-                randomcolor2.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor2.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor3.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor3.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor4.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor4.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor6.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor6.setText(colorObjects.get(i).getText());
-
-            }
-
+        for(Button b : purple){
+            b.setText("");
         }
-
-        correctAnswers.add(randomcolor1);
-
-        correctAnswers.add(randomcolor2);
-
-        correctAnswers.add(randomcolor3);
-
-        correctAnswers.add(randomcolor4);
-
-        correctAnswers.add(randomcolor5);
-
-        correctAnswers.add(randomcolor6);
-
-    }
-
-
-    private void CheckPurple() {
-
-        for (int correct1 = 0; correct1 < correctColorButtons.size(); correct1++) {
-
-            Collections.shuffle(colorObjects);
-
-            for (int list = 0; list < colorObjects.size(); list++) {
-
-                if (colorObjects.get(list).getText().equals("purple")) {
-
-                    cmd.setText("CLICK THE PURPLE ITEMS");
-
-                    randomcolor1.setBackground(colorObjects.get(list).getBackground());
-
-                    randomcolor1.setText(colorObjects.get(list).getText());
-
-                    correctColorButtons.remove(randomcolor1);
-
-                }
-
-            }
-
+        for(Button b : red){
+            b.setText("");
         }
-
-        for (int correct2 = 0; correct2 < correctColorButtons.size(); correct2++) {
-
-            Collections.shuffle(colorObjects);
-
-            for (int list2 = 0; list2 < colorObjects.size(); list2++) {
-
-                if (colorObjects.get(list2).getText().equals("purple")) {
-
-                    randomcolor5.setBackground(colorObjects.get(list2).getBackground());
-
-                    randomcolor5.setText(colorObjects.get(list2).getText());
-
-                    correctColorButtons.remove(randomcolor5);
-
-                }
-
-            }
-
+        for(Button b : yellow){
+            b.setText("");
         }
+        initTest();
+    }
 
-        for (int removable = 0; removable < colorObjects.size(); removable++) {
+    public void playOnClick(View v){
+        this.setContentView(R.layout.activity_game9_play);
+        initGame();
 
-            if (colorObjects.get(removable).getText().equals("purple")) {
+    }
 
-                colorObjects.remove(colorObjects.get(removable));
+    public void checkWin(){
 
+
+        for(Button b : images){
+            if(!b.getText().equals("")){
+                right_color.add(b);
             }
-
         }
+    }
 
-        Collections.shuffle(colorObjects);
-
-        for (int i = 0; i < colorObjects.size(); i++) {
-
-            {
-
-                randomcolor2.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor2.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor3.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor3.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor4.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor4.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor6.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor6.setText(colorObjects.get(i).getText());
-
+    public void checkOnClick(View v){
+        checkWin();
+        if(right_color.size()==clicked.size() && lose.size()==0){
+            Toast.makeText(this, "YOU FOUND THEM ALL", Toast.LENGTH_SHORT).show();
+            //right_color.remove(b);
+            sc++;
+            score.setText("Score: "+sc);
+            position=0;
+            right_color.removeAll(clicked);
+            for(int i=0;i<clicked.size();i++){
+                clicked.remove(i);
             }
-
-        }
-
-        correctAnswers.add(randomcolor1);
-
-        correctAnswers.add(randomcolor2);
-
-        correctAnswers.add(randomcolor3);
-
-        correctAnswers.add(randomcolor4);
-
-        correctAnswers.add(randomcolor5);
-
-        correctAnswers.add(randomcolor6);
-
-    }
-
-
-    private void CheckYellow() {
-
-        for (int correct1 = 0; correct1 < correctColorButtons.size(); correct1++) {
-
-            Collections.shuffle(colorObjects);
-
-            for (int list = 0; list < colorObjects.size(); list++) {
-
-                if (colorObjects.get(list).getText().equals("yellow")) {
-
-                    cmd.setText("CLICK THE YELLOW ITEMS");
-
-                    randomcolor1.setBackground(colorObjects.get(list).getBackground());
-
-                    randomcolor1.setText(colorObjects.get(list).getText());
-
-                    correctColorButtons.remove(randomcolor1);
-
-                }
-
+            initGame();
+        }else if(lose.size()!=0){
+            for(int i=0;i<lose.size();i++){
+                lose.remove(i);
             }
+            position1=0;
+            position=0;
+            Toast.makeText(this, "YOU CLICKED MORE,TRY AGAIN", Toast.LENGTH_SHORT).show();
+        }else if(clicked.size()<right_color.size()){
+            //Toast.makeText(this, String.valueOf(clicked.size()), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, String.valueOf(right_color.size()), Toast.LENGTH_SHORT).show();
 
-        }
-
-        for (int correct2 = 0; correct2 < correctColorButtons.size(); correct2++) {
-
-            Collections.shuffle(colorObjects);
-
-            for (int list2 = 0; list2 < colorObjects.size(); list2++) {
-
-                if (colorObjects.get(list2).getText().equals("yellow")) {
-
-                    randomcolor5.setBackground(colorObjects.get(list2).getBackground());
-
-                    randomcolor5.setText(colorObjects.get(list2).getText());
-
-                    correctColorButtons.remove(randomcolor5);
-
-                }
-
+            for(int i=0;i<clicked.size();i++){
+                clicked.remove(i);
             }
-
-        }
-
-        for (int removable = 0; removable < colorObjects.size(); removable++) {
-
-            if (colorObjects.get(removable).getText().equals("yellow")) {
-
-                colorObjects.remove(colorObjects.get(removable));
-
+            position1=0;
+            position=0;
+            Toast.makeText(this, "YOY MISSED SOMETHING, TRY AGAIN", Toast.LENGTH_SHORT).show();
+        }else if(clicked.size()>right_color.size()){
+            for(int i=0;i<clicked.size();i++){
+                clicked.remove(i);
             }
-
+            position1=0;
+            position=0;
+            Toast.makeText(this, "TRY AGAIN", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, String.valueOf(clicked.size()), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, String.valueOf(right_color.size()), Toast.LENGTH_SHORT).show();
         }
-
-        Collections.shuffle(colorObjects);
-
-        for (int i = 0; i < colorObjects.size(); i++) {
-
-            {
-
-                randomcolor2.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor2.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor3.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor3.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor4.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor4.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor6.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor6.setText(colorObjects.get(i).getText());
-
-            }
-
+        for(int i=0;i<right_color.size();i++){
+            right_color.remove(i);
         }
-
-        correctAnswers.add(randomcolor1);
-
-        correctAnswers.add(randomcolor2);
-
-        correctAnswers.add(randomcolor3);
-
-        correctAnswers.add(randomcolor4);
-
-        correctAnswers.add(randomcolor5);
-
-        correctAnswers.add(randomcolor6);
-
-    }
-
-
-    private void CheckRed() {
-
-        for (int correct1 = 0; correct1 < correctColorButtons.size(); correct1++) {
-
-            Collections.shuffle(colorObjects);
-
-            for (int list = 0; list < colorObjects.size(); list++) {
-
-                if (colorObjects.get(list).getText().equals("red")) {
-
-                    cmd.setText("CLICK THE RED ITEMS");
-
-                    randomcolor1.setBackground(colorObjects.get(list).getBackground());
-
-                    randomcolor1.setText(colorObjects.get(list).getText());
-
-                    correctColorButtons.remove(randomcolor1);
-
-                }
-
-            }
-
+        position1=0;
+        position=0;
+        for(int i=0;i<clicked.size();i++){
+            clicked.remove(i);
         }
-
-        for (int correct2 = 0; correct2 < correctColorButtons.size(); correct2++) {
-
-            Collections.shuffle(colorObjects);
-
-            for (int list2 = 0; list2 < colorObjects.size(); list2++) {
-
-                if (colorObjects.get(list2).getText().equals("red")) {
-
-                    randomcolor5.setBackground(colorObjects.get(list2).getBackground());
-
-                    randomcolor5.setText(colorObjects.get(list2).getText());
-
-                    correctColorButtons.remove(randomcolor5);
-
-                }
-
-            }
-
+        for(int i=0;i<clicked.size();i++){
+            clicked.remove(i);
         }
-
-        for (int removable = 0; removable < colorObjects.size(); removable++) {
-
-            if (colorObjects.get(removable).getText().equals("red")) {
-
-                colorObjects.remove(colorObjects.get(removable));
-
-            }
-
+        for(int i=0;i<right_color.size();i++){
+            right_color.remove(i);
         }
-
-        Collections.shuffle(colorObjects);
-
-        for (int i = 0; i < colorObjects.size(); i++) {
-
-            {
-
-                randomcolor2.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor2.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor3.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor3.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor4.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor4.setText(colorObjects.get(i).getText());
-
-                Collections.shuffle(colorObjects);
-
-                randomcolor6.setBackground(colorObjects.get(i).getBackground());
-
-                randomcolor6.setText(colorObjects.get(i).getText());
-
-            }
-
+        for(int i=0;i<lose.size();i++){
+            lose.remove(i);
         }
-
-        correctAnswers.add(randomcolor1);
-
-        correctAnswers.add(randomcolor2);
-
-        correctAnswers.add(randomcolor3);
-
-        correctAnswers.add(randomcolor4);
-
-        correctAnswers.add(randomcolor5);
-
-        correctAnswers.add(randomcolor6);
-
     }
 
-
-    private String returnColor() {
-
-        getColor = PickRandColor(allColor);
-
-        return getColor;
-
-    }
-
-
-    private int randPositionofList() {
-
-        return positionofshuffledarraylist = randP.nextInt(colorObjects.size() - 1) + 1;
-
-    }
-
-
-    private void CheckWinner(ArrayList<String> answers, ArrayList<Button> correct) {
-
-        for (int i = 0; i < correctAnswers.size(); i++) {
-
-            for (int j = 0; j < answers.size(); j++) {
-
-                if (answers.get(j).equals(correctAnswers.get(i).getText())) {
-
-                    countCorrectAnswers += 1;
-
-                    initFeedback();
-
-                    Toast.makeText(this, "WON  ", Toast.LENGTH_SHORT).show();
-
-                    GamePlay();
-
-                } else if (!answers.get(j).equals(correctAnswers.get(i).getText())) {
-
-                    countWrongAnswers += 1;
-
-                    initFeedback();
-
-                    Toast.makeText(this, "LOSE  ", Toast.LENGTH_SHORT).show();
-
-                    GamePlay();
-
-                }
-
-            }
-
+    public void button1OnClick (View v){
+        if(!iimage1.getText().equals("")){
+            //clicked.add(position, true);
+            clicked.add(position,true);
+            position++;
+        }else{
+            lose.add(position1,iimage1);
+            position1++;
+            //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
         }
-
+    }
+    public void button2OnClick (View v){
+        if(!iimage2.getText().equals("")){
+            clicked.add(position, true);
+            position++;
+        }else{
+            lose.add(position1,iimage2);
+            position1++;
+            //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void button3OnClick (View v){
+        if(!iimage3.getText().equals("")){
+            //clicked.add(2, true);
+            clicked.add(position,true);
+            position++;
+        }else{
+            lose.add(position1,iimage3);
+            position1++;
+            //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void button4OnClick (View v){
+        if(!iimage4.getText().equals("")){
+            clicked.add(position, true);
+            position++;
+        }else{
+            lose.add(position1,iimage4);
+            position1++;
+            //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void button5OnClick (View v){
+        if(!iimage5.getText().equals("")){
+            clicked.add(position, true);
+            position++;
+        }else{
+            lose.add(position1,iimage5);
+            position1++;
+            //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+        }
     }
 
-
-    public void initFeedback() {
-
-        feedback.setText("Corrects: " + returnCorrectAnswers());
-
-    }
-
-
-    public int returnCorrectAnswers() {
-
-        return countCorrectAnswers;
-
-    }
-
-
-    public int returnWrongAnswers() {
-
-        return countWrongAnswers;
-
-    }
-
-
-    public void goplayonClick(View view) {
-
-        GamePlay();
-
-    }
-
-
-    public void gpbutton1onClick(View view) {
-
-        answer1 = randomcolor1.getText().toString();
-
-        clickedAnswers.add(answer1);
-
-        CheckWinner(clickedAnswers, correctAnswers);
-
-    }
-
-
-    public void gpbutton2onClick(View view) {
-
-        Log.e("ANSWER2", answer2 + "");
-
-        answer2 = randomcolor2.getText().toString();
-
-        clickedAnswers.add(answer2);
-
-        CheckWinner(clickedAnswers, correctAnswers);
-
-    }
-
-
-    public void gpbutton3onClick(View view) {
-
-        Log.e("ANSWER3", answer3 + "");
-
-        answer3 = randomcolor3.getText().toString();
-
-        clickedAnswers.add(answer3);
-
-        CheckWinner(clickedAnswers, correctAnswers);
-
-    }
-
-
-    public void gpbutton4onClick(View view) {
-
-        Log.e("ANSWER4", answer4 + "");
-
-        answer4 = randomcolor4.getText().toString();
-
-        clickedAnswers.add(answer4);
-
-        CheckWinner(clickedAnswers, correctAnswers);
-
-    }
-
-
-    public void gpbutton5onClick(View view) {
-
-        Log.e("ANSWER5", answer5 + "");
-
-        answer5 = randomcolor5.getText().toString();
-
-        clickedAnswers.add(answer5);
-
-        CheckWinner(clickedAnswers, correctAnswers);
-
-    }
-
-
-    public void gpbutton6onClick(View view) {
-
-        Log.e("ANSWER6", answer6 + "");
-
-        answer6 = randomcolor6.getText().toString();
-
-        clickedAnswers.add(answer6);
-
-        CheckWinner(clickedAnswers, correctAnswers);
-
-    }
-
-
-    public void testonClick(View view) {
-
-        initTutorialGui();
-
-    }
 
 }
