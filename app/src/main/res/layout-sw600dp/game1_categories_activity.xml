@@ -100,7 +100,7 @@
         android:layout_height="153dp"
         android:layout_marginBottom="16dp"
         android:background="@android:color/holo_orange_dark"
-        android:onClick=' android:onClick="category1OnClick"'
+        android:onClick="category5OnClick"
         android:text="Directory"
         android:textSize="30sp"
         android:textStyle="bold"

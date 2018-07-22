@@ -102,7 +102,7 @@ public class Game8 extends AppCompatActivity {
     }
 
     private void initGameplay() {
-        sound = MediaPlayer.create(this, R.raw.ballsound1);
+        sound = MediaPlayer.create(this, R.raw.correct_sound);
         score = 0;
         this.delay = 100;
     }
@@ -260,10 +260,7 @@ public class Game8 extends AppCompatActivity {
 
     public void ball5OnClick(View view) {
         view.setVisibility(View.INVISIBLE);
-
         sound.start();
-
-
         updateScore();
     }
 

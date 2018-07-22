@@ -4,12 +4,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.icsd.game.thesis.game1.Question;
+import com.icsd.game.thesis.game4.Word;
+import com.icsd.game.thesis.game5.ObjectT;
 
 import java.util.ArrayList;
 
@@ -20,10 +21,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "database.db";
     private static Context myCont;
 
-    private SQLiteDatabase db = getWritableDatabase();
+   // private SQLiteDatabase db = getWritableDatabase();
 
     public DatabaseHandler(Context context) {
+
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        myCont=context;
     }
 
 
@@ -42,6 +45,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         db.execSQL(Session.GameSessionDBEntry.SQL_CREATE_ENTRIES);
         db.execSQL(Highscore.HighscoreDBEntry.SQL_CREATE_ENTRIES);
+
+        Question.QuestionDBEntry.addQuestionsToDB(db);
+        Word.WordDBEntry.addTestWordsToDB(db);
+        ObjectT.ObjectDBEntry.addTestObjectToDB(db);
         Log.e("MYDEBUG", "TABLES CREATED");
 
     }

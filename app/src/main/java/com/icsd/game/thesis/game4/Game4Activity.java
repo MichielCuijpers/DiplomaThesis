@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 
@@ -45,6 +46,7 @@ public class Game4Activity extends AppCompatActivity {
     private int turn;
     private Session curSession;
     private DatabaseHandler dbHandler;
+    private SoundHandler soundHandler;
 
     public static Context getMyCont() {
         return myCont;
@@ -56,11 +58,10 @@ public class Game4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game4protype);
         myCont = this.getApplicationContext();
-       // Word.WordDBEntry.addTestWordsToDB();
+        soundHandler = new SoundHandler(getApplicationContext());
         initGameplay();
         initGui();
         gameplay(turn);
-
 
 
     }
@@ -224,9 +225,11 @@ public class Game4Activity extends AppCompatActivity {
             world = world + buttonsList.get(i).getText();
         }
         if (currentWord.equals(world)) {
+            soundHandler.playOkSound();
             turn++;
             this.curSession.setScore(this.turn);
             if (this.turn == 8) {
+                soundHandler.stopSound();
                 Toast.makeText(this, "END GAME ! PLAY ANOTHER GAME  ", Toast.LENGTH_SHORT).show();
                 curSession.setTimeEnd(System.currentTimeMillis() / 1000);
                 dbHandler = new DatabaseHandler(this.getApplicationContext());
@@ -238,6 +241,7 @@ public class Game4Activity extends AppCompatActivity {
             clearGui();
             gameplay(turn);
         } else {
+            soundHandler.playWrongSound();
             Toast.makeText(this, "TRY AGAIN  ", Toast.LENGTH_SHORT).show();
             this.curSession.setFails(curSession.getFails() + 1);
 

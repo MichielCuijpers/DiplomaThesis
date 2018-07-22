@@ -19,15 +19,21 @@ import com.icsd.game.thesis.game8.Game8;
 public class Menu extends Activity {
     private GestureDetectorCompat mDetector;
     public static User testUser;
+    private  static DatabaseHandler db;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         testUser = new User(1);
-        DatabaseHandler dbUsertest = new DatabaseHandler(this);
-        dbUsertest.addUserToDB(testUser);
+         db = new DatabaseHandler(this);
+//        db.addUserToDB(testUser);
 
+    }
+
+    public static DatabaseHandler getDb() {
+        return db;
     }
 
     public void goToMenu2(View view) {
@@ -45,6 +51,7 @@ public class Menu extends Activity {
         Intent c = new Intent(this, Game4Activity.class);
         startActivity(c);
     }
+
     public void game1(View view) {
         Intent c = new Intent(this, Game1Activity.class);
         startActivity(c);
@@ -59,8 +66,9 @@ public class Menu extends Activity {
         Intent c = new Intent(this, Game2Activity.class);
         startActivity(c);
     }
-    public void game6(View view){
-        Intent c = new Intent(this,Game6.class);
+
+    public void game6(View view) {
+        Intent c = new Intent(this, Game6.class);
         startActivity(c);
     }
 }

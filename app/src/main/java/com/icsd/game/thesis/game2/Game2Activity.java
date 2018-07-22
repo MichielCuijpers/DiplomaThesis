@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 
@@ -41,6 +42,7 @@ public class Game2Activity extends AppCompatActivity {
     private String currectCorrect;
     private Session curSession;
     private DatabaseHandler dbHandler;
+    private SoundHandler soundHandler;
 
 
     @Override
@@ -48,15 +50,21 @@ public class Game2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game2);
 
+        init();
+
+
+    }
+
+    private void init() {
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         curSession = new Session(Menu.testUser.getUsername(), 2);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
+        soundHandler = new SoundHandler(getApplicationContext());
 
         initGameplay();
         initGui();
         initTurn();
-
 
     }
 
@@ -217,9 +225,12 @@ public class Game2Activity extends AppCompatActivity {
 
     private void check(String answer) {
         if (answer.equals(currectCorrect)) {
+            soundHandler.playOkSound();
+
             Toast.makeText(this, "Congrats!!  ", Toast.LENGTH_SHORT).show();
             turn++;
             if (this.turn == 7) {
+                soundHandler.stopSound();
                 curSession.setTimeEnd(System.currentTimeMillis() / 1000);
                 dbHandler.addSessionToDB(this.curSession);
                 Toast.makeText(this, "Congrats!! You found all countries!! Game End, Play another game ", Toast.LENGTH_LONG).show();
@@ -231,6 +242,7 @@ public class Game2Activity extends AppCompatActivity {
 
             initTurn();
         } else {
+            soundHandler.playWrongSound();
             Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
 
             curSession.setFails(curSession.getFails() + 1);

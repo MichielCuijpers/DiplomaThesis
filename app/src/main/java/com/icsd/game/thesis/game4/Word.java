@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class Word {
     private ArrayList<Character> letters;
-    ;
+
 
     public Word() {
 
@@ -23,7 +23,7 @@ public class Word {
 
     //START INNER CLASS
     public static class WordDBEntry implements BaseColumns {
-        static final DatabaseHandler dh = new DatabaseHandler(Game4Activity.getMyCont());
+        static DatabaseHandler dh ;
         static SQLiteDatabase db;
         public static final String TABLE_NAME = "word";
         public static final String WORD = "word";
@@ -33,8 +33,8 @@ public class Word {
                         WORD + " TEXT)";
         ;
 
-        protected static void addTestWordsToDB() {
-            db = dh.getWritableDatabase();
+       public static void addTestWordsToDB(SQLiteDatabase db) {
+
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             db.execSQL(SQL_CREATE_ENTRIES);
             ContentValues values = new ContentValues();
@@ -70,11 +70,12 @@ public class Word {
             values.put(WORD, "security");
             db.insert(TABLE_NAME, null, values);
             values.clear();
-            db.close();
+           // db.close();
         }
 
         protected static ArrayList<String> takeWorldsFromDB() {
             ArrayList<String> queryResultsList = new ArrayList<>();
+            dh = new DatabaseHandler(Game4Activity.getMyCont());
             db = dh.getWritableDatabase();
             String selectQuery = "SELECT * FROM " + TABLE_NAME;
             Cursor cursor = db.rawQuery(selectQuery, null);

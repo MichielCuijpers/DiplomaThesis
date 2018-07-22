@@ -7,24 +7,21 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.icsd.game.thesis.Menu;
-import com.icsd.game.thesis.Menu2;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static com.icsd.game.thesis.R.drawable.hummer;
-
 public class Game5 extends AppCompatActivity {
-    private Object object;
-    private ArrayList<Object> objectList;
+    private ObjectT objectT;
+    private ArrayList<ObjectT> objectTList;
     private Button answer1Button;
     private Button answer2Button;
     private Button answer3Button;
@@ -35,6 +32,7 @@ public class Game5 extends AppCompatActivity {
     private String correct;
     private Session curSession;
     private DatabaseHandler dbHandler;
+    private SoundHandler soundHandler;
 
     public static Context getMyCont() {
         return myCont;
@@ -44,11 +42,7 @@ public class Game5 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game5_prototype);
-        myCont = this.getApplicationContext();
-        Object.ObjectDBEntry.addTestObjectToDB();
-        dbHandler = new DatabaseHandler(this.getApplicationContext());
-        curSession = new Session(Menu.testUser.getUsername(), 5);
-        curSession.setTimeStart(System.currentTimeMillis());
+
 
         init();
         play(turn);
@@ -57,12 +51,19 @@ public class Game5 extends AppCompatActivity {
     }
 
     public void init() {
+        myCont = this.getApplicationContext();
+
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        curSession = new Session(Menu.testUser.getUsername(), 5);
+        curSession.setTimeStart(System.currentTimeMillis());
+        soundHandler = new SoundHandler(getApplicationContext());
+
         this.answer1Button = findViewById(R.id.choise1Button);
         this.answer2Button = findViewById(R.id.choise2Button);
         this.answer3Button = findViewById(R.id.choise3Button);
         this.answer4Button = findViewById(R.id.choise4Button);
         image = findViewById(R.id.imageViewObject);
-        objectList = Object.ObjectDBEntry.takeObjectsFromDB();
+        objectTList = ObjectT.ObjectDBEntry.takeObjectsFromDB();
 
 
     }
@@ -76,14 +77,14 @@ public class Game5 extends AppCompatActivity {
             Intent c = new Intent(this, Menu.class);
             startActivity(c);
         }
-        correct = objectList.get(turn).getAnswers().get(0);
-        Collections.shuffle(objectList.get(turn).getAnswers());
+        correct = objectTList.get(turn).getAnswers().get(0);
+        Collections.shuffle(objectTList.get(turn).getAnswers());
 
-        this.answer1Button.setText(objectList.get(turn).getAnswers().get(0));
-        this.answer2Button.setText(objectList.get(turn).getAnswers().get(1));
-        this.answer3Button.setText(objectList.get(turn).getAnswers().get(2));
-        this.answer4Button.setText(objectList.get(turn).getAnswers().get(3));
-        String img = objectList.get(turn).getName();
+        this.answer1Button.setText(objectTList.get(turn).getAnswers().get(0));
+        this.answer2Button.setText(objectTList.get(turn).getAnswers().get(1));
+        this.answer3Button.setText(objectTList.get(turn).getAnswers().get(2));
+        this.answer4Button.setText(objectTList.get(turn).getAnswers().get(3));
+        String img = objectTList.get(turn).getName();
         int resID = getResources().getIdentifier(img, "drawable", getPackageName());
         Log.e("IMAGID", resID + "");
 
@@ -92,6 +93,7 @@ public class Game5 extends AppCompatActivity {
 
     public void check(Button button) {
         if (button.getText().equals(correct)) {
+            soundHandler.playOkSound();
             Toast.makeText(this, "Congratulations. Your answer is correct!! ", Toast.LENGTH_SHORT).show();
             turn++;
 
@@ -101,6 +103,7 @@ public class Game5 extends AppCompatActivity {
 
 
         } else {
+            soundHandler.playWrongSound();
             Toast.makeText(this, "Wrong aswer, try one more time !!  ", Toast.LENGTH_SHORT).show();
             curSession.setFails(curSession.getFails() + 1);
 

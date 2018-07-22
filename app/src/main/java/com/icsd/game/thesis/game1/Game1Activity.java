@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,6 +11,7 @@ import android.widget.Toast;
 
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 
@@ -42,12 +42,19 @@ public class Game1Activity extends AppCompatActivity {
     private Session curSession;
     private DatabaseHandler dbHandler;
     private ArrayList<String> questions;
+    private SoundHandler soundHandler;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        init();
+
+    }
+
+    private void init() {
         view1 = getLayoutInflater().inflate(R.layout.game1_categories_activity, null);
         view2 = getLayoutInflater().inflate(R.layout.game1_prototype, null);
         setContentView(view1);
@@ -57,11 +64,10 @@ public class Game1Activity extends AppCompatActivity {
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
         myCont = this.getApplicationContext();
         questions = new ArrayList<>();
-          Question.QuestionDBEntry.addTestQuestionToDB();
+        soundHandler = new SoundHandler(getApplicationContext());
 
 
     }
-
 
     private void initGuiComps() {
         this.questionView = findViewById(R.id.questionView);
@@ -84,31 +90,32 @@ public class Game1Activity extends AppCompatActivity {
         this.answer3Button.setText(this.question.answers.get(2));
         this.answer4Button.setText(this.question.answers.get(3));
 
-        for (int i = 0; i<5; i++) {
+        for (int i = 0; i < 5; i++) {
 //            Log.e("MYDEBUG",questions.get(i) + i );
             questions.remove(0);
 
         }
 
 
-
     }
 
     private void checkAnswer(Button button) {
         if (button.getText().equals(correctAnswer)) {
+            soundHandler.playOkSound();
+
             Toast.makeText(this, "Congratulations. Your answer is correct!! ", Toast.LENGTH_SHORT).show();
+
             curSession.setScore(curSession.getScore() + 1);
             curSession.setStage(curSession.getStage() + 1);
             initTheQuestion();
 
 
-
-
         } else {
+            soundHandler.playWrongSound();
             Toast.makeText(this, "Wrong aswer, try one more time !!  ", Toast.LENGTH_SHORT).show();
             curSession.setFails(curSession.getFails() + 1);
         }
-        if(this.questions.isEmpty()){
+        if (this.questions.isEmpty()) {
             setContentView(view1);
             pickCategoryView.setText("Please choose another category");
         }
@@ -116,6 +123,7 @@ public class Game1Activity extends AppCompatActivity {
             dbHandler = new DatabaseHandler(this.getApplicationContext());
             curSession.setTimeEnd(System.currentTimeMillis() / 1000);
             dbHandler.addSessionToDB(this.curSession);
+            soundHandler.stopSound();
             Toast.makeText(this, "Congrats!! You found all answers!! Game End ,Play another game ", Toast.LENGTH_LONG).show();
             Intent c = new Intent(this, Menu.class);
             startActivity(c);

@@ -1,12 +1,15 @@
 package com.icsd.game.thesis.game1;
 
 import android.content.ContentValues;
+
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 import android.util.Log;
 
+import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.database.DatabaseHandler;
+import com.icsd.game.thesis.game4.Game4Activity;
 
 import java.util.ArrayList;
 
@@ -15,7 +18,7 @@ public class Question {
     private final String question;
 
 
-    protected Question(ArrayList<String> temp ){
+    protected Question(ArrayList<String> temp) {
         answers = new ArrayList<>();
 
         this.question = temp.get(0);
@@ -36,7 +39,7 @@ public class Question {
 
     //START INNER CLASS
     public static class QuestionDBEntry implements BaseColumns {
-        static final DatabaseHandler dh = new DatabaseHandler(Game1Activity.getMyCont());
+        static DatabaseHandler dh;
         static SQLiteDatabase db;
         public static final String TABLE_NAME = "question";
         public static final String QUESTION = "question";
@@ -57,9 +60,9 @@ public class Question {
                         + ANSWER4 + " TEXT)";
 
 
-        protected static void addTestQuestionToDB() {
+        public static void addQuestionsToDB(SQLiteDatabase db) {
 
-            db = dh.getWritableDatabase();
+
             db.execSQL("DROP TABLE IF EXISTS " + Question.QuestionDBEntry.TABLE_NAME);
             db.execSQL(Question.QuestionDBEntry.SQL_CREATE_ENTRIES);
             ContentValues values = new ContentValues();
@@ -198,12 +201,13 @@ public class Question {
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
 
 
-            db.close();
+            // db.close();
         }
 
         protected static ArrayList<String> takeQuestionFromDB(String category) {
             Log.e("DEBUGMY", "AAA");
             //Query from db
+            dh = new DatabaseHandler(Game1Activity.getMyCont());
             ArrayList<String> queryResultsList = new ArrayList<>();
             db = dh.getWritableDatabase();
             String question;

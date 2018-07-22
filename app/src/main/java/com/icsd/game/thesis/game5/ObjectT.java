@@ -4,20 +4,17 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
-import android.util.Log;
 
 import com.icsd.game.thesis.database.DatabaseHandler;
-import com.icsd.game.thesis.game1.Game1Activity;
-import com.icsd.game.thesis.game1.Question;
 
 import java.util.ArrayList;
 
-public class Object {
+public class ObjectT {
     private String name;
     private ArrayList<String> answers;
 
 
-    protected Object() {
+    protected ObjectT() {
         answers = new ArrayList<>();
 
     }
@@ -30,7 +27,7 @@ public class Object {
         public static final String ANSWER2 = "answer2";
         public static final String ANSWER3 = "answer3";
         public static final String ANSWER4 = "answer4";
-        static final DatabaseHandler dh = new DatabaseHandler(Game5.getMyCont());
+        static DatabaseHandler dh;
         static SQLiteDatabase db;
 
         public static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + TABLE_NAME + " (" +
@@ -41,9 +38,9 @@ public class Object {
                 + ANSWER3 + " TEXT, "
                 + ANSWER4 + " TEXT)";
 
-        protected static void addTestObjectToDB() {
+        public static void addTestObjectToDB(SQLiteDatabase db) {
+            db = db;
 
-            db = dh.getWritableDatabase();
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             db.execSQL(SQL_CREATE_ENTRIES);
             ContentValues values = new ContentValues();
@@ -77,14 +74,15 @@ public class Object {
             db.insert(TABLE_NAME, null, values);
 
 
-            db.close();
+            // db.close();
 
         }
 
-        static ArrayList<Object> takeObjectsFromDB() {
+        static ArrayList<ObjectT> takeObjectsFromDB() {
 
             //Query from db
-            ArrayList<Object> queryResultsList = new ArrayList<>();
+            ArrayList<ObjectT> queryResultsList = new ArrayList<>();
+            dh = new DatabaseHandler(Game5.getMyCont());
             db = dh.getWritableDatabase();
             String data;
 
@@ -93,18 +91,18 @@ public class Object {
             Cursor cursor = db.rawQuery(selectQuery, null);
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
-                Object tempObject = new Object();
+                ObjectT tempObjectT = new ObjectT();
                 data = cursor.getString(cursor.getColumnIndexOrThrow(NAME));
-                tempObject.name = data;
+                tempObjectT.name = data;
                 data = cursor.getString(cursor.getColumnIndexOrThrow(ANSWER1));
-                tempObject.answers.add(data);
+                tempObjectT.answers.add(data);
                 data = cursor.getString(cursor.getColumnIndexOrThrow(ANSWER2));
-                tempObject.answers.add(data);
+                tempObjectT.answers.add(data);
                 data = cursor.getString(cursor.getColumnIndexOrThrow(ANSWER3));
-                tempObject.answers.add(data);
+                tempObjectT.answers.add(data);
                 data = cursor.getString(cursor.getColumnIndexOrThrow(ANSWER4));
-                tempObject.answers.add(data);
-                queryResultsList.add(tempObject);
+                tempObjectT.answers.add(data);
+                queryResultsList.add(tempObjectT);
                 cursor.moveToNext();
 
 
