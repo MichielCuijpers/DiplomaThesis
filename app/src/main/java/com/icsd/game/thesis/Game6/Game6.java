@@ -1,5 +1,4 @@
 package com.icsd.game.thesis.Game6;
-
 import android.support.v7.app.AppCompatActivity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -7,9 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.icsd.game.thesis.R;
-
 import java.util.ArrayList;
 import java.util.Random;
 public class Game6 extends AppCompatActivity {
