@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.icsd.game.thesis.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Game14 extends AppCompatActivity {
     private Button test_again;
@@ -24,6 +25,7 @@ public class Game14 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game14);
+        initTutorial();
     }
     private void initGraphics()
     {
@@ -32,6 +34,33 @@ public class Game14 extends AppCompatActivity {
         object1 = (Button) findViewById(R.id.tutorialbutton_g14);
         object2 = (Button) findViewById(R.id.tutorialbutton_g15);
         titletext = (TextView) findViewById(R.id.title_14);
+
+    }
+    private void initTutorial(){
+        initGraphics();
+        initGamePlayImages();
+        initTutorialScreen();
+    }
+    private void initGamePlay(){
+        initGraphics();
+        initGamePlayImages();
+        initGamePlayScreen();
+    }
+    private void initTutorialScreen(){
+        Collections.shuffle(heavy);
+      for(int i = 0; i<heavy.size();i++)
+      {
+          object1.setBackground(heavy.get(i).getBackground());
+          object1.setText("heavy");
+      }
+      Collections.shuffle(light);
+      for(int i = 0; i <light.size();i++)
+      {
+          object2.setBackground(light.get(i).getBackground());
+          object2.setText("light");
+      }
+    }
+    private void initGamePlayScreen(){
 
     }
     private void initGamePlayImages() {
@@ -91,8 +120,10 @@ public class Game14 extends AppCompatActivity {
 
     }
     public void tutoonClick(View view) {
+        initTutorial();
     }
 
     public void startgponClick(View view) {
+        initGamePlay();
     }
 }
