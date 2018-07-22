@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     android:background="#c7a96c">
 
+    <TextView
+        android:id="@+id/instructions"
+        android:layout_width="543dp"
+        android:layout_height="93dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="228dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_14" />
+
     <Button
         android:id="@+id/gameplaybutton_g15"
         android:layout_width="243dp"
@@ -15,6 +31,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="gameplayonClick2"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/start_gp"
         app:layout_constraintEnd_toStartOf="@+id/help_button10"
@@ -32,6 +49,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="gameplayonClick1"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/tuto_test"
         app:layout_constraintEnd_toStartOf="@+id/tutorialbutton_g15"
@@ -400,5 +418,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.979" />
+
+    <TextView
+        android:id="@+id/feedback"
+        android:layout_width="271dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/gameplaybutton_g14"
+        app:layout_constraintEnd_toStartOf="@+id/title_14"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71" />
 
 </android.support.constraint.ConstraintLayout>

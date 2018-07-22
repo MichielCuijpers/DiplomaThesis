@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.icsd.game.thesis.R;
 
@@ -24,6 +25,10 @@ public class Game14 extends AppCompatActivity {
     private ArrayList<Button> light;
     private Button heavy1,heavy2,heavy3,heavy4,heavy5,heavy6,heavy7,heavy8;
     private Button light1,light2,light3,light4,light5,light6,light7,light8;
+    private TextView fdb;
+    private TextView instructions;
+    private static int corrects;
+    private static int incorrects;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +44,14 @@ public class Game14 extends AppCompatActivity {
         objgameplay = (Button) findViewById(R.id.gameplaybutton_g14);
         objgameplay2 = (Button) findViewById(R.id.gameplaybutton_g15);
         titletext = (TextView) findViewById(R.id.title_14);
+        fdb = (TextView) findViewById(R.id.feedback);
+        instructions = (TextView) findViewById(R.id.instructions);
+        instructions.setText("Click on the heaviest item");
+        instructions.setVisibility(View.INVISIBLE);
         heavy = new ArrayList<Button>();
         light = new ArrayList<Button>();
-
+        corrects = 0;
+        incorrects = 0;
     }
     private void initTutorial(){
         initGraphics();
@@ -55,6 +65,7 @@ public class Game14 extends AppCompatActivity {
     }
     private void initTutorialScreen(){
         Collections.shuffle(heavy);
+        fdb.setVisibility(View.INVISIBLE);
       for(int i = 0; i<heavy.size();i++)
       {
           object1.setBackground(heavy.get(i).getBackground());
@@ -72,7 +83,11 @@ public class Game14 extends AppCompatActivity {
         start_game.setVisibility(View.INVISIBLE);
         object1.setVisibility(View.INVISIBLE);
         object2.setVisibility(View.INVISIBLE);
+        instructions.setVisibility(View.VISIBLE);
         Collections.shuffle(heavy);
+        fdb.setText("Corrects : "+corrects);
+        fdb.setVisibility(View.VISIBLE);
+        titletext.setText("GamePlay");
         for(int i = 0; i<heavy.size();i++)
         {
             objgameplay.setBackground(heavy.get(i).getBackground());
@@ -149,5 +164,35 @@ public class Game14 extends AppCompatActivity {
 
     public void startgponClick(View view) {
         initGamePlay();
+    }
+
+    public void gameplayonClick2(View view) {
+        if(objgameplay2.getText().equals("heavy")){
+            Toast.makeText(this, "That is Correct", Toast.LENGTH_SHORT).show();
+            corrects++;
+            fdb.setText("Corrects : "+corrects);
+            initGamePlayScreen();
+        }
+        else{
+            Toast.makeText(this, "That is not Correct", Toast.LENGTH_SHORT).show();
+            incorrects++;
+            fdb.setText("Corrects : "+corrects);
+            initGamePlayScreen();
+        }
+    }
+
+    public void gameplayonClick1(View view) {
+        if(objgameplay.getText().equals("heavy")){
+            Toast.makeText(this, "That is Correct", Toast.LENGTH_SHORT).show();
+            corrects++;
+            fdb.setText("Corrects : "+corrects);
+            initGamePlayScreen();
+        }
+        else{
+            Toast.makeText(this, "That is not Correct", Toast.LENGTH_SHORT).show();
+            incorrects++;
+            fdb.setText("Corrects : "+corrects);
+            initGamePlayScreen();
+        }
     }
 }
