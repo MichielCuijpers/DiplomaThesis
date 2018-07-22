@@ -1,5 +1,6 @@
 package com.icsd.game.thesis.Game14;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.INotificationSideChannel;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.icsd.game.thesis.Menu;
+import com.icsd.game.thesis.Menu2;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.SoundHandler;
+import com.icsd.game.thesis.database.DatabaseHandler;
+import com.icsd.game.thesis.database.Session;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,10 +35,17 @@ public class Game14 extends AppCompatActivity {
     private TextView instructions;
     private static int corrects;
     private static int incorrects;
+    private Session currentSession;
+    private DatabaseHandler dbHandler;
+    private SoundHandler soundHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game14);
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        currentSession = new Session(Menu.testUser.getUsername(),14);
+        currentSession.setTimeStart(System.currentTimeMillis()/1000);
+        soundHandler = new SoundHandler(getApplicationContext());
         initTutorial();
     }
     private void initGraphics()
@@ -166,17 +179,33 @@ public class Game14 extends AppCompatActivity {
         initGamePlay();
     }
 
+    public void checkEndGame(){
+        if(corrects==10){
+            currentSession.setTimeEnd(System.currentTimeMillis()/1000);
+            dbHandler.addSessionToDB(currentSession);
+            soundHandler.stopSound();
+            Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this , Menu2.class);
+            startActivity(intent);
+        }
+    }
+
     public void gameplayonClick2(View view) {
         if(objgameplay2.getText().equals("heavy")){
             Toast.makeText(this, "That is Correct", Toast.LENGTH_SHORT).show();
             corrects++;
             fdb.setText("Corrects : "+corrects);
+            currentSession.setScore(corrects);
+            soundHandler.playOkSound();
+            checkEndGame();
             initGamePlayScreen();
         }
         else{
             Toast.makeText(this, "That is not Correct", Toast.LENGTH_SHORT).show();
             incorrects++;
             fdb.setText("Corrects : "+corrects);
+            currentSession.setFails(currentSession.getFails()+1);
+            soundHandler.playWrongSound();
             initGamePlayScreen();
         }
     }
@@ -186,12 +215,17 @@ public class Game14 extends AppCompatActivity {
             Toast.makeText(this, "That is Correct", Toast.LENGTH_SHORT).show();
             corrects++;
             fdb.setText("Corrects : "+corrects);
+            currentSession.setScore(corrects);
+            soundHandler.playOkSound();
+            checkEndGame();
             initGamePlayScreen();
         }
         else{
             Toast.makeText(this, "That is not Correct", Toast.LENGTH_SHORT).show();
             incorrects++;
             fdb.setText("Corrects : "+corrects);
+            currentSession.setFails(currentSession.getFails()+1);
+            soundHandler.playWrongSound();
             initGamePlayScreen();
         }
     }

@@ -6,7 +6,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.SoundHandler;
+import com.icsd.game.thesis.database.DatabaseHandler;
+import com.icsd.game.thesis.database.Session;
+
 import java.util.ArrayList;
 import java.util.Random;
 public class Game6 extends AppCompatActivity {
@@ -28,12 +34,20 @@ public class Game6 extends AppCompatActivity {
     private Button melon, avocado, strawberry, banana, cherries, kiwi, orange, bicycle, bike, car, jeep, truck, golf, suv, phone, phone2, tablet, tablet2,
             smartwatch, pc, laptop, flower1, flower2, flower3, flower4, flower5, flower6, flower7, shuffle;
     private int sc=0;
+    private Session currentSession;
+    private DatabaseHandler dbHandler;
+    private SoundHandler soundHandler;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game6_content_main);
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        currentSession = new Session(Menu.testUser.getUsername(),6);
+        currentSession.setTimeStart(System.currentTimeMillis()/1000);
+        soundHandler = new SoundHandler(getApplicationContext());
 
         initTest();
 
@@ -476,16 +490,22 @@ public class Game6 extends AppCompatActivity {
         score = (TextView) findViewById(R.id.text1);
         initGame();
 
-    }
+    }//i methodo checkwinner
 
     public void image1OnClick(View v){
         if(iimage1==shuffle){
             sc++;
             score.setText("Score: "+sc);
+            currentSession.setScore(sc);
+            soundHandler.playOkSound();
+            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
             initGame();
         }
-        else
+        else {
+            currentSession.setFails(currentSession.getFails()+1);
+            soundHandler.playWrongSound();
             Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+        }
 
 
     }
@@ -494,9 +514,15 @@ public class Game6 extends AppCompatActivity {
         if(iimage5==shuffle){
             sc++;
             score.setText("Score: "+sc);
+            currentSession.setScore(sc);
+            soundHandler.playOkSound();
+            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
             initGame();
-        }else
+        }else {
+            currentSession.setFails(currentSession.getFails() + 1);
+            soundHandler.playWrongSound();
             Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+        }
 
     }
     public void image2OnClick(View v){
@@ -504,28 +530,46 @@ public class Game6 extends AppCompatActivity {
         if(iimage2==shuffle){
             sc++;
             score.setText("Score: "+sc);
+            currentSession.setScore(sc);
+            soundHandler.playOkSound();
+            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
             initGame();
-        }else
+        }else {
+            currentSession.setFails(currentSession.getFails() + 1);
+            soundHandler.playWrongSound();
             Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+        }
     }
     public void image3OnClick(View v){
 
         if(iimage3==shuffle){
             sc++;
             score.setText("Score: "+sc);
+            currentSession.setScore(sc);
+            soundHandler.playOkSound();
+            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
             initGame();
-        }else
+        }else {
+            currentSession.setFails(currentSession.getFails() + 1);
+            soundHandler.playWrongSound();
             Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+        }
     }
     public void image4OnClick(View v){
 
         if(iimage4==shuffle){
             sc++;
             score.setText("Score: "+sc);
+            currentSession.setScore(sc);
+            soundHandler.playOkSound();
+            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
             initGame();
 
-        }else
+        }else {
+            currentSession.setFails(currentSession.getFails() + 1);
+            soundHandler.playWrongSound();
             Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
