@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="#c7a96c"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_game9_play">
+
+>
 
     <Button
         android:id="@+id/button46"
@@ -291,8 +292,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="116dp"
-        android:layout_height="136dp"
+        android:layout_width="160dp"
+        android:layout_height="140dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="104dp"
         android:layout_marginTop="8dp"
@@ -304,8 +305,8 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="116dp"
-        android:layout_height="136dp"
+        android:layout_width="160dp"
+        android:layout_height="140dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="8dp"
@@ -317,8 +318,8 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="116dp"
-        android:layout_height="136dp"
+        android:layout_width="160dp"
+        android:layout_height="140dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="8dp"
@@ -330,8 +331,8 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="116dp"
-        android:layout_height="136dp"
+        android:layout_width="160dp"
+        android:layout_height="140dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="8dp"
@@ -344,8 +345,8 @@
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="108dp"
-        android:layout_height="136dp"
+        android:layout_width="160dp"
+        android:layout_height="140dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
