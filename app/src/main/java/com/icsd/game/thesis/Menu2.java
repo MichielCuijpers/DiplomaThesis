@@ -58,4 +58,9 @@ public class Menu2 extends AppCompatActivity {
         Intent c = new Intent(this, Game15Menou.class);
         startActivity(c);
     }
+
+    public void game16(View view) {
+        Intent c = new Intent(this,LoginActivity.class);
+        startActivity(c);
+    }
 }
