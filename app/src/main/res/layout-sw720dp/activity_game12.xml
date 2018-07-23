@@ -10,8 +10,8 @@
 
     <Button
         android:id="@+id/gp2"
-        android:layout_width="133dp"
-        android:layout_height="104dp"
+        android:layout_width="184dp"
+        android:layout_height="124dp"
         android:layout_marginEnd="124dp"
         android:layout_marginTop="136dp"
         android:background="@drawable/paper"
@@ -22,8 +22,8 @@
 
     <Button
         android:id="@+id/gp1"
-        android:layout_width="133dp"
-        android:layout_height="104dp"
+        android:layout_width="144dp"
+        android:layout_height="126dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -33,9 +33,10 @@
         android:text=" Pencil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tutorialObjectIcon2"
+        app:layout_constraintHorizontal_bias="0.196"
         app:layout_constraintStart_toEndOf="@+id/tutorialbutton2"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintVertical_bias="0.297" />
 
     <Button
         android:id="@+id/tieb"
@@ -165,10 +166,10 @@
 
     <Button
         android:id="@+id/tutorialObjectIcon2"
-        android:layout_width="133dp"
-        android:layout_height="104dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginTop="136dp"
+        android:layout_width="156dp"
+        android:layout_height="151dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginTop="124dp"
         android:background="@drawable/paper"
         android:text="Paper"
         app:layout_constraintEnd_toStartOf="@+id/tutorialbutton"
@@ -209,14 +210,15 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="164dp"
-        android:layout_height="59dp"
+        android:layout_width="225dp"
+        android:layout_height="79dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="Tutorial"
         android:textColor="@android:color/black"
         android:textSize="40dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/help_button9"
         app:layout_constraintHorizontal_bias="0.687"
         app:layout_constraintStart_toStartOf="parent"
@@ -224,8 +226,8 @@
 
     <Button
         android:id="@+id/tutorialObjectIcon"
-        android:layout_width="133dp"
-        android:layout_height="104dp"
+        android:layout_width="164dp"
+        android:layout_height="134dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -234,9 +236,10 @@
         android:text=" Pencil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tutorialObjectIcon2"
+        app:layout_constraintHorizontal_bias="0.188"
         app:layout_constraintStart_toEndOf="@+id/tutorialbutton2"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintVertical_bias="0.303" />
 
     <Button
         android:id="@+id/tutorialbutton2"
@@ -264,7 +267,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        android:textSize="40dp"
+        android:textSize="60dp"
         app:layout_constraintBottom_toTopOf="@+id/tutorialObjectIcon"
         app:layout_constraintEnd_toStartOf="@+id/tutorialbutton"
         app:layout_constraintHorizontal_bias="0.427"
