@@ -500,7 +500,7 @@ public class Game6 extends AppCompatActivity {
         initGame();
     }
 
-    private void userLooseTheTurn() {
+    private void userLoosesTheTurn() {
         currentSession.setFails(currentSession.getFails() + 1);
         soundHandler.playWrongSound();
         Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
@@ -510,7 +510,7 @@ public class Game6 extends AppCompatActivity {
         if (iimage1 == shuffle) {
            userWinsTheTurn();
         } else {
-           userLooseTheTurn();
+           userLoosesTheTurn();
         }
 
 
@@ -521,7 +521,7 @@ public class Game6 extends AppCompatActivity {
         if (iimage5 == shuffle) {
             userWinsTheTurn();
         } else {
-            userLooseTheTurn();
+            userLoosesTheTurn();
         }
 
     }
@@ -531,7 +531,7 @@ public class Game6 extends AppCompatActivity {
         if (iimage2 == shuffle) {
             userWinsTheTurn();
         } else {
-            userLooseTheTurn();
+            userLoosesTheTurn();
         }
     }
 
@@ -540,7 +540,7 @@ public class Game6 extends AppCompatActivity {
         if (iimage3 == shuffle) {
             userWinsTheTurn();
         } else {
-            userLooseTheTurn();
+            userLoosesTheTurn();
         }
     }
 
@@ -549,7 +549,7 @@ public class Game6 extends AppCompatActivity {
         if (iimage4 == shuffle) {
             userWinsTheTurn();
         } else {
-            userLooseTheTurn();
+            userLoosesTheTurn();
         }
     }
 
