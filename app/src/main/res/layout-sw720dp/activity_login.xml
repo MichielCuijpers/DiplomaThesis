@@ -12,10 +12,11 @@
         android:layout_width="108dp"
         android:layout_height="114dp"
         android:layout_marginBottom="96dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/down_button"
         android:onClick="downButton5"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="1173dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/downButton2"
@@ -45,10 +46,11 @@
         android:id="@+id/upButotn5"
         android:layout_width="108dp"
         android:layout_height="114dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/up_button"
         android:onClick="upButotn5"
         app:layout_constraintBottom_toTopOf="@+id/downButton5"
-        tools:layout_editor_absoluteX="1173dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/upButton3"
@@ -64,7 +66,7 @@
         android:id="@+id/upButton2"
         android:layout_width="108dp"
         android:layout_height="114dp"
-        android:layout_marginEnd="180dp"
+        android:layout_marginEnd="160dp"
         android:background="@drawable/up_button"
         android:onClick="upButton2"
         app:layout_constraintBottom_toTopOf="@+id/downButton2"
@@ -75,10 +77,13 @@
         android:layout_width="108dp"
         android:layout_height="114dp"
         android:layout_marginEnd="120dp"
+        android:layout_marginStart="8dp"
         android:background="@drawable/up_button"
         android:onClick="upButton1"
         app:layout_constraintBottom_toTopOf="@+id/downButton1"
-        app:layout_constraintEnd_toStartOf="@+id/upButton2" />
+        app:layout_constraintEnd_toStartOf="@+id/upButton2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/number5View"
@@ -150,7 +155,7 @@
         android:textSize="200sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/number2View"
-        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.91" />
@@ -205,10 +210,11 @@
         android:id="@+id/downButton1"
         android:layout_width="108dp"
         android:layout_height="114dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginBottom="104dp"
+        android:layout_marginStart="148dp"
         android:background="@drawable/down_button"
         android:onClick="downButton1"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="134dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
