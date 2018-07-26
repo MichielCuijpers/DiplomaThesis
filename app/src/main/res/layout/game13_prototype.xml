@@ -5,15 +5,16 @@
     android:id="@+id/back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
-    tools:context="com.icsd.game.thesis.game13.Game13">
+    android:background="#c7a96c"
+    tools:context="com.icsd.game.thesis.game13.Game13"
+    >
 
     <Button
         android:id="@+id/la"
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="56dp"
         android:layout_marginTop="8dp"
         android:background="#ca350c"
         android:onClick="playla"
@@ -21,7 +22,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/re"
-        app:layout_constraintVertical_bias="0.389" />
+        app:layout_constraintVertical_bias="0.576" />
 
     <Button
         android:id="@+id/dof"
@@ -35,33 +36,33 @@
         android:onClick="playDo"
         app:layout_constraintBottom_toTopOf="@+id/mi"
         app:layout_constraintEnd_toStartOf="@+id/re"
-        app:layout_constraintHorizontal_bias="0.211"
+        app:layout_constraintHorizontal_bias="0.216"
         app:layout_constraintStart_toStartOf="parent"
 
         app:layout_constraintTop_toTopOf="parent"
 
 
-        app:layout_constraintVertical_bias="0.465" />
+        app:layout_constraintVertical_bias="0.363" />
 
     <Button
         android:id="@+id/mi"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="playMi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/la"
-        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintHorizontal_bias="0.216"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/re"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="56dp"
         android:layout_marginTop="28dp"
         android:background="#f9f906"
         android:onClick="palyRe"

@@ -24,26 +24,23 @@
 
     <Button
         android:id="@+id/gameplaybutton_g15"
-        android:layout_width="243dp"
-        android:layout_height="171dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="48dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="gameplayonClick2"
         android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/start_gp"
-        app:layout_constraintEnd_toStartOf="@+id/help_button10"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.269"
         app:layout_constraintStart_toEndOf="@+id/gameplaybutton_g14"
-        app:layout_constraintTop_toBottomOf="@+id/title_14"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintTop_toBottomOf="@+id/title_14" />
 
     <Button
         android:id="@+id/gameplaybutton_g14"
-        android:layout_width="243dp"
-        android:layout_height="171dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -53,9 +50,10 @@
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/tuto_test"
         app:layout_constraintEnd_toStartOf="@+id/tutorialbutton_g15"
+        app:layout_constraintHorizontal_bias="0.289"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_14"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.418" />
 
     <Button
         android:id="@+id/light8"
@@ -314,22 +312,25 @@
 
     <Button
         android:id="@+id/start_gp"
-        android:layout_width="185dp"
-        android:layout_height="84dp"
-        android:layout_marginBottom="36dp"
-        android:layout_marginEnd="92dp"
+        android:layout_width="133dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="startgponClick"
         android:text="START"
         android:textColor="@android:color/black"
-        android:textSize="40dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/help_button10" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/tutorialbutton_g14"
-        android:layout_width="243dp"
-        android:layout_height="171dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -338,69 +339,49 @@
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/tuto_test"
         app:layout_constraintEnd_toStartOf="@+id/tutorialbutton_g15"
+        app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_14"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintVertical_bias="0.418" />
 
     <Button
         android:id="@+id/tutorialbutton_g15"
-        android:layout_width="243dp"
-        android:layout_height="171dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginTop="40dp"
         android:background="@android:color/holo_orange_dark"
         android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/start_gp"
-        app:layout_constraintEnd_toStartOf="@+id/help_button10"
-        app:layout_constraintTop_toBottomOf="@+id/title_14"
-        app:layout_constraintVertical_bias="0.181" />
-
-    <Button
-        android:id="@+id/help_button10"
-        android:layout_width="214dp"
-        android:layout_height="92dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/help_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/title_14" />
 
     <TextView
         android:id="@+id/title_14"
         android:layout_width="298dp"
         android:layout_height="68dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="16dp"
         android:text="Tutorial"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="40dp"
-        app:layout_constraintEnd_toStartOf="@+id/help_button10"
-        app:layout_constraintHorizontal_bias="0.969"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/tuto_test"
-        android:layout_width="185dp"
-        android:layout_height="84dp"
-        android:layout_marginBottom="36dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="252dp"
+        android:layout_width="105dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="132dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="tutoonClick"
         android:text="AGAIN"
         android:textColor="@android:color/black"
-        android:textSize="40dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/start_gp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/start_gp" />
 
     <Button
         android:id="@+id/heavy"
@@ -433,9 +414,9 @@
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/gameplaybutton_g14"
         app:layout_constraintEnd_toStartOf="@+id/title_14"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

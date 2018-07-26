@@ -21,17 +21,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "database.db";
     private static Context myCont;
 
-   // private SQLiteDatabase db = getWritableDatabase();
+    private SQLiteDatabase db = getWritableDatabase();
 
     public DatabaseHandler(Context context) {
 
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        myCont=context;
+        myCont = context;
     }
 
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        Log.e("MYDEBUG", "onCreate Start DB");
         db.execSQL("DROP TABLE IF EXISTS " + Question.QuestionDBEntry.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + User.UserDBEntry.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + GameDBEntry.TABLE_NAME);
@@ -39,17 +40,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Session.GameSessionDBEntry.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + Highscore.HighscoreDBEntry.TABLE_NAME);
 
-        db.execSQL(Question.QuestionDBEntry.SQL_CREATE_ENTRIES);
+        //  db.execSQL(Question.QuestionDBEntry.SQL_CREATE_ENTRIES);
         db.execSQL(GameDBEntry.SQL_CREATE_ENTRIES);
         db.execSQL(User.UserDBEntry.SQL_CREATE_ENTRIES);
-
         db.execSQL(Session.GameSessionDBEntry.SQL_CREATE_ENTRIES);
         db.execSQL(Highscore.HighscoreDBEntry.SQL_CREATE_ENTRIES);
 
         Question.QuestionDBEntry.addQuestionsToDB(db);
         Word.WordDBEntry.addTestWordsToDB(db);
         ObjectT.ObjectDBEntry.addTestObjectToDB(db);
-        Log.e("MYDEBUG", "TABLES CREATED");
+        Log.e("MYDEBUG", "onCreate END DB");
+
 
     }
 

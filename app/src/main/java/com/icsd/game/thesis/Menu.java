@@ -2,6 +2,7 @@ package com.icsd.game.thesis;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v4.view.GestureDetectorCompat;
 import android.os.Bundle;
 import android.view.View;
@@ -19,15 +20,16 @@ import com.icsd.game.thesis.game8.Game8;
 public class Menu extends Activity {
     private GestureDetectorCompat mDetector;
     public static User testUser;
-    private  static DatabaseHandler db;
+    private static DatabaseHandler db;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    
         setContentView(R.layout.activity_menu);
         testUser = new User(1);
-         db = new DatabaseHandler(this);
+        db = new DatabaseHandler(this);
 //        db.addUserToDB(testUser);
 
     }
