@@ -1,12 +1,14 @@
 package com.icsd.game.thesis;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.User;
 
 public class LoginActivity extends AppCompatActivity {
@@ -19,12 +21,18 @@ public class LoginActivity extends AppCompatActivity {
     private TextView number5View;
     private Integer[][] textViews;
     private static User user;
+    DatabaseHandler dh;
+    private static SQLiteDatabase db;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        dh = new DatabaseHandler(this);
+        db = dh.getWritableDatabase();
+        dh.onCreate(db);
+
         initGui();
     }
 
@@ -123,8 +131,13 @@ public class LoginActivity extends AppCompatActivity {
 
     public void doneOnClick(View view) {
         user = new User(number1View.getText().toString() + number2View.getText() + number3View.getText() + number4View.getText() + number5View.getText());
+        dh.addUserToDB(user, db);
         Intent c = new Intent(LoginActivity.this, Menu.class);
         startActivity(c);
+    }
+
+    public static SQLiteDatabase getDb() {
+        return db;
     }
 
     public static User getUser() {

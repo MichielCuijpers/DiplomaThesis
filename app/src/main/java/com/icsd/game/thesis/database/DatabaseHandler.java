@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.game1.Question;
 import com.icsd.game.thesis.game4.Word;
@@ -67,7 +68,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addSessionToDB(Session session) {
 
         ContentValues values = new ContentValues();
-        SQLiteDatabase db = Menu.getDb();
+        SQLiteDatabase db = LoginActivity.getDb();
         values.put(Session.GameSessionDBEntry.SCORE, session.getScore());
         values.put(Session.GameSessionDBEntry.STAGES_COMPLETED, session.getStage());
         values.put(Session.GameSessionDBEntry.FAILS, session.getFails());

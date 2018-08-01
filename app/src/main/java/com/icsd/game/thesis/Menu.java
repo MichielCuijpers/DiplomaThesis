@@ -38,13 +38,12 @@ public class Menu extends Activity {
         testUser = LoginActivity.getUser();
         //  db = new DatabaseHandler(this);
         //   db.getWritableDatabase();
-
         //db.addUserToDB(testUser);
-        dh = new DatabaseHandler(this);
 
-        db = dh.getWritableDatabase();
-        dh.onCreate(db);
-        dh.addUserToDB(testUser, db);
+
+
+
+
 
 
     }
