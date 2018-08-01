@@ -23,7 +23,7 @@ public class Word {
 
     //START INNER CLASS
     public static class WordDBEntry implements BaseColumns {
-        static DatabaseHandler dh ;
+        static DatabaseHandler dh;
         static SQLiteDatabase db;
         public static final String TABLE_NAME = "word";
         public static final String WORD = "word";
@@ -33,7 +33,7 @@ public class Word {
                         WORD + " TEXT)";
         ;
 
-       public static void addTestWordsToDB(SQLiteDatabase db) {
+        public static void addTestWordsToDB(SQLiteDatabase db) {
 
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             db.execSQL(SQL_CREATE_ENTRIES);
@@ -41,16 +41,17 @@ public class Word {
             values.put(WORD, "happy");
             db.insert(TABLE_NAME, null, values);
             values.clear();
-            values.put(WORD, "android");
+            values.put(WORD, "action");
             db.insert(TABLE_NAME, null, values);
             values.clear();
             values.put(WORD, "desk");
             db.insert(TABLE_NAME, null, values);
-
             values.clear();
-            values.put(WORD, "database");
+            values.put(WORD, "jazz");
             db.insert(TABLE_NAME, null, values);
-
+            values.clear();
+            values.put(WORD, "quiz");
+            db.insert(TABLE_NAME, null, values);
             values.clear();
             values.put(WORD, "computer");
             db.insert(TABLE_NAME, null, values);
@@ -70,7 +71,10 @@ public class Word {
             values.put(WORD, "security");
             db.insert(TABLE_NAME, null, values);
             values.clear();
-           // db.close();
+            values.put(WORD, "zero");
+            db.insert(TABLE_NAME, null, values);
+            values.clear();
+            // db.close();
         }
 
         protected static ArrayList<String> takeWorldsFromDB() {

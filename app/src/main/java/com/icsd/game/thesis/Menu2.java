@@ -48,9 +48,7 @@ public class Menu2 extends AppCompatActivity {
 
     public void dbTest(View view) {
         Intent dbmanager = new Intent(this, AndroidDatabaseManager.class);
-        DatabaseHandler dh = new DatabaseHandler(this);
-        SQLiteDatabase db = dh.getWritableDatabase();
-       // dh.onCreate(db);
+
         startActivity(dbmanager);
     }
 

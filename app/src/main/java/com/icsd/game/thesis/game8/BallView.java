@@ -7,11 +7,11 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class Ball extends View {
+public class BallView extends View {
     private static final int DEFAULT_CIRCLE_COLOR = Color.RED;
     private Paint paint;
 
-    public Ball(Context context, AttributeSet attrs) {
+    public BallView(Context context, AttributeSet attrs) {
         super(context,attrs);
         paint = new Paint();
         paint.setAntiAlias(true);

@@ -8,7 +8,7 @@
     android:background="#c7a96c"
     tools:context=".game8.Game8">
 
-    <com.icsd.game.thesis.game8.Ball
+    <com.icsd.game.thesis.game8.BallView
         android:id="@+id/ball9"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.033" />
 
-    <com.icsd.game.thesis.game8.Ball
+    <com.icsd.game.thesis.game8.BallView
         android:id="@+id/ball4"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.032" />
 
-    <com.icsd.game.thesis.game8.Ball
+    <com.icsd.game.thesis.game8.BallView
         android:id="@+id/ball7"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.033" />
 
-    <com.icsd.game.thesis.game8.Ball
+    <com.icsd.game.thesis.game8.BallView
         android:id="@+id/ball2"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.032" />
 
-    <com.icsd.game.thesis.game8.Ball
+    <com.icsd.game.thesis.game8.BallView
         android:id="@+id/ball1"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -76,7 +76,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.032" />
 
-    <com.icsd.game.thesis.game8.Ball
+    <com.icsd.game.thesis.game8.BallView
         android:id="@+id/ball5"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.032" />
 
-    <com.icsd.game.thesis.game8.Ball
+    <com.icsd.game.thesis.game8.BallView
         android:id="@+id/ball6"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -102,7 +102,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.033" />
 
-    <com.icsd.game.thesis.game8.Ball
+    <com.icsd.game.thesis.game8.BallView
         android:id="@+id/ball3"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -115,7 +115,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.032" />
 
-    <com.icsd.game.thesis.game8.Ball
+    <com.icsd.game.thesis.game8.BallView
         android:id="@+id/ball8"
         android:layout_width="50dp"
         android:layout_height="50dp"

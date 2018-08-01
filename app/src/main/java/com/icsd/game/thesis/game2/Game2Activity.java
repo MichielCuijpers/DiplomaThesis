@@ -56,7 +56,7 @@ public class Game2Activity extends AppCompatActivity {
     }
 
     private void init() {
-        dbHandler = new DatabaseHandler(this.getApplicationContext());
+
         curSession = new Session(Menu.testUser.getUsername(), 2);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
