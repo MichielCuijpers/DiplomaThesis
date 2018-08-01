@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.ContactsContract;
 import android.support.v4.view.GestureDetectorCompat;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.icsd.game.thesis.Game6.Game6;
@@ -23,20 +24,28 @@ public class Menu extends Activity {
     public static User testUser;
     // private static DatabaseHandler db;
     DatabaseHandler dh;
-    SQLiteDatabase db;
+    private static SQLiteDatabase db;
+
+    public static SQLiteDatabase getDb() {
+        return db;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_menu);
-        testUser = new User(1);
+        testUser = LoginActivity.getUser();
         //  db = new DatabaseHandler(this);
         //   db.getWritableDatabase();
-        // db.addUserToDB(testUser);
+
+        //db.addUserToDB(testUser);
         dh = new DatabaseHandler(this);
+
         db = dh.getWritableDatabase();
         dh.onCreate(db);
+        dh.addUserToDB(testUser, db);
+
 
     }
 

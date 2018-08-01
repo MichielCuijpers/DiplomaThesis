@@ -172,13 +172,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/doneButtonLogin"
         android:layout_width="240dp"
         android:layout_height="156dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="doneOnClick"
         android:text="DONE"
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"

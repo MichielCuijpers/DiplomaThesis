@@ -1,27 +1,25 @@
 package com.icsd.game.thesis;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import static com.icsd.game.thesis.R.id.homeAsUp;
-import static com.icsd.game.thesis.R.id.number1View;
-import static com.icsd.game.thesis.R.id.textView;
+import com.icsd.game.thesis.database.User;
 
 public class LoginActivity extends AppCompatActivity {
     char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
-    TextView number1View;
-    TextView number2View;
-    TextView number3View;
-    TextView number4View;
-    TextView number5View;
-    Integer[][] textViews;
+    private TextView number1View;
+    private TextView number2View;
+    private TextView number3View;
+    private TextView number4View;
+    private TextView number5View;
+    private Integer[][] textViews;
+    private static User user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,68 +41,94 @@ public class LoginActivity extends AppCompatActivity {
         textViews[3][0] = number4View.getId();
         textViews[4][0] = number5View.getId();
         for (int i = 0; i < 5; i++) {
-            textViews[i][1] = 1;
+            textViews[i][1] = 0;
         }
 
 
     }
 
-    private void changeLetter(Integer i) {
+    private void changeLetterUp(Integer i) {
 
         TextView view = findViewById(textViews[i][0]);
-        view.setText(alphabet[textViews[i][1]] + "");
         textViews[i][1]++;
+        view.setText(alphabet[textViews[i][1]] + "");
+
+
+    }
+
+    private void changeLetterDown(Integer i) {
+
+        TextView view = findViewById(textViews[i][0]);
+        if (textViews[i][1] != 0) {
+            textViews[i][1]--;
+            view.setText(alphabet[textViews[i][1]] + "");
+        } else {
+            textViews[i][1] = 24;
+            view.setText(alphabet[textViews[i][1]] + "");
+        }
+
 
     }
 
 
     public void upButton1(View view) {
-        changeLetter(0);
+        changeLetterUp(0);
     }
 
     public void downButton1(View view) {
-        changeLetter(1);
+        changeLetterDown(0);
 
     }
 
     public void upButton2(View view) {
-        changeLetter(1);
+        changeLetterUp(1);
 
     }
 
     public void downButton2(View view) {
-        changeLetter(1);
+        changeLetterDown(1);
 
     }
 
     public void upButton3(View view) {
-        changeLetter(2);
+        changeLetterUp(2);
 
     }
 
     public void downButton3(View view) {
-        changeLetter(2);
+        changeLetterDown(2);
 
     }
 
     public void upButton4(View view) {
-        changeLetter(3);
+        changeLetterUp(3);
 
     }
 
     public void downButton4(View view) {
-        changeLetter(3);
+        changeLetterDown(3);
 
     }
 
 
     public void upButotn5(View view) {
-        changeLetter(4);
+        changeLetterUp(4);
 
     }
 
 
     public void downButton5(View view) {
-        changeLetter(4);
+        changeLetterDown(4);
     }
+
+    public void doneOnClick(View view) {
+        user = new User(number1View.getText().toString() + number2View.getText() + number3View.getText() + number4View.getText() + number5View.getText());
+        Intent c = new Intent(LoginActivity.this, Menu.class);
+        startActivity(c);
+    }
+
+    public static User getUser() {
+        return user;
+    }
+
 }

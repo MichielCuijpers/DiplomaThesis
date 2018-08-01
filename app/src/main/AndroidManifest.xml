@@ -16,11 +16,7 @@
             android:name=".Menu"
             android:screenOrientation="landscape">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Menu2"
@@ -93,7 +89,14 @@
             android:name=".game15.Game15MiniGame3"
             android:screenOrientation="landscape" />
         <activity android:name=".game15.Game15MiniGame4" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity">
+            android:screenOrientation="landscape"
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

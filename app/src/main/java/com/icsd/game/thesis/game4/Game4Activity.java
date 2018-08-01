@@ -68,7 +68,6 @@ public class Game4Activity extends AppCompatActivity {
 
 
     }
-
     private void initGameplay() {
 
         isSecondButton = false;
@@ -142,7 +141,6 @@ public class Game4Activity extends AppCompatActivity {
         return output.toString();
     }
 
-
     private void initGui() {
         buttonsList = new ArrayList<>();
         button1 = findViewById(R.id.button1);
@@ -189,128 +187,130 @@ public class Game4Activity extends AppCompatActivity {
             } else if (tempWordsList.get(i).length() > 4 && tempWordsList.get(i).length() <= 6) {
                 wordsListTurn2.add(tempWordsList.get(i));
                 Log.e("MYDEBUG", "list2size" + wordsListTurn2.size());
-                } else{
-                    wordsListTurn3.add(tempWordsList.get(i));
-
-                }
-            }
-        }
-
-        private void buttonIsClick (View view){
-            Button b = (Button) view;
-
-            if (!isSecondButton) {
-                b.setBackgroundColor(Color.parseColor("#FFC56C07"));
-                previewsButtonText = b.getText().toString();
-                previewsButton = b;
-                isSecondButton = true;
             } else {
-                previewsButton.setBackgroundColor(Color.parseColor("#FFFF8800"));
-                previewsButton.setText(b.getText().toString());
-                b.setText(previewsButtonText);
-                isSecondButton = false;
-            }
-
-
-        }
-
-        public void checkOnClick (View view){
-            String world = "";
-            for (int i = 0; i < currentWord.length(); i++) {
-                world = world + buttonsList.get(i).getText();
-            }
-            if (currentWord.equals(world)) {
-                soundHandler.playOkSound();
-                this.curSession.setScore(this.globalTurn);
-
-                Toast.makeText(this, "CORRECT  ", Toast.LENGTH_SHORT).show();
-                clearGui();
-                if (secondaryTurn > 2 ) {
-                    changeTurn();
-                }
-
-                if (secondaryTurn == 0 || secondaryTurn == 1 || secondaryTurn == 2) {
-
-                    Log.e("MYDEBUG", "change tsecondaryurn" + secondaryTurn);
-                    gameplay(globalTurn);
-
-                }
-
-            } else {
-
-                soundHandler.playWrongSound();
-                Toast.makeText(this, "TRY AGAIN  ", Toast.LENGTH_SHORT).show();
-                this.curSession.setFails(curSession.getFails() + 1);
+                wordsListTurn3.add(tempWordsList.get(i));
 
             }
         }
-        private void endGame(){
-            soundHandler.stopSound();
-            Toast.makeText(this, "END GAME ! PLAY ANOTHER GAME  ", Toast.LENGTH_SHORT).show();
-            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-            dbHandler = new DatabaseHandler(this.getApplicationContext());
-            dbHandler.addSessionToDB(this.curSession);
-            Intent c = new Intent(this, Menu.class);
-            startActivity(c);
-        }
+    }
 
-        private void changeTurn () {
-            Log.e("MYDEBUG", "change turn" + globalTurn);
-            secondaryTurn = 0;
-            globalTurn++;
-            if (this.globalTurn == 4) {
-                endGame();
-            }
-            gameplay(globalTurn);
-        }
+    private void buttonIsClick(View view) {
+        Button b = (Button) view;
 
-        public void button1OnClick (View view){
-            buttonIsClick(view);
-        }
-
-        public void button3OnClick (View view){
-            buttonIsClick(view);
-        }
-
-        public void button2OnClick (View view){
-            buttonIsClick(view);
-        }
-
-        public void button4OnClick (View view){
-            buttonIsClick(view);
-        }
-
-        public void button5OnClick (View view){
-            buttonIsClick(view);
-        }
-
-        public void button6OnClick (View view){
-            buttonIsClick(view);
-        }
-
-        public void button7OnClick (View view){
-            buttonIsClick(view);
-        }
-
-        public void button8OnClick (View view){
-            buttonIsClick(view);
-        }
-
-        public void button9OnClick (View view){
-            buttonIsClick(view);
-        }
-
-        public void button10OnClick (View view){
-            buttonIsClick(view);
-        }
-
-        public void button11nClick (View view){
-            buttonIsClick(view);
-        }
-
-        public void button12OnClick (View view){
-            buttonIsClick(view);
+        if (!isSecondButton) {
+            b.setBackgroundColor(Color.parseColor("#FFC56C07"));
+            previewsButtonText = b.getText().toString();
+            previewsButton = b;
+            isSecondButton = true;
+        } else {
+            previewsButton.setBackgroundColor(Color.parseColor("#FFFF8800"));
+            previewsButton.setText(b.getText().toString());
+            b.setText(previewsButtonText);
+            isSecondButton = false;
         }
 
 
     }
+
+    public void checkOnClick(View view) {
+        String world = "";
+        for (int i = 0; i < currentWord.length(); i++) {
+            world = world + buttonsList.get(i).getText();
+        }
+        if (currentWord.equals(world)) {
+            soundHandler.playOkSound();
+            this.curSession.setScore(this.globalTurn);
+
+            Toast.makeText(this, "CORRECT  ", Toast.LENGTH_SHORT).show();
+            clearGui();
+            if (secondaryTurn > 2) {
+                changeTurn();
+            }
+
+            if (secondaryTurn == 0 || secondaryTurn == 1 || secondaryTurn == 2) {
+
+                Log.e("MYDEBUG", "change tsecondaryurn" + secondaryTurn);
+                gameplay(globalTurn);
+
+            }
+
+        } else {
+
+            soundHandler.playWrongSound();
+            Toast.makeText(this, "TRY AGAIN  ", Toast.LENGTH_SHORT).show();
+            this.curSession.setFails(curSession.getFails() + 1);
+
+        }
+    }
+
+    private void endGame() {
+        soundHandler.stopSound();
+        Toast.makeText(this, "END GAME ! PLAY ANOTHER GAME  ", Toast.LENGTH_SHORT).show();
+        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        dbHandler.addSessionToDB(this.curSession);
+        Intent c = new Intent(this, Menu.class);
+        startActivity(c);
+    }
+
+    private void changeTurn() {
+        Log.e("MYDEBUG", "change turn" + globalTurn);
+        secondaryTurn = 0;
+        globalTurn++;
+        if (this.globalTurn == 4) {
+            endGame();
+        }
+        gameplay(globalTurn);
+    }
+
+    //OnCLicks
+    public void button1OnClick(View view) {
+        buttonIsClick(view);
+    }
+
+    public void button3OnClick(View view) {
+        buttonIsClick(view);
+    }
+
+    public void button2OnClick(View view) {
+        buttonIsClick(view);
+    }
+
+    public void button4OnClick(View view) {
+        buttonIsClick(view);
+    }
+
+    public void button5OnClick(View view) {
+        buttonIsClick(view);
+    }
+
+    public void button6OnClick(View view) {
+        buttonIsClick(view);
+    }
+
+    public void button7OnClick(View view) {
+        buttonIsClick(view);
+    }
+
+    public void button8OnClick(View view) {
+        buttonIsClick(view);
+    }
+
+    public void button9OnClick(View view) {
+        buttonIsClick(view);
+    }
+
+    public void button10OnClick(View view) {
+        buttonIsClick(view);
+    }
+
+    public void button11nClick(View view) {
+        buttonIsClick(view);
+    }
+
+    public void button12OnClick(View view) {
+        buttonIsClick(view);
+    }
+
+
+}

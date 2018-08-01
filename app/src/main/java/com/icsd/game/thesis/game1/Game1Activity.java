@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
@@ -60,7 +61,7 @@ public class Game1Activity extends AppCompatActivity {
         setContentView(view1);
         pickCategoryView = findViewById(R.id.textView6);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        curSession = new Session(Menu.testUser.getUsername(), 1);
+        curSession = new Session(LoginActivity.getUser().getUsername(), 1);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
         myCont = this.getApplicationContext();
         questions = new ArrayList<>();

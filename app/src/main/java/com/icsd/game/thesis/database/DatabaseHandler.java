@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.game1.Question;
 import com.icsd.game.thesis.game4.Word;
 import com.icsd.game.thesis.game5.ObjectT;
@@ -21,7 +22,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "database.db";
     private static Context myCont;
 
-    private SQLiteDatabase dba=getWritableDatabase();
+    private SQLiteDatabase dba = getWritableDatabase();
 
     public DatabaseHandler(Context context) {
 
@@ -66,7 +67,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void addSessionToDB(Session session) {
 
         ContentValues values = new ContentValues();
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = Menu.getDb();
         values.put(Session.GameSessionDBEntry.SCORE, session.getScore());
         values.put(Session.GameSessionDBEntry.STAGES_COMPLETED, session.getStage());
         values.put(Session.GameSessionDBEntry.FAILS, session.getFails());
@@ -75,18 +76,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(Session.GameSessionDBEntry.USER_ID, session.getUserId());
         values.put(Session.GameSessionDBEntry.GAME_ID, session.getGameID());
         db.insert(Session.GameSessionDBEntry.TABLE_NAME, null, values);
-        db.close();
+       // db.close();
         Log.e("DEBUGMY", "Session save to db");
 
     }
 
-    public void addUserToDB(User user) {
-
-        SQLiteDatabase db = getWritableDatabase();
+    public void addUserToDB(User user, SQLiteDatabase db) {
+        Log.e("MYDEBUG", "in add user0");
+        //SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(User.UserDBEntry.NICKNAME, user.getUsername());
+
         db.insert(User.UserDBEntry.TABLE_NAME, null, values);
-        db.close();
+       // db.close();
     }
 
     public void addHighscoreToDB(Highscore highscore) {
