@@ -15,6 +15,8 @@ import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.PopupWindow1;
+import com.icsd.game.thesis.pet.Tooltips.Tooltips;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -311,6 +313,7 @@ public class Game4Activity extends AppCompatActivity {
     public void button12OnClick(View view) {
         buttonIsClick(view);
     }
+
 
 
 }

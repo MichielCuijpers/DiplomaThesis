@@ -5,4 +5,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="game12">Game12</string>
+
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="PopupWindow1">PopupWindow1</string>
+
+    <string name="title_activity_popup_window1">PopupWindow1</string>
+
+    <string name="title_activity_tooltips">Tooltips</string>
 </resources>

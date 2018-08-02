@@ -7,6 +7,7 @@
     android:background="#c7a96c">
 
 
+
     <Button
         android:id="@+id/help_button4"
         android:layout_width="214dp"

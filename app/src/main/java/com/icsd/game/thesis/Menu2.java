@@ -13,6 +13,8 @@ import com.icsd.game.thesis.database.AndroidDatabaseManager;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.game13.Game13;
 import com.icsd.game.thesis.game15.Game15Menou;
+import com.icsd.game.thesis.pet.PopupWindow1;
+import com.icsd.game.thesis.pet.Tooltips.Tooltips;
 
 
 public class Menu2 extends AppCompatActivity {
@@ -58,7 +60,7 @@ public class Menu2 extends AppCompatActivity {
     }
 
     public void game16(View view) {
-        Intent c = new Intent(this,LoginActivity.class);
+        Intent c = new Intent(this,Tooltips.class);
         startActivity(c);
     }
 }
