@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
 
         dh = new DatabaseHandler(this);
         db = dh.getWritableDatabase();
-       // dh.onCreate(db);
+        dh.onCreate(db);
         setContentView(R.layout.splash_screen_layout);
         handler = new android.os.Handler();
         handler.postDelayed(new Runnable() {

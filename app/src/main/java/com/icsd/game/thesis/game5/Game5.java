@@ -64,6 +64,7 @@ public class Game5 extends AppCompatActivity {
         this.answer4Button = findViewById(R.id.choise4Button);
         image = findViewById(R.id.imageViewObject);
         objectTList = ObjectT.ObjectDBEntry.takeObjectsFromDB();
+        Collections.shuffle(objectTList);
 
 
     }
@@ -73,6 +74,7 @@ public class Game5 extends AppCompatActivity {
 
             Toast.makeText(this, "Congrats!! You found all answers!! Game End Play another game ", Toast.LENGTH_LONG).show();
             curSession.setTimeEnd(System.currentTimeMillis());
+            curSession.setScore(this.turn);
             dbHandler.addSessionToDB(this.curSession);
             Intent c = new Intent(this, Menu.class);
             startActivity(c);
@@ -130,7 +132,7 @@ public class Game5 extends AppCompatActivity {
     }
 
     public Boolean endGame() {
-        if (turn == 4) {
+        if (turn == 5) {
             return true;
 
         }
