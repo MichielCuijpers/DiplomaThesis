@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.User;
 
+import java.util.logging.Handler;
+
 public class LoginActivity extends AppCompatActivity {
     char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
@@ -23,17 +25,29 @@ public class LoginActivity extends AppCompatActivity {
     private static User user;
     DatabaseHandler dh;
     private static SQLiteDatabase db;
+    private android.os.Handler handler;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+
+
         dh = new DatabaseHandler(this);
         db = dh.getWritableDatabase();
-        dh.onCreate(db);
+       // dh.onCreate(db);
+        setContentView(R.layout.splash_screen_layout);
+        handler = new android.os.Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
 
-        initGui();
+
+                setContentView(R.layout.activity_login);
+                initGui();
+            }
+        }, 3000);
+
     }
 
     private void initGui() {
@@ -58,8 +72,15 @@ public class LoginActivity extends AppCompatActivity {
     private void changeLetterUp(Integer i) {
 
         TextView view = findViewById(textViews[i][0]);
-        textViews[i][1]++;
+
         view.setText(alphabet[textViews[i][1]] + "");
+        if (textViews[i][1] != 25) {
+            textViews[i][1]++;
+            view.setText(alphabet[textViews[i][1]] + "");
+        } else {
+            textViews[i][1] = 0;
+            view.setText(alphabet[textViews[i][1]] + "");
+        }
 
 
     }
@@ -71,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
             textViews[i][1]--;
             view.setText(alphabet[textViews[i][1]] + "");
         } else {
-            textViews[i][1] = 24;
+            textViews[i][1] = 25;
             view.setText(alphabet[textViews[i][1]] + "");
         }
 
