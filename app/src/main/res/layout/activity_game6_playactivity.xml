@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutID"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#c7a96c"
@@ -365,5 +366,5 @@
         android:text="Button"
         android:visibility="invisible"
         tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="16dp"/>
+        tools:layout_editor_absoluteY="16dp" />
 </android.support.constraint.ConstraintLayout>

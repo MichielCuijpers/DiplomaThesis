@@ -2,12 +2,12 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutID"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#c7a96c"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
 
->
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <Button
         android:id="@+id/button46"
@@ -384,13 +384,13 @@
         android:background="@android:color/holo_orange_dark"
         android:onClick="checkOnClick"
         android:text="CHECK"
-        android:textSize="40dp"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/button3"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button3"
         tools:layout_editor_absoluteX="456dp"
         tools:layout_editor_absoluteY="400dp" />
 

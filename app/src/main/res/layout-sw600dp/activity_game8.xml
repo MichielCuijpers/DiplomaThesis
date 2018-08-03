@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/lo"
+    android:id="@+id/layoutID"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
@@ -94,8 +94,8 @@
         android:layout_height="88dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
-        android:onClick="ball6OnClick"
         android:layout_marginTop="8dp"
+        android:onClick="ball6OnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ball7"
         app:layout_constraintTop_toTopOf="parent"

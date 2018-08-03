@@ -2,10 +2,11 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutID"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".game1.Game1Activity"
-    android:background="#c7a96c">
+    android:background="#c7a96c"
+    tools:context=".game1.Game1Activity">
 
     <TextView
         android:id="@+id/textView6"
@@ -67,8 +68,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
-        android:text="General Knowlgment"
         android:onClick="category6OnClick"
+        android:text="General Knowlgment"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -85,8 +86,8 @@
         android:layout_marginBottom="16dp"
         android:layout_marginStart="8dp"
         android:background="@android:color/holo_orange_dark"
-        android:text="Food"
         android:onClick="category4OnClick"
+        android:text="Food"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
