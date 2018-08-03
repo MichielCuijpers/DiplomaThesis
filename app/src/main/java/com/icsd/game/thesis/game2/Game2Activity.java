@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 
 import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
@@ -128,6 +129,7 @@ public class Game2Activity extends AppCompatActivity {
         if (turn == 3 || turn == 4) {
             popUpWindow.getmPopupWindow().dismiss();
             popUpWindow.showPopUp("New Turn ");
+            cleanBackgroundForPopUp();
 
 
             //Africa Turn
@@ -151,6 +153,7 @@ public class Game2Activity extends AppCompatActivity {
         if (turn == 5 || turn == 6) {
             popUpWindow.getmPopupWindow().dismiss();
             popUpWindow.showPopUp("New Turn ");
+            cleanBackgroundForPopUp();
             mapImageView.setImageResource(R.drawable.asia_map);
             Collections.shuffle(countriesAsia);
             if (countriesDone.contains(countriesAsia.get(0))) {
@@ -229,17 +232,33 @@ public class Game2Activity extends AppCompatActivity {
 
     }
 
+private void cleanBackgroundForPopUp(){
 
+    mapImageView.setVisibility(View.INVISIBLE);
+
+    if (popUpWindow.getmPopupWindow().isShowing()) {
+
+        mapImageView.setVisibility(View.INVISIBLE);
+
+    }
+    popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+        @Override
+        public void onDismiss() {
+
+            mapImageView.setVisibility(View.VISIBLE);
+
+        }
+    });
+
+}
     private void check(String answer) {
         if (answer.equals(currectCorrect)) {
             soundHandler.playOkSound();
+
             popUpWindow.showPopUp("Correct. Go on!! ");
-            mapImageView.setVisibility(View.INVISIBLE);
-            while(popUpWindow.getmPopupWindow().isShowing()){
+            cleanBackgroundForPopUp();
 
-
-            }
-            mapImageView.setVisibility(View.VISIBLE);
             turn++;
             if (this.turn == 7) {
                 soundHandler.stopSound();
@@ -257,6 +276,7 @@ public class Game2Activity extends AppCompatActivity {
             soundHandler.playWrongSound();
 
             popUpWindow.showPopUp("Fail, please try again ");
+            cleanBackgroundForPopUp();
             curSession.setFails(curSession.getFails() + 1);
             //initTurn();
 

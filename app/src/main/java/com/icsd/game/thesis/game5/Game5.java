@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 
 import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
@@ -70,11 +71,32 @@ public class Game5 extends AppCompatActivity {
 
 
     }
+    private void cleanBackgroundForPopUp(){
+
+
+
+        if (popUpWindow.getmPopupWindow().isShowing()) {
+
+            image.setVisibility(View.INVISIBLE);
+
+        }
+        popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+            @Override
+            public void onDismiss() {
+
+                image.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+    }
 
     public void play(int turn) {
         if (endGame()) {
 
             popUpWindow.showPopUp("Congrats!! You found all answers!!Game over");
+            cleanBackgroundForPopUp();
             curSession.setTimeEnd(System.currentTimeMillis());
             curSession.setScore(this.turn);
             dbHandler.addSessionToDB(this.curSession);
@@ -99,6 +121,7 @@ public class Game5 extends AppCompatActivity {
         if (button.getText().equals(correct)) {
             soundHandler.playOkSound();
             popUpWindow.showPopUp("Congrats!! You answer is correct");
+            cleanBackgroundForPopUp();
             turn++;
 
             play(turn);
@@ -109,6 +132,7 @@ public class Game5 extends AppCompatActivity {
         } else {
             soundHandler.playWrongSound();
             popUpWindow.showPopUp("Mistakes were made, try one more !!");
+            cleanBackgroundForPopUp();
             curSession.setFails(curSession.getFails() + 1);
 
         }
