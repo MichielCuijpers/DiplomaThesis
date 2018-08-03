@@ -13,8 +13,8 @@
         android:layout_marginTop="89dp"
         android:gravity="center"
         android:text="Correct"
-        android:textColor="#ffffffff"
-        android:textSize="55sp"
+        android:textColor="@android:color/background_dark"
+        android:textSize="10sp"
         android:textStyle="bold" />
 
     <ImageView
@@ -33,5 +33,5 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="8dp"
-        app:srcCompat="@drawable/dialog" />
+        android:src="@drawable/dialog" />
 </RelativeLayout>

@@ -127,6 +127,8 @@ public class Game2Activity extends AppCompatActivity {
 
         }
         if (turn == 3 || turn == 4) {
+            popUpWindow.getmPopupWindow().dismiss();
+            popUpWindow.showPopUp("New Turn ");
             //Africa Turn
             mapImageView.setImageResource(R.drawable.africa_map);
 
@@ -146,6 +148,8 @@ public class Game2Activity extends AppCompatActivity {
 
         }
         if (turn == 5 || turn == 6) {
+            popUpWindow.getmPopupWindow().dismiss();
+            popUpWindow.showPopUp("New Turn ");
             mapImageView.setImageResource(R.drawable.asia_map);
             Collections.shuffle(countriesAsia);
             if (countriesDone.contains(countriesAsia.get(0))) {
