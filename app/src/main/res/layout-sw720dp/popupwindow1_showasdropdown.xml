@@ -19,20 +19,19 @@
 
     <ImageView
         android:id="@+id/catView"
-        android:layout_width="wrap_content"
-        android:layout_height="428dp"
+        android:layout_width="439dp"
+        android:layout_height="427dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:visibility="visible"
-        android:src="@drawable/cat_pet" />
+        android:src="@drawable/cat_pet"
+        android:visibility="visible" />
 
     <ImageView
         android:id="@+id/bubbleView"
-        android:layout_width="313dp"
-        android:layout_height="339dp"
+        android:layout_width="346dp"
+        android:layout_height="341dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="9dp"
-        android:visibility="visible"
-        android:src="@drawable/dialog" />
+        android:src="@drawable/dialog"
+        android:visibility="visible" />
 </RelativeLayout>

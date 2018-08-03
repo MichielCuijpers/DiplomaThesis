@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
@@ -56,7 +57,7 @@ public class Game5 extends AppCompatActivity {
         myCont = this.getApplicationContext();
 
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        curSession = new Session(Menu.testUser.getUsername(), 5);
+        curSession = new Session(LoginActivity.getUser().getUsername(), 5);
         curSession.setTimeStart(System.currentTimeMillis());
         soundHandler = new SoundHandler(getApplicationContext());
 
