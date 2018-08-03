@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
@@ -52,7 +53,7 @@ public class Game6 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game6_content_main);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        currentSession = new Session(Menu.testUser.getUsername(), 6);
+        currentSession = new Session(LoginActivity.getUser().getUsername(), 6);
         currentSession.setTimeStart(System.currentTimeMillis() / 1000);
         soundHandler = new SoundHandler(getApplicationContext());
         imagesToBitmap();

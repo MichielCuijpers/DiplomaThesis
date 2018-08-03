@@ -68,7 +68,7 @@ public class Game1Activity extends AppCompatActivity {
         myCont = this.getApplicationContext();
         questions = new ArrayList<>();
         soundHandler = new SoundHandler(getApplicationContext());
-        popUpWindow = new PopUpWindow(myCont, this);
+        popUpWindow = new PopUpWindow(this, this);
 
 
     }
@@ -103,7 +103,7 @@ public class Game1Activity extends AppCompatActivity {
         if (button.getText().equals(correctAnswer)) {
             soundHandler.playOkSound();
 
-          //  popUpWindow.showPopUp("Congratulations. Your answer is correct!! ");
+              popUpWindow.showPopUp("Congratulations. Your answer is correct!! ");
             curSession.setScore(curSession.getScore() + 1);
             curSession.setStage(curSession.getStage() + 1);
             initTheQuestion();
@@ -111,7 +111,7 @@ public class Game1Activity extends AppCompatActivity {
 
         } else {
             soundHandler.playWrongSound();
-           // popUpWindow.showPopUp("Wrong aswer, try one more time !! ");
+             popUpWindow.showPopUp("Wrong aswer, try one more time !! ");
             curSession.setFails(curSession.getFails() + 1);
         }
         if (this.questions.isEmpty()) {
@@ -123,7 +123,7 @@ public class Game1Activity extends AppCompatActivity {
             curSession.setTimeEnd(System.currentTimeMillis() / 1000);
             dbHandler.addSessionToDB(this.curSession);
             soundHandler.stopSound();
-           // popUpWindow.showPopUp("Congrats!! You found all answers!! ");
+             popUpWindow.showPopUp("Congrats!! You found all answers!! ");
             Intent c = new Intent(this, Menu.class);
             startActivity(c);
         }

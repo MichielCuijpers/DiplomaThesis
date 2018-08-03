@@ -1,21 +1,19 @@
 package com.icsd.game.thesis.game2;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
@@ -25,7 +23,7 @@ import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.GregorianCalendar;
+
 
 public class Game2Activity extends AppCompatActivity {
 
@@ -59,11 +57,12 @@ public class Game2Activity extends AppCompatActivity {
 
     private void init() {
 
-        curSession = new Session(Menu.testUser.getUsername(), 2);
+        curSession = new Session(LoginActivity.getUser().getUsername(), 2);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         soundHandler = new SoundHandler(getApplicationContext());
         popUpWindow = new PopUpWindow(this, this);
+
         initGameplay();
         initGui();
         initTurn();
@@ -129,6 +128,8 @@ public class Game2Activity extends AppCompatActivity {
         if (turn == 3 || turn == 4) {
             popUpWindow.getmPopupWindow().dismiss();
             popUpWindow.showPopUp("New Turn ");
+
+
             //Africa Turn
             mapImageView.setImageResource(R.drawable.africa_map);
 
@@ -233,7 +234,12 @@ public class Game2Activity extends AppCompatActivity {
         if (answer.equals(currectCorrect)) {
             soundHandler.playOkSound();
             popUpWindow.showPopUp("Correct. Go on!! ");
+            mapImageView.setVisibility(View.INVISIBLE);
+            while(popUpWindow.getmPopupWindow().isShowing()){
 
+
+            }
+            mapImageView.setVisibility(View.VISIBLE);
             turn++;
             if (this.turn == 7) {
                 soundHandler.stopSound();

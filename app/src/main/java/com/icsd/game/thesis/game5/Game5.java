@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
@@ -22,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Game5 extends AppCompatActivity {
-    private ObjectT objectT;
     private ArrayList<ObjectT> objectTList;
     private Button answer1Button;
     private Button answer2Button;

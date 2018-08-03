@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Collections;
 
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.Menu2;
 import com.icsd.game.thesis.R;
@@ -59,7 +60,7 @@ public class Game12 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game12);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        currentSession = new Session(Menu.testUser.getUsername(),12);
+        currentSession = new Session(LoginActivity.getUser().getUsername(),12);
         currentSession.setTimeStart(System.currentTimeMillis()/1000);
         soundHandler = new SoundHandler(getApplicationContext());
         initGraphics();

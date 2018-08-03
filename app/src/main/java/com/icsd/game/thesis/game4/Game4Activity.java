@@ -96,7 +96,7 @@ public class Game4Activity extends AppCompatActivity {
 
         switch (turn) {
             case 1:
-                Log.e("MYDEBUG", "inn:" + globalTurn);
+
                 currentWord = wordsListTurn1.get(secondaryTurn);
                 setWordInGui(shuffleWord(currentWord));
                 secondaryTurn++;
@@ -104,7 +104,7 @@ public class Game4Activity extends AppCompatActivity {
                 break;
             case 2:
                 p.getmPopupWindow().dismiss();
-                p.showPopUp("TURN  "+globalTurn+" BEGINS");
+                p.showPopUp("TURN  " + globalTurn + " BEGINS");
                 currentWord = wordsListTurn2.get(secondaryTurn);
                 setWordInGui(shuffleWord(currentWord));
                 secondaryTurn++;
@@ -112,7 +112,7 @@ public class Game4Activity extends AppCompatActivity {
                 break;
             case 3:
                 p.getmPopupWindow().dismiss();
-                p.showPopUp("TURN  "+globalTurn+" BEGINS");
+                p.showPopUp("TURN  " + globalTurn + " BEGINS");
                 currentWord = wordsListTurn3.get(secondaryTurn);
                 setWordInGui(shuffleWord(currentWord));
                 secondaryTurn++;
@@ -193,7 +193,7 @@ public class Game4Activity extends AppCompatActivity {
                 wordsListTurn1.add(tempWordsList.get(i));
             } else if (tempWordsList.get(i).length() > 4 && tempWordsList.get(i).length() <= 6) {
                 wordsListTurn2.add(tempWordsList.get(i));
-                Log.e("MYDEBUG", "list2size" + wordsListTurn2.size());
+
             } else {
                 wordsListTurn3.add(tempWordsList.get(i));
 
@@ -227,9 +227,6 @@ public class Game4Activity extends AppCompatActivity {
         if (currentWord.equals(world)) {
             soundHandler.playOkSound();
             this.curSession.setScore(this.globalTurn);
-
-            // Toast.makeText(this, "CORRECT  ", Toast.LENGTH_SHORT).show();
-
             p.showPopUp("Correct. Congrats!");
             clearGui();
             if (secondaryTurn > 2) {
@@ -238,7 +235,6 @@ public class Game4Activity extends AppCompatActivity {
 
             if (secondaryTurn == 0 || secondaryTurn == 1 || secondaryTurn == 2) {
 
-                Log.e("MYDEBUG", "change tsecondaryurn" + secondaryTurn);
                 gameplay(globalTurn);
 
             }
@@ -247,7 +243,6 @@ public class Game4Activity extends AppCompatActivity {
 
             soundHandler.playWrongSound();
             p.showPopUp("False, try again!!");
-            // Toast.makeText(this, "TRY AGAIN  ", Toast.LENGTH_SHORT).show();
             this.curSession.setFails(curSession.getFails() + 1);
 
         }

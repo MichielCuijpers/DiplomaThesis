@@ -9,12 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
 
 import java.util.ArrayList;
 
@@ -58,9 +59,8 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     private Runnable runChange2;
     private Runnable runCheck;
     private Session curSession;
-
     private DatabaseHandler dbHandler;
-
+    private PopUpWindow popUpWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +69,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
         setContentView(layout.game13_prototype);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         init();
-        curSession = new Session(Menu.testUser.getUsername(), 13);
+        curSession = new Session(LoginActivity.getUser().getUsername(), 13);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
         playPattern();
 
@@ -102,7 +102,8 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
                     curSession.setStage(turn);
                     turn++;
                     if (turn == 5) {
-                        Toast.makeText(mContext, "YOU WON ", Toast.LENGTH_LONG).show();
+
+                        popUpWindow.showPopUp("YOU WON");
                         saveSessionToDB();
                         killAll();
                     } else {
@@ -113,7 +114,8 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
                 } else {
                     Log.e("Debug", "InCorrect");
                     curSession.setFails(curSession.getFails() + 1);
-                    Toast.makeText(mContext, "FAIL,TRY AGAIN ", Toast.LENGTH_LONG).show();
+
+                    popUpWindow.showPopUp("FAIL,TRY AGAIN ");
                     playPattern();
                 }
 
@@ -198,6 +200,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
         re = MediaPlayer.create(this, raw.re);
         mi = MediaPlayer.create(this, raw.mi);
         dof = MediaPlayer.create(this, raw.dof);
+        popUpWindow = new PopUpWindow(this, this);
         handlerLa = new Handler();
         handlerRe = new Handler();
         handlerMi = new Handler();
