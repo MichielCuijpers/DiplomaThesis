@@ -15,8 +15,8 @@ import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
-import com.icsd.game.thesis.pet.PopupWindow1;
-import com.icsd.game.thesis.pet.Tooltips.Tooltips;
+import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,6 +52,7 @@ public class Game4Activity extends AppCompatActivity {
     private Session curSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
+    PopUpWindow p;
 
     public static Context getMyCont() {
         return myCont;
@@ -66,10 +67,12 @@ public class Game4Activity extends AppCompatActivity {
         soundHandler = new SoundHandler(getApplicationContext());
         initGameplay();
         initGui();
+        p = new PopUpWindow(myCont, this);
         gameplay(globalTurn);
 
 
     }
+
     private void initGameplay() {
 
         isSecondButton = false;
@@ -100,14 +103,16 @@ public class Game4Activity extends AppCompatActivity {
 
                 break;
             case 2:
-                Log.e("MYDEBUG", "inn:" + globalTurn);
+                p.getmPopupWindow().dismiss();
+                p.showPopUp("TURN  "+globalTurn+" BEGINS");
                 currentWord = wordsListTurn2.get(secondaryTurn);
                 setWordInGui(shuffleWord(currentWord));
                 secondaryTurn++;
 
                 break;
             case 3:
-
+                p.getmPopupWindow().dismiss();
+                p.showPopUp("TURN  "+globalTurn+" BEGINS");
                 currentWord = wordsListTurn3.get(secondaryTurn);
                 setWordInGui(shuffleWord(currentWord));
                 secondaryTurn++;
@@ -223,7 +228,9 @@ public class Game4Activity extends AppCompatActivity {
             soundHandler.playOkSound();
             this.curSession.setScore(this.globalTurn);
 
-            Toast.makeText(this, "CORRECT  ", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(this, "CORRECT  ", Toast.LENGTH_SHORT).show();
+
+            p.showPopUp("Correct. Congrats!");
             clearGui();
             if (secondaryTurn > 2) {
                 changeTurn();
@@ -239,7 +246,8 @@ public class Game4Activity extends AppCompatActivity {
         } else {
 
             soundHandler.playWrongSound();
-            Toast.makeText(this, "TRY AGAIN  ", Toast.LENGTH_SHORT).show();
+            p.showPopUp("False, try again!!");
+            // Toast.makeText(this, "TRY AGAIN  ", Toast.LENGTH_SHORT).show();
             this.curSession.setFails(curSession.getFails() + 1);
 
         }
@@ -247,7 +255,8 @@ public class Game4Activity extends AppCompatActivity {
 
     private void endGame() {
         soundHandler.stopSound();
-        Toast.makeText(this, "END GAME ! PLAY ANOTHER GAME  ", Toast.LENGTH_SHORT).show();
+        p.getmPopupWindow().dismiss();
+        p.showPopUp("END GAME !! ");
         curSession.setTimeEnd(System.currentTimeMillis() / 1000);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         dbHandler.addSessionToDB(this.curSession);
@@ -256,7 +265,7 @@ public class Game4Activity extends AppCompatActivity {
     }
 
     private void changeTurn() {
-        Log.e("MYDEBUG", "change turn" + globalTurn);
+
         secondaryTurn = 0;
         globalTurn++;
         if (this.globalTurn == 4) {
@@ -313,7 +322,6 @@ public class Game4Activity extends AppCompatActivity {
     public void button12OnClick(View view) {
         buttonIsClick(view);
     }
-
 
 
 }

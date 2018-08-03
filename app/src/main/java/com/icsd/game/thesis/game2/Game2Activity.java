@@ -21,6 +21,7 @@ import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,6 +44,7 @@ public class Game2Activity extends AppCompatActivity {
     private Session curSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
+    private PopUpWindow popUpWindow;
 
 
     @Override
@@ -61,7 +63,7 @@ public class Game2Activity extends AppCompatActivity {
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         soundHandler = new SoundHandler(getApplicationContext());
-
+        popUpWindow = new PopUpWindow(this, this);
         initGameplay();
         initGui();
         initTurn();
@@ -226,14 +228,14 @@ public class Game2Activity extends AppCompatActivity {
     private void check(String answer) {
         if (answer.equals(currectCorrect)) {
             soundHandler.playOkSound();
+            popUpWindow.showPopUp("Correct. Go on!! ");
 
-            Toast.makeText(this, "Congrats!!  ", Toast.LENGTH_SHORT).show();
             turn++;
             if (this.turn == 7) {
                 soundHandler.stopSound();
                 curSession.setTimeEnd(System.currentTimeMillis() / 1000);
                 dbHandler.addSessionToDB(this.curSession);
-                Toast.makeText(this, "Congrats!! You found all countries!! Game End, Play another game ", Toast.LENGTH_LONG).show();
+                popUpWindow.showPopUp("Congrats!! You found all countries!!");
                 Intent c = new Intent(this, Menu.class);
                 startActivity(c);
             }
@@ -243,8 +245,8 @@ public class Game2Activity extends AppCompatActivity {
             initTurn();
         } else {
             soundHandler.playWrongSound();
-            Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
 
+            popUpWindow.showPopUp("Fail, please try again ");
             curSession.setFails(curSession.getFails() + 1);
             //initTurn();
 

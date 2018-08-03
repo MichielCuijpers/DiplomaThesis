@@ -12,27 +12,26 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="89dp"
         android:gravity="center"
-        android:text="lol"
+        android:text="Correct"
         android:textColor="#ffffffff"
-        android:textSize="15sp"
+        android:textSize="55sp"
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/catView"
-        android:layout_width="wrap_content"
-        android:layout_height="428dp"
+        android:id="@+id/imageView12"
+        android:layout_width="407dp"
+        android:layout_height="383dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:visibility="visible"
-        android:src="@drawable/cat_pet" />
+        android:layout_marginBottom="82dp"
+        app:srcCompat="@drawable/cat_pet" />
 
     <ImageView
-        android:id="@+id/bubbleView"
-        android:layout_width="313dp"
-        android:layout_height="339dp"
+        android:id="@+id/imageView15"
+        android:layout_width="295dp"
+        android:layout_height="340dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="9dp"
-        android:visibility="visible"
-        android:src="@drawable/dialog" />
+        android:layout_marginTop="8dp"
+        app:srcCompat="@drawable/dialog" />
 </RelativeLayout>

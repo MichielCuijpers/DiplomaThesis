@@ -15,6 +15,7 @@ import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,6 +34,7 @@ public class Game5 extends AppCompatActivity {
     private Session curSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
+    private PopUpWindow popUpWindow;
 
     public static Context getMyCont() {
         return myCont;
@@ -65,6 +67,7 @@ public class Game5 extends AppCompatActivity {
         image = findViewById(R.id.imageViewObject);
         objectTList = ObjectT.ObjectDBEntry.takeObjectsFromDB();
         Collections.shuffle(objectTList);
+        popUpWindow = new PopUpWindow(myCont, this);
 
 
     }
@@ -72,7 +75,7 @@ public class Game5 extends AppCompatActivity {
     public void play(int turn) {
         if (endGame()) {
 
-            Toast.makeText(this, "Congrats!! You found all answers!! Game End Play another game ", Toast.LENGTH_LONG).show();
+            popUpWindow.showPopUp("Congrats!! You found all answers!!Game over");
             curSession.setTimeEnd(System.currentTimeMillis());
             curSession.setScore(this.turn);
             dbHandler.addSessionToDB(this.curSession);
@@ -96,7 +99,7 @@ public class Game5 extends AppCompatActivity {
     public void check(Button button) {
         if (button.getText().equals(correct)) {
             soundHandler.playOkSound();
-            Toast.makeText(this, "Congratulations. Your answer is correct!! ", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp("Congrats!! You answer is correct");
             turn++;
 
             play(turn);
@@ -106,7 +109,7 @@ public class Game5 extends AppCompatActivity {
 
         } else {
             soundHandler.playWrongSound();
-            Toast.makeText(this, "Wrong aswer, try one more time !!  ", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp("Mistakes were made, try one more !!");
             curSession.setFails(curSession.getFails() + 1);
 
         }
