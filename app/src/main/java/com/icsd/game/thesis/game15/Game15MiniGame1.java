@@ -67,6 +67,7 @@ public class Game15MiniGame1 extends AppCompatActivity {
     }
 
     private void setAnswersInTexts() {
+
         button1.setText(correctAnswer + "");
         button2.setText(correctAnswer + 120 + "");
         button3.setText(correctAnswer - 15 + "");
@@ -133,13 +134,14 @@ public class Game15MiniGame1 extends AppCompatActivity {
         switch (turn) {
             case 1:
                 generateRandoms();
-
                 initTurn(1);
                 break;
             case 2:
+                generateRandoms();
                 initTurn(2);
                 break;
             case 3:
+                generateRandoms();
                 initTurn(3);
                 break;
 
@@ -147,8 +149,28 @@ public class Game15MiniGame1 extends AppCompatActivity {
         }
     }
 
+    private void check2(Button button) {
+        if (button.getText().toString().equals(correctAnswerStr)) {
+            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
+            if (tempTurn < 4) {
+                gameplay(this.turn);
+            } else {
+                //endGame
+            }
+        } else {
+            Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
+            if (tempTurn < 4) {
+                gameplay(this.turn);
+            } else {
+                //endGame
+            }
+
+        }
+
+    }
+
     private void check(Button button) {
-        if (correctAnswer == Integer.parseInt((String) button.getText()) || button.getText().toString().equals(correctAnswerStr)) {
+        if (correctAnswer == Integer.parseInt((String) button.getText())) {
             Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
 
             if (tempTurn < 4) {
@@ -175,19 +197,33 @@ public class Game15MiniGame1 extends AppCompatActivity {
 
     //onClicks()
     public void button1OnClick(View view) {
-        check((Button) view);
+        if (this.turn != 4) {
+            check((Button) view);
+        } else {
+            check2((Button) view);
+        }
+
 
     }
 
     public void button2OnClick(View view) {
-        check((Button) view);
+        if (this.turn != 4) {
+            check((Button) view);
+        } else {
+            check2((Button) view);
+        }
     }
 
     public void button3OnClick(View view) {
+
         check((Button) view);
+
     }
 
     public void button4OnClick(View view) {
+
         check((Button) view);
+
     }
+
 }
