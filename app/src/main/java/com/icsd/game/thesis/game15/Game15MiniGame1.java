@@ -8,7 +8,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Game15MiniGame1 extends AppCompatActivity {
@@ -21,13 +23,14 @@ public class Game15MiniGame1 extends AppCompatActivity {
     private Button button3;
     private Button button4;
     private int turn;
+    private int tempTurn;
     private Random r;
     private int number1;
     private int number2;
-    private int kindOfTurn;
     private int correctAnswer;
     private String correctAnswerStr;
-
+    private ArrayList<Integer> randomsList;
+    private PopUpWindow p;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,7 @@ public class Game15MiniGame1 extends AppCompatActivity {
         setContentView(R.layout.activity_game15_mini_game1);
         initGui();
         initGameplay();
-        initTurn();
+        gameplay(this.turn);
     }
 
     private void initGui() {
@@ -51,108 +54,140 @@ public class Game15MiniGame1 extends AppCompatActivity {
 
     private void initGameplay() {
         this.turn = 1;
+        this.tempTurn = 0;
+        randomsList = new ArrayList<>();
     }
 
-    private void initTurn() {
+    private void generateRandoms() {
         r = new Random();
-        number1 = r.nextInt(399) + 1;
+        randomsList.add(number1 = r.nextInt(200) + 1);
         r = new Random();
-        number2 = r.nextInt(399) + 1;
-        r = new Random();
-        kindOfTurn = r.nextInt(3) + 1;
+        randomsList.add(number2 = r.nextInt(200) + 1);
 
-        number1View.setText(number1 + "");
-        number2View.setText(number2 + "");
+    }
+
+    private void setAnswersInTexts() {
+        button1.setText(correctAnswer + "");
+        button2.setText(correctAnswer + 120 + "");
+        button3.setText(correctAnswer - 15 + "");
+        button4.setText(correctAnswer / 2 + "");
+    }
+
+    private void initTurn(int kindOfTurn) {
+
+
+        number1View.setText(randomsList.get(0) + "");
+        number2View.setText(randomsList.get(1) + "");
 
         if (kindOfTurn == 4) {
             button3.setVisibility(View.INVISIBLE);
             button4.setVisibility(View.INVISIBLE);
-            correctAnswer = number1 + number2;
-            button1.setText(correctAnswer);
-            button2.setText(correctAnswer);
-            button3.setText(correctAnswer);
-            button4.setText(correctAnswer);
+            correctAnswer = number1 * number2;
+            setAnswersInTexts();
             textView1.setText("*");
+            tempTurn++;
 
         } else if (kindOfTurn == 1) {
             button3.setVisibility(View.VISIBLE);
             button4.setVisibility(View.VISIBLE);
             correctAnswer = number1 + number2;
-            button1.setText(correctAnswer + "");
-            button2.setText(correctAnswer + "");
-            button3.setText(correctAnswer + "");
-            button4.setText(correctAnswer + "");
+            setAnswersInTexts();
             textView1.setText("+");
+            tempTurn++;
 
         } else if (kindOfTurn == 2) {
             button3.setVisibility(View.VISIBLE);
             button4.setVisibility(View.VISIBLE);
             correctAnswer = number1 - number2;
             textView1.setText("-");
-            button1.setText(correctAnswer + "");
-            button2.setText(correctAnswer + "");
-            button3.setText(correctAnswer + "");
-            button4.setText(correctAnswer + "");
+            setAnswersInTexts();
+            tempTurn++;
 
         } else if (kindOfTurn == 3) {
             button1.setText("<");
             button2.setText(">");
 
+
             button3.setVisibility(View.INVISIBLE);
             button4.setVisibility(View.INVISIBLE);
             textView2.setVisibility(View.INVISIBLE);
+            textView1.setText("?");
             if (number1 > number2) {
                 correctAnswerStr = ">";
 
             } else {
                 correctAnswerStr = "<";
             }
+            tempTurn++;
 
         }
 
 
     }
 
-    private void check() {
-
+    private void clean() {
 
     }
 
-    public void button1OnClick(View view) {
-        if (kindOfTurn == 3 && correctAnswerStr.equals(button1.getText())) {
+    private void gameplay(int turn) {
+        switch (turn) {
+            case 1:
+                generateRandoms();
+
+                initTurn(1);
+                break;
+            case 2:
+                initTurn(2);
+                break;
+            case 3:
+                initTurn(3);
+                break;
+
+
+        }
+    }
+
+    private void check(Button button) {
+        if (correctAnswer == Integer.parseInt((String) button.getText()) || button.getText().toString().equals(correctAnswerStr)) {
             Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
-        } else if ((kindOfTurn == 1 || kindOfTurn == 2) && correctAnswer == (Integer.parseInt((String) button1.getText()))) {
-            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
+
+            if (tempTurn < 4) {
+                gameplay(this.turn);
+            } else {
+                this.turn++;
+                gameplay(this.turn);
+            }
+
+
         } else {
             Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
+            if (tempTurn < 4) {
+                gameplay(this.turn);
+            } else {
+                this.turn++;
+                gameplay(this.turn);
+            }
+
+
         }
 
+    }
+
+    //onClicks()
+    public void button1OnClick(View view) {
+        check((Button) view);
 
     }
 
     public void button2OnClick(View view) {
-        if (kindOfTurn == 3 && correctAnswerStr.equals(button2.getText())) {
-            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
-        } else if ((kindOfTurn == 1 || kindOfTurn == 2) && correctAnswer == (Integer.parseInt((String) button1.getText()))) {
-            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
-        }
+        check((Button) view);
     }
 
     public void button3OnClick(View view) {
-        if (correctAnswer == (Integer.parseInt((String) button3.getText()))) {
-            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
-        }
+        check((Button) view);
     }
 
     public void button4OnClick(View view) {
-        if (correctAnswer == (Integer.parseInt((String) button4.getText()))) {
-            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
-        }
+        check((Button) view);
     }
 }

@@ -52,7 +52,7 @@ public class Game4Activity extends AppCompatActivity {
     private Session curSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
-    PopUpWindow p;
+    private PopUpWindow p;
 
     public static Context getMyCont() {
         return myCont;
