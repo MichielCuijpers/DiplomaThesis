@@ -102,8 +102,7 @@ public class Game1Activity extends AppCompatActivity {
     private void checkAnswer(Button button) {
         if (button.getText().equals(correctAnswer)) {
             soundHandler.playOkSound();
-
-              popUpWindow.showPopUp("Congratulations. Your answer is correct!! ");
+            popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             curSession.setScore(curSession.getScore() + 1);
             curSession.setStage(curSession.getStage() + 1);
             initTheQuestion();
@@ -111,19 +110,19 @@ public class Game1Activity extends AppCompatActivity {
 
         } else {
             soundHandler.playWrongSound();
-             popUpWindow.showPopUp("Wrong aswer, try one more time !! ");
+            popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             curSession.setFails(curSession.getFails() + 1);
         }
         if (this.questions.isEmpty()) {
             setContentView(view1);
-            pickCategoryView.setText("Please choose another category");
+            pickCategoryView.setText(getResources().getString(R.string.choose_another_category));
         }
         if (curSession.getStage() == 15) {
             dbHandler = new DatabaseHandler(this.getApplicationContext());
             curSession.setTimeEnd(System.currentTimeMillis() / 1000);
             dbHandler.addSessionToDB(this.curSession);
             soundHandler.stopSound();
-             popUpWindow.showPopUp("Congrats!! You found all answers!! ");
+            popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats1));
             Intent c = new Intent(this, Menu.class);
             startActivity(c);
         }

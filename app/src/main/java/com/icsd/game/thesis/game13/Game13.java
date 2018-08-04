@@ -97,25 +97,22 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
             public void run() {
                 if (checkList.equals(patternList)) {
 
-                    Log.e("Debug", "Correct");
                     curSession.setScore(turn);
                     curSession.setStage(turn);
                     turn++;
                     if (turn == 5) {
 
-                        popUpWindow.showPopUp("YOU WON");
+                        popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
+                        popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
                         saveSessionToDB();
                         killAll();
                     } else {
                         playPattern();
                     }
 
-
                 } else {
-                    Log.e("Debug", "InCorrect");
                     curSession.setFails(curSession.getFails() + 1);
-
-                    popUpWindow.showPopUp("FAIL,TRY AGAIN ");
+                    popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer2));
                     playPattern();
                 }
 
@@ -220,10 +217,8 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     protected void playPattern() {
         checkList.clear();
         patternList.clear();
-        Log.e("Debug", "start playpattern");
         switch (turn) {
             case 0:
-                Log.e("Debug", " playpattern case 0");
                 handlerLa.postDelayed(run1, 1100);
                 change.postDelayed(runChange1, 1500);
                 break;

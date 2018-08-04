@@ -128,7 +128,7 @@ public class Game2Activity extends AppCompatActivity {
         }
         if (turn == 3 || turn == 4) {
             popUpWindow.getmPopupWindow().dismiss();
-            popUpWindow.showPopUp("New Turn ");
+            popUpWindow.showPopUp(getResources().getString(R.string.new_turn));
             cleanBackgroundForPopUp();
 
 
@@ -152,7 +152,7 @@ public class Game2Activity extends AppCompatActivity {
         }
         if (turn == 5 || turn == 6) {
             popUpWindow.getmPopupWindow().dismiss();
-            popUpWindow.showPopUp("New Turn ");
+            popUpWindow.showPopUp(getResources().getString(R.string.new_turn));
             cleanBackgroundForPopUp();
             mapImageView.setImageResource(R.drawable.asia_map);
             Collections.shuffle(countriesAsia);
@@ -232,31 +232,32 @@ public class Game2Activity extends AppCompatActivity {
 
     }
 
-private void cleanBackgroundForPopUp(){
-
-    mapImageView.setVisibility(View.INVISIBLE);
-
-    if (popUpWindow.getmPopupWindow().isShowing()) {
+    private void cleanBackgroundForPopUp() {
 
         mapImageView.setVisibility(View.INVISIBLE);
 
-    }
-    popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
+        if (popUpWindow.getmPopupWindow().isShowing()) {
 
-        @Override
-        public void onDismiss() {
-
-            mapImageView.setVisibility(View.VISIBLE);
+            mapImageView.setVisibility(View.INVISIBLE);
 
         }
-    });
+        popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
 
-}
+            @Override
+            public void onDismiss() {
+
+                mapImageView.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+    }
+
     private void check(String answer) {
         if (answer.equals(currectCorrect)) {
             soundHandler.playOkSound();
 
-            popUpWindow.showPopUp("Correct. Go on!! ");
+            popUpWindow.showPopUp(getResources().getString(R.string.correct_answer2));
             cleanBackgroundForPopUp();
 
             turn++;
@@ -264,7 +265,7 @@ private void cleanBackgroundForPopUp(){
                 soundHandler.stopSound();
                 curSession.setTimeEnd(System.currentTimeMillis() / 1000);
                 dbHandler.addSessionToDB(this.curSession);
-                popUpWindow.showPopUp("Congrats!! You found all countries!!");
+                popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats_countries));
                 Intent c = new Intent(this, Menu.class);
                 startActivity(c);
             }
@@ -275,7 +276,7 @@ private void cleanBackgroundForPopUp(){
         } else {
             soundHandler.playWrongSound();
 
-            popUpWindow.showPopUp("Fail, please try again ");
+            popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             cleanBackgroundForPopUp();
             curSession.setFails(curSession.getFails() + 1);
             //initTurn();

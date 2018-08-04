@@ -5,15 +5,35 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="game12">Game12</string>
-
-
     <string name="hello_world">Hello world!</string>
-
     <string name="action_settings">Settings</string>
-
     <string name="PopupWindow1">PopupWindow1</string>
-
     <string name="title_activity_popup_window1">PopupWindow1</string>
-
     <string name="title_activity_tooltips">Tooltips</string>
+
+    <!-- STRINBG FOR POPUPS-->
+    <string name="correct_answer1">Congratulations. Your answer is correct!!</string>
+    <string name="correct_answer2">Correct.Go on!!</string>
+    <string name="wrong_answer1">Wrong aswer, try one more time !!</string>
+    <string name="wrong_answer2">Mistakes were made, try one more !!</string>
+    <string name="end_game_congrats1">Congrats!! You found all answers!! </string>
+    <string name="end_game_congrats2">Congratulations. You WON !! </string>
+    <string name="end_game_congrats_countries">Congrats!! You found all  countries!! </string>
+    <string name="new_turn">New Turn Begins</string>
+    <string name="choose_another_category">Please choose another category</string>
+
+    <!-- STRINBG FOR LAYOUTS-->
+
+    <string name="check">CHECK</string>
+    <!-- game1-->
+    <string name="question">Question</string>
+    <string name="selest_category">Select Category</string>
+    <string name="category1">Geography/Planet</string>
+    <string name="category2">History</string>
+    <string name="category3">art</string>
+    <string name="category4">Food</string>
+    <string name="category5">directory</string>
+    <string name="category6">General Knowlgment</string>
+
+
 </resources>

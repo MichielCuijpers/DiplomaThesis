@@ -71,8 +71,8 @@ public class Game5 extends AppCompatActivity {
 
 
     }
-    private void cleanBackgroundForPopUp(){
 
+    private void cleanBackgroundForPopUp() {
 
 
         if (popUpWindow.getmPopupWindow().isShowing()) {
@@ -95,7 +95,7 @@ public class Game5 extends AppCompatActivity {
     public void play(int turn) {
         if (endGame()) {
 
-            popUpWindow.showPopUp("Congrats!! You found all answers!!Game over");
+            popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats1));
             cleanBackgroundForPopUp();
             curSession.setTimeEnd(System.currentTimeMillis());
             curSession.setScore(this.turn);
@@ -112,15 +112,13 @@ public class Game5 extends AppCompatActivity {
         this.answer4Button.setText(objectTList.get(turn).getAnswers().get(3));
         String img = objectTList.get(turn).getName();
         int resID = getResources().getIdentifier(img, "drawable", getPackageName());
-        Log.e("IMAGID", resID + "");
-
         image.setImageResource(resID);
     }
 
     public void check(Button button) {
         if (button.getText().equals(correct)) {
             soundHandler.playOkSound();
-            popUpWindow.showPopUp("Congrats!! You answer is correct");
+            popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             cleanBackgroundForPopUp();
             turn++;
 
@@ -131,12 +129,20 @@ public class Game5 extends AppCompatActivity {
 
         } else {
             soundHandler.playWrongSound();
-            popUpWindow.showPopUp("Mistakes were made, try one more !!");
+            popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer2));
             cleanBackgroundForPopUp();
             curSession.setFails(curSession.getFails() + 1);
 
         }
 
+    }
+
+    public Boolean endGame() {
+        if (turn == 5) {
+            return true;
+
+        }
+        return false;
     }
 
 
@@ -157,12 +163,5 @@ public class Game5 extends AppCompatActivity {
         check((Button) view);
     }
 
-    public Boolean endGame() {
-        if (turn == 5) {
-            return true;
-
-        }
-        return false;
-    }
 
 }

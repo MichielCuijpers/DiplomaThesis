@@ -104,7 +104,7 @@ public class Game4Activity extends AppCompatActivity {
                 break;
             case 2:
                 p.getmPopupWindow().dismiss();
-                p.showPopUp("TURN  " + globalTurn + " BEGINS");
+                p.showPopUp(getResources().getString(R.string.new_turn));
                 currentWord = wordsListTurn2.get(secondaryTurn);
                 setWordInGui(shuffleWord(currentWord));
                 secondaryTurn++;
@@ -112,7 +112,7 @@ public class Game4Activity extends AppCompatActivity {
                 break;
             case 3:
                 p.getmPopupWindow().dismiss();
-                p.showPopUp("TURN  " + globalTurn + " BEGINS");
+                p.showPopUp(getResources().getString(R.string.new_turn));
                 currentWord = wordsListTurn3.get(secondaryTurn);
                 setWordInGui(shuffleWord(currentWord));
                 secondaryTurn++;
@@ -227,7 +227,7 @@ public class Game4Activity extends AppCompatActivity {
         if (currentWord.equals(world)) {
             soundHandler.playOkSound();
             this.curSession.setScore(this.globalTurn);
-            p.showPopUp("Correct. Congrats!");
+            p.showPopUp(getResources().getString(R.string.correct_answer2));
             clearGui();
             if (secondaryTurn > 2) {
                 changeTurn();
@@ -242,7 +242,7 @@ public class Game4Activity extends AppCompatActivity {
         } else {
 
             soundHandler.playWrongSound();
-            p.showPopUp("False, try again!!");
+            p.showPopUp(getResources().getString(R.string.wrong_answer2));
             this.curSession.setFails(curSession.getFails() + 1);
 
         }
@@ -251,7 +251,7 @@ public class Game4Activity extends AppCompatActivity {
     private void endGame() {
         soundHandler.stopSound();
         p.getmPopupWindow().dismiss();
-        p.showPopUp("END GAME !! ");
+        p.showPopUp(getResources().getString(R.string.end_game_congrats2));
         curSession.setTimeEnd(System.currentTimeMillis() / 1000);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         dbHandler.addSessionToDB(this.curSession);

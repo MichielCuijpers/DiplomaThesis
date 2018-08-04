@@ -32,8 +32,7 @@
         android:background="@android:color/holo_orange_dark"
         android:onClick="button1OnClick"
 
-        android:text="S"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/checkButton5"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintHorizontal_bias="1.0"
@@ -50,8 +49,7 @@
         android:layout_marginTop="112dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="button2OnClick"
-        android:text="H"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/checkButton5"
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintTop_toTopOf="parent"
@@ -65,8 +63,7 @@
         android:layout_marginTop="112dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="button3OnClick"
-        android:text="U"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toStartOf="@+id/button4"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,8 +75,7 @@
         android:layout_marginTop="112dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="button4OnClick"
-        android:text="F"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -91,8 +87,7 @@
         android:layout_marginTop="112dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="button5OnClick"
-        android:text="F"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toStartOf="@+id/button6"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,9 +99,7 @@
         android:layout_marginTop="112dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="button6OnClick"
-
-        android:text="L"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toStartOf="@+id/button7"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -119,9 +112,7 @@
         android:layout_marginTop="112dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="button7OnClick"
-
-        android:text="E"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/checkButton5"
         app:layout_constraintEnd_toStartOf="@+id/button8"
         app:layout_constraintTop_toTopOf="parent"
@@ -136,8 +127,7 @@
         android:layout_marginTop="112dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="button8OnClick"
-        android:text="D"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/checkButton5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -153,8 +143,7 @@
         android:layout_marginTop="32dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="button9OnClick"
-        android:text="W"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/checkButton5"
         app:layout_constraintEnd_toStartOf="@+id/button10"
         app:layout_constraintHorizontal_bias="1.0"
@@ -172,8 +161,7 @@
 
         android:background="@android:color/holo_orange_dark"
         android:onClick="button10OnClick"
-        android:text="O"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/checkButton5"
         app:layout_constraintEnd_toStartOf="@+id/button11"
         app:layout_constraintTop_toBottomOf="@+id/button4"
@@ -189,8 +177,7 @@
 
         android:background="@android:color/holo_orange_dark"
         android:onClick="button11OnClick"
-        android:text="R"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/checkButton5"
         app:layout_constraintEnd_toStartOf="@+id/button12"
         app:layout_constraintTop_toBottomOf="@+id/button5"
@@ -206,8 +193,7 @@
 
         android:background="@android:color/holo_orange_dark"
         android:onClick="button12OnClick"
-        android:text="D"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/checkButton5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button6"
@@ -224,8 +210,8 @@
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="checkOnClick"
-        android:text="Check"
-        android:textSize="30dp"
+        android:text="@string/check"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
