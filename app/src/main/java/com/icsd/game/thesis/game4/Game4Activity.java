@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
@@ -87,7 +88,7 @@ public class Game4Activity extends AppCompatActivity {
         Collections.shuffle(this.wordsListTurn2);
         Collections.shuffle(this.wordsListTurn3);
 
-        curSession = new Session(Menu.testUser.getUsername(), 4);
+        curSession = new Session(LoginActivity.getUser().getUsername(), 4);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
     }
 

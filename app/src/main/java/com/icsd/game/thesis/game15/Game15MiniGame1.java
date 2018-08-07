@@ -1,16 +1,20 @@
 package com.icsd.game.thesis.game15;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.SoundHandler;
+import com.icsd.game.thesis.database.DatabaseHandler;
+import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class Game15MiniGame1 extends AppCompatActivity {
@@ -31,13 +35,21 @@ public class Game15MiniGame1 extends AppCompatActivity {
     private String correctAnswerStr;
     private ArrayList<Integer> randomsList;
     private PopUpWindow p;
+    private Session currentSession;
+    private DatabaseHandler dbHandler;
+    private SoundHandler soundHandler;
+    ArrayList<Integer> tempForRNG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game15_mini_game1);
+        soundHandler = new SoundHandler(getApplicationContext());
+        currentSession = new Session(LoginActivity.getUser().getUsername(), 15);
+        currentSession.setTimeStart(System.currentTimeMillis() / 1000);
         initGui();
         initGameplay();
+        p = new PopUpWindow(this, this);
         gameplay(this.turn);
     }
 
@@ -59,27 +71,45 @@ public class Game15MiniGame1 extends AppCompatActivity {
     }
 
     private void generateRandoms() {
+        randomsList.clear();
         r = new Random();
-        randomsList.add(number1 = r.nextInt(200) + 1);
+        randomsList.add(number1 = r.nextInt(140) + 1);
         r = new Random();
-        randomsList.add(number2 = r.nextInt(200) + 1);
+        randomsList.add(number2 = r.nextInt(140) + 1);
+
+    }
+
+    private void randomInAnswers() {
+        tempForRNG = new ArrayList<>();
+        Integer rngSeed ;
+        tempForRNG.add(correctAnswer);
+        for (int i = 1; i < 4; i++) {
+
+            r = new Random();
+            rngSeed = r.nextInt(35);
+
+            rngSeed = rngSeed + (Collections.max(randomsList));
+            Log.e("MYDEBUGrng", rngSeed + "");
+            tempForRNG.add(rngSeed);
+        }
+        Collections.shuffle(tempForRNG);
 
     }
 
     private void setAnswersInTexts() {
-
-        button1.setText(correctAnswer + "");
-        button2.setText(correctAnswer + 120 + "");
-        button3.setText(correctAnswer - 15 + "");
-        button4.setText(correctAnswer / 2 + "");
+        randomInAnswers();
+        button1.setText(tempForRNG.get(0) + "");
+        button2.setText(tempForRNG.get(1) + "");
+        button3.setText(tempForRNG.get(2) + "");
+        button4.setText(tempForRNG.get(3) + "");
     }
 
     private void initTurn(int kindOfTurn) {
-
+        generateRandoms();
 
         number1View.setText(randomsList.get(0) + "");
         number2View.setText(randomsList.get(1) + "");
-
+        Log.e("MYDEBUG", randomsList.get(0) + "");
         if (kindOfTurn == 4) {
             button3.setVisibility(View.INVISIBLE);
             button4.setVisibility(View.INVISIBLE);
@@ -133,15 +163,15 @@ public class Game15MiniGame1 extends AppCompatActivity {
     private void gameplay(int turn) {
         switch (turn) {
             case 1:
-                generateRandoms();
+
                 initTurn(1);
                 break;
             case 2:
-                generateRandoms();
+
                 initTurn(2);
                 break;
             case 3:
-                generateRandoms();
+
                 initTurn(3);
                 break;
 
@@ -149,20 +179,32 @@ public class Game15MiniGame1 extends AppCompatActivity {
         }
     }
 
+    private void endGame() {
+        soundHandler.stopSound();
+        p.getmPopupWindow().dismiss();
+        p.showPopUp(getResources().getString(R.string.end_game_congrats2));
+        currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        dbHandler.addSessionToDB(this.currentSession);
+        Intent c = new Intent(this, Game15Menou.class);
+        startActivity(c);
+    }
+
+
     private void check2(Button button) {
         if (button.getText().toString().equals(correctAnswerStr)) {
-            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
+
             if (tempTurn < 4) {
                 gameplay(this.turn);
             } else {
-                //endGame
+                endGame();
             }
         } else {
-            Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
+
             if (tempTurn < 4) {
                 gameplay(this.turn);
             } else {
-                //endGame
+                endGame();
             }
 
         }
@@ -170,19 +212,22 @@ public class Game15MiniGame1 extends AppCompatActivity {
     }
 
     private void check(Button button) {
+        Log.e("MYDEBUG", this.turn + "");
         if (correctAnswer == Integer.parseInt((String) button.getText())) {
-            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
-
+            soundHandler.playOkSound();
+            p.showPopUp(getResources().getString(R.string.correct_answer2));
             if (tempTurn < 4) {
                 gameplay(this.turn);
             } else {
                 this.turn++;
+                tempTurn = 0;
                 gameplay(this.turn);
             }
 
 
         } else {
-            Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
+            soundHandler.playWrongSound();
+            p.showPopUp(getResources().getString(R.string.wrong_answer2));
             if (tempTurn < 4) {
                 gameplay(this.turn);
             } else {
@@ -197,7 +242,7 @@ public class Game15MiniGame1 extends AppCompatActivity {
 
     //onClicks()
     public void button1OnClick(View view) {
-        if (this.turn != 4) {
+        if (this.turn < 3) {
             check((Button) view);
         } else {
             check2((Button) view);
@@ -209,14 +254,16 @@ public class Game15MiniGame1 extends AppCompatActivity {
     public void button2OnClick(View view) {
         if (this.turn != 4) {
             check((Button) view);
-        } else {
-            check2((Button) view);
         }
     }
 
     public void button3OnClick(View view) {
 
-        check((Button) view);
+        if (this.turn < 3) {
+            check((Button) view);
+        } else {
+            check2((Button) view);
+        }
 
     }
 
