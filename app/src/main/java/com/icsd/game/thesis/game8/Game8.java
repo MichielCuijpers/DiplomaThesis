@@ -27,7 +27,6 @@ public class Game8 extends AppCompatActivity {
 
     private View ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9;
     private TextView scoreView;
-    private ArrayList<View> balls;
     private int delay;
     private Handler handler1, handler2;
     private int score;
@@ -60,7 +59,7 @@ public class Game8 extends AppCompatActivity {
 
         scoreView = findViewById(R.id.scoreView);
 
-        balls = new ArrayList<>();
+        ArrayList<View> balls = new ArrayList<>();
         balls.add(ball1);
         balls.add(ball2);
         balls.add(ball3);

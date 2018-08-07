@@ -6,12 +6,10 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.icsd.game.thesis.LoginActivity;
-import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
@@ -29,7 +27,7 @@ public class
 Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
 
-    protected Integer turn;
+    private Integer turn;
     private MediaPlayer la;
     private MediaPlayer mi;
     private MediaPlayer re;
@@ -43,14 +41,14 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     private Handler waitPlayer;
     private ArrayList<String> checkList;
     private ArrayList<String> patternList;
-    protected int checkRand;
+    private int checkRand;
     private Button buttonD;
     private Button buttonR;
     private Button buttonM;
     private Button buttonL;
     private Random r;
     private int noteNumnber;
-    protected int delay;
+    private int delay;
     private Runnable run1;
     private Runnable run2;
     private Runnable run3;
@@ -89,9 +87,8 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     }
 
 
-    protected void initRunnables() {
+    private void initRunnables() {
         final Context mContext;
-        mContext = this;
         runCheck = new Runnable() {
             @Override
             public void run() {
@@ -186,11 +183,11 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
     }
 
-    protected void init() {
-        buttonD = (Button) findViewById(id.dof);
-        buttonR = (Button) findViewById(R.id.re);
-        buttonM = (Button) findViewById(id.mi);
-        buttonL = (Button) findViewById(R.id.la);
+    private void init() {
+        buttonD = findViewById(id.dof);
+        buttonR = findViewById(id.re);
+        buttonM = findViewById(id.mi);
+        buttonL = findViewById(id.la);
 
         this.turn = 0;
         la = MediaPlayer.create(this, raw.la);
@@ -214,7 +211,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     }
 
 
-    protected void playPattern() {
+    private void playPattern() {
         checkList.clear();
         patternList.clear();
         switch (turn) {
@@ -255,7 +252,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
     }
 
-    protected void playNote(int noteNumber) {
+    private void playNote(int noteNumber) {
         switch (noteNumber) {
             case 0:
                 dof.start();
@@ -282,7 +279,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
         }
     }
 
-    protected void changeColor(int noteNumber) {
+    private void changeColor(int noteNumber) {
         final Context mContext;
         mContext = this;
         switch (noteNumber) {
@@ -303,7 +300,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
         }
     }
 
-    protected void checkPattern() {
+    private void checkPattern() {
 
         waitPlayer.postDelayed(runCheck, 4000);
 
@@ -336,7 +333,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
     }
 
-    public void killAll() {
+    private void killAll() {
 
         la.pause();
         re.pause();
@@ -352,7 +349,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
         curSession.setTimeEnd(System.currentTimeMillis() / 1000);
     }
 
-    public void saveSessionToDB() {
+    private void saveSessionToDB() {
         curSession.setTimeEnd(System.currentTimeMillis() / 1000);
         dbHandler.addSessionToDB(this.curSession);
 

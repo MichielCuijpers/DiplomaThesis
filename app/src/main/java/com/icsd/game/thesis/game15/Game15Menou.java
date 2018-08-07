@@ -27,13 +27,5 @@ public class Game15Menou extends AppCompatActivity {
         startActivity(c);
     }
 
-    public void miniGame3OnClick(View view) {
-        Intent c = new Intent(this, Game15MiniGame3.class);
-        startActivity(c);
-    }
 
-    public void miniGame4OnClick(View view) {
-        Intent c = new Intent(this, Game15MiniGame4.class);
-        startActivity(c);
-    }
 }

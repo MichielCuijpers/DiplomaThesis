@@ -5,10 +5,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
@@ -25,50 +23,39 @@ import java.util.List;
 
 
 public class Game4Activity extends AppCompatActivity {
-    private static Context myCont;
+
     private ArrayList<String> wordsListTurn1;
     private ArrayList<String> wordsListTurn2;
     private ArrayList<String> wordsListTurn3;
 
     private ArrayList<Button> buttonsList;
-    private Button button1;
-    private Button button2;
-    private Button button3;
-    private Button button4;
-    private Button button5;
-    private Button button6;
-    private Button button7;
-    private Button button8;
-    private Button button9;
-    private Button button10;
-    private Button button11;
-    private Button button12;
     private Boolean isSecondButton;
     private String previewsButtonText;
     private Button previewsButton;
     private String currentWord;
     private int globalTurn;
     private int secondaryTurn;
+    private static Context context;
+
+    public static Context getContext() {
+        return context;
+    }
 
     private Session curSession;
-    private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
     private PopUpWindow p;
 
-    public static Context getMyCont() {
-        return myCont;
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game4protype);
-        myCont = this.getApplicationContext();
+
         soundHandler = new SoundHandler(getApplicationContext());
         initGameplay();
         initGui();
-        p = new PopUpWindow(myCont, this);
+        p = new PopUpWindow(this, this);
         gameplay(globalTurn);
 
 
@@ -136,8 +123,8 @@ public class Game4Activity extends AppCompatActivity {
 
     }
 
-    public String shuffleWord(String input) {
-        List<Character> characters = new ArrayList<Character>();
+    private String shuffleWord(String input) {
+        List<Character> characters = new ArrayList<>();
         for (char c : input.toCharArray()) {
             characters.add(c);
         }
@@ -151,18 +138,18 @@ public class Game4Activity extends AppCompatActivity {
 
     private void initGui() {
         buttonsList = new ArrayList<>();
-        button1 = findViewById(R.id.button1);
-        button2 = findViewById(R.id.button2);
-        button3 = findViewById(R.id.button3);
-        button4 = findViewById(R.id.button4);
-        button5 = findViewById(R.id.button5);
-        button6 = findViewById(R.id.button6);
-        button7 = findViewById(R.id.button7);
-        button8 = findViewById(R.id.button8);
-        button9 = findViewById(R.id.button9);
-        button10 = findViewById(R.id.button10);
-        button11 = findViewById(R.id.button11);
-        button12 = findViewById(R.id.button12);
+        Button button1 = findViewById(R.id.button1);
+        Button button2 = findViewById(R.id.button2);
+        Button button3 = findViewById(R.id.button3);
+        Button button4 = findViewById(R.id.button4);
+        Button button5 = findViewById(R.id.button5);
+        Button button6 = findViewById(R.id.button6);
+        Button button7 = findViewById(R.id.button7);
+        Button button8 = findViewById(R.id.button8);
+        Button button9 = findViewById(R.id.button9);
+        Button button10 = findViewById(R.id.button10);
+        Button button11 = findViewById(R.id.button11);
+        Button button12 = findViewById(R.id.button12);
         buttonsList.add(button1);
         buttonsList.add(button2);
         buttonsList.add(button3);
@@ -221,11 +208,11 @@ public class Game4Activity extends AppCompatActivity {
     }
 
     public void checkOnClick(View view) {
-        String world = "";
+        StringBuilder world = new StringBuilder();
         for (int i = 0; i < currentWord.length(); i++) {
-            world = world + buttonsList.get(i).getText();
+            world.append(buttonsList.get(i).getText());
         }
-        if (currentWord.equals(world)) {
+        if (currentWord.equals(world.toString())) {
             soundHandler.playOkSound();
             this.curSession.setScore(this.globalTurn);
             p.showPopUp(getResources().getString(R.string.correct_answer2));
@@ -254,7 +241,7 @@ public class Game4Activity extends AppCompatActivity {
         p.getmPopupWindow().dismiss();
         p.showPopUp(getResources().getString(R.string.end_game_congrats2));
         curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
         dbHandler.addSessionToDB(this.curSession);
         Intent c = new Intent(this, Menu.class);
         startActivity(c);

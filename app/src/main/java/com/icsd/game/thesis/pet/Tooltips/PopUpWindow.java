@@ -17,14 +17,14 @@ import com.icsd.game.thesis.R;
 
 public class PopUpWindow {
     private PopupWindow mPopupWindow;
-    private View popupView;
+    private final View popupView;
 
     public PopupWindow getmPopupWindow() {
         return mPopupWindow;
     }
 
-    private Context context;
-    private Activity activity;
+    private final Context context;
+    private final Activity activity;
     private final TextView text;
     private ImageView cat, bubble;
 
@@ -33,9 +33,9 @@ public class PopUpWindow {
         this.context = context;
         this.activity = activity;
 
-        LayoutInflater inflater = (LayoutInflater) activity.getLayoutInflater();
+        LayoutInflater inflater = activity.getLayoutInflater();
         popupView = activity.getLayoutInflater().inflate(R.layout.popupwindow1_showasdropdown, null);
-        text = (TextView) popupView.findViewById(R.id.text_view_dropdown);
+        text = popupView.findViewById(R.id.text_view_dropdown);
 
 
     }

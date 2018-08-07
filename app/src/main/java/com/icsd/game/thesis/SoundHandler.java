@@ -7,10 +7,10 @@ import java.io.IOException;
 
 public class SoundHandler {
     private MediaPlayer sound;
-    private int okSoundId;
-    private int wrongSoundId;
+    private final int okSoundId;
+    private final int wrongSoundId;
 
-    Context cont;
+    private final Context cont;
 
 
     public SoundHandler(Context cont) {

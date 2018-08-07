@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -52,7 +51,7 @@ public class Game5 extends AppCompatActivity {
 
     }
 
-    public void init() {
+    private void init() {
         myCont = this.getApplicationContext();
 
         dbHandler = new DatabaseHandler(this.getApplicationContext());
@@ -92,7 +91,7 @@ public class Game5 extends AppCompatActivity {
 
     }
 
-    public void play(int turn) {
+    private void play(int turn) {
         if (endGame()) {
 
             popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats1));
@@ -115,7 +114,7 @@ public class Game5 extends AppCompatActivity {
         image.setImageResource(resID);
     }
 
-    public void check(Button button) {
+    private void check(Button button) {
         if (button.getText().equals(correct)) {
             soundHandler.playOkSound();
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
@@ -137,12 +136,8 @@ public class Game5 extends AppCompatActivity {
 
     }
 
-    public Boolean endGame() {
-        if (turn == 5) {
-            return true;
-
-        }
-        return false;
+    private Boolean endGame() {
+        return turn == 5;
     }
 
 

@@ -79,7 +79,7 @@ public class Word {
 
         protected static ArrayList<String> takeWorldsFromDB() {
             ArrayList<String> queryResultsList = new ArrayList<>();
-            dh = new DatabaseHandler(Game4Activity.getMyCont());
+            dh = new DatabaseHandler(Game4Activity.getContext()  );
             db = dh.getWritableDatabase();
             String selectQuery = "SELECT * FROM " + TABLE_NAME;
             Cursor cursor = db.rawQuery(selectQuery, null);

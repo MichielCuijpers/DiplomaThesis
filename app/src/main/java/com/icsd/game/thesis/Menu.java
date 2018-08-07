@@ -3,10 +3,8 @@ package com.icsd.game.thesis;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.provider.ContactsContract;
 import android.support.v4.view.GestureDetectorCompat;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.icsd.game.thesis.Game6.Game6;
@@ -21,7 +19,7 @@ import com.icsd.game.thesis.game8.Game8;
 
 public class Menu extends Activity {
     private GestureDetectorCompat mDetector;
-    public static User testUser;
+    private static User testUser;
     // private static DatabaseHandler db;
     DatabaseHandler dh;
     private static SQLiteDatabase db;

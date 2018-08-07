@@ -72,10 +72,10 @@ public class Game2Activity extends AppCompatActivity {
 
     private void initGameplay() {
 
-        countriesEurope = new ArrayList();
-        countriesAfrica = new ArrayList();
-        countriesAsia = new ArrayList();
-        countriesDone = new ArrayList();
+        countriesEurope = new ArrayList<>();
+        countriesAfrica = new ArrayList<>();
+        countriesAsia = new ArrayList<>();
+        countriesDone = new ArrayList<>();
 
         countriesEurope.add("Italy");
         countriesEurope.add("Greece");
@@ -195,38 +195,43 @@ public class Game2Activity extends AppCompatActivity {
     }
 
     private void addPinOnMap() {
-        if (currectCorrect.equals("Italy")) {
-            drawPinOnMap(529, 790, R.drawable.europe_map);
-
-
-        } else if (currectCorrect.equals("Greece")) {
-            drawPinOnMap(800, 900, R.drawable.europe_map);
-
-        } else if (currectCorrect.equals("France")) {
-            drawPinOnMap(300, 700, R.drawable.europe_map);
-
-        } else if (currectCorrect.equals("Finland")) {
-            drawPinOnMap(700, 200, R.drawable.europe_map);
-        } else if (currectCorrect.equals("Nigeria")) {
-            drawPinOnMap(600, 680, R.drawable.africa_map);
-        } else if (currectCorrect.equals("Egypt")) {
-            drawPinOnMap(1050, 300, R.drawable.africa_map);
-        } else if (currectCorrect.equals("Morocco")) {
-            drawPinOnMap(500, 200, R.drawable.africa_map);
-        } else if (currectCorrect.equals("Algeria")) {
-            drawPinOnMap(300, 150, R.drawable.africa_map);
-        } else if (currectCorrect.equals("China")) {
-            drawPinOnMap(500, 500, R.drawable.asia_map);
-
-        } else if (currectCorrect.equals("India")) {
-            drawPinOnMap(450, 650, R.drawable.asia_map);
-
-        } else if (currectCorrect.equals("Iran")) {
-            drawPinOnMap(230, 520, R.drawable.asia_map);
-
-        } else if (currectCorrect.equals("Kazakhstan")) {
-            drawPinOnMap(400, 380, R.drawable.asia_map);
-
+        switch (currectCorrect) {
+            case "Italy":
+                drawPinOnMap(529, 790, R.drawable.europe_map);
+                break;
+            case "Greece":
+                drawPinOnMap(800, 900, R.drawable.europe_map);
+                break;
+            case "France":
+                drawPinOnMap(300, 700, R.drawable.europe_map);
+                break;
+            case "Finland":
+                drawPinOnMap(700, 200, R.drawable.europe_map);
+                break;
+            case "Nigeria":
+                drawPinOnMap(600, 680, R.drawable.africa_map);
+                break;
+            case "Egypt":
+                drawPinOnMap(1050, 300, R.drawable.africa_map);
+                break;
+            case "Morocco":
+                drawPinOnMap(500, 200, R.drawable.africa_map);
+                break;
+            case "Algeria":
+                drawPinOnMap(300, 150, R.drawable.africa_map);
+                break;
+            case "China":
+                drawPinOnMap(500, 500, R.drawable.asia_map);
+                break;
+            case "India":
+                drawPinOnMap(450, 650, R.drawable.asia_map);
+                break;
+            case "Iran":
+                drawPinOnMap(230, 520, R.drawable.asia_map);
+                break;
+            case "Kazakhstan":
+                drawPinOnMap(400, 380, R.drawable.asia_map);
+                break;
         }
 
 

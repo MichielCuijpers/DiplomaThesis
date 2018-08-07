@@ -1,7 +1,6 @@
 package com.icsd.game.thesis;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,7 +9,6 @@ import com.icsd.game.thesis.Game12.Game12;
 import com.icsd.game.thesis.Game14.Game14;
 import com.icsd.game.thesis.Game9.Game9;
 import com.icsd.game.thesis.database.AndroidDatabaseManager;
-import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.game13.Game13;
 import com.icsd.game.thesis.game15.Game15Menou;
 

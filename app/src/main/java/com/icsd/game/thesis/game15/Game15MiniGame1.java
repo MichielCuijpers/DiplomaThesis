@@ -3,16 +3,17 @@ package com.icsd.game.thesis.game15;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -36,9 +37,8 @@ public class Game15MiniGame1 extends AppCompatActivity {
     private ArrayList<Integer> randomsList;
     private PopUpWindow p;
     private Session currentSession;
-    private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
-    ArrayList<Integer> tempForRNG;
+    private ArrayList<Integer> tempForRNG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +81,7 @@ public class Game15MiniGame1 extends AppCompatActivity {
 
     private void randomInAnswers() {
         tempForRNG = new ArrayList<>();
-        Integer rngSeed ;
+        Integer rngSeed;
         tempForRNG.add(correctAnswer);
         for (int i = 1; i < 4; i++) {
 
@@ -89,7 +89,7 @@ public class Game15MiniGame1 extends AppCompatActivity {
             rngSeed = r.nextInt(35);
 
             rngSeed = rngSeed + (Collections.max(randomsList));
-            Log.e("MYDEBUGrng", rngSeed + "");
+
             tempForRNG.add(rngSeed);
         }
         Collections.shuffle(tempForRNG);
@@ -109,69 +109,67 @@ public class Game15MiniGame1 extends AppCompatActivity {
 
         number1View.setText(randomsList.get(0) + "");
         number2View.setText(randomsList.get(1) + "");
-        Log.e("MYDEBUG", randomsList.get(0) + "");
-        if (kindOfTurn == 4) {
-            button3.setVisibility(View.INVISIBLE);
-            button4.setVisibility(View.INVISIBLE);
-            correctAnswer = number1 * number2;
-            setAnswersInTexts();
-            textView1.setText("*");
-            tempTurn++;
 
-        } else if (kindOfTurn == 1) {
-            button3.setVisibility(View.VISIBLE);
-            button4.setVisibility(View.VISIBLE);
-            correctAnswer = number1 + number2;
-            setAnswersInTexts();
-            textView1.setText("+");
-            tempTurn++;
+        switch (kindOfTurn) {
+            case 4:
+                button3.setVisibility(View.INVISIBLE);
+                button4.setVisibility(View.INVISIBLE);
+                correctAnswer = number1 * number2;
+                setAnswersInTexts();
+                textView1.setText("*");
+                tempTurn++;
 
-        } else if (kindOfTurn == 2) {
-            button3.setVisibility(View.VISIBLE);
-            button4.setVisibility(View.VISIBLE);
-            correctAnswer = number1 - number2;
-            textView1.setText("-");
-            setAnswersInTexts();
-            tempTurn++;
+                break;
+            case 1:
+                button3.setVisibility(View.VISIBLE);
+                button4.setVisibility(View.VISIBLE);
+                correctAnswer = number1 + number2;
+                setAnswersInTexts();
+                textView1.setText("+");
+                tempTurn++;
 
-        } else if (kindOfTurn == 3) {
-            button1.setText("<");
-            button2.setText(">");
+                break;
+            case 2:
+                button3.setVisibility(View.VISIBLE);
+                button4.setVisibility(View.VISIBLE);
+                correctAnswer = number1 - number2;
+                textView1.setText("-");
+                setAnswersInTexts();
+                tempTurn++;
+
+                break;
+            case 3:
+                button1.setText("<");
+                button2.setText(">");
 
 
-            button3.setVisibility(View.INVISIBLE);
-            button4.setVisibility(View.INVISIBLE);
-            textView2.setVisibility(View.INVISIBLE);
-            textView1.setText("?");
-            if (number1 > number2) {
-                correctAnswerStr = ">";
+                button3.setVisibility(View.INVISIBLE);
+                button4.setVisibility(View.INVISIBLE);
+                textView2.setVisibility(View.INVISIBLE);
+                textView1.setText("?");
+                if (number1 > number2) {
+                    correctAnswerStr = ">";
 
-            } else {
-                correctAnswerStr = "<";
-            }
-            tempTurn++;
+                } else {
+                    correctAnswerStr = "<";
+                }
+                tempTurn++;
 
+                break;
         }
 
-
-    }
-
-    private void clean() {
 
     }
 
     private void gameplay(int turn) {
         switch (turn) {
             case 1:
-
                 initTurn(1);
                 break;
             case 2:
-
                 initTurn(2);
                 break;
             case 3:
-
                 initTurn(3);
                 break;
 
@@ -184,7 +182,7 @@ public class Game15MiniGame1 extends AppCompatActivity {
         p.getmPopupWindow().dismiss();
         p.showPopUp(getResources().getString(R.string.end_game_congrats2));
         currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
-        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
         dbHandler.addSessionToDB(this.currentSession);
         Intent c = new Intent(this, Game15Menou.class);
         startActivity(c);
@@ -212,7 +210,7 @@ public class Game15MiniGame1 extends AppCompatActivity {
     }
 
     private void check(Button button) {
-        Log.e("MYDEBUG", this.turn + "");
+
         if (correctAnswer == Integer.parseInt((String) button.getText())) {
             soundHandler.playOkSound();
             p.showPopUp(getResources().getString(R.string.correct_answer2));
