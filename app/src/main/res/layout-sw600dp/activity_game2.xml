@@ -2,10 +2,11 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutID"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".game2.Game2Activity"
-    android:background="#c7a96c">
+    android:background="#c7a96c"
+    tools:context=".game2.Game2Activity">
 
     <ImageView
         android:id="@+id/mapImageView"
@@ -21,8 +22,7 @@
         app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        />
+        app:layout_constraintVertical_bias="0.0" />
 
 
     <Button

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="600dp"
+    android:layout_height="600dp">
+
+    <TextView
+        android:id="@+id/text_view_dropdown"
+        android:layout_width="305dp"
+        android:layout_height="115dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="89dp"
+        android:gravity="center"
+        android:text="lol"
+        android:textColor="@android:color/background_dark"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/catView"
+        android:layout_width="439dp"
+        android:layout_height="427dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/cat_pet"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/bubbleView"
+        android:layout_width="346dp"
+        android:layout_height="341dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/dialog"
+        android:visibility="visible" />
+</RelativeLayout>

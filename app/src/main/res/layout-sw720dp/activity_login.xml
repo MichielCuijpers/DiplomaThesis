@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="#c7a96c">
+
+    <Button
+        android:id="@+id/downButton5"
+        android:layout_width="108dp"
+        android:layout_height="114dp"
+        android:layout_marginBottom="96dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/down_button"
+        android:onClick="downButton5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/downButton2"
+        android:layout_width="108dp"
+        android:layout_height="114dp"
+        android:layout_marginBottom="96dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="72dp"
+        android:background="@drawable/down_button"
+        android:onClick="downButton2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/downButton3"
+        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintStart_toEndOf="@+id/downButton1" />
+
+    <Button
+        android:id="@+id/upButton4"
+        android:layout_width="108dp"
+        android:layout_height="114dp"
+        android:layout_marginEnd="140dp"
+        android:background="@drawable/up_button"
+        android:onClick="upButton4"
+        app:layout_constraintBottom_toTopOf="@+id/downButton4"
+        app:layout_constraintEnd_toStartOf="@+id/upButotn5" />
+
+    <Button
+        android:id="@+id/upButotn5"
+        android:layout_width="108dp"
+        android:layout_height="114dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/up_button"
+        android:onClick="upButotn5"
+        app:layout_constraintBottom_toTopOf="@+id/downButton5"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/upButton3"
+        android:layout_width="108dp"
+        android:layout_height="114dp"
+        android:layout_marginEnd="164dp"
+        android:background="@drawable/up_button"
+        android:onClick="upButton3"
+        app:layout_constraintBottom_toTopOf="@+id/downButton3"
+        app:layout_constraintEnd_toStartOf="@+id/upButton4" />
+
+    <Button
+        android:id="@+id/upButton2"
+        android:layout_width="108dp"
+        android:layout_height="114dp"
+        android:layout_marginEnd="160dp"
+        android:background="@drawable/up_button"
+        android:onClick="upButton2"
+        app:layout_constraintBottom_toTopOf="@+id/downButton2"
+        app:layout_constraintEnd_toStartOf="@+id/upButton3" />
+
+    <Button
+        android:id="@+id/upButton1"
+        android:layout_width="108dp"
+        android:layout_height="114dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/up_button"
+        android:onClick="upButton1"
+        app:layout_constraintBottom_toTopOf="@+id/downButton1"
+        app:layout_constraintEnd_toStartOf="@+id/upButton2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/number5View"
+        android:layout_width="176dp"
+        android:layout_height="285dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginTop="8dp"
+        android:text="A"
+        android:textSize="200sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
+
+    <TextView
+        android:id="@+id/number4View"
+        android:layout_width="176dp"
+        android:layout_height="266dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginTop="368dp"
+        android:text="A"
+        android:textSize="200sp"
+        app:layout_constraintEnd_toStartOf="@+id/number5View"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/downButton4"
+        android:layout_width="108dp"
+        android:layout_height="114dp"
+        android:layout_marginBottom="96dp"
+        android:layout_marginEnd="140dp"
+        android:background="@drawable/down_button"
+        android:onClick="downButton4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/downButton5" />
+
+    <Button
+        android:id="@+id/downButton3"
+        android:layout_width="108dp"
+        android:layout_height="114dp"
+        android:layout_marginBottom="96dp"
+        android:layout_marginEnd="164dp"
+        android:background="@drawable/down_button"
+        android:onClick="downButton3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/downButton4" />
+
+    <TextView
+        android:id="@+id/number2View"
+        android:layout_width="176dp"
+        android:layout_height="282dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginTop="364dp"
+        android:text="A"
+        android:textSize="200sp"
+        app:layout_constraintEnd_toStartOf="@+id/number3View"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/number1View"
+        android:layout_width="176dp"
+        android:layout_height="283dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="A"
+        android:textSize="200sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/number2View"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.978" />
+
+    <TextView
+        android:id="@+id/number3View"
+        android:layout_width="176dp"
+        android:layout_height="277dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginTop="368dp"
+        android:text="A"
+        android:textSize="200sp"
+        app:layout_constraintEnd_toStartOf="@+id/number4View"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/doneButtonLogin"
+        android:layout_width="240dp"
+        android:layout_height="156dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="doneOnClick"
+        android:text="DONE"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editText"
+        app:layout_constraintVertical_bias="0.38" />
+
+    <TextView
+        android:id="@+id/editText"
+        android:layout_width="1040dp"
+        android:layout_height="193dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Please Give Username"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/downButton1"
+        android:layout_width="108dp"
+        android:layout_height="114dp"
+        android:layout_marginBottom="104dp"
+        android:layout_marginStart="148dp"
+        android:background="@drawable/down_button"
+        android:onClick="downButton1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

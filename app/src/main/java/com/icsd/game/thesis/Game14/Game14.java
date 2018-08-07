@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.Menu2;
 import com.icsd.game.thesis.R;
@@ -43,7 +44,7 @@ public class Game14 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game14);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        currentSession = new Session(Menu.testUser.getUsername(),14);
+        currentSession = new Session(LoginActivity.getUser().getUsername(),14);
         currentSession.setTimeStart(System.currentTimeMillis()/1000);
         soundHandler = new SoundHandler(getApplicationContext());
         initTutorial();

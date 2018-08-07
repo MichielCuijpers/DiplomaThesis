@@ -2,10 +2,11 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutID"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.icsd.game.thesis.Menu2"
-    android:background="#c7a96c">
+    android:background="#c7a96c"
+    tools:context="com.icsd.game.thesis.Menu2">
 
 
     <Button
@@ -70,8 +71,8 @@
         android:layout_height="174dp"
         android:layout_marginEnd="32dp"
         android:background="@android:color/holo_orange_dark"
-        android:text="Game12"
         android:onClick="Game12"
+        android:text="Game12"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button18"
@@ -102,8 +103,8 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="56dp"
         android:background="@android:color/holo_orange_dark"
-        android:text="Game14"
         android:onClick="Game14"
+        android:text="Game14"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

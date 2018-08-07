@@ -2,74 +2,83 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutID"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#c7a96c">
 
     <Button
-        android:id="@+id/button7"
-        android:layout_width="387dp"
-        android:layout_height="139dp"
+        android:id="@+id/choise1Button"
+        android:layout_width="146dp"
+        android:layout_height="61dp"
         android:layout_marginBottom="24dp"
-        android:layout_marginEnd="236dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="68dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="choice1OnClick"
         android:text="CHOICE 1 "
-        android:textSize="36sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/choise3Button"
         app:layout_constraintEnd_toStartOf="@+id/choise2Button"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewObject" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/choise2Button"
-        android:layout_width="387dp"
-        android:layout_height="139dp"
+        android:layout_width="146dp"
+        android:layout_height="61dp"
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="88dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="choice2OnClick"
         android:text="CHOICE 2"
-        android:textSize="36sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/choise4Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewObject" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/choise3Button"
-        android:layout_width="387dp"
-        android:layout_height="139dp"
+        android:layout_width="146dp"
+        android:layout_height="61dp"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="236dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="68dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="choice3OnClick"
         android:text="CHOICE 3"
-        android:textSize="36sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/choise4Button"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/choise4Button"
-        android:layout_width="387dp"
-        android:layout_height="139dp"
+        android:layout_width="146dp"
+        android:layout_height="61dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="88dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="choice4OnClick"
         android:text="CHOICE 4"
-        android:textSize="36sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageViewObject"
-        android:layout_width="1043dp"
-        android:layout_height="258dp"
+        android:layout_width="294dp"
+        android:layout_height="112dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -81,18 +90,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.053"
         app:srcCompat="@drawable/ic_launcher_background" />
-
-    <Button
-        android:id="@+id/help_button"
-        android:layout_width="214dp"
-        android:layout_height="92dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/help_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

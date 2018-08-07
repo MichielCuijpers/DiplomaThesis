@@ -72,6 +72,21 @@ public class ObjectT {
             values.put(ANSWER3, "blow up leafs");
             values.put(ANSWER4, "smash rocks ");
             db.insert(TABLE_NAME, null, values);
+            values.clear();
+            values.put(NAME, "usb_game5");
+            values.put(ANSWER1, "save files");
+            values.put(ANSWER2, "open a beer");
+            values.put(ANSWER3, "make fire");
+            values.put(ANSWER4, "open a door");
+            db.insert(TABLE_NAME, null, values);
+            values.clear();
+            values.put(NAME, "tablet_game5");
+            values.put(ANSWER1, "tablet");
+            values.put(ANSWER2, "photo frame");
+            values.put(ANSWER3, "placemats");
+            values.put(ANSWER4, "book");
+            db.insert(TABLE_NAME, null, values);
+            values.clear();
 
 
             // db.close();

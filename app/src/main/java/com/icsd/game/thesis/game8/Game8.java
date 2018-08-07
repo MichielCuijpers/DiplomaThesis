@@ -5,17 +5,19 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.constraint.ConstraintLayout;
+
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
+
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,7 +28,6 @@ public class Game8 extends AppCompatActivity {
     private View ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9;
     private TextView scoreView;
     private ArrayList<View> balls;
-    private ConstraintLayout lo;
     private int delay;
     private Handler handler1, handler2;
     private int score;
@@ -35,6 +36,7 @@ public class Game8 extends AppCompatActivity {
     private Session curSession;
     private DatabaseHandler dbHandler;
     private ObjectAnimator animation1, animation2, animation3, animation4, animation5, animation6, animation7, animation8, animation9;
+    private PopUpWindow popUpWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +86,9 @@ public class Game8 extends AppCompatActivity {
         initAnimations();
 
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        curSession = new Session(Menu.testUser.getUsername(), 8);
+        curSession = new Session(LoginActivity.getUser().getUsername(), 8);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
+        popUpWindow = new PopUpWindow(this, this);
 
     }
 
@@ -111,8 +114,6 @@ public class Game8 extends AppCompatActivity {
         Runnable run1 = new Runnable() {
             @Override
             public void run() {
-                Log.e("YODEBUG", "run1");
-
 
                 animation1.setDuration(4000);
                 ball1.setVisibility(View.VISIBLE);
@@ -137,8 +138,6 @@ public class Game8 extends AppCompatActivity {
         Runnable run2 = new Runnable() {
             @Override
             public void run() {
-                Log.e("YODEBUG", "run2");
-
 
                 animation3.setDuration(4000);
                 ball3.setVisibility(View.VISIBLE);
@@ -163,7 +162,6 @@ public class Game8 extends AppCompatActivity {
         Runnable run3 = new Runnable() {
             @Override
             public void run() {
-                Log.e("YODEBUG", "run3");
 
                 animation5.setDuration(4000);
                 ball5.setVisibility(View.VISIBLE);
@@ -200,7 +198,6 @@ public class Game8 extends AppCompatActivity {
 
         Collections.shuffle(runs);
         Random r = new Random();
-        Log.e("DELA", this.delay + "");
         handler1.postDelayed(runs.get(r.nextInt(3)), delay);
 
 
@@ -209,7 +206,7 @@ public class Game8 extends AppCompatActivity {
     private void checkForEndGame() {
         if (this.score == 20) {
             killAll();
-            Toast.makeText(this, "Congratulations. You WON ! ", Toast.LENGTH_LONG).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
             Intent c = new Intent(this, Menu.class);
             startActivity(c);
         }

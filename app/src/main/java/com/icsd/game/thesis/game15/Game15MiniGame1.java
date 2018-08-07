@@ -1,14 +1,20 @@
 package com.icsd.game.thesis.game15;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.R;
-
+import com.icsd.game.thesis.SoundHandler;
+import com.icsd.game.thesis.database.DatabaseHandler;
+import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class Game15MiniGame1 extends AppCompatActivity {
@@ -21,21 +27,30 @@ public class Game15MiniGame1 extends AppCompatActivity {
     private Button button3;
     private Button button4;
     private int turn;
+    private int tempTurn;
     private Random r;
     private int number1;
     private int number2;
-    private int kindOfTurn;
     private int correctAnswer;
     private String correctAnswerStr;
-
+    private ArrayList<Integer> randomsList;
+    private PopUpWindow p;
+    private Session currentSession;
+    private DatabaseHandler dbHandler;
+    private SoundHandler soundHandler;
+    ArrayList<Integer> tempForRNG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game15_mini_game1);
+        soundHandler = new SoundHandler(getApplicationContext());
+        currentSession = new Session(LoginActivity.getUser().getUsername(), 15);
+        currentSession.setTimeStart(System.currentTimeMillis() / 1000);
         initGui();
         initGameplay();
-        initTurn();
+        p = new PopUpWindow(this, this);
+        gameplay(this.turn);
     }
 
     private void initGui() {
@@ -51,108 +66,211 @@ public class Game15MiniGame1 extends AppCompatActivity {
 
     private void initGameplay() {
         this.turn = 1;
+        this.tempTurn = 0;
+        randomsList = new ArrayList<>();
     }
 
-    private void initTurn() {
+    private void generateRandoms() {
+        randomsList.clear();
         r = new Random();
-        number1 = r.nextInt(399) + 1;
+        randomsList.add(number1 = r.nextInt(140) + 1);
         r = new Random();
-        number2 = r.nextInt(399) + 1;
-        r = new Random();
-        kindOfTurn = r.nextInt(3) + 1;
+        randomsList.add(number2 = r.nextInt(140) + 1);
 
-        number1View.setText(number1 + "");
-        number2View.setText(number2 + "");
+    }
 
+    private void randomInAnswers() {
+        tempForRNG = new ArrayList<>();
+        Integer rngSeed ;
+        tempForRNG.add(correctAnswer);
+        for (int i = 1; i < 4; i++) {
+
+            r = new Random();
+            rngSeed = r.nextInt(35);
+
+            rngSeed = rngSeed + (Collections.max(randomsList));
+            Log.e("MYDEBUGrng", rngSeed + "");
+            tempForRNG.add(rngSeed);
+        }
+        Collections.shuffle(tempForRNG);
+
+    }
+
+    private void setAnswersInTexts() {
+        randomInAnswers();
+        button1.setText(tempForRNG.get(0) + "");
+        button2.setText(tempForRNG.get(1) + "");
+        button3.setText(tempForRNG.get(2) + "");
+        button4.setText(tempForRNG.get(3) + "");
+    }
+
+    private void initTurn(int kindOfTurn) {
+        generateRandoms();
+
+        number1View.setText(randomsList.get(0) + "");
+        number2View.setText(randomsList.get(1) + "");
+        Log.e("MYDEBUG", randomsList.get(0) + "");
         if (kindOfTurn == 4) {
             button3.setVisibility(View.INVISIBLE);
             button4.setVisibility(View.INVISIBLE);
-            correctAnswer = number1 + number2;
-            button1.setText(correctAnswer);
-            button2.setText(correctAnswer);
-            button3.setText(correctAnswer);
-            button4.setText(correctAnswer);
+            correctAnswer = number1 * number2;
+            setAnswersInTexts();
             textView1.setText("*");
+            tempTurn++;
 
         } else if (kindOfTurn == 1) {
             button3.setVisibility(View.VISIBLE);
             button4.setVisibility(View.VISIBLE);
             correctAnswer = number1 + number2;
-            button1.setText(correctAnswer + "");
-            button2.setText(correctAnswer + "");
-            button3.setText(correctAnswer + "");
-            button4.setText(correctAnswer + "");
+            setAnswersInTexts();
             textView1.setText("+");
+            tempTurn++;
 
         } else if (kindOfTurn == 2) {
             button3.setVisibility(View.VISIBLE);
             button4.setVisibility(View.VISIBLE);
             correctAnswer = number1 - number2;
             textView1.setText("-");
-            button1.setText(correctAnswer + "");
-            button2.setText(correctAnswer + "");
-            button3.setText(correctAnswer + "");
-            button4.setText(correctAnswer + "");
+            setAnswersInTexts();
+            tempTurn++;
 
         } else if (kindOfTurn == 3) {
             button1.setText("<");
             button2.setText(">");
 
+
             button3.setVisibility(View.INVISIBLE);
             button4.setVisibility(View.INVISIBLE);
             textView2.setVisibility(View.INVISIBLE);
+            textView1.setText("?");
             if (number1 > number2) {
                 correctAnswerStr = ">";
 
             } else {
                 correctAnswerStr = "<";
             }
+            tempTurn++;
 
         }
 
 
     }
 
-    private void check() {
-
+    private void clean() {
 
     }
 
-    public void button1OnClick(View view) {
-        if (kindOfTurn == 3 && correctAnswerStr.equals(button1.getText())) {
-            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
-        } else if ((kindOfTurn == 1 || kindOfTurn == 2) && correctAnswer == (Integer.parseInt((String) button1.getText()))) {
-            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
+    private void gameplay(int turn) {
+        switch (turn) {
+            case 1:
+
+                initTurn(1);
+                break;
+            case 2:
+
+                initTurn(2);
+                break;
+            case 3:
+
+                initTurn(3);
+                break;
+
+
+        }
+    }
+
+    private void endGame() {
+        soundHandler.stopSound();
+        p.getmPopupWindow().dismiss();
+        p.showPopUp(getResources().getString(R.string.end_game_congrats2));
+        currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        dbHandler.addSessionToDB(this.currentSession);
+        Intent c = new Intent(this, Game15Menou.class);
+        startActivity(c);
+    }
+
+
+    private void check2(Button button) {
+        if (button.getText().toString().equals(correctAnswerStr)) {
+
+            if (tempTurn < 4) {
+                gameplay(this.turn);
+            } else {
+                endGame();
+            }
         } else {
-            Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
+
+            if (tempTurn < 4) {
+                gameplay(this.turn);
+            } else {
+                endGame();
+            }
+
+        }
+
+    }
+
+    private void check(Button button) {
+        Log.e("MYDEBUG", this.turn + "");
+        if (correctAnswer == Integer.parseInt((String) button.getText())) {
+            soundHandler.playOkSound();
+            p.showPopUp(getResources().getString(R.string.correct_answer2));
+            if (tempTurn < 4) {
+                gameplay(this.turn);
+            } else {
+                this.turn++;
+                tempTurn = 0;
+                gameplay(this.turn);
+            }
+
+
+        } else {
+            soundHandler.playWrongSound();
+            p.showPopUp(getResources().getString(R.string.wrong_answer2));
+            if (tempTurn < 4) {
+                gameplay(this.turn);
+            } else {
+                this.turn++;
+                gameplay(this.turn);
+            }
+
+
+        }
+
+    }
+
+    //onClicks()
+    public void button1OnClick(View view) {
+        if (this.turn < 3) {
+            check((Button) view);
+        } else {
+            check2((Button) view);
         }
 
 
     }
 
     public void button2OnClick(View view) {
-        if (kindOfTurn == 3 && correctAnswerStr.equals(button2.getText())) {
-            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
-        } else if ((kindOfTurn == 1 || kindOfTurn == 2) && correctAnswer == (Integer.parseInt((String) button1.getText()))) {
-            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
+        if (this.turn != 4) {
+            check((Button) view);
         }
     }
 
     public void button3OnClick(View view) {
-        if (correctAnswer == (Integer.parseInt((String) button3.getText()))) {
-            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
+
+        if (this.turn < 3) {
+            check((Button) view);
         } else {
-            Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
+            check2((Button) view);
         }
+
     }
 
     public void button4OnClick(View view) {
-        if (correctAnswer == (Integer.parseInt((String) button4.getText()))) {
-            Toast.makeText(this, "gj ", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Fail, please try again ", Toast.LENGTH_SHORT).show();
-        }
+
+        check((Button) view);
+
     }
+
 }

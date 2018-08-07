@@ -8,19 +8,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.PopupWindow;
 
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Game5 extends AppCompatActivity {
-    private ObjectT objectT;
     private ArrayList<ObjectT> objectTList;
     private Button answer1Button;
     private Button answer2Button;
@@ -33,6 +34,7 @@ public class Game5 extends AppCompatActivity {
     private Session curSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
+    private PopUpWindow popUpWindow;
 
     public static Context getMyCont() {
         return myCont;
@@ -54,7 +56,7 @@ public class Game5 extends AppCompatActivity {
         myCont = this.getApplicationContext();
 
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        curSession = new Session(Menu.testUser.getUsername(), 5);
+        curSession = new Session(LoginActivity.getUser().getUsername(), 5);
         curSession.setTimeStart(System.currentTimeMillis());
         soundHandler = new SoundHandler(getApplicationContext());
 
@@ -64,15 +66,39 @@ public class Game5 extends AppCompatActivity {
         this.answer4Button = findViewById(R.id.choise4Button);
         image = findViewById(R.id.imageViewObject);
         objectTList = ObjectT.ObjectDBEntry.takeObjectsFromDB();
+        Collections.shuffle(objectTList);
+        popUpWindow = new PopUpWindow(myCont, this);
 
+
+    }
+
+    private void cleanBackgroundForPopUp() {
+
+
+        if (popUpWindow.getmPopupWindow().isShowing()) {
+
+            image.setVisibility(View.INVISIBLE);
+
+        }
+        popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+            @Override
+            public void onDismiss() {
+
+                image.setVisibility(View.VISIBLE);
+
+            }
+        });
 
     }
 
     public void play(int turn) {
         if (endGame()) {
 
-            Toast.makeText(this, "Congrats!! You found all answers!! Game End Play another game ", Toast.LENGTH_LONG).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats1));
+            cleanBackgroundForPopUp();
             curSession.setTimeEnd(System.currentTimeMillis());
+            curSession.setScore(this.turn);
             dbHandler.addSessionToDB(this.curSession);
             Intent c = new Intent(this, Menu.class);
             startActivity(c);
@@ -86,15 +112,14 @@ public class Game5 extends AppCompatActivity {
         this.answer4Button.setText(objectTList.get(turn).getAnswers().get(3));
         String img = objectTList.get(turn).getName();
         int resID = getResources().getIdentifier(img, "drawable", getPackageName());
-        Log.e("IMAGID", resID + "");
-
         image.setImageResource(resID);
     }
 
     public void check(Button button) {
         if (button.getText().equals(correct)) {
             soundHandler.playOkSound();
-            Toast.makeText(this, "Congratulations. Your answer is correct!! ", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
+            cleanBackgroundForPopUp();
             turn++;
 
             play(turn);
@@ -104,11 +129,20 @@ public class Game5 extends AppCompatActivity {
 
         } else {
             soundHandler.playWrongSound();
-            Toast.makeText(this, "Wrong aswer, try one more time !!  ", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer2));
+            cleanBackgroundForPopUp();
             curSession.setFails(curSession.getFails() + 1);
 
         }
 
+    }
+
+    public Boolean endGame() {
+        if (turn == 5) {
+            return true;
+
+        }
+        return false;
     }
 
 
@@ -129,12 +163,5 @@ public class Game5 extends AppCompatActivity {
         check((Button) view);
     }
 
-    public Boolean endGame() {
-        if (turn == 4) {
-            return true;
-
-        }
-        return false;
-    }
 
 }

@@ -9,11 +9,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,6 +45,7 @@ public class Game1Activity extends AppCompatActivity {
     private DatabaseHandler dbHandler;
     private ArrayList<String> questions;
     private SoundHandler soundHandler;
+    private PopUpWindow popUpWindow;
 
 
     @Override
@@ -60,11 +63,12 @@ public class Game1Activity extends AppCompatActivity {
         setContentView(view1);
         pickCategoryView = findViewById(R.id.textView6);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        curSession = new Session(Menu.testUser.getUsername(), 1);
+        curSession = new Session(LoginActivity.getUser().getUsername(), 1);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
         myCont = this.getApplicationContext();
         questions = new ArrayList<>();
         soundHandler = new SoundHandler(getApplicationContext());
+        popUpWindow = new PopUpWindow(this, this);
 
 
     }
@@ -89,22 +93,16 @@ public class Game1Activity extends AppCompatActivity {
         this.answer2Button.setText(this.question.answers.get(1));
         this.answer3Button.setText(this.question.answers.get(2));
         this.answer4Button.setText(this.question.answers.get(3));
-
         for (int i = 0; i < 5; i++) {
-//            Log.e("MYDEBUG",questions.get(i) + i );
             questions.remove(0);
-
         }
-
 
     }
 
     private void checkAnswer(Button button) {
         if (button.getText().equals(correctAnswer)) {
             soundHandler.playOkSound();
-
-            Toast.makeText(this, "Congratulations. Your answer is correct!! ", Toast.LENGTH_SHORT).show();
-
+            popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             curSession.setScore(curSession.getScore() + 1);
             curSession.setStage(curSession.getStage() + 1);
             initTheQuestion();
@@ -112,19 +110,19 @@ public class Game1Activity extends AppCompatActivity {
 
         } else {
             soundHandler.playWrongSound();
-            Toast.makeText(this, "Wrong aswer, try one more time !!  ", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             curSession.setFails(curSession.getFails() + 1);
         }
         if (this.questions.isEmpty()) {
             setContentView(view1);
-            pickCategoryView.setText("Please choose another category");
+            pickCategoryView.setText(getResources().getString(R.string.choose_another_category));
         }
         if (curSession.getStage() == 15) {
             dbHandler = new DatabaseHandler(this.getApplicationContext());
             curSession.setTimeEnd(System.currentTimeMillis() / 1000);
             dbHandler.addSessionToDB(this.curSession);
             soundHandler.stopSound();
-            Toast.makeText(this, "Congrats!! You found all answers!! Game End ,Play another game ", Toast.LENGTH_LONG).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats1));
             Intent c = new Intent(this, Menu.class);
             startActivity(c);
         }

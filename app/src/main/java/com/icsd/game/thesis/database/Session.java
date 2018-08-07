@@ -3,7 +3,7 @@ package com.icsd.game.thesis.database;
 import android.provider.BaseColumns;
 
 public class Session {
-    private final int userId;
+    private final String userId;
     private final int gameID;
     private int score;
     private int stage;
@@ -12,7 +12,7 @@ public class Session {
     private double timeEnd;
     private int helpUsed;
 
-    public Session(int userid, int gameId) {
+    public Session(String userid, int gameId) {
 
         userId = userid;
         score = 0;
@@ -42,13 +42,13 @@ public class Session {
                         + FAILS + " INTEGER, "
                         + TIME__PLAYED + " DOUBLE, "
                         + HELP_USED + " INTEGER, "
-                        + USER_ID + " INTEGER, "
+                        + USER_ID + " TEXT, "
                         + GAME_ID + " INTEGER, "
                         + "FOREIGN KEY(" + USER_ID + ") REFERENCES user(" + User.UserDBEntry._ID + "),"
                         + "FOREIGN KEY(" + GAME_ID + ") REFERENCES user(" + GameDBEntry._ID + ")) ";
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 

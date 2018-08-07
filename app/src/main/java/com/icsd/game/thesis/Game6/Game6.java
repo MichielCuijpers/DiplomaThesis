@@ -1,12 +1,17 @@
 package com.icsd.game.thesis.Game6;
-import android.support.v7.app.AppCompatActivity;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
@@ -15,6 +20,7 @@ import com.icsd.game.thesis.database.Session;
 
 import java.util.ArrayList;
 import java.util.Random;
+
 public class Game6 extends AppCompatActivity {
     private Button iimage1;
     private Button iimage2;
@@ -33,11 +39,13 @@ public class Game6 extends AppCompatActivity {
     private ArrayList<ArrayList> cat;
     private Button melon, avocado, strawberry, banana, cherries, kiwi, orange, bicycle, bike, car, jeep, truck, golf, suv, phone, phone2, tablet, tablet2,
             smartwatch, pc, laptop, flower1, flower2, flower3, flower4, flower5, flower6, flower7, shuffle;
-    private int sc=0;
+    private int sc = 0;
     private Session currentSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
 
+    //bitmaps
+    BitmapDrawable pcbitMap, laptopBitMap, flower1BitMap, flower2BitMap, flower3BitMap, flower4BitMap, flower5BitMap, flower6BitMap, flower7BitMap;
 
 
     @Override
@@ -45,12 +53,33 @@ public class Game6 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game6_content_main);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        currentSession = new Session(Menu.testUser.getUsername(),6);
-        currentSession.setTimeStart(System.currentTimeMillis()/1000);
+        currentSession = new Session(LoginActivity.getUser().getUsername(), 6);
+        currentSession.setTimeStart(System.currentTimeMillis() / 1000);
         soundHandler = new SoundHandler(getApplicationContext());
-
+        imagesToBitmap();
         initTest();
 
+    }
+
+    private void imagesToBitmap() {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 8;
+        Bitmap mBitmapInsurance1 = BitmapFactory.decodeFile("drawable/pc.jpg", options);
+        pcbitMap = new BitmapDrawable(getResources(), mBitmapInsurance1);
+        Bitmap mBitmapInsurance2 = BitmapFactory.decodeFile("drawable/laptop.jpg", options);
+        laptopBitMap = new BitmapDrawable(getResources(), mBitmapInsurance2);
+        Bitmap mBitmapInsurance3 = BitmapFactory.decodeFile("drawable/flower2.jpg", options);
+        flower1BitMap = new BitmapDrawable(getResources(), mBitmapInsurance3);
+        Bitmap mBitmapInsurance4 = BitmapFactory.decodeFile("drawable/flower3.jpg", options);
+        flower2BitMap = new BitmapDrawable(getResources(), mBitmapInsurance4);
+        Bitmap mBitmapInsurance5 = BitmapFactory.decodeFile("drawable/flower4.jpg", options);
+        flower3BitMap = new BitmapDrawable(getResources(), mBitmapInsurance5);
+        Bitmap mBitmapInsurance6 = BitmapFactory.decodeFile("drawable/flower5.jpg", options);
+        flower4BitMap = new BitmapDrawable(getResources(), mBitmapInsurance6);
+        Bitmap mBitmapInsurance7 = BitmapFactory.decodeFile("drawable/flower6.jpg", options);
+        flower5BitMap = new BitmapDrawable(getResources(), mBitmapInsurance7);
+        Bitmap mBitmapInsurance8 = BitmapFactory.decodeFile("drawable/flower7.jpg", options);
+        flower6BitMap = new BitmapDrawable(getResources(), mBitmapInsurance8);
     }
 
     private void initTest() {
@@ -120,15 +149,17 @@ public class Game6 extends AppCompatActivity {
         tablet.setBackground(getDrawable(R.drawable.tablet));
         tablet2.setBackground(getDrawable(R.drawable.tablet2));
         smartwatch.setBackground(getDrawable(R.drawable.smartwatch));
-        pc.setBackground(getDrawable(R.drawable.pc));
-        laptop.setBackground(getDrawable(R.drawable.laptop));
+
+
+        pc.setBackground(pcbitMap);
+        laptop.setBackground(laptopBitMap);
         flower1.setBackground(getDrawable(R.drawable.flower1));
-        flower2.setBackground(getDrawable(R.drawable.flower2));
-        flower3.setBackground(getDrawable(R.drawable.flower3));
-        flower4.setBackground(getDrawable(R.drawable.flower4));
-        flower5.setBackground(getDrawable(R.drawable.flower5));
-        flower6.setBackground(getDrawable(R.drawable.flower6));
-        flower7.setBackground(getDrawable(R.drawable.flower7));
+        flower2.setBackground(flower1BitMap);
+        flower3.setBackground(flower2BitMap);
+        flower4.setBackground(flower3BitMap);
+        flower5.setBackground(flower4BitMap);
+        flower6.setBackground(flower5BitMap);
+        flower7.setBackground(flower6BitMap);
 
 
         fruits.add(melon);
@@ -183,7 +214,6 @@ public class Game6 extends AppCompatActivity {
 
         rand = new Random();
         int which_cat = rand.nextInt(4);
-
 
 
         for (int i = 0; i < 4; i++) {
@@ -321,15 +351,16 @@ public class Game6 extends AppCompatActivity {
         tablet.setBackground(getDrawable(R.drawable.tablet));
         tablet2.setBackground(getDrawable(R.drawable.tablet2));
         smartwatch.setBackground(getDrawable(R.drawable.smartwatch));
-        pc.setBackground(getDrawable(R.drawable.pc));
-        laptop.setBackground(getDrawable(R.drawable.laptop));
+
+        pc.setBackground(pcbitMap);
+        laptop.setBackground(laptopBitMap);
         flower1.setBackground(getDrawable(R.drawable.flower1));
-        flower2.setBackground(getDrawable(R.drawable.flower2));
-        flower3.setBackground(getDrawable(R.drawable.flower3));
-        flower4.setBackground(getDrawable(R.drawable.flower4));
-        flower5.setBackground(getDrawable(R.drawable.flower5));
-        flower6.setBackground(getDrawable(R.drawable.flower6));
-        flower7.setBackground(getDrawable(R.drawable.flower7));
+        flower2.setBackground(flower1BitMap);
+        flower3.setBackground(flower2BitMap);
+        flower4.setBackground(flower3BitMap);
+        flower5.setBackground(flower4BitMap);
+        flower6.setBackground(flower5BitMap);
+        flower7.setBackground(flower6BitMap);
 
 
         fruits.add(melon);
@@ -384,7 +415,6 @@ public class Game6 extends AppCompatActivity {
 
         rand = new Random();
         int which_cat = rand.nextInt(4);
-
 
 
         for (int i = 0; i < 4; i++) {
@@ -463,7 +493,7 @@ public class Game6 extends AppCompatActivity {
         images.get(4).setBackground(images.get(which_image2).getBackground());
         images.get(which_image2).setBackground(shuffle.getBackground());
         images.get(which_image2).setText("WRONG");
-        shuffle=images.get(which_image2);
+        shuffle = images.get(which_image2);
 
     }
 
@@ -473,18 +503,18 @@ public class Game6 extends AppCompatActivity {
         shuffle.setBackground(images.get(4).getBackground());
         images.get(4).setBackground(images.get(which_image2).getBackground());
         images.get(which_image2).setBackground(shuffle.getBackground());
-        shuffle=images.get(which_image2);
+        shuffle = images.get(which_image2);
 
     }
 
-    public void testOnClick(View View){
-        for(int i=0;i<images.size();i++){
+    public void testOnClick(View View) {
+        for (int i = 0; i < images.size(); i++) {
             images.get(i).setText("");
         }
         initTest();
     }
 
-    public void playOnClick(View View){
+    public void playOnClick(View View) {
 
         this.setContentView(R.layout.activity_game6_playactivity);
         score = (TextView) findViewById(R.id.text1);
@@ -492,83 +522,65 @@ public class Game6 extends AppCompatActivity {
 
     }//i methodo checkwinner
 
-    public void image1OnClick(View v){
-        if(iimage1==shuffle){
-            sc++;
-            score.setText("Score: "+sc);
-            currentSession.setScore(sc);
-            soundHandler.playOkSound();
-            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-            initGame();
-        }
-        else {
-            currentSession.setFails(currentSession.getFails()+1);
-            soundHandler.playWrongSound();
-            Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+    private void userWinsTheTurn() {
+        sc++;
+        score.setText("Score: " + sc);
+        currentSession.setScore(sc);
+        soundHandler.playOkSound();
+        Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+        initGame();
+    }
+
+    private void userLoosesTheTurn() {
+        currentSession.setFails(currentSession.getFails() + 1);
+        soundHandler.playWrongSound();
+        Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+    }
+
+    public void image1OnClick(View v) {
+        if (iimage1 == shuffle) {
+            userWinsTheTurn();
+        } else {
+            userLoosesTheTurn();
         }
 
 
     }
-    public void image5OnClick(View v){
 
-        if(iimage5==shuffle){
-            sc++;
-            score.setText("Score: "+sc);
-            currentSession.setScore(sc);
-            soundHandler.playOkSound();
-            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-            initGame();
-        }else {
-            currentSession.setFails(currentSession.getFails() + 1);
-            soundHandler.playWrongSound();
-            Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+    public void image5OnClick(View v) {
+
+        if (iimage5 == shuffle) {
+            userWinsTheTurn();
+        } else {
+            userLoosesTheTurn();
         }
 
     }
-    public void image2OnClick(View v){
 
-        if(iimage2==shuffle){
-            sc++;
-            score.setText("Score: "+sc);
-            currentSession.setScore(sc);
-            soundHandler.playOkSound();
-            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-            initGame();
-        }else {
-            currentSession.setFails(currentSession.getFails() + 1);
-            soundHandler.playWrongSound();
-            Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+    public void image2OnClick(View v) {
+
+        if (iimage2 == shuffle) {
+            userWinsTheTurn();
+        } else {
+            userLoosesTheTurn();
         }
     }
-    public void image3OnClick(View v){
 
-        if(iimage3==shuffle){
-            sc++;
-            score.setText("Score: "+sc);
-            currentSession.setScore(sc);
-            soundHandler.playOkSound();
-            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-            initGame();
-        }else {
-            currentSession.setFails(currentSession.getFails() + 1);
-            soundHandler.playWrongSound();
-            Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+    public void image3OnClick(View v) {
+
+        if (iimage3 == shuffle) {
+            userWinsTheTurn();
+        } else {
+            userLoosesTheTurn();
         }
     }
-    public void image4OnClick(View v){
 
-        if(iimage4==shuffle){
-            sc++;
-            score.setText("Score: "+sc);
-            currentSession.setScore(sc);
-            soundHandler.playOkSound();
-            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-            initGame();
+    public void image4OnClick(View v) {
 
-        }else {
-            currentSession.setFails(currentSession.getFails() + 1);
-            soundHandler.playWrongSound();
-            Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+        if (iimage4 == shuffle) {
+            userWinsTheTurn();
+        } else {
+            userLoosesTheTurn();
         }
     }
 

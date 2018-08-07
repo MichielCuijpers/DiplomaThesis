@@ -3,19 +3,20 @@ package com.icsd.game.thesis.database;
 import android.provider.BaseColumns;
 
 public class User {
-    public User(int i) {
+    private String username;
+    public User(String i) {
         this.username = i;
     }
 
-    public int getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername(int username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    private int username;
+
 
 
     public static class UserDBEntry implements BaseColumns {
