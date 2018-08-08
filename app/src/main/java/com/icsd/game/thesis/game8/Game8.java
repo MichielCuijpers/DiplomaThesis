@@ -17,7 +17,7 @@ import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
-import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
+import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
 import java.util.Collections;

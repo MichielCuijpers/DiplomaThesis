@@ -1,4 +1,4 @@
-package com.icsd.game.thesis.pet.Tooltips;
+package com.icsd.game.thesis.pet;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,6 +18,7 @@ import com.icsd.game.thesis.R;
 public class PopUpWindow {
     private PopupWindow mPopupWindow;
     private final View popupView;
+    private View tutorialView;
 
     public PopupWindow getmPopupWindow() {
         return mPopupWindow;
@@ -25,7 +26,7 @@ public class PopUpWindow {
 
     private final Context context;
     private final Activity activity;
-    private final TextView text;
+    private TextView text, tutorialTextView;
     private ImageView cat, bubble;
 
 
@@ -33,7 +34,7 @@ public class PopUpWindow {
         this.context = context;
         this.activity = activity;
 
-        LayoutInflater inflater = activity.getLayoutInflater();
+
         popupView = activity.getLayoutInflater().inflate(R.layout.popupwindow1_showasdropdown, null);
         text = popupView.findViewById(R.id.text_view_dropdown);
 
@@ -45,6 +46,21 @@ public class PopUpWindow {
         text.setText(str);
 
         mPopupWindow = new PopupWindow(popupView, 600, 600, true);
+        mPopupWindow.setTouchable(true);
+        mPopupWindow.setOutsideTouchable(true);
+        mPopupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null));
+        mPopupWindow.showAtLocation(this.activity.findViewById(R.id.layoutID), Gravity.CENTER, 0, 0);
+
+
+    }
+
+    public void showTutorial(String str) {
+
+
+        tutorialView = activity.getLayoutInflater().inflate(R.layout.activity_tutorial_activity, null);
+        tutorialTextView = tutorialView.findViewById(R.id.text_view_dropdown);
+        tutorialTextView.setText(str);
+        mPopupWindow = new PopupWindow(tutorialView, 600, 600, true);
         mPopupWindow.setTouchable(true);
         mPopupWindow.setOutsideTouchable(true);
         mPopupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null));

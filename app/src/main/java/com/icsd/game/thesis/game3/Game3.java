@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.icsd.game.thesis.R;
-import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
+import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
 import java.util.Collections;
