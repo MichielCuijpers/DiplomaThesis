@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                 setContentView(R.layout.activity_login);
                 initGui();
             }
-        }, 3000);
+        }, 1000);
 
     }
 

@@ -12,6 +12,7 @@ import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.User;
 import com.icsd.game.thesis.game1.Game1Activity;
 import com.icsd.game.thesis.game2.Game2Activity;
+import com.icsd.game.thesis.game3.Game3;
 import com.icsd.game.thesis.game4.Game4Activity;
 import com.icsd.game.thesis.game5.Game5;
 import com.icsd.game.thesis.game8.Game8;
@@ -20,7 +21,6 @@ import com.icsd.game.thesis.game8.Game8;
 public class Menu extends Activity {
     private GestureDetectorCompat mDetector;
     private static User testUser;
-    // private static DatabaseHandler db;
     DatabaseHandler dh;
     private static SQLiteDatabase db;
 
@@ -34,21 +34,9 @@ public class Menu extends Activity {
 
         setContentView(R.layout.activity_menu);
         testUser = LoginActivity.getUser();
-        //  db = new DatabaseHandler(this);
-        //   db.getWritableDatabase();
-        //db.addUserToDB(testUser);
-
-
-
-
-
-
 
     }
 
-    // public static DatabaseHandler getDb() {
-    //return db;
-    //}
 
     public void goToMenu2(View view) {
         Intent c = new Intent(Menu.this, Menu2.class);
@@ -85,4 +73,10 @@ public class Menu extends Activity {
         Intent c = new Intent(this, Game6.class);
         startActivity(c);
     }
+
+    public void game3(View view) {
+        Intent c = new Intent(this, Game3.class);
+        startActivity(c);
+    }
+
 }

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.icsd.game.thesis.LoginActivity;
+import com.icsd.game.thesis.Menu2;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class Game15MiniGame1 extends AppCompatActivity {
+public class Game15 extends AppCompatActivity {
     private TextView number1View;
     private TextView number2View;
     private TextView textView1;
@@ -184,7 +185,7 @@ public class Game15MiniGame1 extends AppCompatActivity {
         currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
         DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
         dbHandler.addSessionToDB(this.currentSession);
-        Intent c = new Intent(this, Game15Menou.class);
+        Intent c = new Intent(this, Menu2.class);
         startActivity(c);
     }
 

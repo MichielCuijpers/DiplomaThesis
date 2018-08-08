@@ -10,7 +10,7 @@ import com.icsd.game.thesis.Game14.Game14;
 import com.icsd.game.thesis.Game9.Game9;
 import com.icsd.game.thesis.database.AndroidDatabaseManager;
 import com.icsd.game.thesis.game13.Game13;
-import com.icsd.game.thesis.game15.Game15Menou;
+import com.icsd.game.thesis.game15.Game15;
 
 import com.icsd.game.thesis.pet.Tooltips.Tooltips;
 
@@ -29,19 +29,23 @@ public class Menu2 extends AppCompatActivity {
         Intent c = new Intent(Menu2.this, Menu.class);
         startActivity(c);
     }
-    public void Game14(View view){
-        Intent c = new Intent(this,Game14.class);
+
+    public void Game14(View view) {
+        Intent c = new Intent(this, Game14.class);
         startActivity(c);
     }
+
     public void game13(View view) {
         Intent c = new Intent(this, Game13.class);
         startActivity(c);
     }
-    public void Game12(View view){
+
+    public void Game12(View view) {
         Intent c = new Intent(this, Game12.class);
         startActivity(c);
     }
-    public void Game9(View view){
+
+    public void Game9(View view) {
         Intent c = new Intent(this, Game9.class);
         startActivity(c);
     }
@@ -53,12 +57,12 @@ public class Menu2 extends AppCompatActivity {
     }
 
     public void game15(View view) {
-        Intent c = new Intent(this, Game15Menou.class);
+        Intent c = new Intent(this, Game15.class);
         startActivity(c);
     }
 
     public void game16(View view) {
-        Intent c = new Intent(this,Tooltips.class);
+        Intent c = new Intent(this, Tooltips.class);
         startActivity(c);
     }
 }

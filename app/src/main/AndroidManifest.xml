@@ -59,10 +59,10 @@
             android:name=".game15.Game15Menou"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".game15.Game15MiniGame1"
+            android:name=".game15.Game15"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".game15.Game15MiniGame2"
+            android:name=".game3.Game3"
             android:screenOrientation="landscape" />
         <activity
             android:name=".game15.Game15MiniGame3"

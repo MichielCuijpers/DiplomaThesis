@@ -1,4 +1,4 @@
-package com.icsd.game.thesis.game15;
+package com.icsd.game.thesis.game3;
 
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class Game15MiniGame2 extends AppCompatActivity {
+public class Game3 extends AppCompatActivity {
 
     private ArrayList<Button> buttonsList;
     private ArrayList<Integer> randomsList;
@@ -24,15 +24,15 @@ public class Game15MiniGame2 extends AppCompatActivity {
     private String previewsButtonText;
     private Button previewsButton;
     private PopUpWindow p;
+    private ArrayList<Integer> tempArrayList;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game15_mini_game2);
+        setContentView(R.layout.activity_game3);
         initGui();
-        turn = 1;
-        isSecondButton = false;
+        initGameplay();
         p = new PopUpWindow(this, this);
         gameplay(turn);
     }
@@ -53,11 +53,16 @@ public class Game15MiniGame2 extends AppCompatActivity {
     }
 
     private void initGameplay() {
-
+        turn = 1;
+        isSecondButton = false;
+        tempArrayList = new ArrayList<>();
+        correctsList = new ArrayList<>();
+        randomsList = new ArrayList<>();
     }
 
     private void generateRandoms(int turn) {
-        randomsList = new ArrayList<>();
+
+        randomsList.clear();
         Random r;
         switch (turn) {
             case 1:
@@ -67,13 +72,31 @@ public class Game15MiniGame2 extends AppCompatActivity {
                 }
                 break;
             case 2:
+
                 for (int i = 0; i < 7; i++) {
                     r = new Random();
                     randomsList.add(r.nextInt(300));
                 }
-
-
                 break;
+            case 3:
+                for (int i = 0; i < 9; i++) {
+                    r = new Random();
+                    randomsList.add(r.nextInt(300));
+                }
+                break;
+            case 4:
+                for (int i = 0; i < 12; i++) {
+                    r = new Random();
+                    randomsList.add(r.nextInt(300));
+                }
+                break;
+            case 5:
+                for (int i = 0; i < 15; i++) {
+                    r = new Random();
+                    randomsList.add(r.nextInt(300));
+                }
+                break;
+
         }
 
     }
@@ -86,28 +109,39 @@ public class Game15MiniGame2 extends AppCompatActivity {
 
     private void initTurn(int turn) {
         generateRandoms(turn);
-        correctsList = new ArrayList<>();
         correctsList = randomsList;
-        Collections.sort(correctsList);
+        Collections.shuffle(randomsList);
+
         switch (turn) {
             case 1:
-
                 for (int i = 0; i < 5; i++) {
                     buttonsList.get(i).setVisibility(View.VISIBLE);
                     buttonsList.get(i).setText(String.valueOf(randomsList.get(i)));
                 }
                 break;
             case 2:
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 7; i++) {
                     buttonsList.get(i).setVisibility(View.VISIBLE);
-                }
-                for (int i = 6; i < 9; i++) {
-                    buttonsList.get(i).setVisibility(View.VISIBLE);
+                    buttonsList.get(i).setText(String.valueOf(randomsList.get(i)));
                 }
                 break;
             case 3:
+                for (int i = 0; i < 9; i++) {
+                    buttonsList.get(i).setVisibility(View.VISIBLE);
+                    buttonsList.get(i).setText(String.valueOf(randomsList.get(i)));
+                }
                 break;
             case 4:
+                for (int i = 0; i < 12; i++) {
+                    buttonsList.get(i).setVisibility(View.VISIBLE);
+                    buttonsList.get(i).setText(String.valueOf(randomsList.get(i)));
+                }
+                break;
+            case 5:
+                for (int i = 0; i < 15; i++) {
+                    buttonsList.get(i).setVisibility(View.VISIBLE);
+                    buttonsList.get(i).setText(String.valueOf(randomsList.get(i)));
+                }
                 break;
 
 
@@ -127,6 +161,9 @@ public class Game15MiniGame2 extends AppCompatActivity {
                 initTurn(3);
                 break;
             case 4:
+                initTurn(4);
+                break;
+            case 5:
                 initTurn(4);
                 break;
 
@@ -154,13 +191,16 @@ public class Game15MiniGame2 extends AppCompatActivity {
     }
 
     private void check() {
-        ArrayList<Integer> tempArrayList = new ArrayList<>();
+        tempArrayList.clear();
+        Collections.sort(correctsList);
         int j = 0;
         for (int i = 0; i < 15; i++) {
             if (buttonsList.get(i).getVisibility() == View.INVISIBLE) {
 
             } else {
-                tempArrayList.add(Integer.parseInt(buttonsList.get(j).getText().toString()));
+
+                tempArrayList.add(Integer.parseInt((String) buttonsList.get(j).getText()));
+                Log.e("MYDEBUG",tempArrayList.get(i)+"/"+correctsList.get(i));
                 j++;
             }
         }
@@ -168,6 +208,8 @@ public class Game15MiniGame2 extends AppCompatActivity {
             p.showPopUp(getResources().getString(R.string.correct_answer2));
             turn++;
             gameplay(turn);
+        } else {
+            p.showPopUp(getResources().getString(R.string.wrong_answer2));
         }
 
     }
@@ -176,6 +218,7 @@ public class Game15MiniGame2 extends AppCompatActivity {
 
     }
 
+    // OnCLicks
     public void number1OnClick(View view) {
         buttonIsClick(view);
     }
@@ -183,7 +226,6 @@ public class Game15MiniGame2 extends AppCompatActivity {
     public void number2OnClick(View view) {
         buttonIsClick(view);
     }
-
 
     public void number3OnClick(View view) {
         buttonIsClick(view);
@@ -236,7 +278,6 @@ public class Game15MiniGame2 extends AppCompatActivity {
     public void number15OnClick(View view) {
         buttonIsClick(view);
     }
-
 
     public void checkOnClick(View view) {
         check();
