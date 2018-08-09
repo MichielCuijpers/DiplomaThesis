@@ -2,19 +2,18 @@ package com.icsd.game.thesis.game8;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
-import android.media.MediaPlayer;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.widget.PopupWindow;
 import android.widget.TextView;
-
 
 import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
@@ -25,24 +24,27 @@ import java.util.Random;
 
 public class Game8 extends AppCompatActivity {
 
-    private View ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9;
+    private BallView ball1, ball2, ball3, ball4, ball5, ball6, ball7, ball8, ball9;
     private TextView scoreView;
     private int delay;
     private Handler handler1, handler2;
     private int score;
-    private MediaPlayer sound;
     private ArrayList<Runnable> runs;
     private Session curSession;
     private DatabaseHandler dbHandler;
     private ObjectAnimator animation1, animation2, animation3, animation4, animation5, animation6, animation7, animation8, animation9;
     private PopUpWindow popUpWindow;
+    private ArrayList<BallView> balls;
+    private SoundHandler soundHandler;
+    private int turn;
+    private int miniTurn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game8);
         init();
-        startTurn();
+        gameplay();
 
     }
 
@@ -59,7 +61,7 @@ public class Game8 extends AppCompatActivity {
 
         scoreView = findViewById(R.id.scoreView);
 
-        ArrayList<View> balls = new ArrayList<>();
+        balls = new ArrayList<>();
         balls.add(ball1);
         balls.add(ball2);
         balls.add(ball3);
@@ -70,13 +72,11 @@ public class Game8 extends AppCompatActivity {
         balls.add(ball8);
         balls.add(ball9);
 
+        hideBalls();
 
-        for (int i = 0; i < balls.size(); i++) {
-            Log.e("DEBUGMY", balls.get(i).toString() + "");
-            balls.get(i).setVisibility(View.INVISIBLE);
-        }
 
     }
+
 
     private void init() {
         initRunnables();
@@ -88,6 +88,7 @@ public class Game8 extends AppCompatActivity {
         curSession = new Session(LoginActivity.getUser().getUsername(), 8);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
         popUpWindow = new PopUpWindow(this, this);
+
 
     }
 
@@ -104,9 +105,10 @@ public class Game8 extends AppCompatActivity {
     }
 
     private void initGameplay() {
-        sound = MediaPlayer.create(this, R.raw.correct_sound);
         score = 0;
         this.delay = 100;
+        turn = 1;
+        miniTurn = 0;
     }
 
     private void initRunnables() {
@@ -126,9 +128,9 @@ public class Game8 extends AppCompatActivity {
 
                 ball7.setVisibility(View.VISIBLE);
                 animation7.start();
-                delay = delay + 700;
+                delay = delay + 400;
 
-                startTurn();
+                gameplay();
 
 
             }
@@ -151,10 +153,11 @@ public class Game8 extends AppCompatActivity {
                 animation9.setDuration(4000);
                 ball9.setVisibility(View.VISIBLE);
                 animation9.start();
-                delay = delay + 700;
+                delay = delay + 500;
+
+                gameplay();
 
 
-                startTurn();
             }
         };
 
@@ -165,7 +168,6 @@ public class Game8 extends AppCompatActivity {
                 animation5.setDuration(4000);
                 ball5.setVisibility(View.VISIBLE);
                 animation5.start();
-                delay = delay + 1000;
 
                 animation2.setDuration(4000);
                 ball2.setVisibility(View.VISIBLE);
@@ -174,9 +176,9 @@ public class Game8 extends AppCompatActivity {
                 animation8.setDuration(4000);
                 ball8.setVisibility(View.VISIBLE);
                 animation8.start();
+                delay = delay + 600;
 
-                delay = delay + 700;
-                startTurn();
+                gameplay();
 
 
             }
@@ -192,105 +194,188 @@ public class Game8 extends AppCompatActivity {
 
     }
 
-    private void startTurn() {
-
-
+    private void gameplay() {
         Collections.shuffle(runs);
-        Random r = new Random();
-        handler1.postDelayed(runs.get(r.nextInt(3)), delay);
-
-
-    }
-
-    private void checkForEndGame() {
-        if (this.score == 20) {
-            killAll();
-            popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
-            Intent c = new Intent(this, Menu.class);
-            startActivity(c);
+        changeTurn();
+        switch (turn) {
+            case 1:
+                turn1();
+                break;
+            case 2:
+                turn2and3();
+                break;
+            case 3:
+                popUpWindow.getmPopupWindow().dismiss();
+                turn2and3();
+                break;
+            case 4:
+                EndGame();
+                break;
         }
 
     }
 
-    private void updateScore() {
-        score++;
-        scoreView.setText("Score:" + score);
-        this.curSession.setScore(this.score);
-        checkForEndGame();
+    private void turn1() {
+        Random r = new Random();
+        soundHandler = new SoundHandler(getApplicationContext());
+        handler1.postDelayed(runs.get(r.nextInt(3)), delay);
     }
 
-    private void killAll() {
+    private void turn2and3() {
+        final Random r = new Random();
+        soundHandler = new SoundHandler(getApplicationContext());
+        makeBallsGreenAgain();
+        someBallsToRed();
+        if (miniTurn == 1) {
+            hideBalls();
+            if(turn==2){
+                popUpWindow.showPopUp("Now,Dont touch the RED balls");
+            }else{
+                popUpWindow.showPopUp("Now,Dont touch the GREEN balls");
+            }
+
+            popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
+                @Override
+                public void onDismiss() {
+                    delay = 100;
+                    handler1.postDelayed(runs.get(r.nextInt(3)), delay);
+                }
+            });
+        } else {
+            handler1.postDelayed(runs.get(r.nextInt(3)), delay);
+        }
+    }
+
+    private void changeTurn() {
+        miniTurn++;
+
+        if (miniTurn == 8) {
+            turn++;
+            miniTurn = 1;
+        }
+    }
+
+    private void makeBallsGreenAgain() {
+        for (int i = 0; i < balls.size(); i++) {
+            balls.get(i).setColor(Color.GREEN);
+        }
+    }
+
+    private void someBallsToRed() {
+        Random r = new Random();
+        balls.get(r.nextInt(6)).setColor(Color.RED);
+        balls.get(r.nextInt(6)).setColor(Color.RED);
+        balls.get(r.nextInt(6)).setColor(Color.RED);
+        balls.get(r.nextInt(6)).setColor(Color.RED);
+        if(turn==3){
+            balls.get(r.nextInt(6)).setColor(Color.RED);
+            balls.get(r.nextInt(6)).setColor(Color.RED);
+        }
+    }
+
+    private void hideBalls() {
+        for (int i = 0; i < balls.size(); i++) {
+            balls.get(i).setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void EndGame() {
+
         curSession.setTimeEnd(System.currentTimeMillis() / 1000);
         dbHandler.addSessionToDB(this.curSession);
         handler1.removeCallbacks(null);
         handler2.removeCallbacks(null);
-        sound.stop();
         dbHandler.close();
+        popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
+        Intent c = new Intent(this, Menu.class);
+        startActivity(c);
+
+
     }
 
-    //Tough Events Methods
+    private void updateScore(BallView ball) {
+        if (turn == 2 || turn == 1) {
+            if (ball.getPaint().getColor() == Color.GREEN) {
+                soundHandler.playOkSoundPool();
+                score++;
+                scoreView.setText("Score:" + score);
+                this.curSession.setScore(this.score);
+
+            } else {
+                soundHandler.playWrongPool();
+                score--;
+                scoreView.setText("Score:" + score);
+                this.curSession.setScore(this.score);
+
+            }
+        }
+        if (turn == 3) {
+            if (ball.getPaint().getColor() == Color.GREEN) {
+                soundHandler.playWrongSound();
+                score--;
+                scoreView.setText("Score:" + score);
+                this.curSession.setScore(this.score);
+
+            } else {
+                soundHandler.playOkSound();
+                score++;
+                scoreView.setText("Score:" + score);
+                this.curSession.setScore(this.score);
+
+            }
+        }
+
+
+    }
+
+
+    //OnClick Methods
     public void ball8OnClick(View view) {
         view.setVisibility(View.INVISIBLE);
-        sound.start();
-
         scoreView.setText("Score:" + this.score);
-        updateScore();
+        updateScore(((BallView) view));
 
     }
 
     public void ball3OnClick(View view) {
         view.setVisibility(View.INVISIBLE);
-
-        sound.start();
         scoreView.setText("Score:" + this.score);
-        updateScore();
+        updateScore((BallView) view);
     }
 
     public void ball6OnClick(View view) {
         view.setVisibility(View.INVISIBLE);
-
-        sound.start();
         scoreView.setText("Score:" + this.score);
-        updateScore();
+        updateScore((BallView) view);
     }
 
     public void ball5OnClick(View view) {
         view.setVisibility(View.INVISIBLE);
-        sound.start();
-        updateScore();
+        updateScore((BallView) view);
     }
 
     public void ball1OnClick(View view) {
         view.setVisibility(View.INVISIBLE);
-
-        sound.start();
-        updateScore();
+        updateScore((BallView) view);
 
     }
 
     public void ball2OnClick(View view) {
         view.setVisibility(View.INVISIBLE);
-
-        sound.start();
-        updateScore();
+        updateScore((BallView) view);
 
     }
 
     public void ball7OnClick(View view) {
         view.setVisibility(View.INVISIBLE);
-
-        sound.start();
-        updateScore();
+        updateScore((BallView) view);
 
     }
 
     public void ball4OnClick(View view) {
         view.setVisibility(View.INVISIBLE);
-
-        sound.start();
-        updateScore();
+        updateScore((BallView) view);
 
     }
-
 
 }

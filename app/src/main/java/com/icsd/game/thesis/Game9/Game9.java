@@ -16,8 +16,10 @@ import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+
 public class Game9 extends AppCompatActivity {
     private Button iimage1;
     private Button iimage2;
@@ -32,19 +34,19 @@ public class Game9 extends AppCompatActivity {
     private ArrayList<Button> red;
     private ArrayList<Button> yellow;
     private TextView score;
-    private  int which_color;
+    private int which_color;
     private TextView what_to_click;
     // private Categories category;
     private Random rand;
     private ArrayList<ArrayList> cat;
-    private Button b1,b2,b3,b4,b5,bl1,bl2,bl3,bl4,bl5,g1,g2,g3,g4,g5,p1,p2,p3,p4,p5,r1,r2,r3,r4,r5,y1,y2,y3,y4,y5,shuffle;
-    private int sc=0;
-    private ArrayList <Button> win;
-    private ArrayList <Button> lose;
-    private ArrayList <Button> right_color;
+    private Button b1, b2, b3, b4, b5, bl1, bl2, bl3, bl4, bl5, g1, g2, g3, g4, g5, p1, p2, p3, p4, p5, r1, r2, r3, r4, r5, y1, y2, y3, y4, y5, shuffle;
+    private int sc = 0;
+    private ArrayList<Button> win;
+    private ArrayList<Button> lose;
+    private ArrayList<Button> right_color;
     //private boolean clicked1=false,clicked2=false,clicked3=false,clicked4=false,clicked5=false;
     private ArrayList<Boolean> clicked;
-    private int position=0,position1=0;
+    private int position = 0, position1 = 0;
     private Session currentSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
@@ -54,9 +56,11 @@ public class Game9 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game9);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        currentSession = new Session(LoginActivity.getUser().getUsername(),9);
-        currentSession.setTimeStart(System.currentTimeMillis()/1000);
+        currentSession = new Session(LoginActivity.getUser().getUsername(), 9);
+        currentSession.setTimeStart(System.currentTimeMillis() / 1000);
+
         soundHandler = new SoundHandler(getApplicationContext());
+
         initTest();
 
     }
@@ -112,7 +116,7 @@ public class Game9 extends AppCompatActivity {
         y3 = (Button) findViewById(R.id.button44);
         y4 = (Button) findViewById(R.id.button45);
         y5 = findViewById(R.id.button9);
-        shuffle= findViewById(R.id.button10);
+        shuffle = findViewById(R.id.button10);
 
 
         b1.setBackground(getDrawable(R.drawable.bl1));
@@ -203,55 +207,55 @@ public class Game9 extends AppCompatActivity {
         cat.add(red);
         cat.add(yellow);
 
-        for(Button b : blue){
+        for (Button b : blue) {
             b.setText("");
         }
-        for(Button b : black){
+        for (Button b : black) {
             b.setText("");
         }
-        for(Button b : green){
+        for (Button b : green) {
             b.setText("");
         }
-        for(Button b : purple){
+        for (Button b : purple) {
             b.setText("");
         }
-        for(Button b : red){
+        for (Button b : red) {
             b.setText("");
         }
-        for(Button b : yellow){
+        for (Button b : yellow) {
             b.setText("");
         }
 
         rand = new Random();
         which_color = rand.nextInt(cat.size()); //choose random color
-        if(which_color==0){
+        if (which_color == 0) {
             what_to_click.setText("Click on the blue images");
-            for(Button b : blue){
+            for (Button b : blue) {
                 b.setText("BLUE");
             }
-        }else if(which_color==1){
+        } else if (which_color == 1) {
             what_to_click.setText("Click on the black images");
-            for(Button b : black){
+            for (Button b : black) {
                 b.setText("BLACK");
             }
-        }else if(which_color==2){
+        } else if (which_color == 2) {
             what_to_click.setText("Click on the green images");
-            for(Button b : green){
+            for (Button b : green) {
                 b.setText("GREEN");
             }
-        }else if(which_color==3){
+        } else if (which_color == 3) {
             what_to_click.setText("Click on the purple images");
-            for(Button b : purple){
+            for (Button b : purple) {
                 b.setText("PURPLE");
             }
-        }else if(which_color==4){
+        } else if (which_color == 4) {
             what_to_click.setText("Click on the red images");
-            for(Button b : red){
+            for (Button b : red) {
                 b.setText("RED");
             }
-        }else if(which_color==5){
+        } else if (which_color == 5) {
             what_to_click.setText("Click on the yellow images");
-            for(Button b : yellow){
+            for (Button b : yellow) {
                 b.setText("YELLOW");
             }
         }
@@ -259,22 +263,22 @@ public class Game9 extends AppCompatActivity {
         for (int i = 0; i <= 4; i++) {
             int which_image = rand.nextInt(blue.size()); //choose a random number from the list that was chosen
             //which_color = rand.nextInt(cat.size()); //choose random color
-            if(which_color==0){
+            if (which_color == 0) {
                 images.get(i).setBackground(blue.get(which_image).getBackground());
                 images.get(i).setText(blue.get(which_image).getText());
-            }else if(which_color==1){
+            } else if (which_color == 1) {
                 images.get(i).setBackground(black.get(which_image).getBackground());
                 images.get(i).setText(black.get(which_image).getText());
-            }else if(which_color==2){
+            } else if (which_color == 2) {
                 images.get(i).setBackground(green.get(which_image).getBackground());
                 images.get(i).setText(green.get(which_image).getText());
-            }else if(which_color==3){
+            } else if (which_color == 3) {
                 images.get(i).setBackground(purple.get(which_image).getBackground());
                 images.get(i).setText(purple.get(which_image).getText());
-            }else if(which_color==4){
+            } else if (which_color == 4) {
                 images.get(i).setBackground(red.get(which_image).getBackground());
                 images.get(i).setText(red.get(which_image).getText());
-            }else if(which_color==5){
+            } else if (which_color == 5) {
                 images.get(i).setBackground(yellow.get(which_image).getBackground());
                 images.get(i).setText(yellow.get(which_image).getText());
             }
@@ -429,22 +433,22 @@ public class Game9 extends AppCompatActivity {
         cat.add(purple);
         cat.add(red);
         cat.add(yellow);
-        for(Button b : blue){
+        for (Button b : blue) {
             b.setText("");
         }
-        for(Button b : black){
+        for (Button b : black) {
             b.setText("");
         }
-        for(Button b : green){
+        for (Button b : green) {
             b.setText("");
         }
-        for(Button b : purple){
+        for (Button b : purple) {
             b.setText("");
         }
-        for(Button b : red){
+        for (Button b : red) {
             b.setText("");
         }
-        for(Button b : yellow){
+        for (Button b : yellow) {
             b.setText("");
         }
 
@@ -457,39 +461,39 @@ public class Game9 extends AppCompatActivity {
         rand = new Random();
         //int which_cat = rand.nextInt(cat.size());
         which_color = rand.nextInt(cat.size()); //choose random color
-        if(which_color==0){
+        if (which_color == 0) {
             what_to_click.setText("Click on the blue images");
-            for(Button b : blue){
+            for (Button b : blue) {
                 b.setText("BLUE");
                 b.setTextSize(0);
             }
-        }else if(which_color==1){
+        } else if (which_color == 1) {
             what_to_click.setText("Click on the black images");
-            for(Button b : black){
+            for (Button b : black) {
                 b.setText("BLACK");
                 b.setTextSize(0);
             }
-        }else if(which_color==2){
+        } else if (which_color == 2) {
             what_to_click.setText("Click on the green images");
-            for(Button b : green){
+            for (Button b : green) {
                 b.setText("GREEN");
                 b.setTextSize(0);
             }
-        }else if(which_color==3){
+        } else if (which_color == 3) {
             what_to_click.setText("Click on the purple images");
-            for(Button b : purple){
+            for (Button b : purple) {
                 b.setText("PURPLE");
                 b.setTextSize(0);
             }
-        }else if(which_color==4){
+        } else if (which_color == 4) {
             what_to_click.setText("Click on the red images");
-            for(Button b : red){
+            for (Button b : red) {
                 b.setText("RED");
                 b.setTextSize(0);
             }
-        }else if(which_color==5){
+        } else if (which_color == 5) {
             what_to_click.setText("Click on the yellow images");
-            for(Button b : yellow){
+            for (Button b : yellow) {
                 b.setText("YELLOW");
                 b.setTextSize(0);
             }
@@ -498,22 +502,22 @@ public class Game9 extends AppCompatActivity {
         for (int i = 0; i <= 4; i++) {
             int which_image = rand.nextInt(blue.size()); //choose a random number from the list that was chosen
             //which_color = rand.nextInt(cat.size()); //choose random color
-            if(which_color==0){
+            if (which_color == 0) {
                 images.get(i).setBackground(blue.get(which_image).getBackground());
                 images.get(i).setText(blue.get(which_image).getText());
-            }else if(which_color==1){
+            } else if (which_color == 1) {
                 images.get(i).setBackground(black.get(which_image).getBackground());
                 images.get(i).setText(black.get(which_image).getText());
-            }else if(which_color==2){
+            } else if (which_color == 2) {
                 images.get(i).setBackground(green.get(which_image).getBackground());
                 images.get(i).setText(green.get(which_image).getText());
-            }else if(which_color==3){
+            } else if (which_color == 3) {
                 images.get(i).setBackground(purple.get(which_image).getBackground());
                 images.get(i).setText(purple.get(which_image).getText());
-            }else if(which_color==4){
+            } else if (which_color == 4) {
                 images.get(i).setBackground(red.get(which_image).getBackground());
                 images.get(i).setText(red.get(which_image).getText());
-            }else if(which_color==5){
+            } else if (which_color == 5) {
                 images.get(i).setBackground(yellow.get(which_image).getBackground());
                 images.get(i).setText(yellow.get(which_image).getText());
             }
@@ -532,171 +536,175 @@ public class Game9 extends AppCompatActivity {
         images.get(0).setText(images.get(which_image2).getText());
         images.get(which_image2).setBackground(shuffle.getBackground());
         images.get(which_image2).setText(shuffle.getText());
-        shuffle=images.get(which_image2);
+        shuffle = images.get(which_image2);
 
     }
 
-    public void testOnClick(View v){
-        for(Button b : blue){
+    public void testOnClick(View v) {
+        for (Button b : blue) {
             b.setText("");
         }
-        for(Button b : black){
+        for (Button b : black) {
             b.setText("");
         }
-        for(Button b : green){
+        for (Button b : green) {
             b.setText("");
         }
-        for(Button b : purple){
+        for (Button b : purple) {
             b.setText("");
         }
-        for(Button b : red){
+        for (Button b : red) {
             b.setText("");
         }
-        for(Button b : yellow){
+        for (Button b : yellow) {
             b.setText("");
         }
         initTest();
     }
 
-    public void playOnClick(View v){
+    public void playOnClick(View v) {
         this.setContentView(R.layout.activity_game9_play);
         initGame();
 
     }
 
-    public void checkWin(){
-        for(Button b : images){
-            if(!b.getText().equals("")){
+    public void checkWin() {
+        for (Button b : images) {
+            if (!b.getText().equals("")) {
                 right_color.add(b);
             }
         }
     }
 
-    public void checkEndGame(){
-        if(sc==15){
-            currentSession.setTimeEnd(System.currentTimeMillis()/1000);
+    public void checkEndGame() {
+        if (sc == 15) {
+            currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
             dbHandler.addSessionToDB(currentSession);
             soundHandler.stopSound();
             Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this , Menu2.class);
+            Intent intent = new Intent(this, Menu2.class);
             startActivity(intent);
         }
     }
 
-    public void checkOnClick(View v){
+    public void checkOnClick(View v) {
         checkWin();
         checkEndGame();
-        if(right_color.size()==clicked.size() && lose.size()==0){
+        if (right_color.size() == clicked.size() && lose.size() == 0) {
             Toast.makeText(this, "YOU FOUND THEM ALL", Toast.LENGTH_SHORT).show();
             //right_color.remove(b);
             sc++;
-            score.setText("Score: "+sc);
-            position=0;
+            score.setText("Score: " + sc);
+            position = 0;
             right_color.removeAll(clicked);
-            for(int i=0;i<clicked.size();i++){
+            for (int i = 0; i < clicked.size(); i++) {
                 clicked.remove(i);
             }
             currentSession.setScore(sc);
             soundHandler.playOkSound();
             initGame();
-        }else if(lose.size()!=0){
-            currentSession.setFails(currentSession.getFails()+1);
+        } else if (lose.size() != 0) {
+            currentSession.setFails(currentSession.getFails() + 1);
             soundHandler.playWrongSound();
-            for(int i=0;i<lose.size();i++){
+            for (int i = 0; i < lose.size(); i++) {
                 lose.remove(i);
             }
-            position1=0;
-            position=0;
+            position1 = 0;
+            position = 0;
             Toast.makeText(this, "YOU CLICKED MORE,TRY AGAIN", Toast.LENGTH_SHORT).show();
-        }else if(clicked.size()<right_color.size()){
-            currentSession.setFails(currentSession.getFails()+1);
+        } else if (clicked.size() < right_color.size()) {
+            currentSession.setFails(currentSession.getFails() + 1);
             soundHandler.playWrongSound();
             //Toast.makeText(this, String.valueOf(clicked.size()), Toast.LENGTH_SHORT).show();
             //Toast.makeText(this, String.valueOf(right_color.size()), Toast.LENGTH_SHORT).show();
 
-            for(int i=0;i<clicked.size();i++){
+            for (int i = 0; i < clicked.size(); i++) {
                 clicked.remove(i);
             }
-            position1=0;
-            position=0;
+            position1 = 0;
+            position = 0;
             Toast.makeText(this, "YOY MISSED SOMETHING, TRY AGAIN", Toast.LENGTH_SHORT).show();
-        }else if(clicked.size()>right_color.size()){
-            for(int i=0;i<clicked.size();i++){
+        } else if (clicked.size() > right_color.size()) {
+            for (int i = 0; i < clicked.size(); i++) {
                 clicked.remove(i);
             }
-            position1=0;
-            position=0;
+            position1 = 0;
+            position = 0;
             Toast.makeText(this, "TRY AGAIN", Toast.LENGTH_SHORT).show();
             //Toast.makeText(this, String.valueOf(clicked.size()), Toast.LENGTH_SHORT).show();
             //Toast.makeText(this, String.valueOf(right_color.size()), Toast.LENGTH_SHORT).show();
         }
-        for(int i=0;i<right_color.size();i++){
+        for (int i = 0; i < right_color.size(); i++) {
             right_color.remove(i);
         }
-        position1=0;
-        position=0;
-        for(int i=0;i<clicked.size();i++){
+        position1 = 0;
+        position = 0;
+        for (int i = 0; i < clicked.size(); i++) {
             clicked.remove(i);
         }
-        for(int i=0;i<clicked.size();i++){
+        for (int i = 0; i < clicked.size(); i++) {
             clicked.remove(i);
         }
-        for(int i=0;i<right_color.size();i++){
+        for (int i = 0; i < right_color.size(); i++) {
             right_color.remove(i);
         }
-        for(int i=0;i<lose.size();i++){
+        for (int i = 0; i < lose.size(); i++) {
             lose.remove(i);
         }
     }
 
-    public void button1OnClick (View v){
-        if(!iimage1.getText().equals("")){
+    public void button1OnClick(View v) {
+        if (!iimage1.getText().equals("")) {
             //clicked.add(position, true);
-            clicked.add(position,true);
-            position++;
-        }else{
-            lose.add(position1,iimage1);
-            position1++;
-            //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
-        }
-    }
-    public void button2OnClick (View v){
-        if(!iimage2.getText().equals("")){
             clicked.add(position, true);
             position++;
-        }else{
-            lose.add(position1,iimage2);
+        } else {
+            lose.add(position1, iimage1);
             position1++;
             //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
         }
     }
-    public void button3OnClick (View v){
-        if(!iimage3.getText().equals("")){
+
+    public void button2OnClick(View v) {
+        if (!iimage2.getText().equals("")) {
+            clicked.add(position, true);
+            position++;
+        } else {
+            lose.add(position1, iimage2);
+            position1++;
+            //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void button3OnClick(View v) {
+        if (!iimage3.getText().equals("")) {
             //clicked.add(2, true);
-            clicked.add(position,true);
+            clicked.add(position, true);
             position++;
-        }else{
-            lose.add(position1,iimage3);
+        } else {
+            lose.add(position1, iimage3);
             position1++;
             //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
         }
     }
-    public void button4OnClick (View v){
-        if(!iimage4.getText().equals("")){
+
+    public void button4OnClick(View v) {
+        if (!iimage4.getText().equals("")) {
             clicked.add(position, true);
             position++;
-        }else{
-            lose.add(position1,iimage4);
+        } else {
+            lose.add(position1, iimage4);
             position1++;
             //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
         }
     }
-    public void button5OnClick (View v){
-        if(!iimage5.getText().equals("")){
+
+    public void button5OnClick(View v) {
+        if (!iimage5.getText().equals("")) {
             clicked.add(position, true);
             position++;
-        }else{
-            lose.add(position1,iimage5);
+        } else {
+            lose.add(position1, iimage5);
             position1++;
             //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
         }

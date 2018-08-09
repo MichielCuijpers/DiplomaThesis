@@ -18,6 +18,7 @@ import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -55,7 +56,9 @@ public class Game6 extends AppCompatActivity {
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         currentSession = new Session(LoginActivity.getUser().getUsername(), 6);
         currentSession.setTimeStart(System.currentTimeMillis() / 1000);
+
         soundHandler = new SoundHandler(getApplicationContext());
+
         imagesToBitmap();
         initTest();
 

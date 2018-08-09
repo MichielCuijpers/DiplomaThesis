@@ -18,6 +18,7 @@ import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -54,11 +55,15 @@ public class Game1Activity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        init();
+        try {
+            init();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    private void init() {
+    private void init() throws IOException {
         view1 = getLayoutInflater().inflate(R.layout.game1_categories_activity, null);
         view2 = getLayoutInflater().inflate(R.layout.game1_prototype, null);
         setContentView(view1);

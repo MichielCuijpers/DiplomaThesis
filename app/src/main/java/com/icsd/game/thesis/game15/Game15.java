@@ -15,6 +15,7 @@ import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -45,7 +46,9 @@ public class Game15 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game15_mini_game1);
-        soundHandler = new SoundHandler(getApplicationContext());
+
+            soundHandler = new SoundHandler(getApplicationContext());
+
         currentSession = new Session(LoginActivity.getUser().getUsername(), 15);
         currentSession.setTimeStart(System.currentTimeMillis() / 1000);
         initGui();

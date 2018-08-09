@@ -17,6 +17,7 @@ import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -52,7 +53,9 @@ public class Game4Activity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        soundHandler = new SoundHandler(getApplicationContext());
+
+            soundHandler = new SoundHandler(getApplicationContext());
+
         initGameplay();
         initGui();
         p = new PopUpWindow(this, this);

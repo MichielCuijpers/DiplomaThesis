@@ -23,6 +23,7 @@ import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -51,12 +52,16 @@ public class Game2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game2);
-        init();
+        try {
+            init();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }
 
-    private void init() {
+    private void init() throws IOException {
 
         curSession = new Session(LoginActivity.getUser().getUsername(), 2);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);

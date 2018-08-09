@@ -9,7 +9,10 @@ import android.view.View;
 
 public class BallView extends View {
     private static final int DEFAULT_CIRCLE_COLOR = Color.RED;
-    private Paint paint;
+    private Paint paint ;
+    private int color= Color.GREEN;
+
+
 
     public BallView(Context context, AttributeSet attrs) {
         super(context,attrs);
@@ -35,8 +38,20 @@ public class BallView extends View {
         int cx = pl + (usableWidth / 2);
         int cy = pt + (usableHeight / 2);
 
-        paint.setColor(Color.RED);
+        paint.setColor(this.getColor());
+        this.color=paint.getColor();
+
         canvas.drawCircle(cx, cy, radius, paint);
+    }
+    public int getColor() {
+        return color;
+    }
+    public void setColor(int color) {
+        this.color = color;
+    }
+
+    public Paint getPaint() {
+        return paint;
     }
 
 }

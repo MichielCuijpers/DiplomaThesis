@@ -17,6 +17,7 @@ import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -45,13 +46,17 @@ public class Game5 extends AppCompatActivity {
         setContentView(R.layout.game5_prototype);
 
 
-        init();
+        try {
+            init();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         play(turn);
 
 
     }
 
-    private void init() {
+    private void init() throws IOException {
         myCont = this.getApplicationContext();
 
         dbHandler = new DatabaseHandler(this.getApplicationContext());
