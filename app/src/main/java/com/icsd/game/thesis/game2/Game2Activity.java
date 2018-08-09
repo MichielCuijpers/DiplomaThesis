@@ -318,7 +318,7 @@ public class Game2Activity extends AppCompatActivity {
                     }
                 });
             }
-        }, 3000);
+        }, 4000);
     }
 
     //OnClicks

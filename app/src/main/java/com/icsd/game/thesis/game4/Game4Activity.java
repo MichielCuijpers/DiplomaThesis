@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -38,24 +39,19 @@ public class Game4Activity extends AppCompatActivity {
     private int secondaryTurn;
     private static Context context;
 
-    public static Context getContext() {
-        return context;
-    }
 
     private Session curSession;
     private SoundHandler soundHandler;
     private PopUpWindow p;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
-
-            soundHandler = new SoundHandler(getApplicationContext());
-
+        setContentView(R.layout.game4protype);
+        soundHandler = new SoundHandler(getApplicationContext());
+        context = getApplicationContext();
         initGameplay();
         initGui();
         p = new PopUpWindow(this, this);
@@ -165,7 +161,7 @@ public class Game4Activity extends AppCompatActivity {
         buttonsList.add(button10);
         buttonsList.add(button11);
         buttonsList.add(button12);
-        clearGui();
+       clearGui();
 
     }
 
@@ -210,35 +206,6 @@ public class Game4Activity extends AppCompatActivity {
 
     }
 
-    public void checkOnClick(View view) {
-        StringBuilder world = new StringBuilder();
-        for (int i = 0; i < currentWord.length(); i++) {
-            world.append(buttonsList.get(i).getText());
-        }
-        if (currentWord.equals(world.toString())) {
-            soundHandler.playOkSound();
-            this.curSession.setScore(this.globalTurn);
-            p.showPopUp(getResources().getString(R.string.correct_answer2));
-            clearGui();
-            if (secondaryTurn > 2) {
-                changeTurn();
-            }
-
-            if (secondaryTurn == 0 || secondaryTurn == 1 || secondaryTurn == 2) {
-
-                gameplay(globalTurn);
-
-            }
-
-        } else {
-
-            soundHandler.playWrongSound();
-            p.showPopUp(getResources().getString(R.string.wrong_answer2));
-            this.curSession.setFails(curSession.getFails() + 1);
-
-        }
-    }
-
     private void endGame() {
         soundHandler.stopSound();
         p.getmPopupWindow().dismiss();
@@ -258,6 +225,10 @@ public class Game4Activity extends AppCompatActivity {
             endGame();
         }
         gameplay(globalTurn);
+    }
+
+    public static Context getContext() {
+        return context;
     }
 
     //OnCLicks
@@ -307,6 +278,35 @@ public class Game4Activity extends AppCompatActivity {
 
     public void button12OnClick(View view) {
         buttonIsClick(view);
+    }
+
+    public void checkOnClick(View view) {
+        StringBuilder world = new StringBuilder();
+        for (int i = 0; i < currentWord.length(); i++) {
+            world.append(buttonsList.get(i).getText());
+        }
+        if (currentWord.equals(world.toString())) {
+            soundHandler.playOkSound();
+            this.curSession.setScore(this.globalTurn);
+            p.showPopUp(getResources().getString(R.string.correct_answer2));
+            clearGui();
+            if (secondaryTurn > 2) {
+                changeTurn();
+            }
+
+            if (secondaryTurn == 0 || secondaryTurn == 1 || secondaryTurn == 2) {
+
+                gameplay(globalTurn);
+
+            }
+
+        } else {
+
+            soundHandler.playWrongSound();
+            p.showPopUp(getResources().getString(R.string.wrong_answer2));
+            this.curSession.setFails(curSession.getFails() + 1);
+
+        }
     }
 
 

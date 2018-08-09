@@ -47,7 +47,7 @@ public class Game15 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game15_mini_game1);
 
-            soundHandler = new SoundHandler(getApplicationContext());
+        soundHandler = new SoundHandler(getApplicationContext());
 
         currentSession = new Session(LoginActivity.getUser().getUsername(), 15);
         currentSession.setTimeStart(System.currentTimeMillis() / 1000);
@@ -195,7 +195,8 @@ public class Game15 extends AppCompatActivity {
 
     private void check2(Button button) {
         if (button.getText().toString().equals(correctAnswerStr)) {
-
+            soundHandler.playOkSound();
+            p.showPopUp(getResources().getString(R.string.correct_answer2));
             if (tempTurn < 4) {
                 gameplay(this.turn);
             } else {
@@ -204,6 +205,8 @@ public class Game15 extends AppCompatActivity {
         } else {
 
             if (tempTurn < 4) {
+                soundHandler.playWrongSound();
+                p.showPopUp(getResources().getString(R.string.wrong_answer2));
                 gameplay(this.turn);
             } else {
                 endGame();

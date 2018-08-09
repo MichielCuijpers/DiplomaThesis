@@ -1,13 +1,20 @@
 package com.icsd.game.thesis.game3;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.icsd.game.thesis.LoginActivity;
+import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.SoundHandler;
+import com.icsd.game.thesis.database.DatabaseHandler;
+import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
@@ -25,6 +32,9 @@ public class Game3 extends AppCompatActivity {
     private Button previewsButton;
     private PopUpWindow p;
     private ArrayList<Integer> tempArrayList;
+    private Session currentSession;
+    private DatabaseHandler dbHandler;
+    private SoundHandler soundHandler;
 
 
     @Override
@@ -34,6 +44,10 @@ public class Game3 extends AppCompatActivity {
         initGui();
         initGameplay();
         p = new PopUpWindow(this, this);
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        soundHandler = new SoundHandler(this);
+        currentSession = new Session(LoginActivity.getUser().getUsername(), 8);
+        currentSession.setTimeStart(System.currentTimeMillis() / 1000);
         gameplay(turn);
     }
 
@@ -41,12 +55,9 @@ public class Game3 extends AppCompatActivity {
         buttonsList = new ArrayList<>();
 
         for (int i = 1; i < 16; i++) {
-
             String btn = "number" + i + "Button";
             int resID = getResources().getIdentifier(btn, "id", getPackageName());
             buttonsList.add(this.<Button>findViewById(resID));
-
-
         }
         clearGui();
 
@@ -164,7 +175,10 @@ public class Game3 extends AppCompatActivity {
                 initTurn(4);
                 break;
             case 5:
-                initTurn(4);
+                initTurn(5);
+                break;
+            case 6:
+                endGame();
                 break;
 
 
@@ -200,22 +214,29 @@ public class Game3 extends AppCompatActivity {
             } else {
 
                 tempArrayList.add(Integer.parseInt((String) buttonsList.get(j).getText()));
-                Log.e("MYDEBUG",tempArrayList.get(i)+"/"+correctsList.get(i));
+                Log.e("MYDEBUG", tempArrayList.get(i) + "/" + correctsList.get(i));
                 j++;
             }
         }
         if (tempArrayList.equals(correctsList)) {
+            soundHandler.playOkSound();
             p.showPopUp(getResources().getString(R.string.correct_answer2));
+            currentSession.setScore(turn);
             turn++;
             gameplay(turn);
         } else {
+            soundHandler.playWrongSound();
+            currentSession.setFails(currentSession.getFails() + 1);
             p.showPopUp(getResources().getString(R.string.wrong_answer2));
         }
 
     }
 
     private void endGame() {
-
+        currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+        dbHandler.addSessionToDB(this.currentSession);
+        Intent c = new Intent(this, Menu.class);
+        startActivity(c);
     }
 
     // OnCLicks
