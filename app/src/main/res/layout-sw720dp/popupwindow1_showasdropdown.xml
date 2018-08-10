@@ -6,13 +6,13 @@
 
     <TextView
         android:id="@+id/text_view_dropdown"
-        android:layout_width="305dp"
-        android:layout_height="115dp"
+        android:layout_width="366dp"
+        android:layout_height="148dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="89dp"
+        android:layout_marginTop="56dp"
         android:gravity="center"
-        android:text="lol"
+        android:text=""
         android:textColor="@android:color/background_dark"
         android:textSize="15sp"
         android:textStyle="bold" />

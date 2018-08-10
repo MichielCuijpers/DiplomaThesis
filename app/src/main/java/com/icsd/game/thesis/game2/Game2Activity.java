@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,8 +21,9 @@ import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
-import com.icsd.game.thesis.pet.Tooltips.PopUpWindow;
+import com.icsd.game.thesis.pet.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -50,20 +52,22 @@ public class Game2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game2);
-
-        init();
+        try {
+            init();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }
 
-    private void init() {
+    private void init() throws IOException {
 
         curSession = new Session(LoginActivity.getUser().getUsername(), 2);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         soundHandler = new SoundHandler(getApplicationContext());
-        popUpWindow = new PopUpWindow(this, this);
-
+        popUpWindow = new PopUpWindow(Game2Activity.this, Game2Activity.this);
         initGameplay();
         initGui();
         initTurn();
@@ -72,26 +76,26 @@ public class Game2Activity extends AppCompatActivity {
 
     private void initGameplay() {
 
-        countriesEurope = new ArrayList();
-        countriesAfrica = new ArrayList();
-        countriesAsia = new ArrayList();
-        countriesDone = new ArrayList();
+        countriesEurope = new ArrayList<>();
+        countriesAfrica = new ArrayList<>();
+        countriesAsia = new ArrayList<>();
+        countriesDone = new ArrayList<>();
 
-        countriesEurope.add("Italy");
-        countriesEurope.add("Greece");
-        countriesEurope.add("France");
-        countriesEurope.add("Finland");
+        countriesEurope.add(getResources().getString(R.string.Italy));
+        countriesEurope.add(getResources().getString(R.string.Greece));
+        countriesEurope.add(getResources().getString(R.string.France));
+        countriesEurope.add(getResources().getString(R.string.Finland));
 
-        countriesAfrica.add("Nigeria");
-        countriesAfrica.add("Egypt");
-        countriesAfrica.add("Morocco");
-        countriesAfrica.add("Algeria");
+        countriesAfrica.add(getResources().getString(R.string.Nigeria));
+        countriesAfrica.add(getResources().getString(R.string.Egypt));
+        countriesAfrica.add(getResources().getString(R.string.Morocco));
+        countriesAfrica.add(getResources().getString(R.string.Algeria));
 
-        countriesAsia.add("China");
-        countriesAsia.add("India");
-        countriesAsia.add("Iran");
-        countriesAsia.add("Kazakhstan");
-        turn = 1;
+        countriesAsia.add(getResources().getString(R.string.China));
+        countriesAsia.add(getResources().getString(R.string.India));
+        countriesAsia.add(getResources().getString(R.string.Iran));
+        countriesAsia.add(getResources().getString(R.string.Kazakhstan));
+        turn = 0;
 
 
     }
@@ -106,7 +110,13 @@ public class Game2Activity extends AppCompatActivity {
 
     }
 
+
     private void initTurn() {
+        if (turn == 0) {
+
+            tutorialTurn();
+        }
+
         if (turn == 1 || turn == 2) {
             //Europe Turn
             mapImageView.setImageResource(R.drawable.europe_map);
@@ -195,38 +205,43 @@ public class Game2Activity extends AppCompatActivity {
     }
 
     private void addPinOnMap() {
-        if (currectCorrect.equals("Italy")) {
-            drawPinOnMap(529, 790, R.drawable.europe_map);
-
-
-        } else if (currectCorrect.equals("Greece")) {
-            drawPinOnMap(800, 900, R.drawable.europe_map);
-
-        } else if (currectCorrect.equals("France")) {
-            drawPinOnMap(300, 700, R.drawable.europe_map);
-
-        } else if (currectCorrect.equals("Finland")) {
-            drawPinOnMap(700, 200, R.drawable.europe_map);
-        } else if (currectCorrect.equals("Nigeria")) {
-            drawPinOnMap(600, 680, R.drawable.africa_map);
-        } else if (currectCorrect.equals("Egypt")) {
-            drawPinOnMap(1050, 300, R.drawable.africa_map);
-        } else if (currectCorrect.equals("Morocco")) {
-            drawPinOnMap(500, 200, R.drawable.africa_map);
-        } else if (currectCorrect.equals("Algeria")) {
-            drawPinOnMap(300, 150, R.drawable.africa_map);
-        } else if (currectCorrect.equals("China")) {
-            drawPinOnMap(500, 500, R.drawable.asia_map);
-
-        } else if (currectCorrect.equals("India")) {
-            drawPinOnMap(450, 650, R.drawable.asia_map);
-
-        } else if (currectCorrect.equals("Iran")) {
-            drawPinOnMap(230, 520, R.drawable.asia_map);
-
-        } else if (currectCorrect.equals("Kazakhstan")) {
-            drawPinOnMap(400, 380, R.drawable.asia_map);
-
+        switch (currectCorrect) {
+            case "Italy":
+                drawPinOnMap(529, 790, R.drawable.europe_map);
+                break;
+            case "Greece":
+                drawPinOnMap(800, 900, R.drawable.europe_map);
+                break;
+            case "France":
+                drawPinOnMap(300, 700, R.drawable.europe_map);
+                break;
+            case "Finland":
+                drawPinOnMap(700, 200, R.drawable.europe_map);
+                break;
+            case "Nigeria":
+                drawPinOnMap(600, 680, R.drawable.africa_map);
+                break;
+            case "Egypt":
+                drawPinOnMap(1050, 300, R.drawable.africa_map);
+                break;
+            case "Morocco":
+                drawPinOnMap(500, 200, R.drawable.africa_map);
+                break;
+            case "Algeria":
+                drawPinOnMap(300, 150, R.drawable.africa_map);
+                break;
+            case "China":
+                drawPinOnMap(500, 500, R.drawable.asia_map);
+                break;
+            case "India":
+                drawPinOnMap(450, 650, R.drawable.asia_map);
+                break;
+            case "Iran":
+                drawPinOnMap(230, 520, R.drawable.asia_map);
+                break;
+            case "Kazakhstan":
+                drawPinOnMap(400, 380, R.drawable.asia_map);
+                break;
         }
 
 
@@ -234,29 +249,28 @@ public class Game2Activity extends AppCompatActivity {
 
     private void cleanBackgroundForPopUp() {
 
-        mapImageView.setVisibility(View.INVISIBLE);
-
         if (popUpWindow.getmPopupWindow().isShowing()) {
 
             mapImageView.setVisibility(View.INVISIBLE);
+            popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
 
+                @Override
+                public void onDismiss() {
+
+                    mapImageView.setVisibility(View.VISIBLE);
+
+                }
+            });
         }
-        popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
 
-            @Override
-            public void onDismiss() {
-
-                mapImageView.setVisibility(View.VISIBLE);
-
-            }
-        });
 
     }
 
     private void check(String answer) {
+
         if (answer.equals(currectCorrect)) {
             soundHandler.playOkSound();
-
+            popUpWindow.getmPopupWindow().dismiss();
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer2));
             cleanBackgroundForPopUp();
 
@@ -285,10 +299,32 @@ public class Game2Activity extends AppCompatActivity {
 
     }
 
+    private void tutorialTurn() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                mapImageView.setVisibility(View.INVISIBLE);
+                popUpWindow.showTutorial("Please Regogize The Countries With tha RED Dot");
+                turn++;
+                popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+                    @Override
+                    public void onDismiss() {
+
+                        mapImageView.setVisibility(View.VISIBLE);
+                        initTurn();
+                    }
+                });
+            }
+        }, 4000);
+    }
+
+    //OnClicks
     public void choise1OnClick(View view) {
         check((String) button1.getText());
     }
-
 
     public void choise2OnClick(View view) {
         check((String) button2.getText());

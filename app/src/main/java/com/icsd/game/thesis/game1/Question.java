@@ -14,8 +14,8 @@ import com.icsd.game.thesis.game4.Game4Activity;
 import java.util.ArrayList;
 
 public class Question {
-    final ArrayList<String> answers;
-    private final String question;
+     final ArrayList<String> answers;
+   final String question;
 
 
     protected Question(ArrayList<String> temp) {
@@ -42,6 +42,7 @@ public class Question {
         static DatabaseHandler dh;
         static SQLiteDatabase db;
         public static final String TABLE_NAME = "question";
+        public static final String TABLE_NAME2 = "question_gr";
         public static final String QUESTION = "question";
         public static final String CATEGORY = "category";
         public static final String ANSWER1 = "answer1";
@@ -151,7 +152,7 @@ public class Question {
             values.put(QuestionDBEntry.QUESTION, "Who is credited as the designer of the many statues which decorated the Parthenon?");
             values.put(QuestionDBEntry.CATEGORY, "art");
             values.put(QuestionDBEntry.ANSWER1, "phidias");
-            values.put(QuestionDBEntry.ANSWER2, "Ppraxiteles");
+            values.put(QuestionDBEntry.ANSWER2, "Praxiteles");
             values.put(QuestionDBEntry.ANSWER3, "scopas");
             values.put(QuestionDBEntry.ANSWER4, "hesiod");
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
@@ -164,14 +165,50 @@ public class Question {
             values.put(QuestionDBEntry.ANSWER3, "193");
             values.put(QuestionDBEntry.ANSWER4, "842");
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
+
+            values.clear();
+            values.put(QuestionDBEntry.QUESTION, "Which color is vermillion");
+            values.put(QuestionDBEntry.CATEGORY, "art");
+            values.put(QuestionDBEntry.ANSWER1, "red");
+            values.put(QuestionDBEntry.ANSWER2, "green");
+            values.put(QuestionDBEntry.ANSWER3, "yellow");
+            values.put(QuestionDBEntry.ANSWER4, "blue");
+            db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "Why did people use to salt meat taken on ships?");
+            values.put(QuestionDBEntry.QUESTION, "What is the national dish of Italy?");
             values.put(QuestionDBEntry.CATEGORY, "food");
-            values.put(QuestionDBEntry.ANSWER1, "So it would stay good longer");
-            values.put(QuestionDBEntry.ANSWER2, "For taste reasons");
-            values.put(QuestionDBEntry.ANSWER3, "to consume fewer");
-            values.put(QuestionDBEntry.ANSWER4, "Answer 4");
+            values.put(QuestionDBEntry.ANSWER1, "pasta");
+            values.put(QuestionDBEntry.ANSWER2, "mousaka");
+            values.put(QuestionDBEntry.ANSWER3, "burger");
+            values.put(QuestionDBEntry.ANSWER4, "fried potatoes");
+            db.insert(QuestionDBEntry.TABLE_NAME, null, values);
+            values.clear();
+
+            values.put(QuestionDBEntry.QUESTION, "What food is the leading source of salmonella poisoning?");
+            values.put(QuestionDBEntry.CATEGORY, "food");
+            values.put(QuestionDBEntry.ANSWER1, "chicken");
+            values.put(QuestionDBEntry.ANSWER2, "beef");
+            values.put(QuestionDBEntry.ANSWER3, "pork");
+            values.put(QuestionDBEntry.ANSWER4, "fish");
+            db.insert(QuestionDBEntry.TABLE_NAME, null, values);
+            values.clear();
+
+            values.put(QuestionDBEntry.QUESTION, "What is the most popular spice in the world?");
+            values.put(QuestionDBEntry.CATEGORY, "food");
+            values.put(QuestionDBEntry.ANSWER1, "pepper");
+            values.put(QuestionDBEntry.ANSWER2, "salt");
+            values.put(QuestionDBEntry.ANSWER3, "paprika");
+            values.put(QuestionDBEntry.ANSWER4, "safran");
+            db.insert(QuestionDBEntry.TABLE_NAME, null, values);
+            values.clear();
+
+            values.put(QuestionDBEntry.QUESTION, "Which European country is credited for the invention of hot dogs?");
+            values.put(QuestionDBEntry.CATEGORY, "food");
+            values.put(QuestionDBEntry.ANSWER1, "germany");
+            values.put(QuestionDBEntry.ANSWER2, "austria");
+            values.put(QuestionDBEntry.ANSWER3, "finland");
+            values.put(QuestionDBEntry.ANSWER4, "belgium");
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
@@ -179,7 +216,35 @@ public class Question {
             values.put(QuestionDBEntry.CATEGORY, "directory");
             values.put(QuestionDBEntry.ANSWER1, "new ");
             values.put(QuestionDBEntry.ANSWER2, "brillant");
+            values.put(QuestionDBEntry.ANSWER3, "raw");
             values.put(QuestionDBEntry.ANSWER4, "raw");
+            db.insert(QuestionDBEntry.TABLE_NAME, null, values);
+            values.clear();
+
+            values.put(QuestionDBEntry.QUESTION, "Thalassophobia is a fear of what?");
+            values.put(QuestionDBEntry.CATEGORY, "directory");
+            values.put(QuestionDBEntry.ANSWER1, "the sea");
+            values.put(QuestionDBEntry.ANSWER2, "the mountains");
+            values.put(QuestionDBEntry.ANSWER3, "the crowd");
+            values.put(QuestionDBEntry.ANSWER4, "the dogs");
+            db.insert(QuestionDBEntry.TABLE_NAME, null, values);
+            values.clear();
+
+            values.put(QuestionDBEntry.QUESTION, "Which of these would, except in a figurative sense, not normally combine with 'BOOKS'?");
+            values.put(QuestionDBEntry.CATEGORY, "directory");
+            values.put(QuestionDBEntry.ANSWER1, "a stack");
+            values.put(QuestionDBEntry.ANSWER2, "a mountain");
+            values.put(QuestionDBEntry.ANSWER3, "a heap");
+            values.put(QuestionDBEntry.ANSWER4, "a stack");
+            db.insert(QuestionDBEntry.TABLE_NAME, null, values);
+            values.clear();
+
+            values.put(QuestionDBEntry.QUESTION, "Which of the following is the meaning of \"tutti frutti\"?");
+            values.put(QuestionDBEntry.CATEGORY, "directory");
+            values.put(QuestionDBEntry.ANSWER1, "Flavor of many fruits combined");
+            values.put(QuestionDBEntry.ANSWER2, "Ice-cream containing small pieces of candied or fresh fruit");
+            values.put(QuestionDBEntry.ANSWER3, " A preserve of chopped mixed fruits");
+            values.put(QuestionDBEntry.ANSWER4, "All of these meanings");
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
@@ -198,6 +263,24 @@ public class Question {
             values.put(QuestionDBEntry.ANSWER2, "lira");
             values.put(QuestionDBEntry.ANSWER3, "euro");
             values.put(QuestionDBEntry.ANSWER4, "lev");
+            db.insert(QuestionDBEntry.TABLE_NAME, null, values);
+            values.clear();
+
+            values.put(QuestionDBEntry.QUESTION, "Which planet is nearest the sun? ");
+            values.put(QuestionDBEntry.CATEGORY, "general");
+            values.put(QuestionDBEntry.ANSWER1, "mercury");
+            values.put(QuestionDBEntry.ANSWER2, "poseidon");
+            values.put(QuestionDBEntry.ANSWER3, "jupiter");
+            values.put(QuestionDBEntry.ANSWER4, "uranu");
+            db.insert(QuestionDBEntry.TABLE_NAME, null, values);
+            values.clear();
+
+            values.put(QuestionDBEntry.QUESTION, "Who said, “I think, therefore I am”? ");
+            values.put(QuestionDBEntry.CATEGORY, "general");
+            values.put(QuestionDBEntry.ANSWER1, "Descartes");
+            values.put(QuestionDBEntry.ANSWER2, "Plato");
+            values.put(QuestionDBEntry.ANSWER3, "Aristotle");
+            values.put(QuestionDBEntry.ANSWER4, "Isaac Newton");
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
 
 

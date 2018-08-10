@@ -24,7 +24,9 @@
 
     <!-- STRINBG FOR LAYOUTS-->
 
+    <!-- GLOBAL-->
     <string name="check">CHECK</string>
+
     <!-- game1-->
     <string name="question">Question</string>
     <string name="selest_category">Select Category</string>
@@ -34,6 +36,22 @@
     <string name="category4">Food</string>
     <string name="category5">directory</string>
     <string name="category6">General Knowlgment</string>
+
+    <!-- game2-->
+    <string name="Italy">Italy</string>
+    <string name="Greece">Greece</string>
+    <string name="France">France</string>
+    <string name="Finland">Finland</string>
+
+    <string name="Nigeria">Nigeria</string>
+    <string name="Egypt">Egypt</string>
+    <string name="Morocco">Morocco</string>
+    <string name="Algeria">Algeria</string>
+
+    <string name="China">China</string>
+    <string name="India">India</string>
+    <string name="Kazakhstan">Kazakhstan</string>
+    <string name="Iran">Iran</string>
 
 
 </resources>

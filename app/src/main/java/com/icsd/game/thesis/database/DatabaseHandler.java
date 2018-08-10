@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.icsd.game.thesis.LoginActivity;
-import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.game1.Question;
 import com.icsd.game.thesis.game4.Word;
 import com.icsd.game.thesis.game5.ObjectT;
@@ -19,16 +18,15 @@ import java.util.ArrayList;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "database.db";
-    private static Context myCont;
+    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "database.db";
 
     private SQLiteDatabase dba = getWritableDatabase();
 
     public DatabaseHandler(Context context) {
 
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        myCont = context;
+        Context myCont = context;
 
     }
 
@@ -109,9 +107,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         alc.add(null);
 
         try {
-            String maxQuery = Query;
             //execute the query results will be save in Cursor c
-            Cursor c = sqlDB.rawQuery(maxQuery, null);
+            Cursor c = sqlDB.rawQuery(Query, null);
 
             //add value to cursor2
             Cursor2.addRow(new Object[]{"Success"});

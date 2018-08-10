@@ -13,31 +13,31 @@
         android:theme="@style/Theme.AppCompat">
         <activity
             android:name=".Menu"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Menu2"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".game13.Game13"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Game12.Game12"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Game14.Game14"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".game8.Game8"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".game5.Game5"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".game2.Game2Activity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".Game6.Game6"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".database.AndroidDatabaseManager"
             android:screenOrientation="landscape"
@@ -59,17 +59,18 @@
             android:name=".game15.Game15Menou"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".game15.Game15MiniGame1"
+            android:name=".game15.Game15"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".game15.Game15MiniGame2"
+            android:name=".game3.Game3"
             android:screenOrientation="landscape" />
         <activity
             android:name=".game15.Game15MiniGame3"
             android:screenOrientation="landscape" />
         <activity android:name=".game15.Game15MiniGame4" />
-        <activity android:name=".LoginActivity"  android:screenOrientation="landscape">
-
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -82,7 +83,7 @@
         <activity
             android:name=".pet.Tooltips.Tooltips"
             android:label="@string/title_activity_tooltips" />
-
+        <activity android:name=".tutorial_activity"></activity>
     </application>
 
 </manifest>

@@ -46,6 +46,7 @@
         android:layout_height="174dp"
         android:layout_marginEnd="68dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="game3"
         android:text="Game3"
         android:textSize="30sp"
         android:textStyle="bold"

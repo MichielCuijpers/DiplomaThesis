@@ -4,17 +4,14 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.User;
 
-import java.util.logging.Handler;
-
 public class LoginActivity extends AppCompatActivity {
-    char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    private final char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
     private TextView number1View;
     private TextView number2View;
@@ -23,9 +20,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextView number5View;
     private Integer[][] textViews;
     private static User user;
-    DatabaseHandler dh;
+    private DatabaseHandler dh;
     private static SQLiteDatabase db;
-    private android.os.Handler handler;
 
 
     @Override
@@ -37,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         db = dh.getWritableDatabase();
         dh.onCreate(db);
         setContentView(R.layout.splash_screen_layout);
-        handler = new android.os.Handler();
+        android.os.Handler handler = new android.os.Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -46,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                 setContentView(R.layout.activity_login);
                 initGui();
             }
-        }, 3000);
+        }, 1000);
 
     }
 
