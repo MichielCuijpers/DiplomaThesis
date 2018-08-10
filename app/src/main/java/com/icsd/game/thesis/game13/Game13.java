@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupWindow;
 
 import com.icsd.game.thesis.LoginActivity;
 import com.icsd.game.thesis.R;
@@ -59,7 +60,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     private Session curSession;
     private DatabaseHandler dbHandler;
     private PopUpWindow popUpWindow;
-  private 
+    private int tempTurn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +88,9 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
         killAll();
     }
 
+    public void onPrepared(MediaPlayer player) {
+
+    }
 
     private void initRunnables() {
         final Context mContext;
@@ -94,24 +98,40 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
             @Override
             public void run() {
                 if (checkList.equals(patternList)) {
+                    popUpWindow.showPopUp(getResources().getString(R.string.correct_answer2));
 
+                    popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+                        @Override
+                        public void onDismiss() {
+                            playPattern();
+                        }
+                    });
                     curSession.setScore(turn);
                     curSession.setStage(turn);
                     turn++;
-                    if (turn == 5) {
-
-                        popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
+                    if (turn == 10) {
                         popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
                         saveSessionToDB();
                         killAll();
                     } else {
-                        playPattern();
+
                     }
 
                 } else {
-                    curSession.setFails(curSession.getFails() + 1);
                     popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer2));
-                    playPattern();
+
+                    popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+                        @Override
+                        public void onDismiss() {
+
+                            playPattern();
+                        }
+                    });
+                    curSession.setFails(curSession.getFails() + 1);
+
+
                 }
 
 
@@ -211,7 +231,6 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
     }
 
-
     private void playPattern() {
         checkList.clear();
         patternList.clear();
@@ -221,31 +240,49 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
                 change.postDelayed(runChange1, 1500);
                 break;
             case 1:
-                handlerDof.postDelayed(run3, 1100);
-                handlerRe.postDelayed(run2, 1500);
-                change2.postDelayed(runChange2, 1700);
+                handlerLa.postDelayed(run1, 1100);
+                change.postDelayed(runChange1, 1500);
                 break;
             case 2:
-                handlerDof.postDelayed(run3, 1100);
-                handlerRe.postDelayed(run4, 1500);
-                handlerLa.postDelayed(run1, 1700);
-                change2.postDelayed(runChange2, 1900);
+                handlerLa.postDelayed(run1, 1100);
+                change.postDelayed(runChange1, 1500);
                 break;
             case 3:
                 handlerDof.postDelayed(run3, 1100);
-                handlerRe.postDelayed(run4, 1500);
-                handlerLa.postDelayed(run1, 1700);
-                handlerMi.postDelayed(run2, 1900);
-                change2.postDelayed(runChange2, 2100);
-
+                handlerRe.postDelayed(run2, 1700);
+                change2.postDelayed(runChange2, 1700);
                 break;
             case 4:
                 handlerDof.postDelayed(run3, 1100);
-                handlerRe.postDelayed(run4, 1500);
-                handlerLa.postDelayed(run1, 1700);
-                handlerMi.postDelayed(run2, 1900);
+                handlerDof.postDelayed(run3, 1700);
+                change2.postDelayed(runChange2, 1900);
+                break;
+            case 5:
+                handlerDof.postDelayed(run3, 1100);
+                handlerRe.postDelayed(run4, 1700);
+                handlerLa.postDelayed(run1, 1900);
                 change2.postDelayed(runChange2, 2100);
 
+                break;
+            case 6:
+                handlerDof.postDelayed(run3, 1100);
+                handlerRe.postDelayed(run4, 1700);
+                handlerLa.postDelayed(run1, 1900);
+                change2.postDelayed(runChange2, 2100);
+                break;
+            case 7:
+                handlerDof.postDelayed(run3, 1100);
+                handlerRe.postDelayed(run4, 1700);
+                handlerLa.postDelayed(run1, 1900);
+                handlerMi.postDelayed(run2, 2100);
+                change2.postDelayed(runChange2, 2300);
+                break;
+            case 8:
+                handlerDof.postDelayed(run3, 1100);
+                handlerRe.postDelayed(run4, 1700);
+                handlerLa.postDelayed(run1, 1900);
+                handlerMi.postDelayed(run2, 2100);
+                change2.postDelayed(runChange2, 2300);
                 break;
 
         }
@@ -303,10 +340,9 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
     private void checkPattern() {
 
-        waitPlayer.postDelayed(runCheck, 4000);
+        waitPlayer.postDelayed(runCheck, 3000);
 
     }
-
 
     public void playDo(View view) {
         dof.start();
@@ -327,11 +363,6 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     public void playla(View view) {
         la.start();
         checkList.add("la");
-    }
-
-
-    public void onPrepared(MediaPlayer player) {
-
     }
 
     private void killAll() {
