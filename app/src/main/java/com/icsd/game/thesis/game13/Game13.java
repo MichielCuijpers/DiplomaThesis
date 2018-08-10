@@ -59,6 +59,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     private Session curSession;
     private DatabaseHandler dbHandler;
     private PopUpWindow popUpWindow;
+  private 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
