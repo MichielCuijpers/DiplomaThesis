@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -42,28 +43,24 @@ public class Game1Activity extends AppCompatActivity {
     private static final String CATEGORY6 = "general";
     private Question question;
     private String correctAnswer;
-    private ArrayList<String> a;
+    private int miniTurn;
     private Session curSession;
     private DatabaseHandler dbHandler;
     private ArrayList<String> questions;
     private SoundHandler soundHandler;
     private PopUpWindow popUpWindow;
-
+    private ArrayList<Question> questionsFinal;
+    int tempFails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
-        try {
-            init();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        init();
 
     }
 
-    private void init() throws IOException {
+    private void init() {
         view1 = getLayoutInflater().inflate(R.layout.game1_categories_activity, null);
         view2 = getLayoutInflater().inflate(R.layout.game1_prototype, null);
         setContentView(view1);
@@ -75,6 +72,8 @@ public class Game1Activity extends AppCompatActivity {
         questions = new ArrayList<>();
         soundHandler = new SoundHandler(getApplicationContext());
         popUpWindow = new PopUpWindow(this, this);
+        miniTurn = 0;
+        questionsFinal = new ArrayList<>();
 
 
     }
@@ -87,43 +86,62 @@ public class Game1Activity extends AppCompatActivity {
         this.answer4Button = findViewById(R.id.answer4Button);
     }
 
-    private void initTheQuestion() {
+    private void initTheQuestions() {
 
-        question = new Question(questions);
-
-
-        this.questionView.setText(question.getQuestion());
-        correctAnswer = question.getAnswers().get(0);
-        Collections.shuffle(question.getAnswers());
-        this.answer1Button.setText(this.question.answers.get(0));
-        this.answer2Button.setText(this.question.answers.get(1));
-        this.answer3Button.setText(this.question.answers.get(2));
-        this.answer4Button.setText(this.question.answers.get(3));
-        for (int i = 0; i < 5; i++) {
-            questions.remove(0);
+        for (int i = 0; i < 4; i++) {
+            questionsFinal.add(question = new Question(questions));
+            for (int j = 0; j < 5; j++) {
+                questions.remove(0);
+            }
         }
+        Collections.shuffle(questionsFinal);
+
+    }
+
+    private void initTheQuestion() {
+        tempFails = 1;
+        this.questionView.setText(questionsFinal.get(0).getQuestion());
+        correctAnswer = questionsFinal.get(0).getAnswers().get(0);
+        Collections.shuffle(question.getAnswers());
+        this.answer1Button.setText(questionsFinal.get(0).getAnswers().get(0));
+        this.answer2Button.setText(questionsFinal.get(0).getAnswers().get(1));
+        this.answer3Button.setText(questionsFinal.get(0).getAnswers().get(2));
+        this.answer4Button.setText(questionsFinal.get(0).getAnswers().get(3));
+        questionsFinal.remove(0);
 
     }
 
     private void checkAnswer(Button button) {
+
         if (button.getText().equals(correctAnswer)) {
             soundHandler.playOkSound();
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             curSession.setScore(curSession.getScore() + 1);
             curSession.setStage(curSession.getStage() + 1);
+
+            if (questionsFinal.isEmpty()) {
+                setContentView(view1);
+                pickCategoryView.setText(getResources().getString(R.string.choose_another_category));
+                return;
+            }
             initTheQuestion();
 
 
         } else {
             soundHandler.playWrongSound();
+            if (tempFails == 2) {
+                popUpWindow.showPopUp("You cant try again.\n Try the next Question");
+                initTheQuestion();
+                return;
+            }
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             curSession.setFails(curSession.getFails() + 1);
+            tempFails++;
+
+
         }
-        if (this.questions.isEmpty()) {
-            setContentView(view1);
-            pickCategoryView.setText(getResources().getString(R.string.choose_another_category));
-        }
-        if (curSession.getStage() == 15) {
+
+        if (curSession.getStage() == 24) {
             dbHandler = new DatabaseHandler(this.getApplicationContext());
             curSession.setTimeEnd(System.currentTimeMillis() / 1000);
             dbHandler.addSessionToDB(this.curSession);
@@ -145,6 +163,7 @@ public class Game1Activity extends AppCompatActivity {
         this.currentCategory = CATEGORY1;
         questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
 
+        initTheQuestions();
         initTheQuestion();
     }
 
@@ -153,6 +172,7 @@ public class Game1Activity extends AppCompatActivity {
         initGuiComps();
         this.currentCategory = CATEGORY2;
         questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
+        initTheQuestions();
         initTheQuestion();
     }
 
@@ -161,6 +181,7 @@ public class Game1Activity extends AppCompatActivity {
         initGuiComps();
         this.currentCategory = CATEGORY3;
         questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
+        initTheQuestions();
         initTheQuestion();
 
     }
@@ -170,6 +191,7 @@ public class Game1Activity extends AppCompatActivity {
         initGuiComps();
         this.currentCategory = CATEGORY4;
         questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
+        initTheQuestions();
         initTheQuestion();
 
     }
@@ -179,6 +201,7 @@ public class Game1Activity extends AppCompatActivity {
         initGuiComps();
         this.currentCategory = CATEGORY5;
         questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
+        initTheQuestions();
         initTheQuestion();
 
     }
@@ -188,6 +211,7 @@ public class Game1Activity extends AppCompatActivity {
         initGuiComps();
         this.currentCategory = CATEGORY6;
         questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
+        initTheQuestions();
         initTheQuestion();
 
     }
