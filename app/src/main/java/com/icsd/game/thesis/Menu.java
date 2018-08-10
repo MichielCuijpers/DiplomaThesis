@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.icsd.game.thesis.Game6.Game6;
+import com.icsd.game.thesis.Game7.Game7;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.User;
 import com.icsd.game.thesis.game1.Game1Activity;
@@ -76,6 +77,10 @@ public class Menu extends Activity {
 
     public void game3(View view) {
         Intent c = new Intent(this, Game3.class);
+        startActivity(c);
+    }
+    public void Game7(View view){
+        Intent c = new Intent(this,Game7.class);
         startActivity(c);
     }
 
