@@ -51,6 +51,17 @@ public class Game3 extends AppCompatActivity {
         gameplay(turn);
     }
 
+    public void onPause() {
+        super.onPause();
+        endGame();
+
+    }
+
+    public void onStop() {
+        super.onStop();
+        endGame();
+    }
+
     private void initGui() {
         buttonsList = new ArrayList<>();
 

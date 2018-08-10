@@ -57,6 +57,18 @@ public class Game15 extends AppCompatActivity {
         gameplay(this.turn);
     }
 
+    public void onPause() {
+        super.onPause();
+        endGame();
+        endGame();
+
+    }
+
+    public void onStop() {
+        super.onStop();
+        endGame();
+    }
+
     private void initGui() {
         number1View = findViewById(R.id.number1view);
         number2View = findViewById(R.id.number2view);
@@ -183,8 +195,6 @@ public class Game15 extends AppCompatActivity {
 
     private void endGame() {
         soundHandler.stopSound();
-        p.getmPopupWindow().dismiss();
-        p.showPopUp(getResources().getString(R.string.end_game_congrats2));
         currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
         DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
         dbHandler.addSessionToDB(this.currentSession);

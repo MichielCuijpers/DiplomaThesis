@@ -61,6 +61,18 @@ public class Game2Activity extends AppCompatActivity {
 
     }
 
+    public void onPause() {
+        super.onPause();
+        endGameKill();
+        endGameKill();
+
+    }
+
+    public void onStop() {
+        super.onStop();
+        endGameKill();
+    }
+
     private void init() throws IOException {
 
         curSession = new Session(LoginActivity.getUser().getUsername(), 2);
@@ -109,7 +121,6 @@ public class Game2Activity extends AppCompatActivity {
 
 
     }
-
 
     private void initTurn() {
         if (turn == 0) {
@@ -276,12 +287,7 @@ public class Game2Activity extends AppCompatActivity {
 
             turn++;
             if (this.turn == 7) {
-                soundHandler.stopSound();
-                curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-                dbHandler.addSessionToDB(this.curSession);
-                popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats_countries));
-                Intent c = new Intent(this, Menu.class);
-                startActivity(c);
+                endGameKill();
             }
             countriesDone.add(currectCorrect);
             curSession.setScore(turn);
@@ -297,6 +303,15 @@ public class Game2Activity extends AppCompatActivity {
 
         }
 
+    }
+
+    private void endGameKill() {
+        soundHandler.stopSound();
+        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+        dbHandler.addSessionToDB(this.curSession);
+
+        Intent c = new Intent(this, Menu.class);
+        startActivity(c);
     }
 
     private void tutorialTurn() {

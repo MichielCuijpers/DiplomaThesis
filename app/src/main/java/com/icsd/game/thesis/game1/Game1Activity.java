@@ -60,6 +60,18 @@ public class Game1Activity extends AppCompatActivity {
 
     }
 
+    public void onPause() {
+        super.onPause();
+        endGameKill();
+
+
+    }
+
+    public void onStop() {
+        super.onStop();
+        endGameKill();
+    }
+
     private void init() {
         view1 = getLayoutInflater().inflate(R.layout.game1_categories_activity, null);
         view2 = getLayoutInflater().inflate(R.layout.game1_prototype, null);
@@ -142,14 +154,18 @@ public class Game1Activity extends AppCompatActivity {
         }
 
         if (curSession.getStage() == 24) {
-            dbHandler = new DatabaseHandler(this.getApplicationContext());
-            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-            dbHandler.addSessionToDB(this.curSession);
-            soundHandler.stopSound();
-            popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats1));
-            Intent c = new Intent(this, Menu.class);
-            startActivity(c);
+            endGameKill();
         }
+    }
+
+    private void endGameKill() {
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+        dbHandler.addSessionToDB(this.curSession);
+        soundHandler.stopSound();
+        popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats1));
+        Intent c = new Intent(this, Menu.class);
+        startActivity(c);
     }
 
     public static Context getMyCont() {

@@ -48,6 +48,17 @@ public class Game8 extends AppCompatActivity {
 
     }
 
+    public void onPause() {
+        super.onPause();
+        EndGame();
+    }
+
+    public void onStop() {
+        super.onStop();
+        EndGame();
+
+    }
+
     private void initGui() {
         ball1 = findViewById(R.id.ball1);
         ball2 = findViewById(R.id.ball2);
@@ -228,9 +239,9 @@ public class Game8 extends AppCompatActivity {
         someBallsToRed();
         if (miniTurn == 1) {
             hideBalls();
-            if(turn==2){
+            if (turn == 2) {
                 popUpWindow.showPopUp("Now,Dont touch the RED balls");
-            }else{
+            } else {
                 popUpWindow.showPopUp("Now,Dont touch the GREEN balls");
             }
 
@@ -267,7 +278,7 @@ public class Game8 extends AppCompatActivity {
         balls.get(r.nextInt(6)).setColor(Color.RED);
         balls.get(r.nextInt(6)).setColor(Color.RED);
         balls.get(r.nextInt(6)).setColor(Color.RED);
-        if(turn==3){
+        if (turn == 3) {
             balls.get(r.nextInt(6)).setColor(Color.RED);
             balls.get(r.nextInt(6)).setColor(Color.RED);
         }
@@ -286,7 +297,6 @@ public class Game8 extends AppCompatActivity {
         handler1.removeCallbacks(null);
         handler2.removeCallbacks(null);
         dbHandler.close();
-        popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
         Intent c = new Intent(this, Menu.class);
         startActivity(c);
 

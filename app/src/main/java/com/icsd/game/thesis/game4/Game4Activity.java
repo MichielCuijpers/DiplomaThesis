@@ -60,6 +60,17 @@ public class Game4Activity extends AppCompatActivity {
 
     }
 
+    public void onPause() {
+        super.onPause();
+        endGame();
+
+    }
+
+    public void onStop() {
+        super.onStop();
+        endGame();
+    }
+
     private void initGameplay() {
 
         isSecondButton = false;
@@ -161,7 +172,7 @@ public class Game4Activity extends AppCompatActivity {
         buttonsList.add(button10);
         buttonsList.add(button11);
         buttonsList.add(button12);
-       clearGui();
+        clearGui();
 
     }
 
@@ -209,7 +220,6 @@ public class Game4Activity extends AppCompatActivity {
     private void endGame() {
         soundHandler.stopSound();
         p.getmPopupWindow().dismiss();
-        p.showPopUp(getResources().getString(R.string.end_game_congrats2));
         curSession.setTimeEnd(System.currentTimeMillis() / 1000);
         DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
         dbHandler.addSessionToDB(this.curSession);

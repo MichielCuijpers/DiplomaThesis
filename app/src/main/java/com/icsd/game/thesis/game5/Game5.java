@@ -56,6 +56,20 @@ public class Game5 extends AppCompatActivity {
 
     }
 
+    public void onPause() {
+        super.onPause();
+        endGameKill();
+
+
+    }
+
+    public void onStop() {
+        super.onStop();
+        endGameKill();
+
+    }
+
+
     private void init() throws IOException {
         myCont = this.getApplicationContext();
 
@@ -96,16 +110,18 @@ public class Game5 extends AppCompatActivity {
 
     }
 
+    private void endGameKill() {
+        curSession.setTimeEnd(System.currentTimeMillis());
+        curSession.setScore(this.turn);
+        dbHandler.addSessionToDB(this.curSession);
+        Intent c = new Intent(this, Menu.class);
+        startActivity(c);
+    }
+
     private void play(int turn) {
         if (endGame()) {
+            endGameKill();
 
-            popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats1));
-            cleanBackgroundForPopUp();
-            curSession.setTimeEnd(System.currentTimeMillis());
-            curSession.setScore(this.turn);
-            dbHandler.addSessionToDB(this.curSession);
-            Intent c = new Intent(this, Menu.class);
-            startActivity(c);
         }
         correct = objectTList.get(turn).getAnswers().get(0);
         Collections.shuffle(objectTList.get(turn).getAnswers());
