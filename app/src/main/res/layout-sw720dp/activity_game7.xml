@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_game7"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c7a96c">
+
+    <ImageView
+        android:id="@+id/background_g7"
+        android:layout_width="1003dp"
+        android:layout_height="467dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/kitchen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.394" />
+
+    <Button
+        android:id="@+id/sound_left"
+        android:layout_width="48dp"
+        android:layout_height="81dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="324dp"
+        android:layout_marginTop="8dp"
+        android:onClick="soundonclick"
+        android:text="sound"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintEnd_toEndOf="@+id/background_g7"
+        app:layout_constraintTop_toTopOf="@+id/background_g7" />
+
+    <Button
+        android:id="@+id/fridge"
+        android:layout_width="212dp"
+        android:layout_height="243dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="8dp"
+        android:onClick="fridgeonClick"
+        android:text="fridge"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintEnd_toStartOf="@+id/kit_lamp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/background_g7"
+        app:layout_constraintTop_toTopOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.543" />
+
+    <Button
+        android:id="@+id/kit_lamp"
+        android:layout_width="104dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="kit_lamponClick"
+        android:text="lamp"
+        app:layout_constraintBottom_toTopOf="@+id/fridge"
+        app:layout_constraintEnd_toEndOf="@+id/background_g7"
+        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintStart_toStartOf="@+id/background_g7"
+        app:layout_constraintTop_toTopOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.651" />
+
+    <Button
+        android:id="@+id/wash_dish"
+        android:layout_width="118dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="76dp"
+        android:onClick="wash_dishonClick"
+        android:text="wash"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintStart_toEndOf="@+id/fridge"
+        app:layout_constraintTop_toBottomOf="@+id/kit_lamp"
+        app:layout_constraintVertical_bias="0.143" />
+
+    <Button
+        android:id="@+id/cooker"
+        android:layout_width="200dp"
+        android:layout_height="127dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="cookeronClick"
+        android:text="cook"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintEnd_toEndOf="@+id/background_g7"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toEndOf="@+id/wash_dish"
+        app:layout_constraintTop_toTopOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.697" />
+
+    <Button
+        android:id="@+id/smoker"
+        android:layout_width="197dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="smokeronClick"
+        android:text="smoke_cook"
+        app:layout_constraintBottom_toTopOf="@+id/cooker"
+        app:layout_constraintEnd_toEndOf="@+id/background_g7"
+        app:layout_constraintHorizontal_bias="0.321"
+        app:layout_constraintStart_toEndOf="@+id/wash_dish"
+        app:layout_constraintTop_toTopOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.802" />
+
+    <Button
+        android:id="@+id/sand"
+        android:layout_width="83dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="sandonClick"
+        android:text="sands"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintEnd_toEndOf="@+id/background_g7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cooker"
+        app:layout_constraintTop_toBottomOf="@+id/smoker"
+        app:layout_constraintVertical_bias="0.123" />
+
+    <TextView
+        android:id="@+id/question_text"
+        android:layout_width="1003dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="What would you choose in order to cook?"
+        android:textColor="@android:color/black"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.585"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="test"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/question_text"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.523" />
+
+    <Button
+        android:id="@+id/soap"
+        android:layout_width="286dp"
+        android:layout_height="216dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:onClick="soaponclick"
+        android:text="soap"
+        app:layout_constraintBottom_toTopOf="@+id/bubble"
+        app:layout_constraintEnd_toStartOf="@+id/lamp_bath"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toEndOf="@+id/fridge"
+        app:layout_constraintTop_toTopOf="@+id/lamp_bath"
+        app:layout_constraintVertical_bias="0.129" />
+
+    <Button
+        android:id="@+id/lamp_bath"
+        android:layout_width="219dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="280dp"
+        android:onClick="lampbathonclick"
+        android:visibility="gone"
+        android:text="lamp_bath"
+        app:layout_constraintBottom_toTopOf="@+id/bubble"
+        app:layout_constraintEnd_toStartOf="@+id/mirror" />
+
+    <Button
+        android:id="@+id/bubble"
+        android:layout_width="621dp"
+        android:layout_height="103dp"
+        android:layout_marginBottom="48dp"
+        android:layout_marginStart="16dp"
+        android:onClick="bubbleonclick"
+        android:text="bubble"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintStart_toStartOf="@+id/background_g7" />
+
+    <Button
+        android:id="@+id/mirror"
+        android:layout_width="357dp"
+        android:layout_height="152dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="292dp"
+        android:layout_marginTop="8dp"
+        android:onClick="mirroronclick"
+        android:text="mirror"
+        app:layout_constraintBottom_toTopOf="@+id/hands"
+        app:layout_constraintStart_toEndOf="@+id/kit_lamp"
+        app:layout_constraintTop_toBottomOf="@+id/lamp_bath"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/hands"
+        android:layout_width="298dp"
+        android:layout_height="198dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:onClick="handsonclick"
+        android:text="hands"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintEnd_toEndOf="@+id/background_g7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/bubble" />
+
+    <Button
+        android:id="@+id/din_lamp"
+        android:layout_width="110dp"
+        android:layout_height="270dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="dinlamponclick"
+        android:text="din_lamp"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintEnd_toStartOf="@+id/sound_left"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="@+id/background_g7"
+        app:layout_constraintTop_toTopOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.524" />
+
+    <Button
+        android:id="@+id/sofa"
+        android:layout_width="354dp"
+        android:layout_height="155dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="sofaonclick"
+        android:text="sofa"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintEnd_toStartOf="@+id/sound_left"
+        app:layout_constraintHorizontal_bias="0.731"
+        app:layout_constraintStart_toStartOf="@+id/background_g7"
+        app:layout_constraintTop_toTopOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.672" />
+
+    <Button
+        android:id="@+id/tv"
+        android:layout_width="163dp"
+        android:layout_height="95dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="tvonclick"
+        android:text="TV"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintEnd_toEndOf="@+id/background_g7"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toEndOf="@+id/sofa"
+        app:layout_constraintTop_toTopOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.449" />
+
+    <Button
+        android:id="@+id/sound_right"
+        android:layout_width="46dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="soundonclick"
+        android:text="sound"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintEnd_toEndOf="@+id/background_g7"
+        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintStart_toEndOf="@+id/sofa"
+        app:layout_constraintTop_toTopOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.505" />
+</android.support.constraint.ConstraintLayout>

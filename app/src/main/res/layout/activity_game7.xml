@@ -1,6 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_game7"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c7a96c">
 
+    <ImageView
+        android:id="@+id/background_g7"
+        android:layout_width="749dp"
+        android:layout_height="338dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/kitchen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.324" />
+
+    <Button
+        android:id="@+id/fridge"
+        android:layout_width="161dp"
+        android:layout_height="174dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="8dp"
+        android:onClick="fridgeonClick"
+        android:text="fridge"
+
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintEnd_toStartOf="@+id/kit_lamp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/background_g7"
+        app:layout_constraintTop_toTopOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.54" />
+
+    <Button
+        android:id="@+id/kit_lamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="kit_lamponClick"
+        android:text="lamp"
+        app:layout_constraintBottom_toTopOf="@+id/fridge"
+        app:layout_constraintEnd_toEndOf="@+id/background_g7"
+        app:layout_constraintHorizontal_bias="0.293"
+        app:layout_constraintStart_toStartOf="@+id/background_g7"
+        app:layout_constraintTop_toTopOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <Button
+        android:id="@+id/wash_dish"
+        android:layout_width="91dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="76dp"
+        android:onClick="wash_dishonClick"
+        android:text="wash"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintStart_toEndOf="@+id/fridge"
+        app:layout_constraintTop_toBottomOf="@+id/kit_lamp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/cooker"
+        android:layout_width="138dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="cookeronClick"
+        android:text="cook"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintEnd_toEndOf="@+id/background_g7"
+        app:layout_constraintHorizontal_bias="0.374"
+        app:layout_constraintStart_toEndOf="@+id/wash_dish"
+        app:layout_constraintTop_toTopOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.691" />
+
+    <Button
+        android:id="@+id/smoker"
+        android:layout_width="148dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="smokeronClick"
+        android:text="smoke_cook"
+        app:layout_constraintBottom_toTopOf="@+id/cooker"
+        app:layout_constraintEnd_toEndOf="@+id/background_g7"
+        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintStart_toEndOf="@+id/wash_dish"
+        app:layout_constraintTop_toTopOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.766" />
+
+    <Button
+        android:id="@+id/sand"
+        android:layout_width="54dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="sandonClick"
+        android:text="sands"
+        app:layout_constraintBottom_toBottomOf="@+id/background_g7"
+        app:layout_constraintEnd_toEndOf="@+id/background_g7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/cooker"
+        app:layout_constraintTop_toBottomOf="@+id/smoker"
+        app:layout_constraintVertical_bias="0.087" />
+
+    <TextView
+        android:id="@+id/question_text"
+        android:layout_width="985dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="What would you choose in order to cook?"
+        android:textColor="@android:color/black"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.585"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/background_g7"
+        app:layout_constraintVertical_bias="0.0" />
 </android.support.constraint.ConstraintLayout>
