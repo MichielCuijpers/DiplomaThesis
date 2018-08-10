@@ -56,6 +56,10 @@
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".Game7.Game7"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".game15.Game15Menou"
             android:screenOrientation="landscape" />
         <activity
