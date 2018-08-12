@@ -50,12 +50,12 @@ public class Game8 extends AppCompatActivity {
 
     public void onPause() {
         super.onPause();
-        EndGame();
+
     }
 
     public void onStop() {
         super.onStop();
-        EndGame();
+        endGame();
 
     }
 
@@ -220,7 +220,7 @@ public class Game8 extends AppCompatActivity {
                 turn2and3();
                 break;
             case 4:
-                EndGame();
+                endGame();
                 break;
         }
 
@@ -290,7 +290,7 @@ public class Game8 extends AppCompatActivity {
         }
     }
 
-    private void EndGame() {
+    private void endGame() {
 
         curSession.setTimeEnd(System.currentTimeMillis() / 1000);
         dbHandler.addSessionToDB(this.curSession);

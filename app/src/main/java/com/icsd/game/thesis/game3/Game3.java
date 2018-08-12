@@ -53,8 +53,6 @@ public class Game3 extends AppCompatActivity {
 
     public void onPause() {
         super.onPause();
-        endGame();
-
     }
 
     public void onStop() {

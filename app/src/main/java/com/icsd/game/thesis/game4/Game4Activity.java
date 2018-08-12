@@ -29,7 +29,6 @@ public class Game4Activity extends AppCompatActivity {
     private ArrayList<String> wordsListTurn1;
     private ArrayList<String> wordsListTurn2;
     private ArrayList<String> wordsListTurn3;
-
     private ArrayList<Button> buttonsList;
     private Boolean isSecondButton;
     private String previewsButtonText;
@@ -38,8 +37,6 @@ public class Game4Activity extends AppCompatActivity {
     private int globalTurn;
     private int secondaryTurn;
     private static Context context;
-
-
     private Session curSession;
     private SoundHandler soundHandler;
     private PopUpWindow p;
@@ -62,7 +59,6 @@ public class Game4Activity extends AppCompatActivity {
 
     public void onPause() {
         super.onPause();
-        endGame();
 
     }
 
@@ -219,7 +215,7 @@ public class Game4Activity extends AppCompatActivity {
 
     private void endGame() {
         soundHandler.stopSound();
-        p.getmPopupWindow().dismiss();
+//        p.getmPopupWindow().dismiss();
         curSession.setTimeEnd(System.currentTimeMillis() / 1000);
         DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
         dbHandler.addSessionToDB(this.curSession);

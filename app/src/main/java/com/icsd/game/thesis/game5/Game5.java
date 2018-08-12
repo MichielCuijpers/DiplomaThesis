@@ -58,7 +58,6 @@ public class Game5 extends AppCompatActivity {
 
     public void onPause() {
         super.onPause();
-        endGameKill();
 
 
     }

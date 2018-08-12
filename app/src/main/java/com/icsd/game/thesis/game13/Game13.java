@@ -78,7 +78,6 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
     public void onPause() {
         super.onPause();
-        killAll();
 
 
     }

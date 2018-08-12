@@ -62,6 +62,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
+    public void addUserToDB(User user, SQLiteDatabase db) {
+
+        //SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(User.UserDBEntry.NICKNAME, user.getUsername());
+
+        db.insert(User.UserDBEntry.TABLE_NAME, null, values);
+        Log.e("MYDEBUG", "user saved to dbn");
+        // db.close();
+    }
 
     public void addSessionToDB(Session session) {
 
@@ -75,25 +85,66 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(Session.GameSessionDBEntry.USER_ID, session.getUserId());
         values.put(Session.GameSessionDBEntry.GAME_ID, session.getGameID());
         db.insert(Session.GameSessionDBEntry.TABLE_NAME, null, values);
-       // db.close();
-        Log.e("DEBUGMY", "Session save to db");
+        // db.close();
+        addHighscoreToDB(session.getScore(), session.getUserId(), session.getGameID());
+        Log.e("DEBUGMY", "Session saved to db");
 
     }
 
-    public void addUserToDB(User user, SQLiteDatabase db) {
-        Log.e("MYDEBUG", "in add user0");
-        //SQLiteDatabase db = getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(User.UserDBEntry.NICKNAME, user.getUsername());
 
-        db.insert(User.UserDBEntry.TABLE_NAME, null, values);
-       // db.close();
+    public void addHighscoreToDB(int highscore, String user, int gameID) {
+        SQLiteDatabase db = LoginActivity.getDb();
+        if (!checkIsDataAlreadyInDBorNot(user, db)) {
+            ContentValues values = new ContentValues();
+            values.put(Highscore.HighscoreDBEntry.HIGHSCORE, highscore);
+            values.put(Highscore.HighscoreDBEntry.USER_ID, user);
+            values.put(Highscore.HighscoreDBEntry.GAME_ID, gameID);
+            db.insert(Highscore.HighscoreDBEntry.TABLE_NAME, null, values);
+            Log.e("MYDEBUG", "HighScore saved to db");
+            Log.e("MYDEBUG", "First High");
+        } else {
+
+            if (checkIfHighScore(highscore, gameID, user, db)) {
+                String where = "where " + Highscore.HighscoreDBEntry.GAME_ID + " = " + gameID + " AND " + Highscore.HighscoreDBEntry.USER_ID + " ='" + user+"' ";
+                ContentValues values = new ContentValues();
+                values.put(Highscore.HighscoreDBEntry.HIGHSCORE, highscore);
+                db.update(Highscore.HighscoreDBEntry.TABLE_NAME, values, where, null);
+                Log.e("MYDEBUG", "HighUpdated");
+            } else {
+                Log.e("MYDEBUG", "High to need to update");
+            }
+        }
+
+
     }
 
-    public void addHighscoreToDB(Highscore highscore) {
-
+    private static boolean checkIfHighScore(int newScore, int gameID, String user, SQLiteDatabase db) {
+        String Query = "Select * from " + Highscore.HighscoreDBEntry.TABLE_NAME + " where " + Highscore.HighscoreDBEntry.USER_ID + " ='" + user + "' AND " + Highscore.HighscoreDBEntry.GAME_ID + " = " + gameID;
+        Cursor cursor = db.rawQuery(Query, null);
+        //while (!cursor.isAfterLast()) {
+            if (cursor.getColumnIndex(Highscore.HighscoreDBEntry.HIGHSCORE) < newScore) {
+                return true;
+            }
+           // cursor.moveToNext();
+        //}
+        return false;
     }
 
+
+    public static boolean checkIsDataAlreadyInDBorNot(String user, SQLiteDatabase db) {
+
+        String Query = "Select * from " + Highscore.HighscoreDBEntry.TABLE_NAME + " where " + Highscore.HighscoreDBEntry.USER_ID + " ='" + user + "' ";
+        Log.e("MYDEBUG", Query);
+
+        Cursor cursor = db.rawQuery(Query, null);
+        Log.e("MYDEBUG", "IN check is already " + cursor.getCount());
+        if (cursor.getCount() <= 0) {
+            cursor.close();
+            return false;
+        }
+        cursor.close();
+        return true;
+    }
 
     public ArrayList<Cursor> getData(String Query) {
         //get writable database
@@ -131,10 +182,5 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             return alc;
         }
     }
-
-//    public static Context getMyCont() {
-//        return myCont;
-//    }
-
 
 }
