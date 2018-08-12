@@ -62,15 +62,32 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
-    public void addUserToDB(User user, SQLiteDatabase db) {
+    public Boolean addUserToDB(User user, SQLiteDatabase db) {
+        if (checkIfUserExists(db, user.getUsername())) {
+            //SQLiteDatabase db = getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(User.UserDBEntry.NICKNAME, user.getUsername());
 
-        //SQLiteDatabase db = getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(User.UserDBEntry.NICKNAME, user.getUsername());
+            db.insert(User.UserDBEntry.TABLE_NAME, null, values);
+            Log.e("MYDEBUG", "user saved to dbn");
+            // db.close();
+            return true;
+        }
+        return false;
+    }
 
-        db.insert(User.UserDBEntry.TABLE_NAME, null, values);
-        Log.e("MYDEBUG", "user saved to dbn");
-        // db.close();
+    public Boolean checkIfUserExists(SQLiteDatabase db, String user) {
+        String Query = "Select * from " + User.UserDBEntry.TABLE_NAME + " where " + User.UserDBEntry.NICKNAME + " ='" + user + "' ";
+        Log.e("MYDEBUG", Query);
+
+        Cursor cursor = db.rawQuery(Query, null);
+        Log.e("MYDEBUG", "IN check is already " + cursor.getCount());
+        if (cursor.getCount() <= 0) {
+            cursor.close();
+            return true;
+        }
+        cursor.close();
+        return false;
     }
 
     public void addSessionToDB(Session session) {
