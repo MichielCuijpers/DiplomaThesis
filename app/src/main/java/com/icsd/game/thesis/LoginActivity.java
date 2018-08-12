@@ -35,8 +35,8 @@ public class LoginActivity extends AppCompatActivity {
 
         dh = new DatabaseHandler(this);
         db = dh.getWritableDatabase();
-       // dh.onCreate(db);
-      //  GameDBEntry.addGamesToDB(db, this);
+        dh.onCreate(db);
+        GameDBEntry.addGamesToDB(db, this);
         setContentView(R.layout.splash_screen_layout);
         popUpWindow = new PopUpWindow(this, this);
         android.os.Handler handler = new android.os.Handler();
@@ -155,11 +155,11 @@ public class LoginActivity extends AppCompatActivity {
     public void doneOnClick(View view) {
         user = new User(number1View.getText().toString() + number2View.getText() + number3View.getText() + number4View.getText() + number5View.getText());
         if (dh.addUserToDB(user, db)) {
-            Log.e("MYDEBUG","WELCOME ");
-           // popUpWindow.showPopUp("Welcome Back");
+            Log.e("MYDEBUG", "WELCOME ");
+            // popUpWindow.showPopUp("Welcome Back");
         } else {
-            Log.e("MYDEBUG","WELCOME back");
-           // popUpWindow.showPopUp("Have Fun in The Games ");
+            Log.e("MYDEBUG", "WELCOME back");
+            // popUpWindow.showPopUp("Have Fun in The Games ");
         }
         Intent c = new Intent(LoginActivity.this, Menu.class);
         startActivity(c);
