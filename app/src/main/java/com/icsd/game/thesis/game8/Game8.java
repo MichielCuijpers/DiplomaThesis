@@ -38,13 +38,14 @@ public class Game8 extends AppCompatActivity {
     private SoundHandler soundHandler;
     private int turn;
     private int miniTurn;
+    private TextView tutorialText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game8);
-        init();
-        gameplay();
+        setContentView(R.layout.activity_tutorial);
+        tutorialText = findViewById(R.id.tutorialTextView);
+        tutorialText.setText(getResources().getString(R.string.tutorialGame8));
 
     }
 
@@ -385,6 +386,13 @@ public class Game8 extends AppCompatActivity {
     public void ball4OnClick(View view) {
         view.setVisibility(View.INVISIBLE);
         updateScore((BallView) view);
+
+    }
+    public void tutorialOkOnClick(View view) {
+        setContentView(R.layout.activity_game8);
+        init();
+        gameplay();
+
 
     }
 

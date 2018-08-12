@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.icsd.game.thesis.common_activities.LoginActivity;
 import com.icsd.game.thesis.common_activities.Menu;
@@ -35,6 +36,7 @@ public class Game5 extends AppCompatActivity {
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
     private PopUpWindow popUpWindow;
+    private TextView tutorialText;
 
     public static Context getMyCont() {
         return myCont;
@@ -43,17 +45,9 @@ public class Game5 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game5_prototype);
-
-
-        try {
-            init();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        play(turn);
-
-
+        setContentView(R.layout.activity_tutorial);
+        tutorialText = findViewById(R.id.tutorialTextView);
+        tutorialText.setText(getResources().getString(R.string.tutorialGame5));
     }
 
     public void onPause() {
@@ -179,5 +173,18 @@ public class Game5 extends AppCompatActivity {
         check((Button) view);
     }
 
+    public void tutorialOkOnClick(View view) {
+        setContentView(R.layout.game5_prototype);
+
+
+        try {
+            init();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        play(turn);
+
+
+    }
 
 }

@@ -26,6 +26,8 @@
 
     <!-- GLOBAL-->
     <string name="check">CHECK</string>
+    <string name="tutorial">TUTORIAL</string>
+    <string name="ok">OK</string>
 
 
     <!-- game1-->
@@ -37,6 +39,7 @@
     <string name="category4">Food</string>
     <string name="category5">directory</string>
     <string name="category6">General Knowlgment</string>
+
 
     <!-- game2-->
     <string name="Italy">Italy</string>
@@ -51,6 +54,20 @@
     <string name="India">India</string>
     <string name="Kazakhstan">Kazakhstan</string>
     <string name="Iran">Iran</string>
+    <string name="tutorialGame1">You must find the city with the red spot</string>
+    <!-- game3-->
+    <string name="tutorialGame3">Please put the numbers from the smaller to the bigger</string>
+    <!-- game4-->
+    <string name="tutorialGame4">Put the letters in the right order to make words</string>
+
+    <!-- game5-->
+    <string name="tutorialGame5">Find the usage of every object shown</string>
+    <!-- game8-->
+    <string name="tutorialGame8">You must touch the right balls </string>
+    <!-- game13-->
+    <string name="tutorialGame13">You must repeat the piano pattern </string>
+    <!-- game15-->
+
 
     <!--GameDBEntry -->
     <!--Description-->

@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.icsd.game.thesis.common_activities.LoginActivity;
 import com.icsd.game.thesis.common_activities.Menu;
@@ -45,20 +46,21 @@ public class Game2Activity extends AppCompatActivity {
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
     private PopUpWindow popUpWindow;
-    private int categoryCorrects;
-
+    private TextView tutorialText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game2);
+        setContentView(R.layout.activity_tutorial);
+        tutorialText = findViewById(R.id.tutorialTextView);
+        tutorialText.setText(getResources().getString(R.string.tutorialGame1));
+
+        initGameplay();
         try {
             init();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public void onPause() {
@@ -78,9 +80,7 @@ public class Game2Activity extends AppCompatActivity {
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         soundHandler = new SoundHandler(getApplicationContext());
         popUpWindow = new PopUpWindow(Game2Activity.this, Game2Activity.this);
-        initGameplay();
-        initGui();
-        initTurn();
+
 
     }
 
@@ -328,5 +328,13 @@ public class Game2Activity extends AppCompatActivity {
         check((String) button4.getText());
     }
 
+    public void tutorialOkOnClick(View view) {
+        setContentView(R.layout.activity_game2);
 
+            initGui();
+
+        initTurn();
+
+
+    }
 }

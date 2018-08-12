@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.icsd.game.thesis.common_activities.LoginActivity;
 import com.icsd.game.thesis.common_activities.Menu;
@@ -39,19 +40,18 @@ public class Game4Activity extends AppCompatActivity {
     private SoundHandler soundHandler;
     private PopUpWindow p;
     private int moves;
+    private TextView tutorialText;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game4protype);
+        setContentView(R.layout.activity_tutorial);
+        tutorialText = findViewById(R.id.tutorialTextView);
+        tutorialText.setText(getResources().getString(R.string.tutorialGame4));
         soundHandler = new SoundHandler(getApplicationContext());
         context = getApplicationContext();
-        initGameplay();
-        initGui();
-        p = new PopUpWindow(this, this);
-        gameplay(globalTurn);
 
 
     }
@@ -316,5 +316,14 @@ public class Game4Activity extends AppCompatActivity {
         }
     }
 
+
+    public void tutorialOkOnClick(View view) {
+        setContentView(R.layout.game4protype);
+        initGameplay();
+        initGui();
+        p = new PopUpWindow(this, this);
+        gameplay(globalTurn);
+
+    }
 
 }

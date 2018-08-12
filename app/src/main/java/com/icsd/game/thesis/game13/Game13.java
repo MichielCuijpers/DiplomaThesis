@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.icsd.game.thesis.common_activities.LoginActivity;
 import com.icsd.game.thesis.R;
@@ -60,18 +61,22 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     private Session curSession;
     private DatabaseHandler dbHandler;
     private PopUpWindow popUpWindow;
-    private int tempTurn;
+    private TextView tutorialText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(layout.game13_prototype);
+
+        setContentView(R.layout.activity_tutorial);
+        tutorialText = findViewById(R.id.tutorialTextView);
+        tutorialText.setText(getResources().getString(R.string.tutorialGame13));
+
+
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        init();
         curSession = new Session(LoginActivity.getUser().getUsername(), 13);
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
-        playPattern();
+
 
 
     }
@@ -388,6 +393,14 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+    public void tutorialOkOnClick(View view) {
+        setContentView(layout.game13_prototype);
+        init();
+        playPattern();
+
 
     }
 }

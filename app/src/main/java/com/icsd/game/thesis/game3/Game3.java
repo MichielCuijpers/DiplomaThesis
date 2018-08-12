@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.icsd.game.thesis.common_activities.LoginActivity;
 import com.icsd.game.thesis.common_activities.Menu;
@@ -35,20 +36,22 @@ public class Game3 extends AppCompatActivity {
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
     private int moves;
+    private TextView tutorialText;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game3);
-        initGui();
-        initGameplay();
+        setContentView(R.layout.activity_tutorial);
+      tutorialText=findViewById(R.id.tutorialTextView);
+      tutorialText.setText(getResources().getString(R.string.tutorialGame3));
+
         p = new PopUpWindow(this, this);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         soundHandler = new SoundHandler(this);
         currentSession = new Session(LoginActivity.getUser().getUsername(), 8);
         currentSession.setTimeStart(System.currentTimeMillis() / 1000);
-        gameplay(turn);
+
     }
 
     public void onPause() {
@@ -317,5 +320,14 @@ public class Game3 extends AppCompatActivity {
 
     public void checkOnClick(View view) {
         check();
+    }
+
+    public void tutorialOkOnClick(View view) {
+        setContentView(R.layout.activity_game3);
+        initGui();
+        initGameplay();
+        gameplay(turn);
+
+
     }
 }
