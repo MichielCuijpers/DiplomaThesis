@@ -1,4 +1,4 @@
-package com.icsd.game.thesis;
+package com.icsd.game.thesis.common_activities;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.GameDBEntry;
 import com.icsd.game.thesis.database.User;

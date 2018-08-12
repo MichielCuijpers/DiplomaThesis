@@ -7,9 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 import android.util.Log;
 
-import com.icsd.game.thesis.Menu;
 import com.icsd.game.thesis.database.DatabaseHandler;
-import com.icsd.game.thesis.game4.Game4Activity;
 
 import java.util.ArrayList;
 

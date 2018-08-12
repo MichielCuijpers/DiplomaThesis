@@ -54,18 +54,5 @@ public class PopUpWindow {
 
     }
 
-    public void showTutorial(String str) {
 
-
-        tutorialView = activity.getLayoutInflater().inflate(R.layout.activity_tutorial_activity, null);
-        tutorialTextView = tutorialView.findViewById(R.id.text_view_dropdown);
-        tutorialTextView.setText(str);
-        mPopupWindow = new PopupWindow(tutorialView, 600, 600, true);
-        mPopupWindow.setTouchable(true);
-        mPopupWindow.setOutsideTouchable(true);
-        mPopupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null));
-        mPopupWindow.showAtLocation(this.activity.findViewById(R.id.layoutID), Gravity.CENTER, 0, 0);
-
-
-    }
 }

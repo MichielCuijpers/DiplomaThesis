@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,8 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 
-import com.icsd.game.thesis.LoginActivity;
-import com.icsd.game.thesis.Menu;
+import com.icsd.game.thesis.common_activities.LoginActivity;
+import com.icsd.game.thesis.common_activities.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
@@ -106,7 +105,7 @@ public class Game2Activity extends AppCompatActivity {
         countriesAsia.add(getResources().getString(R.string.India));
         countriesAsia.add(getResources().getString(R.string.Iran));
         countriesAsia.add(getResources().getString(R.string.Kazakhstan));
-        turn = 0;
+        turn = 1;
 
 
     }
@@ -122,10 +121,6 @@ public class Game2Activity extends AppCompatActivity {
     }
 
     private void initTurn() {
-        if (turn == 0) {
-
-            tutorialTurn();
-        }
 
         if (turn == 1 || turn == 2) {
             //Europe Turn
@@ -280,7 +275,7 @@ public class Game2Activity extends AppCompatActivity {
 
         if (answer.equals(currectCorrect)) {
             soundHandler.playOkSound();
-            popUpWindow.getmPopupWindow().dismiss();
+//            popUpWindow.getmPopupWindow().dismiss();
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer2));
             cleanBackgroundForPopUp();
 
@@ -315,27 +310,6 @@ public class Game2Activity extends AppCompatActivity {
         startActivity(c);
     }
 
-    private void tutorialTurn() {
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-                mapImageView.setVisibility(View.INVISIBLE);
-                popUpWindow.showTutorial("Please Regogize The Countries With tha RED Dot");
-                turn++;
-                popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
-
-                    @Override
-                    public void onDismiss() {
-
-                        mapImageView.setVisibility(View.VISIBLE);
-                        initTurn();
-                    }
-                });
-            }
-        }, 4000);
-    }
 
     //OnClicks
     public void choise1OnClick(View view) {

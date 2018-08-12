@@ -1,4 +1,4 @@
-package com.icsd.game.thesis;
+package com.icsd.game.thesis.common_activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.icsd.game.thesis.Game6.Game6;
 import com.icsd.game.thesis.Game7.Game7;
+import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.User;
 import com.icsd.game.thesis.game1.Game1Activity;

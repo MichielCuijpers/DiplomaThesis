@@ -2,15 +2,14 @@ package com.icsd.game.thesis.game3;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.icsd.game.thesis.LoginActivity;
-import com.icsd.game.thesis.Menu;
+import com.icsd.game.thesis.common_activities.LoginActivity;
+import com.icsd.game.thesis.common_activities.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
@@ -245,7 +244,10 @@ public class Game3 extends AppCompatActivity {
     }
 
     private void endGame() {
-        currentSession.setScore(currentSession.getScore() / moves);
+        if(moves!=0){
+            currentSession.setScore(currentSession.getScore() / moves);
+        }
+
         currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
         dbHandler.addSessionToDB(this.currentSession);
         Intent c = new Intent(this, Menu.class);

@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.PopupWindow;
 
-import com.icsd.game.thesis.LoginActivity;
+import com.icsd.game.thesis.common_activities.LoginActivity;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;

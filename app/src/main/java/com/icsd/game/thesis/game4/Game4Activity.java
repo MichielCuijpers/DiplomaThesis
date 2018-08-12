@@ -5,12 +5,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.icsd.game.thesis.LoginActivity;
-import com.icsd.game.thesis.Menu;
+import com.icsd.game.thesis.common_activities.LoginActivity;
+import com.icsd.game.thesis.common_activities.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
@@ -18,7 +17,6 @@ import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.icsd.game.thesis.LoginActivity;
-import com.icsd.game.thesis.Menu;
+import com.icsd.game.thesis.common_activities.LoginActivity;
+import com.icsd.game.thesis.common_activities.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;

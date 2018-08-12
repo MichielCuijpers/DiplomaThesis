@@ -6,16 +6,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.IOException;
 import java.util.Collections;
 
-import com.icsd.game.thesis.LoginActivity;
-import com.icsd.game.thesis.Menu;
-import com.icsd.game.thesis.Menu2;
+import com.icsd.game.thesis.common_activities.LoginActivity;
+import com.icsd.game.thesis.common_activities.Menu2;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
