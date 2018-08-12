@@ -105,7 +105,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         } else {
 
             if (checkIfHighScore(highscore, gameID, user, db)) {
-                String where = "where " + Highscore.HighscoreDBEntry.GAME_ID + " = " + gameID + " AND " + Highscore.HighscoreDBEntry.USER_ID + " ='" + user+"' ";
+                String where = Highscore.HighscoreDBEntry.GAME_ID + " = " + gameID + " AND " + Highscore.HighscoreDBEntry.USER_ID + " ='" + user + "' ";
                 ContentValues values = new ContentValues();
                 values.put(Highscore.HighscoreDBEntry.HIGHSCORE, highscore);
                 db.update(Highscore.HighscoreDBEntry.TABLE_NAME, values, where, null);
@@ -122,10 +122,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String Query = "Select * from " + Highscore.HighscoreDBEntry.TABLE_NAME + " where " + Highscore.HighscoreDBEntry.USER_ID + " ='" + user + "' AND " + Highscore.HighscoreDBEntry.GAME_ID + " = " + gameID;
         Cursor cursor = db.rawQuery(Query, null);
         //while (!cursor.isAfterLast()) {
-            if (cursor.getColumnIndex(Highscore.HighscoreDBEntry.HIGHSCORE) < newScore) {
-                return true;
-            }
-           // cursor.moveToNext();
+        if (cursor.getColumnIndex(Highscore.HighscoreDBEntry.HIGHSCORE) < newScore) {
+            return true;
+        }
+        // cursor.moveToNext();
         //}
         return false;
     }

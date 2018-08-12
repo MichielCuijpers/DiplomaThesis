@@ -27,6 +27,7 @@
     <!-- GLOBAL-->
     <string name="check">CHECK</string>
 
+
     <!-- game1-->
     <string name="question">Question</string>
     <string name="selest_category">Select Category</string>
@@ -42,16 +43,37 @@
     <string name="Greece">Greece</string>
     <string name="France">France</string>
     <string name="Finland">Finland</string>
-
     <string name="Nigeria">Nigeria</string>
     <string name="Egypt">Egypt</string>
     <string name="Morocco">Morocco</string>
     <string name="Algeria">Algeria</string>
-
     <string name="China">China</string>
     <string name="India">India</string>
     <string name="Kazakhstan">Kazakhstan</string>
     <string name="Iran">Iran</string>
+
+    <!--GameDBEntry -->
+    <!--Description-->
+    <string name="game1Des">Trivia Question in categories</string>
+    <string name="game2Des">Find the city in maps</string>
+    <string name="game3Des">Put number in right order</string>
+    <string name="game4Des">Put the letters in right order to</string>
+    <string name="game5Des">Recognize usage of Objects </string>
+    <string name="game6Des">Detect the object tha dont belongs in the group</string>
+    <string name="game7Des">Touch the right object in the room </string>
+    <string name="game8Des">Touch the correct Balls that falling down</string>
+    <string name="game9Des">Touch The object with the rigth color in group of objects </string>
+    <string name="game10Des">Find the posotion of the pair of objects in rid </string>
+    <string name="game11Des">Remember the pattern in the grid </string>
+    <string name="game12Des">Rock Pappers Scissors </string>
+    <string name="game13Des">repeat the piano loop</string>
+    <string name="game14Des">Choose the heavier item></string>
+    <string name="game15Des">Do the maths</string>
+    <!-- Categories -->
+    <string name="categoryG1">Memory</string>
+    <string name="categoryG2">Attetion</string>
+    <string name="categoryG3">Brain Processing Speed</string>
+    <string name="categoryG4">Problem Solving</string>
 
 
 </resources>

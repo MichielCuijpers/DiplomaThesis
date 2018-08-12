@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.icsd.game.thesis.database.DatabaseHandler;
+import com.icsd.game.thesis.database.GameDBEntry;
 import com.icsd.game.thesis.database.User;
 
 public class LoginActivity extends AppCompatActivity {
@@ -32,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         dh = new DatabaseHandler(this);
         db = dh.getWritableDatabase();
         dh.onCreate(db);
+        GameDBEntry.addGamesToDB(db, this);
         setContentView(R.layout.splash_screen_layout);
         android.os.Handler handler = new android.os.Handler();
         handler.postDelayed(new Runnable() {
