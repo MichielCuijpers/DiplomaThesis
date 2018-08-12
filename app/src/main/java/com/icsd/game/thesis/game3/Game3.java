@@ -35,6 +35,7 @@ public class Game3 extends AppCompatActivity {
     private Session currentSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
+    private int moves;
 
 
     @Override
@@ -207,6 +208,7 @@ public class Game3 extends AppCompatActivity {
             previewsButton.setText(b.getText().toString());
             b.setText(previewsButtonText);
             isSecondButton = false;
+            moves++;
 
         }
 
@@ -235,6 +237,7 @@ public class Game3 extends AppCompatActivity {
             gameplay(turn);
         } else {
             soundHandler.playWrongSound();
+            currentSession.setScore(currentSession.getScore() - 1);
             currentSession.setFails(currentSession.getFails() + 1);
             p.showPopUp(getResources().getString(R.string.wrong_answer2));
         }
@@ -242,6 +245,7 @@ public class Game3 extends AppCompatActivity {
     }
 
     private void endGame() {
+        currentSession.setScore(currentSession.getScore() / moves);
         currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
         dbHandler.addSessionToDB(this.currentSession);
         Intent c = new Intent(this, Menu.class);

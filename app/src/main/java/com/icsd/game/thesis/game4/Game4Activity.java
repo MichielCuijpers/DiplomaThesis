@@ -40,6 +40,7 @@ public class Game4Activity extends AppCompatActivity {
     private Session curSession;
     private SoundHandler soundHandler;
     private PopUpWindow p;
+    private int moves;
 
 
     @Override
@@ -208,6 +209,7 @@ public class Game4Activity extends AppCompatActivity {
             previewsButton.setText(b.getText().toString());
             b.setText(previewsButtonText);
             isSecondButton = false;
+            moves++;
         }
 
 
@@ -217,6 +219,7 @@ public class Game4Activity extends AppCompatActivity {
         soundHandler.stopSound();
 //        p.getmPopupWindow().dismiss();
         curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+        curSession.setScore(curSession.getScore() / moves);
         DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
         dbHandler.addSessionToDB(this.curSession);
         Intent c = new Intent(this, Menu.class);

@@ -46,6 +46,7 @@ public class Game2Activity extends AppCompatActivity {
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
     private PopUpWindow popUpWindow;
+    private int categoryCorrects;
 
 
     @Override
@@ -296,6 +297,8 @@ public class Game2Activity extends AppCompatActivity {
 
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             cleanBackgroundForPopUp();
+            curSession.setScore(curSession.getScore() - 1);
+
             curSession.setFails(curSession.getFails() + 1);
             //initTurn();
 

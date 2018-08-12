@@ -148,10 +148,11 @@ public class Game5 extends AppCompatActivity {
 
         } else {
             soundHandler.playWrongSound();
+
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer2));
             cleanBackgroundForPopUp();
             curSession.setFails(curSession.getFails() + 1);
-
+            curSession.setScore(curSession.getScore() - 2);
         }
 
     }
