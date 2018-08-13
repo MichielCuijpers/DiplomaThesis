@@ -104,6 +104,10 @@ public class Game5 extends AppCompatActivity {
     }
 
     private void endGameKill() {
+        if (soundHandler != null) {
+            soundHandler.stopSound();
+        }
+
         curSession.setTimeEnd(System.currentTimeMillis());
         curSession.setScore(this.turn);
         dbHandler.addSessionToDB(this.curSession);

@@ -292,12 +292,22 @@ public class Game8 extends AppCompatActivity {
     }
 
     private void endGame() {
+        if (soundHandler != null) {
+            soundHandler.stopSound();
+        }
+        if (this.curSession != null) {
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            dbHandler.addSessionToDB(this.curSession);
+            dbHandler.close();
+        }
 
-        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-        dbHandler.addSessionToDB(this.curSession);
-        handler1.removeCallbacks(null);
-        handler2.removeCallbacks(null);
-        dbHandler.close();
+        if (handler1 != null && handler2 != null) {
+            handler1.removeCallbacks(null);
+            handler2.removeCallbacks(null);
+
+        }
+
+
         Intent c = new Intent(this, Menu.class);
         startActivity(c);
 

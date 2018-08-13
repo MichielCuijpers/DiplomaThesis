@@ -159,11 +159,17 @@ public class Game1Activity extends AppCompatActivity {
     }
 
     private void endGameKill() {
-        dbHandler = new DatabaseHandler(this.getApplicationContext());
-        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-        dbHandler.addSessionToDB(this.curSession);
-        soundHandler.stopSound();
-        popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats1));
+        if (this.curSession != null) {
+            dbHandler = new DatabaseHandler(this.getApplicationContext());
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            dbHandler.addSessionToDB(this.curSession);
+        }
+
+        if (soundHandler != null) {
+            soundHandler.stopSound();
+        }
+
+        // popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats1));
         Intent c = new Intent(this, Menu.class);
         startActivity(c);
     }

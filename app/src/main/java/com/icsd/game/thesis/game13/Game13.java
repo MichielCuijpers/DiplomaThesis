@@ -78,7 +78,6 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
         curSession.setTimeStart(System.currentTimeMillis() / 1000);
 
 
-
     }
 
     public void onPause() {
@@ -370,24 +369,29 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     }
 
     private void killAll() {
-
         la.pause();
         re.pause();
         mi.pause();
         dof.pause();
-        handlerLa.removeCallbacks(run1);
-        handlerDof.removeCallbacks(run3);
-        handlerRe.removeCallbacks(run4);
-        change.removeCallbacks(runChange1);
-        change2.removeCallbacks(runChange2);
-        waitPlayer.removeCallbacks(runCheck);
+        if (handlerLa != null) {
+            handlerLa.removeCallbacks(run1);
+            handlerDof.removeCallbacks(run3);
+            handlerRe.removeCallbacks(run4);
+            change.removeCallbacks(runChange1);
+            change2.removeCallbacks(runChange2);
+            waitPlayer.removeCallbacks(runCheck);
+        }
+
         dbHandler.addSessionToDB(this.curSession);
         curSession.setTimeEnd(System.currentTimeMillis() / 1000);
     }
 
     private void saveSessionToDB() {
-        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-        dbHandler.addSessionToDB(this.curSession);
+        if (curSession != null) {
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            dbHandler.addSessionToDB(this.curSession);
+        }
+
 
     }
 

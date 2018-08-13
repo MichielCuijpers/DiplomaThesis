@@ -196,10 +196,15 @@ public class Game15 extends AppCompatActivity {
     }
 
     private void endGame() {
-        soundHandler.stopSound();
-        currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
-        DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
-        dbHandler.addSessionToDB(this.currentSession);
+        if (soundHandler != null) {
+            soundHandler.stopSound();
+        }
+        if (currentSession != null) {
+            currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
+            dbHandler.addSessionToDB(this.currentSession);
+        }
+
         Intent c = new Intent(this, Menu2.class);
         startActivity(c);
     }

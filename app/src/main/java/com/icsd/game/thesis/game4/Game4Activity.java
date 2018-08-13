@@ -61,8 +61,6 @@ public class Game4Activity extends AppCompatActivity {
         soundHandler = new SoundHandler(getApplicationContext());
 
 
-
-
     }
 
     public void onPause() {
@@ -223,12 +221,22 @@ public class Game4Activity extends AppCompatActivity {
     }
 
     private void endGame() {
-        soundHandler.stopSound();
+        if (soundHandler != null) {
+            soundHandler.stopSound();
+        }
+
 //        p.getmPopupWindow().dismiss();
-        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-        curSession.setScore(curSession.getScore() / moves);
-        DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
-        dbHandler.addSessionToDB(this.curSession);
+        if (curSession != null) {
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            if (moves != 0) {
+                curSession.setScore(curSession.getScore() / moves);
+
+            }
+
+            DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
+            dbHandler.addSessionToDB(this.curSession);
+        }
+
         Intent c = new Intent(this, Menu.class);
         startActivity(c);
     }
@@ -334,7 +342,6 @@ public class Game4Activity extends AppCompatActivity {
         gameplay(globalTurn);
 
     }
-
 
 
 }

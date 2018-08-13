@@ -43,8 +43,8 @@ public class Game3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
-      tutorialText=findViewById(R.id.tutorialTextView);
-      tutorialText.setText(getResources().getString(R.string.tutorialGame3));
+        tutorialText = findViewById(R.id.tutorialTextView);
+        tutorialText.setText(getResources().getString(R.string.tutorialGame3));
 
         p = new PopUpWindow(this, this);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
@@ -247,12 +247,14 @@ public class Game3 extends AppCompatActivity {
     }
 
     private void endGame() {
-        if(moves!=0){
+        if (moves != 0) {
             currentSession.setScore(currentSession.getScore() / moves);
         }
+        if (currentSession != null) {
+            currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            dbHandler.addSessionToDB(this.currentSession);
+        }
 
-        currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
-        dbHandler.addSessionToDB(this.currentSession);
         Intent c = new Intent(this, Menu.class);
         startActivity(c);
     }

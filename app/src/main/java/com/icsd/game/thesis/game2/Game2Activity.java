@@ -302,9 +302,14 @@ public class Game2Activity extends AppCompatActivity {
     }
 
     private void endGameKill() {
-        soundHandler.stopSound();
-        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-        dbHandler.addSessionToDB(this.curSession);
+        if (soundHandler != null) {
+            soundHandler.stopSound();
+        }
+        if (curSession != null) {
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            dbHandler.addSessionToDB(this.curSession);
+        }
+
 
         Intent c = new Intent(this, Menu.class);
         startActivity(c);
@@ -331,7 +336,7 @@ public class Game2Activity extends AppCompatActivity {
     public void tutorialOkOnClick(View view) {
         setContentView(R.layout.activity_game2);
 
-            initGui();
+        initGui();
 
         initTurn();
 
