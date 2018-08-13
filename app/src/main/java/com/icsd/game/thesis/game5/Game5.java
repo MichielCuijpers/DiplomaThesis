@@ -107,10 +107,12 @@ public class Game5 extends AppCompatActivity {
         if (soundHandler != null) {
             soundHandler.stopSound();
         }
+        if (curSession != null) {
+            curSession.setTimeEnd(System.currentTimeMillis());
+            curSession.setScore(this.turn);
+            dbHandler.addSessionToDB(this.curSession);
+        }
 
-        curSession.setTimeEnd(System.currentTimeMillis());
-        curSession.setScore(this.turn);
-        dbHandler.addSessionToDB(this.curSession);
         Intent c = new Intent(this, Menu.class);
         startActivity(c);
     }

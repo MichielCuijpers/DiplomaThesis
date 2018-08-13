@@ -247,6 +247,42 @@ public class Game2Activity extends AppCompatActivity {
             case "Kazakhstan":
                 drawPinOnMap(400, 380, R.drawable.asia_map);
                 break;
+            case "Ιταλία":
+                drawPinOnMap(529, 790, R.drawable.europe_map);
+                break;
+            case "Ελλάδα":
+                drawPinOnMap(800, 900, R.drawable.europe_map);
+                break;
+            case "Γαλλία":
+                drawPinOnMap(300, 700, R.drawable.europe_map);
+                break;
+            case "Φινλανδία":
+                drawPinOnMap(700, 200, R.drawable.europe_map);
+                break;
+            case "Νιγηρια":
+                drawPinOnMap(600, 680, R.drawable.africa_map);
+                break;
+            case "Αίγυπτος":
+                drawPinOnMap(1050, 300, R.drawable.africa_map);
+                break;
+            case "Μαρόκο":
+                drawPinOnMap(500, 200, R.drawable.africa_map);
+                break;
+            case "Αλγερία":
+                drawPinOnMap(300, 150, R.drawable.africa_map);
+                break;
+            case "Κίνα":
+                drawPinOnMap(500, 500, R.drawable.asia_map);
+                break;
+            case "Ινδία":
+                drawPinOnMap(450, 650, R.drawable.asia_map);
+                break;
+            case "Ιράν":
+                drawPinOnMap(230, 520, R.drawable.asia_map);
+                break;
+            case "Καζακστάν":
+                drawPinOnMap(400, 380, R.drawable.asia_map);
+                break;
         }
 
 
