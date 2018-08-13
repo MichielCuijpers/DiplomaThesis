@@ -2,9 +2,13 @@ package com.icsd.game.thesis.game4;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,6 +25,7 @@ import com.icsd.game.thesis.pet.PopUpWindow;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 
 public class Game4Activity extends AppCompatActivity {
@@ -47,11 +52,15 @@ public class Game4Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_tutorial);
+        context = getApplicationContext();
+
         tutorialText = findViewById(R.id.tutorialTextView);
         tutorialText.setText(getResources().getString(R.string.tutorialGame4));
         soundHandler = new SoundHandler(getApplicationContext());
-        context = getApplicationContext();
+
+
 
 
     }
@@ -325,5 +334,7 @@ public class Game4Activity extends AppCompatActivity {
         gameplay(globalTurn);
 
     }
+
+
 
 }

@@ -241,9 +241,9 @@ public class Game8 extends AppCompatActivity {
         if (miniTurn == 1) {
             hideBalls();
             if (turn == 2) {
-                popUpWindow.showPopUp("Now,Dont touch the RED balls");
+                popUpWindow.showPopUp(getResources().getString(R.string.dont_touch_red));
             } else {
-                popUpWindow.showPopUp("Now,Dont touch the GREEN balls");
+                popUpWindow.showPopUp(getResources().getString(R.string.dont_touch_red));
             }
 
             popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
@@ -309,13 +309,13 @@ public class Game8 extends AppCompatActivity {
             if (ball.getPaint().getColor() == Color.GREEN) {
                 soundHandler.playOkSoundPool();
                 score++;
-                scoreView.setText("Score:" + score);
+                scoreView.setText(getResources().getString(R.string.score) + ": " + score);
                 this.curSession.setScore(this.score);
 
             } else {
                 soundHandler.playWrongPool();
                 score--;
-                scoreView.setText("Score:" + score);
+                scoreView.setText(getResources().getString(R.string.score) + ": " + score);
                 this.curSession.setScore(this.score);
 
             }
@@ -324,13 +324,13 @@ public class Game8 extends AppCompatActivity {
             if (ball.getPaint().getColor() == Color.GREEN) {
                 soundHandler.playWrongSound();
                 score--;
-                scoreView.setText("Score:" + score);
+                scoreView.setText(getResources().getString(R.string.score) + ": " + score);
                 this.curSession.setScore(this.score);
 
             } else {
                 soundHandler.playOkSound();
                 score++;
-                scoreView.setText("Score:" + score);
+                scoreView.setText(getResources().getString(R.string.score) + ": " + score);
                 this.curSession.setScore(this.score);
 
             }
@@ -388,6 +388,7 @@ public class Game8 extends AppCompatActivity {
         updateScore((BallView) view);
 
     }
+
     public void tutorialOkOnClick(View view) {
         setContentView(R.layout.activity_game8);
         init();

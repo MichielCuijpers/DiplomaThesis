@@ -27,7 +27,6 @@ public class PopUpWindow {
     private final Context context;
     private final Activity activity;
     private TextView text, tutorialTextView;
-    private ImageView cat, bubble;
 
 
     public PopUpWindow(final Context context, final Activity activity) {

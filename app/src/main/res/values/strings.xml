@@ -2,14 +2,14 @@
     <string name="app_name">Thesis</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="game12">Game12</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="PopupWindow1">PopupWindow1</string>
-    <string name="title_activity_popup_window1">PopupWindow1</string>
-    <string name="title_activity_tooltips">Tooltips</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="title_activity_main" translatable="false">MainActivity</string>
+    <string name="game12" translatable="false">Game12</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
+    <string name="action_settings" translatable="false">Settings</string>
+    <string name="PopupWindow1" translatable="false">PopupWindow1</string>
+    <string name="title_activity_popup_window1" translatable="false">PopupWindow1</string>
+    <string name="title_activity_tooltips" translatable="false">Tooltips</string>
 
     <!-- STRINBG FOR POPUPS-->
     <string name="correct_answer1">Congratulations. Your answer is correct!!</string>
@@ -19,8 +19,6 @@
     <string name="end_game_congrats1">Congrats!! You found all answers!! </string>
     <string name="end_game_congrats2">Congratulations. You WON !! </string>
     <string name="end_game_congrats_countries">Congrats!! You found all  countries!! </string>
-    <string name="new_turn">New Turn Begins</string>
-    <string name="choose_another_category">Please choose another category</string>
 
     <!-- STRINBG FOR LAYOUTS-->
 
@@ -28,10 +26,12 @@
     <string name="check">CHECK</string>
     <string name="tutorial">TUTORIAL</string>
     <string name="ok">OK</string>
+    <string name="choose_lang">Παρακαλώ επέλεξε Γλώσσα</string>
+    <string name="give_username">Please give username</string>
 
 
     <!-- game1-->
-    <string name="question">Question</string>
+    <string name="question" translatable="false">Question</string>
     <string name="selest_category">Select Category</string>
     <string name="category1">Geography/Planet</string>
     <string name="category2">History</string>
@@ -39,6 +39,7 @@
     <string name="category4">Food</string>
     <string name="category5">directory</string>
     <string name="category6">General Knowlgment</string>
+
 
 
     <!-- game2-->
@@ -59,38 +60,60 @@
     <string name="tutorialGame3">Please put the numbers from the smaller to the bigger</string>
     <!-- game4-->
     <string name="tutorialGame4">Put the letters in the right order to make words</string>
-
+    <string name="happy">happy</string>
+    <string name="action">action</string>
+    <string name="desk">desk</string>
+    <string name="jazz">jazz</string>
+    <string name="quiz">quiz</string>
+    <string name="computer">computer</string>
+    <string name="chair">chair</string>
+    <string name="benefit">benefit</string>
+    <string name="science">science</string>
+    <string name="secretary">secretary</string>
+    <string name="security">security</string>
+    <string name="zero">zero</string>
     <!-- game5-->
     <string name="tutorialGame5">Find the usage of every object shown</string>
+
+
     <!-- game8-->
     <string name="tutorialGame8">You must touch the right balls </string>
+    <string name="dont_touch_red">Now,Dont touch the RED balls</string>
+    <string name="dont_touch_green">Now,Dont touch the GREEN balls</string>
+    <string name="score" translatable="false">score</string>
+    <!-- game15-->
+
     <!-- game13-->
     <string name="tutorialGame13">You must repeat the piano pattern </string>
+
     <!-- game15-->
+
 
 
     <!--GameDBEntry -->
     <!--Description-->
-    <string name="game1Des">Trivia Question in categories</string>
-    <string name="game2Des">Find the city in maps</string>
-    <string name="game3Des">Put number in right order</string>
-    <string name="game4Des">Put the letters in right order to</string>
-    <string name="game5Des">Recognize usage of Objects </string>
-    <string name="game6Des">Detect the object tha dont belongs in the group</string>
-    <string name="game7Des">Touch the right object in the room </string>
-    <string name="game8Des">Touch the correct Balls that falling down</string>
-    <string name="game9Des">Touch The object with the rigth color in group of objects </string>
-    <string name="game10Des">Find the posotion of the pair of objects in rid </string>
-    <string name="game11Des">Remember the pattern in the grid </string>
-    <string name="game12Des">Rock Pappers Scissors </string>
-    <string name="game13Des">repeat the piano loop</string>
-    <string name="game14Des">Choose the heavier item></string>
-    <string name="game15Des">Do the maths</string>
+    <string name="game1Des" translatable="false">Trivia Question in categories</string>
+    <string name="game2Des" translatable="false">Find the city in maps</string>
+    <string name="game3Des" translatable="false">Put number in right order</string>
+    <string name="game4Des" translatable="false">Put the letters in right order to</string>
+    <string name="game5Des" translatable="false">Recognize usage of Objects </string>
+    <string name="game6Des" translatable="false">Detect the object tha dont belongs in the group</string>
+    <string name="game7Des" translatable="false">Touch the right object in the room </string>
+    <string name="game8Des" translatable="false">Touch the correct Balls that falling down</string>
+    <string name="game9Des" translatable="false">Touch The object with the rigth color in group of objects </string>
+    <string name="game10Des" translatable="false">Find the posotion of the pair of objects in rid </string>
+    <string name="game11Des" translatable="false">Remember the pattern in the grid </string>
+    <string name="game12Des" translatable="false">Rock Pappers Scissors </string>
+    <string name="game13Des" translatable="false">repeat the piano loop</string>
+    <string name="game14Des" translatable="false">Choose the heavier item></string>
+    <string name="game15Des" translatable="false">Do the maths</string>
     <!-- Categories -->
-    <string name="categoryG1">Memory</string>
-    <string name="categoryG2">Attetion</string>
-    <string name="categoryG3">Brain Processing Speed</string>
-    <string name="categoryG4">Problem Solving</string>
+    <string name="categoryG1" translatable="false">Memory</string>
+    <string name="categoryG2" translatable="false">Attetion</string>
+    <string name="categoryG3" translatable="false">Brain Processing Speed</string>
+    <string name="categoryG4" translatable="false">Problem Solving</string>
+    <string name="new_turn">New Turn Begins</string>
+    <string name="choose_another_category">Choose another Category</string>
 
 
 </resources>
