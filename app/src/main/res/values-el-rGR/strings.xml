@@ -54,4 +54,27 @@
     <string name="science">πρόσωπο</string>
     <string name="secretary">πρόσκοπος</string>
     <string name="security">φλιτζάνι</string>
+    <string name="make_toasts">ψήσιμο τόστ</string>
+    <string name="roast">ψήσιμο κρέατος</string>
+    <string name="call">τηλεφώνο σε φίλο</string>
+    <string name="smash">σπάσε μία πέτρα</string>
+    <string name="screw">ξεβίδψσε μία βίδα</string>
+    <string name="openB">άνοιηε μία μπύρα</string>
+    <string name="opeLap">άνοιξε ένα λάπτοπ</string>
+    <string name="drink">πιές νερό</string>
+    <string name="eat">φάε φαί</string>
+    <string name="goldfish">βάλε ένα ψάρι</string>
+    <string name="pot">βάλε λουλούδια</string>
+    <string name="exti">σβήσε φωτιά</string>
+    <string name="make_fire">άναψε φωτιά</string>
+    <string name="blow">καθαρισε φύλλα</string>
+    <string name="smash2">σπάσε πέτρες</string>
+    <string name="save">αποθήκευσε αρχεία</string>
+    <string name="open_b">άνοιξε μία μπύρα</string>
+    <string name="make_f">άναξε φωτιά</string>
+    <string name="open_door">άνοιξε την πόρτα</string>
+    <string name="tablet">παίξε παιχνίδια</string>
+    <string name="photo_frame">κορνίζατε μία φωτογραφία</string>
+    <string name="placemats">ακούμπισε ένα ποτήρι</string>
+    <string name="book">είναι ένα βιβλίο</string>
 </resources>

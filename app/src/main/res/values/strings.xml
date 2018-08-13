@@ -41,7 +41,6 @@
     <string name="category6">General Knowlgment</string>
 
 
-
     <!-- game2-->
     <string name="Italy">Italy</string>
     <string name="Greece">Greece</string>
@@ -75,6 +74,42 @@
     <!-- game5-->
     <string name="tutorialGame5">Find the usage of every object shown</string>
 
+    <string name="toaster" translatable="false">toaster</string>
+    <string name="make_toasts">make toasts</string>
+    <string name="roast">roast meat</string>
+    <string name="make_tea">make tea</string>
+    <string name="call">call a friend</string>
+
+    <string name="hummer" translatable="false">hummer</string>
+    <string name="smash">smash a rock</string>
+    <string name="screw">screw</string>
+    <string name="openB">open a beer</string>
+    <string name="opeLap">open a laptop</string>
+
+    <string name="glass" translatable="false">glass</string>
+    <string name="drink">drink water</string>
+    <string name="eat">eat food</string>
+    <string name="goldfish">goldfish house</string>
+    <string name="pot">pot for flowers</string>
+
+    <string name="fireex" translatable="false">fireex</string>
+    <string name="exti">extinguish fire</string>
+    <string name="make_fire">make fire</string>
+    <string name="blow">blow up leafs</string>
+    <string name="smash2">smash rocks</string>
+
+    <string name="usb_game5" translatable="false">usb_game5</string>
+    <string name="save">save files</string>
+    <string name="open_b">open a beer</string>
+    <string name="make_f">make fire</string>
+    <string name="open_door">open a door</string>
+
+    <string name="tablet_game5" translatable="false">tablet_game5</string>
+    <string name="tablet">play games</string>
+    <string name="photo_frame">frame a photo</string>
+    <string name="placemats">place a glass</string>
+    <string name="book">its a book</string>
+
 
     <!-- game8-->
     <string name="tutorialGame8">You must touch the right balls </string>
@@ -87,7 +122,6 @@
     <string name="tutorialGame13">You must repeat the piano pattern </string>
 
     <!-- game15-->
-
 
 
     <!--GameDBEntry -->
