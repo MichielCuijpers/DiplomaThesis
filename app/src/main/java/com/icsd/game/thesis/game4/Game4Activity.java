@@ -35,6 +35,7 @@ public class Game4Activity extends AppCompatActivity {
     private String currentWord;
     private int globalTurn;
     private int secondaryTurn;
+
     private static Context context;
     private Session curSession;
     private SoundHandler soundHandler;
