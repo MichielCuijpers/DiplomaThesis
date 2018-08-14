@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:background="#c7a96c"
     tools:context="com.icsd.game.thesis.Game12.Game12"
-    tools:showIn="@layout/activity_game6_playactivity">
+    tools:showIn="@layout/activity_game6_playactivity"
+    android:id="@+id/layoutID"
+    >
 
     <Button
         android:id="@+id/button46"

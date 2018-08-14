@@ -16,6 +16,7 @@ import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,17 +53,16 @@ private ArrayList <String> backshuffle;
     private Session currentSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
+    private PopUpWindow popUpWindow;
     Questions new_question;
+    private TextView tutorialText;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game7);
-        dbHandler = new DatabaseHandler(this.getApplicationContext());
-        currentSession = new Session(LoginActivity.getUser().getUsername(),7);
-        currentSession.setTimeStart(System.currentTimeMillis()/1000);
-        soundHandler = new SoundHandler(getApplicationContext());
-        initGui();
-        pickBackground();
+        setContentView(R.layout.activity_tutorial);
+        tutorialText = findViewById(R.id.tutorialTextView);
+        tutorialText.setText(getResources().getString(R.string.tutorialGame7));
+
     }
     public void initGui(){
         new_question = new Questions();
@@ -230,7 +230,16 @@ private ArrayList <String> backshuffle;
 
         }
     }
-
+    public void tutorialOkOnClick(View view) {
+        setContentView(R.layout.activity_game7);
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        currentSession = new Session(LoginActivity.getUser().getUsername(),7);
+        currentSession.setTimeStart(System.currentTimeMillis()/1000);
+        soundHandler = new SoundHandler(getApplicationContext());
+        popUpWindow = new PopUpWindow(this,this);
+        initGui();
+        pickBackground();
+    }
     public void initDinroom(){
         if(new_question.check_empty_list(new_question.get_dinroom())==true) {
             dinroom_played=1;
@@ -357,14 +366,14 @@ private ArrayList <String> backshuffle;
                 currentSession.setScore(correct_answers);
                 soundHandler.playOkSound();
                 checkEndGame();
-                Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+                popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
                 initKitchen();
             } else {
                 wrong_answers++;
                 currentSession.setFails(currentSession.getFails()+1);
                 soundHandler.playWrongSound();
                 checkEndGame();
-                Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
+                popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
                 initKitchen();
             }
 
@@ -374,14 +383,14 @@ private ArrayList <String> backshuffle;
                 currentSession.setScore(correct_answers);
                 soundHandler.playOkSound();
                 checkEndGame();
-                Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+                popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
                 initBathroom();
             }else{
                 wrong_answers++;
                 currentSession.setFails(currentSession.getFails()+1);
                 soundHandler.playWrongSound();
                 checkEndGame();
-                Toast.makeText(this, "InCorrect", Toast.LENGTH_SHORT).show();
+                popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
                 initBathroom();
             }
         }else if(chosen_background.equals("din")){
@@ -390,7 +399,7 @@ private ArrayList <String> backshuffle;
                 currentSession.setScore(correct_answers);
                 soundHandler.playOkSound();
                 checkEndGame();
-                Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+                popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
                 initDinroom();
             }
             else{
@@ -398,7 +407,7 @@ private ArrayList <String> backshuffle;
                 currentSession.setFails(currentSession.getFails()+1);
                 soundHandler.playWrongSound();
                 checkEndGame();
-                Toast.makeText(this, "InCorrect", Toast.LENGTH_SHORT).show();
+                popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
                 initDinroom();
             }
         }
