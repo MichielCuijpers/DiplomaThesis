@@ -34,7 +34,6 @@
 
         android:background="@android:color/holo_orange_dark"
         android:onClick="Game10"
-
         android:text="Game10"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/button12"
@@ -49,6 +48,7 @@
 
         android:background="@android:color/holo_orange_dark"
         android:text="Game11"
+        android:onClick="Game11"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/button13"
         app:layout_constraintTop_toTopOf="parent" />

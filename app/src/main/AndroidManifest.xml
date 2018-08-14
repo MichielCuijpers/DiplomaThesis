@@ -29,6 +29,12 @@
             android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
+            android:name=".Game11.Game11"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Game10.Game10"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".Game14.Game14"
             android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
