@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.icsd.game.thesis.common_activities.LoginActivity;
+import com.icsd.game.thesis.commons.LoginActivity;
 import com.icsd.game.thesis.game1.Question;
 import com.icsd.game.thesis.game4.Word;
 import com.icsd.game.thesis.game5.ObjectT;

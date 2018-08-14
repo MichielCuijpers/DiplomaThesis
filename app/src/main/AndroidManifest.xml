@@ -3,7 +3,7 @@
     package="com.icsd.game.thesis">
 
     <application
-        android:name=".AppLan"
+        android:name=".commons.AppLan"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
@@ -13,11 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
         <activity
-            android:name=".common_activities.Menu"
+            android:name=".commons.Menu"
             android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".common_activities.Menu2"
+            android:name=".commons.Menu2"
             android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
@@ -85,7 +85,7 @@
             android:screenOrientation="landscape" />
 
         <activity
-            android:name=".common_activities.LoginActivity"
+            android:name=".commons.LoginActivity"
             android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape">
 
@@ -102,7 +102,7 @@
 
         <activity android:name=".pet.PetActivity" />
 
-        <activity android:name=".common_activities.SurveyActivity"></activity>
+        <activity android:name=".commons.SurveyActivity"></activity>
     </application>
 
 </manifest>

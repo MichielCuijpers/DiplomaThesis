@@ -1,14 +1,8 @@
-package com.icsd.game.thesis;
+package com.icsd.game.thesis.commons;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.os.Build;
-import android.preference.PreferenceManager;
 import android.util.Log;
-
-import com.icsd.game.thesis.common_activities.LoginActivity;
 
 import java.util.Locale;
 

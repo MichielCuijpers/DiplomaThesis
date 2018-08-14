@@ -246,7 +246,7 @@ public class Question {
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, " Who invented airplanes?");
+            values.put(QuestionDBEntry.QUESTION, "Who invented airplanes?");
             values.put(QuestionDBEntry.CATEGORY, "general");
             values.put(QuestionDBEntry.ANSWER1, "Wright brothers");
             values.put(QuestionDBEntry.ANSWER2, "Isaac Newton");
@@ -255,7 +255,7 @@ public class Question {
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "What is the unit of currency in Russia??");
+            values.put(QuestionDBEntry.QUESTION, "What is the unit of currency in Russia?");
             values.put(QuestionDBEntry.CATEGORY, "general");
             values.put(QuestionDBEntry.ANSWER1, "ruble");
             values.put(QuestionDBEntry.ANSWER2, "lira");

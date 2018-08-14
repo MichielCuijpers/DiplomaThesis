@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.icsd.game.thesis.common_activities.LoginActivity;
+import com.icsd.game.thesis.commons.LoginActivity;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;

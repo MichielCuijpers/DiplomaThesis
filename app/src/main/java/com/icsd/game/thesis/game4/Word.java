@@ -1,17 +1,13 @@
 package com.icsd.game.thesis.game4;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
-import android.util.Log;
 
-import com.icsd.game.thesis.AppLan;
+import com.icsd.game.thesis.commons.AppLan;
 import com.icsd.game.thesis.R;
-import com.icsd.game.thesis.common_activities.LoginActivity;
 import com.icsd.game.thesis.database.DatabaseHandler;
-import com.icsd.game.thesis.game1.Game1Activity;
 
 
 import java.util.ArrayList;

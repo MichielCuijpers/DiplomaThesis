@@ -1,4 +1,4 @@
-package com.icsd.game.thesis.common_activities;
+package com.icsd.game.thesis.commons;
 
 import android.app.Activity;
 import android.content.Intent;
