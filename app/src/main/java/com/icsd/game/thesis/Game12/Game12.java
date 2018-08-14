@@ -17,6 +17,7 @@ import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
 
@@ -53,6 +54,7 @@ public class Game12 extends AppCompatActivity {
     private Session currentSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
+    private PopUpWindow popUpWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,7 @@ public class Game12 extends AppCompatActivity {
         currentSession = new Session(LoginActivity.getUser().getUsername(),12);
         currentSession.setTimeStart(System.currentTimeMillis()/1000);
         soundHandler = new SoundHandler(getApplicationContext());
+        popUpWindow = new PopUpWindow(this,this);
         initGraphics();
         initScreen();
     }
@@ -351,7 +354,7 @@ public class Game12 extends AppCompatActivity {
         kwinner =  CheckKnownWinner((String) gameplayb1.getText(),(String) gameplayb2.getText());
         Log.e("MyDEbou", "To 1 exei "+gameplayb1.getText()+"kai to kwiner :" +kwinner);
         if(gameplayb1.getText().equals(kwinner)){
-            Toast.makeText(this, "CORRECT", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
             currentSession.setScore(corrects);
             soundHandler.playOkSound();
@@ -359,7 +362,7 @@ public class Game12 extends AppCompatActivity {
             initGameplay();
         }
         else{
-            Toast.makeText(this, "INCORRECT", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             wrongs++;
             currentSession.setFails(currentSession.getFails()+1);
             soundHandler.playWrongSound();
@@ -370,7 +373,7 @@ public class Game12 extends AppCompatActivity {
         kwinner =  CheckKnownWinner((String) gameplayb1.getText(),(String) gameplayb2.getText());
         Log.e("MyDEbou", "To 2 exei "+gameplayb2.getText()+"kai to kwiner :" +kwinner);
         if(gameplayb2.getText().equals(kwinner)){
-            Toast.makeText(this, "CORRECT", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
             currentSession.setScore(corrects);
             soundHandler.playOkSound();
@@ -378,7 +381,7 @@ public class Game12 extends AppCompatActivity {
             initGameplay();
         }
         else{
-            Toast.makeText(this, "INCORRECT", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             wrongs++;
             currentSession.setFails(currentSession.getFails()+1);
             soundHandler.playWrongSound();
@@ -390,7 +393,7 @@ public class Game12 extends AppCompatActivity {
         kwinner =  CheckKnownWinner((String) gameplayb1.getText(),(String) gameplayb2.getText());
         Log.e("MyDEbou", "To 2 exei "+gameplayb2.getText()+"kai to kwiner :" +kwinner);
         if(kwinner.equals("tie")){
-            Toast.makeText(this, "CORRECT", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
             currentSession.setScore(corrects);
             soundHandler.playOkSound();
@@ -398,7 +401,7 @@ public class Game12 extends AppCompatActivity {
             initGameplay();
         }
         else{
-            Toast.makeText(this, "INCORRECT", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             wrongs++;
             currentSession.setFails(currentSession.getFails()+1);
             soundHandler.playWrongSound();

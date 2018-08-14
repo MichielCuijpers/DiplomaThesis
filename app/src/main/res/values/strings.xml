@@ -225,13 +225,20 @@
     <string name="photo_frame">frame a photo</string>
     <string name="placemats">place a glass</string>
     <string name="book">its a book</string>
-
-
+    <!-- Game7-->
+    <string name="tutorialGame7">Try to respond to the given actions</string>
     <!-- game8-->
     <string name="tutorialGame8">You must touch the right balls </string>
     <string name="dont_touch_red">Now,Dont touch the RED balls</string>
     <string name="dont_touch_green">Now,Dont touch the GREEN balls</string>
     <string name="score" translatable="false">score</string>
+    <!-- game9-->
+    <string name="found_all">You found them all</string>
+    <string name="clicked_more">You clicked more</string>
+    <string name="missed_something">You missed something</string>
+    <string name="try_again">Try again</string>
+    <!-- Game11-->
+    <string name="tutorialGame11">Try to discover the shadowed squares</string>
     <!-- game15-->
 
     <!-- game13-->

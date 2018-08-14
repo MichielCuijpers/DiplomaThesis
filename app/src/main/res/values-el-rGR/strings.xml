@@ -190,4 +190,10 @@
     <string name="an2q19">ανησυχία</string>
     <string name="an3q19">αποπροσανατολισμένος</string>
     <string name="an4q19">" κουρασμένος"</string>
+    <string name="tutorialGame7">Προσπάθησε να ανταποκριθείς στις ζητούμενες ενέργειες</string>
+    <string name="found_all">Μπράβο!Τα βρήκες όλα</string>
+    <string name="clicked_more">Επέλεξες παραπάνω, Δεν πειράζει</string>
+    <string name="missed_something">Κάτι ξέχασες</string>
+    <string name="try_again">Ξανα προσπάθησε</string>
+    <string name="tutorialGame11">Προσπάθησε να ανακαλύψεις τα μαυρισμένα πλήκτρα</string>
 </resources>

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -42,6 +45,7 @@ public class Game6 extends AppCompatActivity {
     private Session currentSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
+    private PopUpWindow popUpWindow;
 
     //bitmaps
     BitmapDrawable pcbitMap, laptopBitMap, flower1BitMap, flower2BitMap, flower3BitMap, flower4BitMap, flower5BitMap, flower6BitMap, flower7BitMap;
@@ -61,7 +65,6 @@ public class Game6 extends AppCompatActivity {
         initTest();
 
     }
-
     private void imagesToBitmap() {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 8;
@@ -519,6 +522,7 @@ public class Game6 extends AppCompatActivity {
 
         this.setContentView(R.layout.activity_game6_playactivity);
         score = (TextView) findViewById(R.id.text1);
+        popUpWindow = new PopUpWindow(Game6.this,Game6.this);
         initGame();
 
     }//i methodo checkwinner
@@ -528,14 +532,15 @@ public class Game6 extends AppCompatActivity {
         score.setText("Score: " + sc);
         currentSession.setScore(sc);
         soundHandler.playOkSound();
-        Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+        popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
+
         initGame();
     }
 
     private void userLoosesTheTurn() {
         currentSession.setFails(currentSession.getFails() + 1);
         soundHandler.playWrongSound();
-        Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
+        popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
     }
 
     public void image1OnClick(View v) {

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -48,19 +50,18 @@ public class Game9 extends AppCompatActivity {
     private Session currentSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
+    private PopUpWindow popUpWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game9);
+
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         currentSession = new Session(LoginActivity.getUser().getUsername(), 9);
         currentSession.setTimeStart(System.currentTimeMillis() / 1000);
-
         soundHandler = new SoundHandler(getApplicationContext());
-
         initTest();
-
     }
 
     private void initTest() {
@@ -562,6 +563,7 @@ public class Game9 extends AppCompatActivity {
 
     public void playOnClick(View v) {
         this.setContentView(R.layout.activity_game9_play);
+        popUpWindow = new PopUpWindow(this,this);
         initGame();
 
     }
@@ -584,12 +586,41 @@ public class Game9 extends AppCompatActivity {
             startActivity(intent);
         }
     }
+    private void cleanBackgroundForPopUp() {
 
+        if (popUpWindow.getmPopupWindow().isShowing()) {
+
+            iimage1.setVisibility(View.INVISIBLE);
+            iimage2.setVisibility(View.INVISIBLE);
+            iimage3.setVisibility(View.INVISIBLE);
+            iimage4.setVisibility(View.INVISIBLE);
+            iimage5.setVisibility(View.INVISIBLE);
+            what_to_click.setVisibility(View.INVISIBLE);
+            popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+                @Override
+                public void onDismiss() {
+
+                    iimage1.setVisibility(View.VISIBLE);
+                    iimage2.setVisibility(View.VISIBLE);
+                    iimage3.setVisibility(View.VISIBLE);
+                    iimage4.setVisibility(View.VISIBLE);
+                    iimage5.setVisibility(View.VISIBLE);
+                    what_to_click.setVisibility(View.VISIBLE);
+
+                }
+            });
+        }
+
+
+    }
     public void checkOnClick(View v) {
         checkWin();
         checkEndGame();
         if (right_color.size() == clicked.size() && lose.size() == 0) {
-            Toast.makeText(this, "YOU FOUND THEM ALL", Toast.LENGTH_SHORT).show();
+
+            popUpWindow.showPopUp(getResources().getString(R.string.found_all));
+            cleanBackgroundForPopUp();
             //right_color.remove(b);
             sc++;
             score.setText("Score: " + sc);
@@ -609,7 +640,8 @@ public class Game9 extends AppCompatActivity {
             }
             position1 = 0;
             position = 0;
-            Toast.makeText(this, "YOU CLICKED MORE,TRY AGAIN", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.clicked_more));
+            cleanBackgroundForPopUp();
         } else if (clicked.size() < right_color.size()) {
             currentSession.setFails(currentSession.getFails() + 1);
             soundHandler.playWrongSound();
@@ -621,14 +653,16 @@ public class Game9 extends AppCompatActivity {
             }
             position1 = 0;
             position = 0;
-            Toast.makeText(this, "YOY MISSED SOMETHING, TRY AGAIN", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.missed_something));
+            cleanBackgroundForPopUp();
         } else if (clicked.size() > right_color.size()) {
             for (int i = 0; i < clicked.size(); i++) {
                 clicked.remove(i);
             }
             position1 = 0;
             position = 0;
-            Toast.makeText(this, "TRY AGAIN", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.try_again));
+            cleanBackgroundForPopUp();
             //Toast.makeText(this, String.valueOf(clicked.size()), Toast.LENGTH_SHORT).show();
             //Toast.makeText(this, String.valueOf(right_color.size()), Toast.LENGTH_SHORT).show();
         }

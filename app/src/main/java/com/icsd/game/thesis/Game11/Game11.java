@@ -15,6 +15,8 @@ import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.PopUpWindow;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import static android.graphics.Color.parseColor;
@@ -41,19 +43,14 @@ public class Game11 extends AppCompatActivity {
     private Session currentSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
+    private PopUpWindow popUpWindow;
+    private TextView tutorialText;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game11);
-        dbHandler = new DatabaseHandler(this.getApplicationContext());
-        currentSession = new Session(LoginActivity.getUser().getUsername(),11);
-        currentSession.setTimeStart(System.currentTimeMillis()/1000);
-        soundHandler = new SoundHandler(getApplicationContext());
-        correct = 0;
-        wrong = 0;
-        Pattern = 1;
-        PatterCount = 0;
-        initGui();
+        setContentView(R.layout.activity_tutorial);
+        tutorialText = findViewById(R.id.tutorialTextView);
+        tutorialText.setText(getResources().getString(R.string.tutorialGame11));
 
     }
     private void initGui(){
@@ -247,7 +244,7 @@ public class Game11 extends AppCompatActivity {
                     currentSession.setScore(correct);
                     soundHandler.playOkSound();
                     correctans.setText("Corrects: "+correct);
-                    Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+                    popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
                     checkEndGame();
                     corrects.removeAll(corrects);
                     clicked.removeAll(clicked);
@@ -267,7 +264,7 @@ public class Game11 extends AppCompatActivity {
                     currentSession.setFails(currentSession.getFails()+1);
                     soundHandler.playWrongSound();
                     wrongans.setText("Wrongs: "+wrong);
-                    Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
+                    popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
                     corrects.removeAll(corrects);
                     clicked.removeAll(clicked);
                     defaultButtons.removeCallbacks(timer);
@@ -289,7 +286,7 @@ public class Game11 extends AppCompatActivity {
                     correctans.setText("Corrects: "+correct);
                     correctans.setText("Corrects: "+correct);
                     checkEndGame();
-                    Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+                    popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
                     corrects.removeAll(corrects);
                     clicked.removeAll(clicked);
                     defaultButtons.removeCallbacks(timer);
@@ -306,7 +303,7 @@ public class Game11 extends AppCompatActivity {
                     currentSession.setFails(currentSession.getFails()+1);
                     soundHandler.playWrongSound();
                     wrongans.setText("Wrongs: "+wrong);
-                    Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
+                    popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
                     corrects.removeAll(corrects);
                     clicked.removeAll(clicked);
                     defaultButtons.removeCallbacks(timer);
@@ -333,7 +330,7 @@ public class Game11 extends AppCompatActivity {
                     correctans.setText("Corrects: "+correct);
                     correctans.setText("Corrects: " + correct);
                     checkEndGame();
-                    Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
+                    popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
                     corrects.removeAll(corrects);
                     clicked.removeAll(clicked);
                     defaultButtons.removeCallbacks(timer);
@@ -344,7 +341,7 @@ public class Game11 extends AppCompatActivity {
                     soundHandler.playWrongSound();
                     wrong++;
                     wrongans.setText("Wrongs: " + wrong);
-                    Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
+                    popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
                     corrects.removeAll(corrects);
                     clicked.removeAll(clicked);
                     defaultButtons.removeCallbacks(timer);
@@ -385,7 +382,23 @@ public class Game11 extends AppCompatActivity {
             unPress();
         }
     }
+    public void tutorialOkOnClick(View view) {
+     init();
+    }
+    private void init(){
+        setContentView(R.layout.activity_game11);
+        dbHandler = new DatabaseHandler(this.getApplicationContext());
+        currentSession = new Session(LoginActivity.getUser().getUsername(),11);
+        currentSession.setTimeStart(System.currentTimeMillis()/1000);
+        soundHandler = new SoundHandler(getApplicationContext());
+        popUpWindow = new PopUpWindow(this,this);
+        correct = 0;
+        wrong = 0;
+        Pattern = 1;
+        PatterCount = 0;
+        initGui();
 
+    }
     public void fiveonclick(View view) {
         buttoncolor = (ColorDrawable) five.getBackground();
         colorID = buttoncolor.getColor();

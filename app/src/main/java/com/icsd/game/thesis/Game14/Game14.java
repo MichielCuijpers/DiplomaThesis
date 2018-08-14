@@ -14,10 +14,10 @@ import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
 public class Game14 extends AppCompatActivity {
     private Button test_again;
     private Button start_game;
@@ -37,10 +37,12 @@ public class Game14 extends AppCompatActivity {
     private Session currentSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
+    private PopUpWindow  popUpWindow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game14);
+        popUpWindow = new PopUpWindow(this,this);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         currentSession = new Session(LoginActivity.getUser().getUsername(),14);
         currentSession.setTimeStart(System.currentTimeMillis()/1000);
@@ -191,7 +193,7 @@ public class Game14 extends AppCompatActivity {
 
     public void gameplayonClick2(View view) {
         if(objgameplay2.getText().equals("heavy")){
-            Toast.makeText(this, "That is Correct", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
             fdb.setText("Corrects : "+corrects);
             currentSession.setScore(corrects);
@@ -200,7 +202,7 @@ public class Game14 extends AppCompatActivity {
             initGamePlayScreen();
         }
         else{
-            Toast.makeText(this, "That is not Correct", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             incorrects++;
             fdb.setText("Corrects : "+corrects);
             currentSession.setFails(currentSession.getFails()+1);
@@ -211,7 +213,7 @@ public class Game14 extends AppCompatActivity {
 
     public void gameplayonClick1(View view) {
         if(objgameplay.getText().equals("heavy")){
-            Toast.makeText(this, "That is Correct", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
             fdb.setText("Corrects : "+corrects);
             currentSession.setScore(corrects);
@@ -220,7 +222,7 @@ public class Game14 extends AppCompatActivity {
             initGamePlayScreen();
         }
         else{
-            Toast.makeText(this, "That is not Correct", Toast.LENGTH_SHORT).show();
+            popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             incorrects++;
             fdb.setText("Corrects : "+corrects);
             currentSession.setFails(currentSession.getFails()+1);
