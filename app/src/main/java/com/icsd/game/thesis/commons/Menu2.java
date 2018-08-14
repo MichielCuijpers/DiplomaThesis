@@ -10,6 +10,7 @@ import com.icsd.game.thesis.Game14.Game14;
 import com.icsd.game.thesis.Game9.Game9;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.database.AndroidDatabaseManager;
+import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.game13.Game13;
 import com.icsd.game.thesis.game15.Game15;
 
@@ -52,6 +53,7 @@ public class Menu2 extends AppCompatActivity {
     }
 
     public void dbTest(View view) {
+        DatabaseHandler.exportDBtoCsv();
         Intent dbmanager = new Intent(this, AndroidDatabaseManager.class);
 
         startActivity(dbmanager);
