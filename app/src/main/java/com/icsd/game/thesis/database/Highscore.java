@@ -16,7 +16,7 @@ public class Highscore {
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                         + HIGHSCORE + " INTEGER, "
-                        + USER_ID + " INTEGER, "
+                        + USER_ID + " TEXT, "
                         + GAME_ID + " INTEGER, "
                         + "FOREIGN KEY(" + USER_ID + ") REFERENCES user(" + User.UserDBEntry._ID + "),"
                         + "FOREIGN KEY(" + GAME_ID + ") REFERENCES user(" + GameDBEntry._ID + ")) ";

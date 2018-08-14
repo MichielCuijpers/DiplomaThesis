@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.icsd.game.thesis">
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
+        android:name=".commons.AppLan"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
@@ -12,16 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
         <activity
-            android:name=".Menu"
+            android:name=".commons.Menu"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Menu2"
+            android:name=".commons.Menu2"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
             android:name=".game13.Game13"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
             android:name=".Game12.Game12"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
             android:name=".Game11.Game11"
@@ -31,69 +36,79 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".Game14.Game14"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
             android:name=".game8.Game8"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
             android:name=".game5.Game5"
+            android:configChanges="locale"
             android:screenOrientation="landscape" />
         <activity
             android:name=".game2.Game2Activity"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
             android:name=".Game6.Game6"
+            android:configChanges="locale"
             android:screenOrientation="landscape" />
         <activity
             android:name=".database.AndroidDatabaseManager"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".game4.Game4Activity"
+            android:configChanges="layoutDirection|locale"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".game1.Game1Activity"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Game9.Game9"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Game7.Game7"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".game15.Game15Menou"
-            android:screenOrientation="landscape" />
+
         <activity
             android:name=".game15.Game15"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
             android:name=".game3.Game3"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
+
         <activity
-            android:name=".game15.Game15MiniGame3"
-            android:screenOrientation="landscape" />
-        <activity android:name=".game15.Game15MiniGame4" />
-        <activity
-            android:name=".LoginActivity"
+            android:name=".commons.LoginActivity"
+            android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".pet.PopupWindow1"
-            android:label="@string/title_activity_popup_window1" />
+
         <activity
             android:name=".pet.Tooltips.Tooltips"
             android:label="@string/title_activity_tooltips" />
-        <activity android:name=".tutorial_activity"></activity>
+
+        <activity android:name=".pet.PetActivity" />
+
+        <activity android:name=".commons.SurveyActivity"></activity>
     </application>
 
 </manifest>

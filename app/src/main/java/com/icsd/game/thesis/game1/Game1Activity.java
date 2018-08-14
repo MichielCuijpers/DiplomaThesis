@@ -4,22 +4,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.icsd.game.thesis.LoginActivity;
-import com.icsd.game.thesis.Menu;
+import com.icsd.game.thesis.commons.LoginActivity;
+import com.icsd.game.thesis.commons.Menu;
 import com.icsd.game.thesis.R;
-import com.icsd.game.thesis.SoundHandler;
+import com.icsd.game.thesis.commons.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -50,7 +47,8 @@ public class Game1Activity extends AppCompatActivity {
     private SoundHandler soundHandler;
     private PopUpWindow popUpWindow;
     private ArrayList<Question> questionsFinal;
-    int tempFails;
+    private int tempFails;
+    private int categorieCorrects;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +56,15 @@ public class Game1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         init();
 
+    }
+
+    public void onPause() {
+        super.onPause();
+    }
+
+    public void onStop() {
+        super.onStop();
+        endGameKill();
     }
 
     private void init() {
@@ -73,6 +80,7 @@ public class Game1Activity extends AppCompatActivity {
         soundHandler = new SoundHandler(getApplicationContext());
         popUpWindow = new PopUpWindow(this, this);
         miniTurn = 0;
+
         questionsFinal = new ArrayList<>();
 
 
@@ -103,6 +111,7 @@ public class Game1Activity extends AppCompatActivity {
         this.questionView.setText(questionsFinal.get(0).getQuestion());
         correctAnswer = questionsFinal.get(0).getAnswers().get(0);
         Collections.shuffle(question.getAnswers());
+        Collections.shuffle(questionsFinal.get(0).getAnswers());
         this.answer1Button.setText(questionsFinal.get(0).getAnswers().get(0));
         this.answer2Button.setText(questionsFinal.get(0).getAnswers().get(1));
         this.answer3Button.setText(questionsFinal.get(0).getAnswers().get(2));
@@ -122,6 +131,9 @@ public class Game1Activity extends AppCompatActivity {
             if (questionsFinal.isEmpty()) {
                 setContentView(view1);
                 pickCategoryView.setText(getResources().getString(R.string.choose_another_category));
+                if (categorieCorrects == 4) {
+                    this.curSession.setScore(curSession.getScore() + 2);
+                }
                 return;
             }
             initTheQuestion();
@@ -129,6 +141,7 @@ public class Game1Activity extends AppCompatActivity {
 
         } else {
             soundHandler.playWrongSound();
+            curSession.setScore(curSession.getScore() - 1);
             if (tempFails == 2) {
                 popUpWindow.showPopUp("You cant try again.\n Try the next Question");
                 initTheQuestion();
@@ -142,14 +155,24 @@ public class Game1Activity extends AppCompatActivity {
         }
 
         if (curSession.getStage() == 24) {
+            endGameKill();
+        }
+    }
+
+    private void endGameKill() {
+        if (this.curSession != null) {
             dbHandler = new DatabaseHandler(this.getApplicationContext());
             curSession.setTimeEnd(System.currentTimeMillis() / 1000);
             dbHandler.addSessionToDB(this.curSession);
-            soundHandler.stopSound();
-            popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats1));
-            Intent c = new Intent(this, Menu.class);
-            startActivity(c);
         }
+
+        if (soundHandler != null) {
+            soundHandler.stopSound();
+        }
+
+        // popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats1));
+        Intent c = new Intent(this, Menu.class);
+        startActivity(c);
     }
 
     public static Context getMyCont() {
@@ -162,7 +185,7 @@ public class Game1Activity extends AppCompatActivity {
         initGuiComps();
         this.currentCategory = CATEGORY1;
         questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
-
+        categorieCorrects = 0;
         initTheQuestions();
         initTheQuestion();
     }
@@ -172,6 +195,7 @@ public class Game1Activity extends AppCompatActivity {
         initGuiComps();
         this.currentCategory = CATEGORY2;
         questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
+        categorieCorrects = 0;
         initTheQuestions();
         initTheQuestion();
     }
@@ -181,6 +205,7 @@ public class Game1Activity extends AppCompatActivity {
         initGuiComps();
         this.currentCategory = CATEGORY3;
         questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
+        categorieCorrects = 0;
         initTheQuestions();
         initTheQuestion();
 
@@ -191,6 +216,7 @@ public class Game1Activity extends AppCompatActivity {
         initGuiComps();
         this.currentCategory = CATEGORY4;
         questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
+        categorieCorrects = 0;
         initTheQuestions();
         initTheQuestion();
 
@@ -201,6 +227,7 @@ public class Game1Activity extends AppCompatActivity {
         initGuiComps();
         this.currentCategory = CATEGORY5;
         questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
+        categorieCorrects = 0;
         initTheQuestions();
         initTheQuestion();
 
@@ -210,6 +237,7 @@ public class Game1Activity extends AppCompatActivity {
         setContentView(view2);
         initGuiComps();
         this.currentCategory = CATEGORY6;
+        categorieCorrects = 0;
         questions = Question.QuestionDBEntry.takeQuestionFromDB(currentCategory);
         initTheQuestions();
         initTheQuestion();

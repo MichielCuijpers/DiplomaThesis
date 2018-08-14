@@ -7,18 +7,18 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
-import com.icsd.game.thesis.LoginActivity;
-import com.icsd.game.thesis.Menu;
+import com.icsd.game.thesis.commons.LoginActivity;
+import com.icsd.game.thesis.commons.Menu;
 import com.icsd.game.thesis.R;
-import com.icsd.game.thesis.SoundHandler;
+import com.icsd.game.thesis.commons.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.*;
@@ -46,19 +46,31 @@ public class Game2Activity extends AppCompatActivity {
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
     private PopUpWindow popUpWindow;
-
+    private TextView tutorialText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game2);
+        setContentView(R.layout.activity_tutorial);
+        tutorialText = findViewById(R.id.tutorialTextView);
+        tutorialText.setText(getResources().getString(R.string.tutorialGame1));
+
+        initGameplay();
         try {
             init();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    public void onPause() {
+        super.onPause();
 
+    }
+
+    public void onStop() {
+        super.onStop();
+        endGameKill();
     }
 
     private void init() throws IOException {
@@ -68,9 +80,7 @@ public class Game2Activity extends AppCompatActivity {
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         soundHandler = new SoundHandler(getApplicationContext());
         popUpWindow = new PopUpWindow(Game2Activity.this, Game2Activity.this);
-        initGameplay();
-        initGui();
-        initTurn();
+
 
     }
 
@@ -95,7 +105,7 @@ public class Game2Activity extends AppCompatActivity {
         countriesAsia.add(getResources().getString(R.string.India));
         countriesAsia.add(getResources().getString(R.string.Iran));
         countriesAsia.add(getResources().getString(R.string.Kazakhstan));
-        turn = 0;
+        turn = 1;
 
 
     }
@@ -110,12 +120,7 @@ public class Game2Activity extends AppCompatActivity {
 
     }
 
-
     private void initTurn() {
-        if (turn == 0) {
-
-            tutorialTurn();
-        }
 
         if (turn == 1 || turn == 2) {
             //Europe Turn
@@ -242,6 +247,42 @@ public class Game2Activity extends AppCompatActivity {
             case "Kazakhstan":
                 drawPinOnMap(400, 380, R.drawable.asia_map);
                 break;
+            case "Ιταλία":
+                drawPinOnMap(529, 790, R.drawable.europe_map);
+                break;
+            case "Ελλάδα":
+                drawPinOnMap(800, 900, R.drawable.europe_map);
+                break;
+            case "Γαλλία":
+                drawPinOnMap(300, 700, R.drawable.europe_map);
+                break;
+            case "Φινλανδία":
+                drawPinOnMap(700, 200, R.drawable.europe_map);
+                break;
+            case "Νιγηρια":
+                drawPinOnMap(600, 680, R.drawable.africa_map);
+                break;
+            case "Αίγυπτος":
+                drawPinOnMap(1050, 300, R.drawable.africa_map);
+                break;
+            case "Μαρόκο":
+                drawPinOnMap(500, 200, R.drawable.africa_map);
+                break;
+            case "Αλγερία":
+                drawPinOnMap(300, 150, R.drawable.africa_map);
+                break;
+            case "Κίνα":
+                drawPinOnMap(500, 500, R.drawable.asia_map);
+                break;
+            case "Ινδία":
+                drawPinOnMap(450, 650, R.drawable.asia_map);
+                break;
+            case "Ιράν":
+                drawPinOnMap(230, 520, R.drawable.asia_map);
+                break;
+            case "Καζακστάν":
+                drawPinOnMap(400, 380, R.drawable.asia_map);
+                break;
         }
 
 
@@ -270,18 +311,13 @@ public class Game2Activity extends AppCompatActivity {
 
         if (answer.equals(currectCorrect)) {
             soundHandler.playOkSound();
-            popUpWindow.getmPopupWindow().dismiss();
+//            popUpWindow.getmPopupWindow().dismiss();
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer2));
             cleanBackgroundForPopUp();
 
             turn++;
             if (this.turn == 7) {
-                soundHandler.stopSound();
-                curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-                dbHandler.addSessionToDB(this.curSession);
-                popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats_countries));
-                Intent c = new Intent(this, Menu.class);
-                startActivity(c);
+                endGameKill();
             }
             countriesDone.add(currectCorrect);
             curSession.setScore(turn);
@@ -292,6 +328,8 @@ public class Game2Activity extends AppCompatActivity {
 
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             cleanBackgroundForPopUp();
+            curSession.setScore(curSession.getScore() - 1);
+
             curSession.setFails(curSession.getFails() + 1);
             //initTurn();
 
@@ -299,27 +337,20 @@ public class Game2Activity extends AppCompatActivity {
 
     }
 
-    private void tutorialTurn() {
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
+    private void endGameKill() {
+        if (soundHandler != null) {
+            soundHandler.stopSound();
+        }
+        if (curSession != null) {
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            dbHandler.addSessionToDB(this.curSession);
+        }
 
-                mapImageView.setVisibility(View.INVISIBLE);
-                popUpWindow.showTutorial("Please Regogize The Countries With tha RED Dot");
-                turn++;
-                popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
 
-                    @Override
-                    public void onDismiss() {
-
-                        mapImageView.setVisibility(View.VISIBLE);
-                        initTurn();
-                    }
-                });
-            }
-        }, 4000);
+        Intent c = new Intent(this, Menu.class);
+        startActivity(c);
     }
+
 
     //OnClicks
     public void choise1OnClick(View view) {
@@ -338,5 +369,13 @@ public class Game2Activity extends AppCompatActivity {
         check((String) button4.getText());
     }
 
+    public void tutorialOkOnClick(View view) {
+        setContentView(R.layout.activity_game2);
 
+        initGui();
+
+        initTurn();
+
+
+    }
 }

@@ -7,15 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.icsd.game.thesis.LoginActivity;
-import com.icsd.game.thesis.Menu2;
+import com.icsd.game.thesis.commons.LoginActivity;
+import com.icsd.game.thesis.commons.Menu2;
 import com.icsd.game.thesis.R;
-import com.icsd.game.thesis.SoundHandler;
+import com.icsd.game.thesis.commons.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -41,6 +40,7 @@ public class Game15 extends AppCompatActivity {
     private Session currentSession;
     private SoundHandler soundHandler;
     private ArrayList<Integer> tempForRNG;
+    private int correctsInTurn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +55,16 @@ public class Game15 extends AppCompatActivity {
         initGameplay();
         p = new PopUpWindow(this, this);
         gameplay(this.turn);
+    }
+
+    public void onPause() {
+        super.onPause();
+
+    }
+
+    public void onStop() {
+        super.onStop();
+        endGame();
     }
 
     private void initGui() {
@@ -116,6 +126,7 @@ public class Game15 extends AppCompatActivity {
 
         switch (kindOfTurn) {
             case 4:
+                correctsInTurn = 0;
                 button3.setVisibility(View.INVISIBLE);
                 button4.setVisibility(View.INVISIBLE);
                 correctAnswer = number1 * number2;
@@ -125,6 +136,7 @@ public class Game15 extends AppCompatActivity {
 
                 break;
             case 1:
+                correctsInTurn = 0;
                 button3.setVisibility(View.VISIBLE);
                 button4.setVisibility(View.VISIBLE);
                 correctAnswer = number1 + number2;
@@ -134,6 +146,7 @@ public class Game15 extends AppCompatActivity {
 
                 break;
             case 2:
+                correctsInTurn = 0;
                 button3.setVisibility(View.VISIBLE);
                 button4.setVisibility(View.VISIBLE);
                 correctAnswer = number1 - number2;
@@ -143,6 +156,7 @@ public class Game15 extends AppCompatActivity {
 
                 break;
             case 3:
+                correctsInTurn = 0;
                 button1.setText("<");
                 button2.setText(">");
 
@@ -182,12 +196,15 @@ public class Game15 extends AppCompatActivity {
     }
 
     private void endGame() {
-        soundHandler.stopSound();
-        p.getmPopupWindow().dismiss();
-        p.showPopUp(getResources().getString(R.string.end_game_congrats2));
-        currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
-        DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
-        dbHandler.addSessionToDB(this.currentSession);
+        if (soundHandler != null) {
+            soundHandler.stopSound();
+        }
+        if (currentSession != null) {
+            currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
+            dbHandler.addSessionToDB(this.currentSession);
+        }
+
         Intent c = new Intent(this, Menu2.class);
         startActivity(c);
     }
@@ -196,8 +213,11 @@ public class Game15 extends AppCompatActivity {
     private void check2(Button button) {
         if (button.getText().toString().equals(correctAnswerStr)) {
             soundHandler.playOkSound();
+            currentSession.setScore(currentSession.getScore() + 1);
+            correctsInTurn++;
             p.showPopUp(getResources().getString(R.string.correct_answer2));
             if (tempTurn < 4) {
+                currentSession.setScore(currentSession.getScore() + 2);
                 gameplay(this.turn);
             } else {
                 endGame();
@@ -206,6 +226,7 @@ public class Game15 extends AppCompatActivity {
 
             if (tempTurn < 4) {
                 soundHandler.playWrongSound();
+                currentSession.setScore(currentSession.getScore() - 1);
                 p.showPopUp(getResources().getString(R.string.wrong_answer2));
                 gameplay(this.turn);
             } else {
@@ -220,8 +241,13 @@ public class Game15 extends AppCompatActivity {
 
         if (correctAnswer == Integer.parseInt((String) button.getText())) {
             soundHandler.playOkSound();
+            currentSession.setScore(currentSession.getScore() + 1);
+            correctsInTurn++;
             p.showPopUp(getResources().getString(R.string.correct_answer2));
             if (tempTurn < 4) {
+                if (correctsInTurn == 4) {
+                    currentSession.setScore(currentSession.getScore() + 2);
+                }
                 gameplay(this.turn);
             } else {
                 this.turn++;
@@ -232,6 +258,7 @@ public class Game15 extends AppCompatActivity {
 
         } else {
             soundHandler.playWrongSound();
+            currentSession.setScore(currentSession.getScore() - 1);
             p.showPopUp(getResources().getString(R.string.wrong_answer2));
             if (tempTurn < 4) {
                 gameplay(this.turn);

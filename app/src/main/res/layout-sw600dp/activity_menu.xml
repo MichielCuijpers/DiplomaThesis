@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#c7a96c"
-    tools:context="com.icsd.game.thesis.Menu">
+    tools:context="com.icsd.game.thesis.commons.Menu">
 
 
     <Button
@@ -30,7 +30,7 @@
         android:id="@+id/button11"
         android:layout_width="174dp"
         android:layout_height="174dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginEnd="80dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="game2"
         android:text="Game2"
@@ -44,7 +44,7 @@
         android:id="@+id/button12"
         android:layout_width="174dp"
         android:layout_height="174dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginEnd="80dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="game3"
         android:text="Game3"
@@ -58,7 +58,7 @@
         android:id="@+id/button13"
         android:layout_width="174dp"
         android:layout_height="174dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="48dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="game4"
         android:text="Game4"
@@ -109,8 +109,8 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="56dp"
         android:background="@android:color/holo_orange_dark"
-        android:text="Game7"
         android:onClick="Game7"
+        android:text="Game7"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -7,18 +7,51 @@
     android:layout_height="match_parent"
     android:background="#c7a96c">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="866dp"
-        android:layout_height="293dp"
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="764dp"
+        android:layout_height="67dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/choose_lang"
+        android:textColor="@android:color/background_dark"
+        android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/splash_welcome" />
+        app:layout_constraintVertical_bias="0.013" />
+
+    <Button
+        android:id="@+id/button52"
+        android:layout_width="492dp"
+        android:layout_height="316dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/usa_flag"
+        android:onClick="chooseEnglish"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button53"
+        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
+
+    <Button
+        android:id="@+id/button53"
+        android:layout_width="492dp"
+        android:layout_height="316dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/greek_flag"
+        android:onClick="chooseGreek"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.471" />
 </android.support.constraint.ConstraintLayout>

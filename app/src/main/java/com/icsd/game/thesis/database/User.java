@@ -29,6 +29,7 @@ public class User {
                         User.UserDBEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                         + User.UserDBEntry.NICKNAME + " TEXT)";
 
+
     }
 
 }

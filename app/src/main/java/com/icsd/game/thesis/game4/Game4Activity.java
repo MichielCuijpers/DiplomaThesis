@@ -5,20 +5,19 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-import com.icsd.game.thesis.LoginActivity;
-import com.icsd.game.thesis.Menu;
+import com.icsd.game.thesis.commons.LoginActivity;
+import com.icsd.game.thesis.commons.Menu;
 import com.icsd.game.thesis.R;
-import com.icsd.game.thesis.SoundHandler;
+import com.icsd.game.thesis.commons.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -29,7 +28,6 @@ public class Game4Activity extends AppCompatActivity {
     private ArrayList<String> wordsListTurn1;
     private ArrayList<String> wordsListTurn2;
     private ArrayList<String> wordsListTurn3;
-
     private ArrayList<Button> buttonsList;
     private Boolean isSecondButton;
     private String previewsButtonText;
@@ -38,26 +36,36 @@ public class Game4Activity extends AppCompatActivity {
     private int globalTurn;
     private int secondaryTurn;
     private static Context context;
-
-
     private Session curSession;
     private SoundHandler soundHandler;
     private PopUpWindow p;
+    private int moves;
+    private TextView tutorialText;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game4protype);
-        soundHandler = new SoundHandler(getApplicationContext());
+
+        setContentView(R.layout.activity_tutorial);
         context = getApplicationContext();
-        initGameplay();
-        initGui();
-        p = new PopUpWindow(this, this);
-        gameplay(globalTurn);
+
+        tutorialText = findViewById(R.id.tutorialTextView);
+        tutorialText.setText(getResources().getString(R.string.tutorialGame4));
+        soundHandler = new SoundHandler(getApplicationContext());
 
 
+    }
+
+    public void onPause() {
+        super.onPause();
+
+    }
+
+    public void onStop() {
+        super.onStop();
+        endGame();
     }
 
     private void initGameplay() {
@@ -161,7 +169,7 @@ public class Game4Activity extends AppCompatActivity {
         buttonsList.add(button10);
         buttonsList.add(button11);
         buttonsList.add(button12);
-       clearGui();
+        clearGui();
 
     }
 
@@ -201,18 +209,29 @@ public class Game4Activity extends AppCompatActivity {
             previewsButton.setText(b.getText().toString());
             b.setText(previewsButtonText);
             isSecondButton = false;
+            moves++;
         }
 
 
     }
 
     private void endGame() {
-        soundHandler.stopSound();
-        p.getmPopupWindow().dismiss();
-        p.showPopUp(getResources().getString(R.string.end_game_congrats2));
-        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-        DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
-        dbHandler.addSessionToDB(this.curSession);
+        if (soundHandler != null) {
+            soundHandler.stopSound();
+        }
+
+//        p.getmPopupWindow().dismiss();
+        if (curSession != null) {
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            if (moves != 0) {
+                curSession.setScore(curSession.getScore() / moves);
+
+            }
+
+            DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
+            dbHandler.addSessionToDB(this.curSession);
+        }
+
         Intent c = new Intent(this, Menu.class);
         startActivity(c);
     }
@@ -307,6 +326,16 @@ public class Game4Activity extends AppCompatActivity {
             this.curSession.setFails(curSession.getFails() + 1);
 
         }
+    }
+
+
+    public void tutorialOkOnClick(View view) {
+        setContentView(R.layout.game4protype);
+        initGameplay();
+        initGui();
+        p = new PopUpWindow(this, this);
+        gameplay(globalTurn);
+
     }
 
 

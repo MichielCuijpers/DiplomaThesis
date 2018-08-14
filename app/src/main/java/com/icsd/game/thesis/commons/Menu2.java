@@ -1,4 +1,4 @@
-package com.icsd.game.thesis;
+package com.icsd.game.thesis.commons;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +10,13 @@ import com.icsd.game.thesis.Game11.Game11;
 import com.icsd.game.thesis.Game12.Game12;
 import com.icsd.game.thesis.Game14.Game14;
 import com.icsd.game.thesis.Game9.Game9;
+import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.database.AndroidDatabaseManager;
+import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.game13.Game13;
 import com.icsd.game.thesis.game15.Game15;
 
-import com.icsd.game.thesis.pet.Tooltips.Tooltips;
+import com.icsd.game.thesis.pet.PetActivity;
 
 
 public class Menu2 extends AppCompatActivity {
@@ -53,6 +55,7 @@ public class Menu2 extends AppCompatActivity {
     }
 
     public void dbTest(View view) {
+        DatabaseHandler.exportDBtoCsv();
         Intent dbmanager = new Intent(this, AndroidDatabaseManager.class);
 
         startActivity(dbmanager);
@@ -72,7 +75,8 @@ public class Menu2 extends AppCompatActivity {
     }
 
     public void game16(View view) {
-        Intent c = new Intent(this, Tooltips.class);
+        // Intent c = new Intent(this, Tooltips.class);
+        Intent c = new Intent(this, PetActivity.class);
         startActivity(c);
     }
 }

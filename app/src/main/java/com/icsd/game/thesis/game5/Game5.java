@@ -8,11 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
-import com.icsd.game.thesis.LoginActivity;
-import com.icsd.game.thesis.Menu;
+import com.icsd.game.thesis.commons.LoginActivity;
+import com.icsd.game.thesis.commons.Menu;
 import com.icsd.game.thesis.R;
-import com.icsd.game.thesis.SoundHandler;
+import com.icsd.game.thesis.commons.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
@@ -35,6 +36,7 @@ public class Game5 extends AppCompatActivity {
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
     private PopUpWindow popUpWindow;
+    private TextView tutorialText;
 
     public static Context getMyCont() {
         return myCont;
@@ -43,18 +45,23 @@ public class Game5 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game5_prototype);
+        setContentView(R.layout.activity_tutorial);
+        tutorialText = findViewById(R.id.tutorialTextView);
+        tutorialText.setText(getResources().getString(R.string.tutorialGame5));
+    }
 
-
-        try {
-            init();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        play(turn);
+    public void onPause() {
+        super.onPause();
 
 
     }
+
+    public void onStop() {
+        super.onStop();
+        endGameKill();
+
+    }
+
 
     private void init() throws IOException {
         myCont = this.getApplicationContext();
@@ -96,16 +103,24 @@ public class Game5 extends AppCompatActivity {
 
     }
 
-    private void play(int turn) {
-        if (endGame()) {
-
-            popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats1));
-            cleanBackgroundForPopUp();
+    private void endGameKill() {
+        if (soundHandler != null) {
+            soundHandler.stopSound();
+        }
+        if (curSession != null) {
             curSession.setTimeEnd(System.currentTimeMillis());
             curSession.setScore(this.turn);
             dbHandler.addSessionToDB(this.curSession);
-            Intent c = new Intent(this, Menu.class);
-            startActivity(c);
+        }
+
+        Intent c = new Intent(this, Menu.class);
+        startActivity(c);
+    }
+
+    private void play(int turn) {
+        if (endGame()) {
+            endGameKill();
+
         }
         correct = objectTList.get(turn).getAnswers().get(0);
         Collections.shuffle(objectTList.get(turn).getAnswers());
@@ -133,10 +148,11 @@ public class Game5 extends AppCompatActivity {
 
         } else {
             soundHandler.playWrongSound();
+
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer2));
             cleanBackgroundForPopUp();
             curSession.setFails(curSession.getFails() + 1);
-
+            curSession.setScore(curSession.getScore() - 2);
         }
 
     }
@@ -163,5 +179,18 @@ public class Game5 extends AppCompatActivity {
         check((Button) view);
     }
 
+    public void tutorialOkOnClick(View view) {
+        setContentView(R.layout.game5_prototype);
+
+
+        try {
+            init();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        play(turn);
+
+
+    }
 
 }

@@ -10,10 +10,10 @@ import android.view.View;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.icsd.game.thesis.LoginActivity;
-import com.icsd.game.thesis.Menu;
+import com.icsd.game.thesis.commons.LoginActivity;
+import com.icsd.game.thesis.commons.Menu;
 import com.icsd.game.thesis.R;
-import com.icsd.game.thesis.SoundHandler;
+import com.icsd.game.thesis.commons.SoundHandler;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
@@ -38,13 +38,25 @@ public class Game8 extends AppCompatActivity {
     private SoundHandler soundHandler;
     private int turn;
     private int miniTurn;
+    private TextView tutorialText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game8);
-        init();
-        gameplay();
+        setContentView(R.layout.activity_tutorial);
+        tutorialText = findViewById(R.id.tutorialTextView);
+        tutorialText.setText(getResources().getString(R.string.tutorialGame8));
+
+    }
+
+    public void onPause() {
+        super.onPause();
+
+    }
+
+    public void onStop() {
+        super.onStop();
+        endGame();
 
     }
 
@@ -209,7 +221,7 @@ public class Game8 extends AppCompatActivity {
                 turn2and3();
                 break;
             case 4:
-                EndGame();
+                endGame();
                 break;
         }
 
@@ -228,10 +240,10 @@ public class Game8 extends AppCompatActivity {
         someBallsToRed();
         if (miniTurn == 1) {
             hideBalls();
-            if(turn==2){
-                popUpWindow.showPopUp("Now,Dont touch the RED balls");
-            }else{
-                popUpWindow.showPopUp("Now,Dont touch the GREEN balls");
+            if (turn == 2) {
+                popUpWindow.showPopUp(getResources().getString(R.string.dont_touch_red));
+            } else {
+                popUpWindow.showPopUp(getResources().getString(R.string.dont_touch_red));
             }
 
             popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {
@@ -267,7 +279,7 @@ public class Game8 extends AppCompatActivity {
         balls.get(r.nextInt(6)).setColor(Color.RED);
         balls.get(r.nextInt(6)).setColor(Color.RED);
         balls.get(r.nextInt(6)).setColor(Color.RED);
-        if(turn==3){
+        if (turn == 3) {
             balls.get(r.nextInt(6)).setColor(Color.RED);
             balls.get(r.nextInt(6)).setColor(Color.RED);
         }
@@ -279,14 +291,23 @@ public class Game8 extends AppCompatActivity {
         }
     }
 
-    private void EndGame() {
+    private void endGame() {
+        if (soundHandler != null) {
+            soundHandler.stopSound();
+        }
+        if (this.curSession != null) {
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            dbHandler.addSessionToDB(this.curSession);
+            dbHandler.close();
+        }
 
-        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-        dbHandler.addSessionToDB(this.curSession);
-        handler1.removeCallbacks(null);
-        handler2.removeCallbacks(null);
-        dbHandler.close();
-        popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
+        if (handler1 != null && handler2 != null) {
+            handler1.removeCallbacks(null);
+            handler2.removeCallbacks(null);
+
+        }
+
+
         Intent c = new Intent(this, Menu.class);
         startActivity(c);
 
@@ -298,13 +319,13 @@ public class Game8 extends AppCompatActivity {
             if (ball.getPaint().getColor() == Color.GREEN) {
                 soundHandler.playOkSoundPool();
                 score++;
-                scoreView.setText("Score:" + score);
+                scoreView.setText(getResources().getString(R.string.score) + ": " + score);
                 this.curSession.setScore(this.score);
 
             } else {
                 soundHandler.playWrongPool();
                 score--;
-                scoreView.setText("Score:" + score);
+                scoreView.setText(getResources().getString(R.string.score) + ": " + score);
                 this.curSession.setScore(this.score);
 
             }
@@ -313,13 +334,13 @@ public class Game8 extends AppCompatActivity {
             if (ball.getPaint().getColor() == Color.GREEN) {
                 soundHandler.playWrongSound();
                 score--;
-                scoreView.setText("Score:" + score);
+                scoreView.setText(getResources().getString(R.string.score) + ": " + score);
                 this.curSession.setScore(this.score);
 
             } else {
                 soundHandler.playOkSound();
                 score++;
-                scoreView.setText("Score:" + score);
+                scoreView.setText(getResources().getString(R.string.score) + ": " + score);
                 this.curSession.setScore(this.score);
 
             }
@@ -375,6 +396,14 @@ public class Game8 extends AppCompatActivity {
     public void ball4OnClick(View view) {
         view.setVisibility(View.INVISIBLE);
         updateScore((BallView) view);
+
+    }
+
+    public void tutorialOkOnClick(View view) {
+        setContentView(R.layout.activity_game8);
+        init();
+        gameplay();
+
 
     }
 

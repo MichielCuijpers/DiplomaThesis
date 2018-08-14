@@ -1,11 +1,9 @@
-package com.icsd.game.thesis;
+package com.icsd.game.thesis.commons;
 
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
-
-import java.io.IOException;
 
 public class SoundHandler {
     private MediaPlayer sound;

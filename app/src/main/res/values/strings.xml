@@ -2,14 +2,14 @@
     <string name="app_name">Thesis</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="game12">Game12</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="PopupWindow1">PopupWindow1</string>
-    <string name="title_activity_popup_window1">PopupWindow1</string>
-    <string name="title_activity_tooltips">Tooltips</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="title_activity_main" translatable="false">MainActivity</string>
+    <string name="game12" translatable="false">Game12</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
+    <string name="action_settings" translatable="false">Settings</string>
+    <string name="PopupWindow1" translatable="false">PopupWindow1</string>
+    <string name="title_activity_popup_window1" translatable="false">PopupWindow1</string>
+    <string name="title_activity_tooltips" translatable="false">Tooltips</string>
 
     <!-- STRINBG FOR POPUPS-->
     <string name="correct_answer1">Congratulations. Your answer is correct!!</string>
@@ -19,39 +19,257 @@
     <string name="end_game_congrats1">Congrats!! You found all answers!! </string>
     <string name="end_game_congrats2">Congratulations. You WON !! </string>
     <string name="end_game_congrats_countries">Congrats!! You found all  countries!! </string>
-    <string name="new_turn">New Turn Begins</string>
-    <string name="choose_another_category">Please choose another category</string>
 
     <!-- STRINBG FOR LAYOUTS-->
 
     <!-- GLOBAL-->
     <string name="check">CHECK</string>
+    <string name="tutorial">TUTORIAL</string>
+    <string name="ok">OK</string>
+    <string name="choose_lang">Παρακαλώ επέλεξε Γλώσσα</string>
+    <string name="give_username">Please give username</string>
+
 
     <!-- game1-->
-    <string name="question">Question</string>
+    <string name="question" translatable="false">Question</string>
     <string name="selest_category">Select Category</string>
-    <string name="category1">Geography/Planet</string>
+    <string name="category1">geography/Planet</string>
     <string name="category2">History</string>
     <string name="category3">art</string>
     <string name="category4">Food</string>
     <string name="category5">directory</string>
     <string name="category6">General Knowlgment</string>
 
+    <string name="q1">what is the world\'s longest river?</string>
+    <string name="an1q1">amazon</string>
+    <string name="an2q1">mississipi</string>
+    <string name="an3q1">niger</string>
+    <string name="an4q1">amur-argun</string>
+    <string name="q2">What is Earth\'s largest continent?</string>
+    <string name="an1q2">asia</string>
+    <string name="an2q2">europe</string>
+    <string name="an3q2">antartica</string>
+    <string name="an4q2">aftica</string>
+    <string name="q3">"In what country can you visit Machu Picchu?</string>
+    <string name="an1q3">peru</string>
+    <string name="an2q3">chile</string>
+    <string name="an3q3">bolivia</string>
+    <string name="an4q3">columbia</string>
+    <string name="q4">What is the oldest city in the world?</string>
+    <string name="an1q4">damascus</string>
+    <string name="an2q4">athens</string>
+    <string name="an3q4">jericho</string>
+    <string name="an4q4">jerisalim</string>
+    <string name="q5">When did the World War II begin?</string>
+    <string name="an1q5" translatable="false">1939</string>
+    <string name="an2q5" translatable="false">1914</string>
+    <string name="an3q5" translatable="false">1945</string>
+    <string name="an4q5" translatable="false">1950</string>
+    <string name="q6"> What was the last battle of the Napoleonic Wars?</string>
+    <string name="an1q6">wavre</string>
+    <string name="an2q6">nile</string>
+    <string name="an3q6">waterloo</string>
+    <string name="an4q6">trafalgar</string>
+    <string name="q7">What was the first city to reach a population of one million?</string>
+    <string name="an1q7">rome</string>
+    <string name="an2q7">new york</string>
+    <string name="an3q7">london</string>
+    <string name="an4q7">beijing</string>
+    <string name="q8">Which of the following empires had no written language?</string>
+    <string name="an1q8">incan</string>
+    <string name="an2q8">aztec</string>
+    <string name="an3q8">roman</string>
+    <string name="an4q8">tang</string>
+    <string name="q9">What is the painting La Gioconda more usually known as?"</string>
+    <string name="an1q9">mona lisa</string>
+    <string name="an2q9">picaso\'s wife</string>
+    <string name="an3q9">lisa</string>
+    <string name="an4q9">enigmatic woman</string>
+    <string name="q10">Who is credited as the designer of the many statues which decorated the Parthenon?</string>
+    <string name="an1q10">phidias</string>
+    <string name="an2q10">praxiteles</string>
+    <string name="an3q10">scopas</string>
+    <string name="an4q10">hesiod</string>
+    <string name="q11">How many paintings did Vincent Van Gogh sell during his lifetime?</string>
+    <string name="an1q11" translatable="false">1</string>
+    <string name="an2q11" translatable="false">27</string>
+    <string name="an3q11" translatable="false">3</string>
+    <string name="an4q11" translatable="false">193</string>
+    <string name="q12">Which color is vermillion</string>
+    <string name="an1q12">red</string>
+    <string name="an2q12">green</string>
+    <string name="an3q12">yellow</string>
+    <string name="an4q12">blue</string>
+    <string name="q13">What is the national dish of Italy?</string>
+    <string name="an1q13">pasta</string>
+    <string name="an2q13">mousaka</string>
+    <string name="an3q13">burger</string>
+    <string name="an4q13">fried potatoes</string>
+    <string name="q14">What food is the leading source of salmonella poisoning?</string>
+    <string name="an1q14">chicken</string>
+    <string name="an2q14">beef</string>
+    <string name="an3q14">pork</string>
+    <string name="an4q14">fish</string>
+    <string name="q15">What is the most popular spice in the world?</string>
+    <string name="an1q15">pepper</string>
+    <string name="an2q15">salt</string>
+    <string name="an3q15">safran</string>
+    <string name="an4q15">paprika</string>
+    <string name="q16">Which European country is credited for the invention of hot dogs?</string>
+    <string name="an1q16">germany</string>
+    <string name="an2q16">austria</string>
+    <string name="an3q16">finland</string>
+    <string name="an4q16">belgium</string>
+    <string name="q17">Which of these words is the antonym of \'old\'?</string>
+    <string name="an1q17">new</string>
+    <string name="an2q17">brillant</string>
+    <string name="an3q17">raw</string>
+    <string name="an4q17">ancient</string>
+    <string name="q18">Thalassophobia is a fear of what?</string>
+    <string name="an1q18">the sea</string>
+    <string name="an2q18">the mountains</string>
+    <string name="an3q18">the crowd</string>
+    <string name="an4q18">the dogs</string>
+    <string name="q20">Which of the following is the meaning of "tutti frutti"?</string>
+    <string name="an1q20">Flavor of many fruits combined</string>
+    <string name="an2q20">Ice-cream containing small of fresh fruit</string>
+    <string name="an3q20">A preserve of chopped mixed fruits</string>
+    <string name="an4q20">All of these meanings</string>
+    <string name="q21">Who invented airplanes?</string>
+    <string name="an1q21">Wright brothers</string>
+    <string name="an2q21">Isaac Newton</string>
+    <string name="an3q21">Benjamin Franklin</string>
+    <string name="an4q21">Patric Alexander</string>
+    <string name="q22">What is the unit of currency in Russia?</string>
+    <string name="an1q22">ruble</string>
+    <string name="an2q22">lira</string>
+    <string name="an3q22">euro</string>
+    <string name="an4q22">lev</string>
+    <string name="q23">Which planet is nearest the sun?</string>
+    <string name="an1q23">mercury</string>
+    <string name="an2q23">poseidon</string>
+    <string name="an3q23">jupiter</string>
+    <string name="an4q23">uranus</string>
+    <string name="q24">Who said, “I think, therefore I am”?</string>
+    <string name="an1q24">descartes</string>
+    <string name="an2q24">plato</string>
+    <string name="an3q24">aristotle</string>
+    <string name="an4q24">isaac newton</string>
+
+
     <!-- game2-->
     <string name="Italy">Italy</string>
     <string name="Greece">Greece</string>
     <string name="France">France</string>
     <string name="Finland">Finland</string>
-
     <string name="Nigeria">Nigeria</string>
     <string name="Egypt">Egypt</string>
     <string name="Morocco">Morocco</string>
     <string name="Algeria">Algeria</string>
-
     <string name="China">China</string>
     <string name="India">India</string>
     <string name="Kazakhstan">Kazakhstan</string>
     <string name="Iran">Iran</string>
+    <string name="tutorialGame1">You must find the city with the red spot</string>
+    <!-- game3-->
+    <string name="tutorialGame3">Please put the numbers from the smaller to the bigger</string>
+    <!-- game4-->
+    <string name="tutorialGame4">Put the letters in the right order to make words</string>
+    <string name="happy">happy</string>
+    <string name="action">action</string>
+    <string name="desk">desk</string>
+    <string name="jazz">jazz</string>
+    <string name="quiz">quiz</string>
+    <string name="computer">computer</string>
+    <string name="chair">chair</string>
+    <string name="benefit">benefit</string>
+    <string name="science">science</string>
+    <string name="secretary">secretary</string>
+    <string name="security">security</string>
+    <string name="zero">zero</string>
+    <!-- game5-->
+    <string name="tutorialGame5">Find the usage of every object shown</string>
+
+    <string name="toaster" translatable="false">toaster</string>
+    <string name="make_toasts">make toasts</string>
+    <string name="roast">roast meat</string>
+    <string name="make_tea">make tea</string>
+    <string name="call">call a friend</string>
+
+    <string name="hummer" translatable="false">hummer</string>
+    <string name="smash">smash a rock</string>
+    <string name="screw">screw</string>
+    <string name="openB">open a beer</string>
+    <string name="opeLap">open a laptop</string>
+
+    <string name="glass" translatable="false">glass</string>
+    <string name="drink">drink water</string>
+    <string name="eat">eat food</string>
+    <string name="goldfish">goldfish house</string>
+    <string name="pot">pot for flowers</string>
+
+    <string name="fireex" translatable="false">fireex</string>
+    <string name="exti">extinguish fire</string>
+    <string name="make_fire">make fire</string>
+    <string name="blow">blow up leafs</string>
+    <string name="smash2">smash rocks</string>
+
+    <string name="usb_game5" translatable="false">usb_game5</string>
+    <string name="save">save files</string>
+    <string name="open_b">open a beer</string>
+    <string name="make_f">make fire</string>
+    <string name="open_door">open a door</string>
+
+    <string name="tablet_game5" translatable="false">tablet_game5</string>
+    <string name="tablet">play games</string>
+    <string name="photo_frame">frame a photo</string>
+    <string name="placemats">place a glass</string>
+    <string name="book">its a book</string>
+
+
+    <!-- game8-->
+    <string name="tutorialGame8">You must touch the right balls </string>
+    <string name="dont_touch_red">Now,Dont touch the RED balls</string>
+    <string name="dont_touch_green">Now,Dont touch the GREEN balls</string>
+    <string name="score" translatable="false">score</string>
+    <!-- game15-->
+
+    <!-- game13-->
+    <string name="tutorialGame13">You must repeat the piano pattern </string>
+
+    <!-- game15-->
+
+
+    <!--GameDBEntry -->
+    <!--Description-->
+    <string name="game1Des" translatable="false">Trivia Question in categories</string>
+    <string name="game2Des" translatable="false">Find the city in maps</string>
+    <string name="game3Des" translatable="false">Put number in right order</string>
+    <string name="game4Des" translatable="false">Put the letters in right order to</string>
+    <string name="game5Des" translatable="false">Recognize usage of Objects </string>
+    <string name="game6Des" translatable="false">Detect the object tha dont belongs in the group</string>
+    <string name="game7Des" translatable="false">Touch the right object in the room </string>
+    <string name="game8Des" translatable="false">Touch the correct Balls that falling down</string>
+    <string name="game9Des" translatable="false">Touch The object with the rigth color in group of objects </string>
+    <string name="game10Des" translatable="false">Find the posotion of the pair of objects in rid </string>
+    <string name="game11Des" translatable="false">Remember the pattern in the grid </string>
+    <string name="game12Des" translatable="false">Rock Pappers Scissors </string>
+    <string name="game13Des" translatable="false">repeat the piano loop</string>
+    <string name="game14Des" translatable="false">Choose the heavier item></string>
+    <string name="game15Des" translatable="false">Do the maths</string>
+    <!-- Categories -->
+    <string name="categoryG1" translatable="false">Memory</string>
+    <string name="categoryG2" translatable="false">Attetion</string>
+    <string name="categoryG3" translatable="false">Brain Processing Speed</string>
+    <string name="categoryG4" translatable="false">Problem Solving</string>
+    <string name="new_turn">New Turn Begins</string>
+    <string name="choose_another_category">Choose another Category</string>
+
+    <string name="q19">What does cachectic means?</string>
+    <string name="an1q19">Wasting away</string>
+    <string name="an2q19">"anxious appearing "</string>
+    <string name="an3q19">disoriented</string>
+    <string name="an4q19">fatiqued</string>
 
 
 </resources>
