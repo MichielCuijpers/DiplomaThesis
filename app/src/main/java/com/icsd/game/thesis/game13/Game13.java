@@ -253,7 +253,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
             case 3:
                 handlerDof.postDelayed(run3, 1100);
                 handlerRe.postDelayed(run2, 1700);
-                change2.postDelayed(runChange2, 1700);
+                change2.postDelayed(runChange2, 1900);
                 break;
             case 4:
                 handlerDof.postDelayed(run3, 1100);
@@ -343,7 +343,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
     private void checkPattern() {
 
-        waitPlayer.postDelayed(runCheck, 3000);
+        waitPlayer.postDelayed(runCheck, 3200);
 
     }
 
