@@ -7,13 +7,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 import android.util.Log;
 
+import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.commons.AppLan;
 import com.icsd.game.thesis.database.DatabaseHandler;
 
 import java.util.ArrayList;
 
 public class Question {
-     final ArrayList<String> answers;
-   final String question;
+    final ArrayList<String> answers;
+    final String question;
 
 
     protected Question(ArrayList<String> temp) {
@@ -66,97 +68,97 @@ public class Question {
             db.execSQL(Question.QuestionDBEntry.SQL_CREATE_ENTRIES);
             ContentValues values = new ContentValues();
 
-            values.put(QuestionDBEntry.QUESTION, "what is the world's longest river?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q1));
             values.put(QuestionDBEntry.CATEGORY, "geography");
-            values.put(QuestionDBEntry.ANSWER1, "amazon");
-            values.put(QuestionDBEntry.ANSWER2, "mississippi");
-            values.put(QuestionDBEntry.ANSWER3, "niger");
-            values.put(QuestionDBEntry.ANSWER4, "Amur–Argun");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q1));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q1));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q1));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q1));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "What is Earth's largest continent?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q2));
             values.put(QuestionDBEntry.CATEGORY, "geography");
-            values.put(QuestionDBEntry.ANSWER1, "asia");
-            values.put(QuestionDBEntry.ANSWER2, "europe");
-            values.put(QuestionDBEntry.ANSWER3, "antartica");
-            values.put(QuestionDBEntry.ANSWER4, "africa");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q2));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q2));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q2));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q2));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "In what country can you visit Machu Picchu?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q3));
             values.put(QuestionDBEntry.CATEGORY, "geography");
-            values.put(QuestionDBEntry.ANSWER1, "peru");
-            values.put(QuestionDBEntry.ANSWER2, "chile");
-            values.put(QuestionDBEntry.ANSWER3, "bolivia");
-            values.put(QuestionDBEntry.ANSWER4, "columbia");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q3));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q3));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q3));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q3));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "What is the oldest city in the world?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q4));
             values.put(QuestionDBEntry.CATEGORY, "geography");
-            values.put(QuestionDBEntry.ANSWER1, "damascus");
-            values.put(QuestionDBEntry.ANSWER2, "athens");
-            values.put(QuestionDBEntry.ANSWER3, "jericho");
-            values.put(QuestionDBEntry.ANSWER4, "jerusalim");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q4));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q4));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q4));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q4));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, " When did the World War II begin?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q5));
             values.put(QuestionDBEntry.CATEGORY, "history");
-            values.put(QuestionDBEntry.ANSWER1, "1939");
-            values.put(QuestionDBEntry.ANSWER2, "1914");
-            values.put(QuestionDBEntry.ANSWER3, "1945");
-            values.put(QuestionDBEntry.ANSWER4, "1950");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q5));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q5));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q5));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q5));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, " What was the last battle of the Napoleonic Wars?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q6));
             values.put(QuestionDBEntry.CATEGORY, "history");
-            values.put(QuestionDBEntry.ANSWER1, "wavre");
-            values.put(QuestionDBEntry.ANSWER2, "nile");
-            values.put(QuestionDBEntry.ANSWER3, "waterloo");
-            values.put(QuestionDBEntry.ANSWER4, "trafalgar");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q6));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q6));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q6));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q6));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "What was the first city to reach a population of one million?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q7));
             values.put(QuestionDBEntry.CATEGORY, "history");
-            values.put(QuestionDBEntry.ANSWER1, "rome");
-            values.put(QuestionDBEntry.ANSWER2, "new york");
-            values.put(QuestionDBEntry.ANSWER3, "london");
-            values.put(QuestionDBEntry.ANSWER4, "beijing");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q7));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q7));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q7));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q7));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, " Which of the following empires had no written language?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q8));
             values.put(QuestionDBEntry.CATEGORY, "history");
-            values.put(QuestionDBEntry.ANSWER1, "incan empire");
-            values.put(QuestionDBEntry.ANSWER2, "aztec empire");
-            values.put(QuestionDBEntry.ANSWER3, "roman empire");
-            values.put(QuestionDBEntry.ANSWER4, "tang dynasty");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q8));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q8));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q8));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q8));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "What is the painting 'La Gioconda' more usually known as?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q9));
             values.put(QuestionDBEntry.CATEGORY, "art");
-            values.put(QuestionDBEntry.ANSWER1, "mona lisa");
-            values.put(QuestionDBEntry.ANSWER2, "Picaso's wife");
-            values.put(QuestionDBEntry.ANSWER3, "lisa");
-            values.put(QuestionDBEntry.ANSWER4, "enigmatic woman");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q9));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q9));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q9));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q9));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "Who is credited as the designer of the many statues which decorated the Parthenon?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q10));
             values.put(QuestionDBEntry.CATEGORY, "art");
-            values.put(QuestionDBEntry.ANSWER1, "phidias");
-            values.put(QuestionDBEntry.ANSWER2, "Praxiteles");
-            values.put(QuestionDBEntry.ANSWER3, "scopas");
-            values.put(QuestionDBEntry.ANSWER4, "hesiod");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q10));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q10));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q10));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q10));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "How many paintings did Vincent Van Gogh sell during his lifetime?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q11));
             values.put(QuestionDBEntry.CATEGORY, "art");
             values.put(QuestionDBEntry.ANSWER1, "1");
             values.put(QuestionDBEntry.ANSWER2, "27");
@@ -165,120 +167,120 @@ public class Question {
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
 
             values.clear();
-            values.put(QuestionDBEntry.QUESTION, "Which color is vermillion");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q12));
             values.put(QuestionDBEntry.CATEGORY, "art");
-            values.put(QuestionDBEntry.ANSWER1, "red");
-            values.put(QuestionDBEntry.ANSWER2, "green");
-            values.put(QuestionDBEntry.ANSWER3, "yellow");
-            values.put(QuestionDBEntry.ANSWER4, "blue");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q12));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q12));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q12));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q12));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "What is the national dish of Italy?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q13));
             values.put(QuestionDBEntry.CATEGORY, "food");
-            values.put(QuestionDBEntry.ANSWER1, "pasta");
-            values.put(QuestionDBEntry.ANSWER2, "mousaka");
-            values.put(QuestionDBEntry.ANSWER3, "burger");
-            values.put(QuestionDBEntry.ANSWER4, "fried potatoes");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q13));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q13));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q13));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q13));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "What food is the leading source of salmonella poisoning?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q14));
             values.put(QuestionDBEntry.CATEGORY, "food");
-            values.put(QuestionDBEntry.ANSWER1, "chicken");
-            values.put(QuestionDBEntry.ANSWER2, "beef");
-            values.put(QuestionDBEntry.ANSWER3, "pork");
-            values.put(QuestionDBEntry.ANSWER4, "fish");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q14));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q14));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q14));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q14));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "What is the most popular spice in the world?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q15));
             values.put(QuestionDBEntry.CATEGORY, "food");
-            values.put(QuestionDBEntry.ANSWER1, "pepper");
-            values.put(QuestionDBEntry.ANSWER2, "salt");
-            values.put(QuestionDBEntry.ANSWER3, "paprika");
-            values.put(QuestionDBEntry.ANSWER4, "safran");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q15));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q15));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q15));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q15));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "Which European country is credited for the invention of hot dogs?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q16));
             values.put(QuestionDBEntry.CATEGORY, "food");
-            values.put(QuestionDBEntry.ANSWER1, "germany");
-            values.put(QuestionDBEntry.ANSWER2, "austria");
-            values.put(QuestionDBEntry.ANSWER3, "finland");
-            values.put(QuestionDBEntry.ANSWER4, "belgium");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q16));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q16));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q16));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q16));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "Which of these words is the antonym of 'old'?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q17));
             values.put(QuestionDBEntry.CATEGORY, "directory");
-            values.put(QuestionDBEntry.ANSWER1, "new ");
-            values.put(QuestionDBEntry.ANSWER2, "brillant");
-            values.put(QuestionDBEntry.ANSWER3, "raw");
-            values.put(QuestionDBEntry.ANSWER4, "raw");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q17));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q17));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q17));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q17));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "Thalassophobia is a fear of what?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q18));
             values.put(QuestionDBEntry.CATEGORY, "directory");
-            values.put(QuestionDBEntry.ANSWER1, "the sea");
-            values.put(QuestionDBEntry.ANSWER2, "the mountains");
-            values.put(QuestionDBEntry.ANSWER3, "the crowd");
-            values.put(QuestionDBEntry.ANSWER4, "the dogs");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q18));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q18));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q18));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q18));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "Which of these would, except in a figurative sense, not normally combine with 'BOOKS'?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q19));
             values.put(QuestionDBEntry.CATEGORY, "directory");
-            values.put(QuestionDBEntry.ANSWER1, "a stack");
-            values.put(QuestionDBEntry.ANSWER2, "a mountain");
-            values.put(QuestionDBEntry.ANSWER3, "a heap");
-            values.put(QuestionDBEntry.ANSWER4, "a stack");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q19));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q19));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q19));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q19));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "Which of the following is the meaning of \"tutti frutti\"?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q20));
             values.put(QuestionDBEntry.CATEGORY, "directory");
-            values.put(QuestionDBEntry.ANSWER1, "Flavor of many fruits combined");
-            values.put(QuestionDBEntry.ANSWER2, "Ice-cream containing small pieces of candied or fresh fruit");
-            values.put(QuestionDBEntry.ANSWER3, " A preserve of chopped mixed fruits");
-            values.put(QuestionDBEntry.ANSWER4, "All of these meanings");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q20));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q20));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q20));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q20));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "Who invented airplanes?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q21));
             values.put(QuestionDBEntry.CATEGORY, "general");
-            values.put(QuestionDBEntry.ANSWER1, "Wright brothers");
-            values.put(QuestionDBEntry.ANSWER2, "Isaac Newton");
-            values.put(QuestionDBEntry.ANSWER3, "Benjamin Franklin");
-            values.put(QuestionDBEntry.ANSWER4, "Patrick Alexander");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q21));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q21));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q21));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q21));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "What is the unit of currency in Russia?");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q22));
             values.put(QuestionDBEntry.CATEGORY, "general");
-            values.put(QuestionDBEntry.ANSWER1, "ruble");
-            values.put(QuestionDBEntry.ANSWER2, "lira");
-            values.put(QuestionDBEntry.ANSWER3, "euro");
-            values.put(QuestionDBEntry.ANSWER4, "lev");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q22));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q22));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q22));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q22));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "Which planet is nearest the sun? ");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q23));
             values.put(QuestionDBEntry.CATEGORY, "general");
-            values.put(QuestionDBEntry.ANSWER1, "mercury");
-            values.put(QuestionDBEntry.ANSWER2, "poseidon");
-            values.put(QuestionDBEntry.ANSWER3, "jupiter");
-            values.put(QuestionDBEntry.ANSWER4, "uranu");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q23));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q23));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q23));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q23));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
             values.clear();
 
-            values.put(QuestionDBEntry.QUESTION, "Who said, “I think, therefore I am”? ");
+            values.put(QuestionDBEntry.QUESTION, AppLan.getAppContext().getResources().getString(R.string.q24));
             values.put(QuestionDBEntry.CATEGORY, "general");
-            values.put(QuestionDBEntry.ANSWER1, "Descartes");
-            values.put(QuestionDBEntry.ANSWER2, "Plato");
-            values.put(QuestionDBEntry.ANSWER3, "Aristotle");
-            values.put(QuestionDBEntry.ANSWER4, "Isaac Newton");
+            values.put(QuestionDBEntry.ANSWER1, AppLan.getAppContext().getResources().getString(R.string.an1q24));
+            values.put(QuestionDBEntry.ANSWER2, AppLan.getAppContext().getResources().getString(R.string.an2q24));
+            values.put(QuestionDBEntry.ANSWER3, AppLan.getAppContext().getResources().getString(R.string.an3q24));
+            values.put(QuestionDBEntry.ANSWER4, AppLan.getAppContext().getResources().getString(R.string.an4q24));
             db.insert(QuestionDBEntry.TABLE_NAME, null, values);
 
 

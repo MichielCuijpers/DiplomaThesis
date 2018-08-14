@@ -111,6 +111,7 @@ public class Game1Activity extends AppCompatActivity {
         this.questionView.setText(questionsFinal.get(0).getQuestion());
         correctAnswer = questionsFinal.get(0).getAnswers().get(0);
         Collections.shuffle(question.getAnswers());
+        Collections.shuffle(questionsFinal.get(0).getAnswers());
         this.answer1Button.setText(questionsFinal.get(0).getAnswers().get(0));
         this.answer2Button.setText(questionsFinal.get(0).getAnswers().get(1));
         this.answer3Button.setText(questionsFinal.get(0).getAnswers().get(2));

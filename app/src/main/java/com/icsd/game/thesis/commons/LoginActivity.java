@@ -187,7 +187,7 @@ public class LoginActivity extends AppCompatActivity {
             config.locale = locale;
             getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         }
-        // AppLan.change(config);
+
         setContentView(R.layout.activity_login);
         initGui();
 
