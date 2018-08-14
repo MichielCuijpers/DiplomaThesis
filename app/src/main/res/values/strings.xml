@@ -239,6 +239,11 @@
     <string name="try_again">Try again</string>
     <!-- Game11-->
     <string name="tutorialGame11">Try to discover the shadowed squares</string>
+    <string name="Corrects">Corrects</string>
+    <string name="Wrongs">Wrongs</string>
+    <string name="Tip">"Try touching the pattern after disappear"</string>
+
+
     <!-- game15-->
 
     <!-- game13-->

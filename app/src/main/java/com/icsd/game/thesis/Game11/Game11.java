@@ -87,7 +87,7 @@ public class Game11 extends AppCompatActivity {
         screenbuttons.add(seven);
         screenbuttons.add(eight);
         screenbuttons.add(nine);
-        tip.setText("Try touching the patter after disappear");
+        tip.setText(getResources().getString(R.string.Tip));
         buttonpressed = 0;
 
         startGame();
