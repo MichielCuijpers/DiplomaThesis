@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.icsd.game.thesis.Game10.Game10;
+import com.icsd.game.thesis.Game11.Game11;
 import com.icsd.game.thesis.Game12.Game12;
 import com.icsd.game.thesis.Game14.Game14;
 import com.icsd.game.thesis.Game9.Game9;
@@ -58,6 +60,14 @@ public class Menu2 extends AppCompatActivity {
 
     public void game15(View view) {
         Intent c = new Intent(this, Game15.class);
+        startActivity(c);
+    }
+    public void Game11(View view){
+        Intent c = new Intent(this,Game11.class);
+        startActivity(c);
+    }
+    public void Game10(View view){
+        Intent c = new Intent(this,Game10.class);
         startActivity(c);
     }
 
