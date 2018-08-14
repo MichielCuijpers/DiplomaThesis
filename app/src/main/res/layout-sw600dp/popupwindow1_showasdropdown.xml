@@ -20,18 +20,18 @@
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="407dp"
-        android:layout_height="383dp"
+        android:layout_width="306dp"
+        android:layout_height="342dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="133dp"
+        android:layout_marginTop="174dp"
         app:srcCompat="@drawable/cat_pet" />
 
     <ImageView
         android:id="@+id/imageView15"
-        android:layout_width="251dp"
-        android:layout_height="268dp"
+        android:layout_width="354dp"
+        android:layout_height="272dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="104dp"
