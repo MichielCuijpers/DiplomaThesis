@@ -288,23 +288,23 @@
         android:onClick="image1OnClick"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toStartOf="@+id/image2"
-        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintHorizontal_bias="0.612"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text1"
-        app:layout_constraintVertical_bias="0.233" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/image2"
         android:layout_width="160dp"
         android:layout_height="140dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="60dp"
         android:layout_marginTop="112dp"
         android:onClick="image2OnClick"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toStartOf="@+id/image3"
         app:layout_constraintTop_toBottomOf="@+id/text1"
-        app:layout_constraintVertical_bias="0.233" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
     <Button
@@ -312,10 +312,13 @@
         android:layout_width="160dp"
         android:layout_height="140dp"
         android:layout_marginBottom="36dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginTop="8dp"
         android:onClick="image3OnClick"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toStartOf="@+id/image4" />
+        app:layout_constraintEnd_toStartOf="@+id/image4"
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        app:layout_constraintVertical_bias="0.873" />
 
 
     <Button
@@ -323,36 +326,41 @@
         android:layout_width="160dp"
         android:layout_height="140dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="72dp"
         android:layout_marginTop="112dp"
         android:onClick="image4OnClick"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toStartOf="@+id/image5"
         app:layout_constraintTop_toBottomOf="@+id/text1"
-        app:layout_constraintVertical_bias="0.234" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/image5"
         android:layout_width="160dp"
         android:layout_height="140dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="112dp"
+        android:layout_marginEnd="88dp"
         android:layout_marginTop="112dp"
         android:onClick="image5OnClick"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text1"
-        app:layout_constraintVertical_bias="0.234" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="901dp"
         android:layout_height="79dp"
+        android:layout_marginBottom="216dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="Which one does not belong?"
         android:textColor="@android:color/black"
         android:textSize="60dp"
-        tools:layout_editor_absoluteX="292dp"
-        tools:layout_editor_absoluteY="363dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button18"
