@@ -243,7 +243,7 @@ public class Game8 extends AppCompatActivity {
             if (turn == 2) {
                 popUpWindow.showPopUp(getResources().getString(R.string.dont_touch_red));
             } else {
-                popUpWindow.showPopUp(getResources().getString(R.string.dont_touch_red));
+                popUpWindow.showPopUp(getResources().getString(R.string.dont_touch_green));
             }
 
             popUpWindow.getmPopupWindow().setOnDismissListener(new PopupWindow.OnDismissListener() {

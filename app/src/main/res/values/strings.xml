@@ -284,4 +284,23 @@
     <string name="an4q19">fatiqued</string>
 
 
+    <!--Surveys -->
+    <string name="aggree">Strongly aggree</string>
+    <string name="disaggree">Strongly disaggree</string>
+
+    <string name="q1s0">the game was to complex</string>
+    <string name="q2s0">The game have a good appearance</string>
+    <string name="q3s0">The game was interest</string>
+
+    <string name="q1s1">I think that I would like to use this app frequently</string>
+    <string name="q2s1">I found the app  unnecessarily complex</string>
+    <string name="q3s1">I thought the app was easy to use.</string>
+    <string name="q4s1">I think that I would need the support  to be able to use this app.</string>
+    <string name="q5s1">I found the various functions in this app were well integrated.</string>
+    <string name="q6s1">I thought there was too much inconsistency in this app</string>
+    <string name="q7s1">I would imagine that most people would learn to use this app very quickly.</string>
+    <string name="q8s1">I found the app very cumbersome to use.</string>
+    <string name="q9s1">I felt very confident using the app.</string>
+    <string name="q10s1">I needed to learn a lot of things before I could get going with this app.</string>
+
 </resources>

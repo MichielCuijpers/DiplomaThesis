@@ -56,6 +56,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(Highscore.HighscoreDBEntry.SQL_CREATE_ENTRIES);
         db.execSQL(Survey.SurveyQuestionDBEntry.SQL_CREATE_ENTRIES);
         db.execSQL(Survey.SurveyResultsDBEntry.SQL_CREATE_ENTRIES);
+        Survey.SurveyQuestionDBEntry.addSurvQuestionsToDB(db);
         Question.QuestionDBEntry.addQuestionsToDB(db);
         Word.WordDBEntry.addTestWordsToDB(db);
         ObjectT.ObjectDBEntry.addTestObjectToDB(db);
@@ -222,7 +223,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             csvWrite.writeNext(curCSV.getColumnNames());
             while (curCSV.moveToNext()) {
                 //Which column you want to exprort
-                String arrStr[] = {curCSV.getString(0), curCSV.getString(1), curCSV.getString(2),curCSV.getString(3),curCSV.getString(4),curCSV.getString(5),curCSV.getString(6),curCSV.getString(7)};
+                String arrStr[] = {curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3), curCSV.getString(4), curCSV.getString(5), curCSV.getString(6), curCSV.getString(7)};
                 csvWrite.writeNext(arrStr);
             }
             csvWrite.close();

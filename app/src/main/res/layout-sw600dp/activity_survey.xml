@@ -7,8 +7,24 @@
     android:background="#c7a96c"
     tools:context=".commons.SurveyActivity">
 
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="118dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/aggree"
+        android:textColor="@android:color/background_dark"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.748" />
+
     <Button
-        android:id="@+id/surv_button3"
+        android:id="@+id/surv_button1"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="8dp"
@@ -16,14 +32,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="button1OnCl"
         android:text="1"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/surv_button6"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/surv_button2"
-        app:layout_constraintHorizontal_bias="0.685"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.734" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/surveyQ"
@@ -37,129 +52,94 @@
         android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
-    <Button
-        android:id="@+id/surv_button8"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="68dp"
-        android:background="@android:color/holo_orange_dark"
-        android:text="8"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/surv_button9" />
-
-    <Button
-        android:id="@+id/surv_button9"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="84dp"
-        android:background="@android:color/holo_orange_dark"
-        android:text="9"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/surv_button10" />
-
-    <Button
-        android:id="@+id/surv_button10"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="148dp"
-        android:background="@android:color/holo_orange_dark"
-        android:text="10"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/surv_button7"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="52dp"
-        android:background="@android:color/holo_orange_dark"
-        android:text="7"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/surv_button8" />
+        app:layout_constraintVertical_bias="0.069" />
 
     <Button
         android:id="@+id/surv_button2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="52dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="button2OnCl"
         android:text="2"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/surv_button7"
-        app:layout_constraintEnd_toStartOf="@+id/surv_button3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748" />
+        app:layout_constraintVertical_bias="0.498"
+        tools:layout_editor_absoluteX="234dp" />
 
     <Button
         android:id="@+id/surv_button3"
-        android:layout_width="100dp"
+        android:layout_width="99dp"
         android:layout_height="100dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="button3OnCl"
         android:text="3"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/surv_button8"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/surv_button4"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toEndOf="@+id/surv_button2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.734" />
+        app:layout_constraintVertical_bias="0.498" />
 
     <Button
         android:id="@+id/surv_button4"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="84dp"
+        android:layout_marginEnd="96dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="button4OnCl"
         android:text="4"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/surv_button9"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/surv_button5"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.734" />
+        app:layout_constraintVertical_bias="0.498" />
 
     <Button
         android:id="@+id/surv_button5"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="148dp"
+        android:layout_marginEnd="160dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
+        android:onClick="button5OnCl"
         android:text="5"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/surv_button10"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.734" />
+        app:layout_constraintVertical_bias="0.498" />
 
-    <Button
-        android:id="@+id/surv_button6"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="56dp"
-        android:background="@android:color/holo_orange_dark"
-        android:text="6"
-        android:textSize="30sp"
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="115dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/disaggree"
+        android:textColor="@android:color/background_dark"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/surv_button7" />
+        app:layout_constraintEnd_toStartOf="@+id/textView13"
+        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.738" />
 
 </android.support.constraint.ConstraintLayout>
