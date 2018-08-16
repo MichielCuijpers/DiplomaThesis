@@ -50,12 +50,8 @@ public class Game6 extends AppCompatActivity {
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         currentSession = new Session(LoginActivity.getUser().getUsername(), 6);
         currentSession.setTimeStart(System.currentTimeMillis() / 1000);
-
         soundHandler = new SoundHandler(getApplicationContext());
-
-
         initTest();
-
     }
 
 
