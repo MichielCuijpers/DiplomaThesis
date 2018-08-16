@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -170,6 +171,7 @@ private ArrayList <String> backshuffle;
             cooker.setVisibility(View.VISIBLE);
             smoker.setVisibility(View.VISIBLE);
             sand.setVisibility(View.VISIBLE);
+
 
             backgroundimg.setBackground((getDrawable(R.drawable.kitchen)));
             if(new_question.return_Questions("kitchen").equals("Can you store the ice somewhere?")) {
@@ -401,6 +403,7 @@ private ArrayList <String> backshuffle;
     }
 
     private void checkifWon(String answered,String chosed){
+
         if(chosen_background.equals("kitchen")) {
             if (answered.equals(chosed)) {
                 correct_answers++;

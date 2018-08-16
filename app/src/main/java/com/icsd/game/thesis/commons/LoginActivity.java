@@ -178,7 +178,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void chooseGreek(View view) {
-        // AppLan.updateLan(this,"el");
+
         lan = "el";
         Configuration config = getBaseContext().getResources().getConfiguration();
         if (!"".equals(lan) && !config.locale.getLanguage().equals(lan)) {

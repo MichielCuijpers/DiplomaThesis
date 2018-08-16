@@ -1,5 +1,7 @@
 package com.icsd.game.thesis.Game7;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class Questions {
@@ -51,6 +53,7 @@ public class Questions {
         else{
             question = "Questions Cache is out of bounds";
         }
+
         return question;
     }
     public String getCorrectAnswer(){
