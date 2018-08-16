@@ -1,6 +1,7 @@
 package com.icsd.game.thesis.Game6;
 
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.icsd.game.thesis.commons.LoginActivity;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
+import com.icsd.game.thesis.commons.SurveyActivity;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
@@ -501,14 +503,23 @@ public class Game6 extends AppCompatActivity {
         currentSession.setScore(sc);
         soundHandler.playOkSound();
         popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
+        if(sc==7){
+            Intent surv = new Intent(this, SurveyActivity.class);
+            SurveyActivity.setQuestionType(0);
+            SurveyActivity.setGameID(6);
+            startActivity(surv);
+        }else{
+            initGame();
+        }
 
-        initGame();
     }
 
     private void userLoosesTheTurn() {
         currentSession.setFails(currentSession.getFails() + 1);
+        currentSession.setScore(currentSession.getScore()-1);
         soundHandler.playWrongSound();
         popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
+        initGame();
     }
 
     public void image1OnClick(View v) {

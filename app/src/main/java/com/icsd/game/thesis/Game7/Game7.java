@@ -11,10 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.icsd.game.thesis.commons.AppLan;
 import com.icsd.game.thesis.commons.LoginActivity;
 import com.icsd.game.thesis.commons.Menu2;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
+import com.icsd.game.thesis.commons.SurveyActivity;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
@@ -174,22 +176,22 @@ private ArrayList <String> backshuffle;
 
 
             backgroundimg.setBackground((getDrawable(R.drawable.kitchen)));
-            if(new_question.return_Questions("kitchen").equals("Can you store the ice somewhere?")) {
+            if(new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.ice))) {
                 quest_text.setText(getResources().getString(R.string.ice));
             }
-            else if(new_question.return_Questions("kitchen").equals("Please! bake some bread for breakfast")) {
+            else if(new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.bread))) {
                 quest_text.setText(getResources().getString(R.string.bread));
             }
-            else if(new_question.return_Questions("kitchen").equals("It is 08:00 AM! Turn on the lights please")) {
+            else if(new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.kitchen_lights))) {
                 quest_text.setText(getResources().getString(R.string.kitchen_lights));
             }
-            else if(new_question.return_Questions("kitchen").equals("This water bottle is empty, please! refill it")) {
+            else if(new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.bottle))) {
                 quest_text.setText(getResources().getString(R.string.bottle));
             }
-            else if(new_question.return_Questions("kitchen").equals("I am hungry,cook something please")) {
+            else if(new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.cook))) {
                 quest_text.setText(getResources().getString(R.string.cook));
             }
-            else if(new_question.return_Questions("kitchen").equals("Can you get rid of the cigarette smoke?")) {
+            else if(new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.smoke))) {
                 quest_text.setText(getResources().getString(R.string.smoke));
             }
             new_question.delete_Question_used("kitchen", quest_text.getText().toString());
@@ -227,19 +229,19 @@ private ArrayList <String> backshuffle;
             mirror.setVisibility(View.VISIBLE);
             lamp_bath.setVisibility(View.VISIBLE);
             backgroundimg.setBackground(getDrawable(R.drawable.bathroom));
-            if(new_question.return_Questions("bathroom").equals("You stink!Take a bath please")) {
+            if(new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.take_bath))) {
                 quest_text.setText(getResources().getString(R.string.take_bath));
             }
-            else if(new_question.return_Questions("bathroom").equals("Your hair do not look so good, take a look")) {
+            else if(new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.hair))) {
                 quest_text.setText(getResources().getString(R.string.hair));
             }
-            else if(new_question.return_Questions("bathroom").equals("Give me a new soap please")) {
+            else if(new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.soap))) {
                 quest_text.setText(getResources().getString(R.string.soap));
             }
-            else if(new_question.return_Questions("bathroom").equals("Too dark in the bathroom, please do something")) {
+            else if(new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.bathroom_lights))) {
                 quest_text.setText(getResources().getString(R.string.bathroom_lights));
             }
-            else if(new_question.return_Questions("bathroom").equals("Wash your hands after cleaning in there")) {
+            else if(new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.wash))) {
                 quest_text.setText(getResources().getString(R.string.wash));
             }
             new_question.delete_Question_used("bathroom", quest_text.getText().toString());
@@ -289,16 +291,16 @@ private ArrayList <String> backshuffle;
             soundleft.setVisibility(View.VISIBLE);
             backgroundimg.setBackground(getDrawable(R.drawable.din_room));
 
-            if(new_question.return_Questions("din").equals("You must be tired,Please!Have a sit")) {
+            if(new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.sit))) {
                 quest_text.setText(getResources().getString(R.string.sit));
             }
-            else if(new_question.return_Questions("din").equals("It is too dark in here, react please")) {
+            else if(new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.din_lights))) {
                 quest_text.setText(getResources().getString(R.string.din_lights));
             }
-            else if(new_question.return_Questions("din").equals("Can you switch it on the BBC?")) {
+            else if(new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.tv_din))) {
                 quest_text.setText(getResources().getString(R.string.tv_din));
             }
-            else if(new_question.return_Questions("din").equals("I would like to listen to music!")) {
+            else if(new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.music))) {
                 quest_text.setText(getResources().getString(R.string.music));
             }
             new_question.delete_Question_used("din", quest_text.getText().toString());
@@ -462,8 +464,10 @@ private ArrayList <String> backshuffle;
             dbHandler.addSessionToDB(currentSession);
             soundHandler.stopSound();
             Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this , Menu2.class);
-            startActivity(intent);
+            Intent surv = new Intent(this, SurveyActivity.class);
+            SurveyActivity.setQuestionType(0);
+            SurveyActivity.setGameID(7);
+            startActivity(surv);
         }
     }
     public void test(View view) {

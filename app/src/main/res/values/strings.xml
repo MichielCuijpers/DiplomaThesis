@@ -235,6 +235,9 @@
     <!-- Game6 -->
     <string name="scoreg6">Score: </string>
     <string name="messageg6">Which one does not belong?</string>
+    <string name="testagain">Test Again</string>
+    <string name="play">Play</string>
+    <string name="tutorialg6">Tutorial</string>
     <!-- Game7-->
     <string name="tutorialGame7">Try to respond to the given actions</string>
     <string name="messageg7">What would you choose in order to cook?</string>

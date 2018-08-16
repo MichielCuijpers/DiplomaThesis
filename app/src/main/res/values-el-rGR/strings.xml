@@ -259,5 +259,8 @@
     <string name="surv_menou">τελικό ερωτηματολόγιο</string>
     <string name="back_menou">προηγούμενη σελίδα</string>
     <string name="thanks_end">ευχαριστουμε για την συμμετοχη σας</string>
+    <string name="testagain">Δοκιμή ξανά</string>
+    <string name="play">Παίξε</string>
+    <string name="tutorialg6">Επεξήγηση Παιχνιδιού</string>
 
 </resources>

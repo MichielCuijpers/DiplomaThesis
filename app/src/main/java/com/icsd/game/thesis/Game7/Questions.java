@@ -1,6 +1,11 @@
 package com.icsd.game.thesis.Game7;
 
+<<<<<<< HEAD
 import android.util.Log;
+=======
+import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.commons.AppLan;
+>>>>>>> a7a73f20e5b505c573c7415e0d50998ea902f6a9
 
 import java.util.ArrayList;
 
@@ -20,21 +25,21 @@ public class Questions {
         this.correct_answer = correct_answer;
     }
     public void set_Questions(){
-        questions_kitchen.add("Can you store the ice somewhere?");
-        questions_kitchen.add("Please! bake some bread for breakfast");
-        questions_kitchen.add("It is 08:00 AM! Turn on the lights please");
-        questions_kitchen.add("This water bottle is empty, please! refill it");
-        questions_kitchen.add("I am hungry,cook something please");
-        questions_kitchen.add("Can you get rid of the cigarette smoke?");
-        questions_bathroom.add("You stink!Take a bath please");
-        questions_bathroom.add("Your hair do not look so good, take a look");
-        questions_bathroom.add("Give me a new soap please");
-        questions_bathroom.add("Too dark in the bathroom, please do something");
-        questions_bathroom.add("Wash your hands after cleaning in there");
-        questions_dinroom.add("You must be tired,Please!Have a sit");
-        questions_dinroom.add("It is too dark in here, react please");
-        questions_dinroom.add("Can you switch it on the BBC?");
-        questions_dinroom.add("I would like to listen to music!");
+        questions_kitchen.add(AppLan.getAppContext().getResources().getString(R.string.ice));
+        questions_kitchen.add(AppLan.getAppContext().getResources().getString(R.string.bread));
+        questions_kitchen.add(AppLan.getAppContext().getResources().getString(R.string.kitchen_lights));
+        questions_kitchen.add(AppLan.getAppContext().getResources().getString(R.string.bottle));
+        questions_kitchen.add(AppLan.getAppContext().getResources().getString(R.string.cook));
+        questions_kitchen.add(AppLan.getAppContext().getResources().getString(R.string.smoke));
+        questions_bathroom.add(AppLan.getAppContext().getResources().getString(R.string.take_bath));
+        questions_bathroom.add(AppLan.getAppContext().getResources().getString(R.string.hair));
+        questions_bathroom.add(AppLan.getAppContext().getResources().getString(R.string.soap));
+        questions_bathroom.add(AppLan.getAppContext().getResources().getString(R.string.bathroom_lights));
+        questions_bathroom.add(AppLan.getAppContext().getResources().getString(R.string.wash));
+        questions_dinroom.add(AppLan.getAppContext().getResources().getString(R.string.sit));
+        questions_dinroom.add(AppLan.getAppContext().getResources().getString(R.string.din_lights));
+        questions_dinroom.add(AppLan.getAppContext().getResources().getString(R.string.tv_din));
+        questions_dinroom.add(AppLan.getAppContext().getResources().getString(R.string.music));
     }
     public String return_Questions(String type){
         if(type.equals("kitchen")){
