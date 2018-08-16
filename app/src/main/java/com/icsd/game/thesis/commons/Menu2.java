@@ -36,11 +36,6 @@ public class Menu2 extends AppCompatActivity {
 
 
 
-    public void game16(View view) {
-        // Intent c = new Intent(this, Tooltips.class);
-        Intent c = new Intent(this, PetActivity.class);
-        startActivity(c);
-    }
 
     public void writeDataCSVonclick(View view) {
     }
@@ -49,12 +44,15 @@ public class Menu2 extends AppCompatActivity {
     }
 
     public void finalSurOnClick(View view) {
+        Intent surv = new Intent(this, SurveyActivity.class);
+        SurveyActivity.setQuestionType(1);
+        SurveyActivity.setGameID(0);
+        startActivity(surv);
     }
 
     public void dbTest(View view) {
         DatabaseHandler.exportDBtoCsv();
         Intent dbmanager = new Intent(this, AndroidDatabaseManager.class);
-
         startActivity(dbmanager);
     }
 }

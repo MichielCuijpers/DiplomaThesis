@@ -224,4 +224,5 @@
     <string name="csv_menou">εξαγωγή βάσης σε csv</string>
     <string name="surv_menou">τελικό ερωτηματολόγιο</string>
     <string name="back_menou">προηγούμενη σελίδα</string>
+    <string name="thanks_end">ευχαριστουμε για την συμμετοχη σας</string>
 </resources>

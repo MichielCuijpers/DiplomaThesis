@@ -143,6 +143,35 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
+    public static void saveSurveyResultsToDB(ArrayList<Integer> answers, ArrayList<String> questions, int type,int gameID) {
+        ContentValues values = new ContentValues();
+        SQLiteDatabase db = LoginActivity.getDb();
+        String username = LoginActivity.getUser().getUsername();
+        if (type == 1) {
+
+
+            for (int i = 0; i < answers.size(); i++) {
+                values.put(Survey.SurveyResultsDBEntry.QUESTION, questions.get(i));
+                values.put(Survey.SurveyResultsDBEntry.ANSWER, answers.get(i));
+                values.put(Survey.SurveyResultsDBEntry.USER, username);
+                values.put(Survey.SurveyResultsDBEntry.GAME_ID, gameID);
+                db.insert(Survey.SurveyResultsDBEntry.TABLE_NAME, null, values);
+                values.clear();
+            }
+        }
+        if (type == 2) {
+            for (int i = 0; i < answers.size(); i++) {
+                values.put(Survey.SurveyResultsDBEntry.QUESTION, questions.get(i));
+                values.put(Survey.SurveyResultsDBEntry.ANSWER, answers.get(i));
+                values.put(Survey.SurveyResultsDBEntry.USER, username);
+                values.put(Survey.SurveyResultsDBEntry.GAME_ID, gameID);
+                db.insert(Survey.SurveyResultsDBEntry.TABLE_NAME, null, values);
+                values.clear();
+            }
+        }
+
+    }
+
     private static boolean checkIfHighScore(int newScore, int gameID, String user, SQLiteDatabase db) {
         String Query = "Select * from " + Highscore.HighscoreDBEntry.TABLE_NAME + " where " + Highscore.HighscoreDBEntry.USER_ID + " ='" + user + "' AND " + Highscore.HighscoreDBEntry.GAME_ID + " = " + gameID;
         Cursor cursor = db.rawQuery(Query, null);

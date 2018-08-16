@@ -13,16 +13,18 @@ import java.util.Locale;
 public class Survey {
     public class SurveyResultsDBEntry implements BaseColumns {
 
-        public static final String TABLE_NAME = "survey";
+        public static final String TABLE_NAME = "surveyResult";
         public static final String QUESTION = "question";
         public static final String ANSWER = "answer";
         public static final String GAME_ID = "game_id";
+        public static final String USER = "user";
 
         public static final String SQL_CREATE_ENTRIES =
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                         + QUESTION + " TEXT, "
                         + ANSWER + " INTEGER, "
+                        + USER + " TEXT, "
                         + GAME_ID + " INTEGER) ";
 
     }
@@ -32,6 +34,7 @@ public class Survey {
         public static final String TABLE_NAME = "survey_question";
         public static final String QUESTION = "question";
         public static final String TYPE = "type";
+
 
 
         public static final String SQL_CREATE_ENTRIES =
