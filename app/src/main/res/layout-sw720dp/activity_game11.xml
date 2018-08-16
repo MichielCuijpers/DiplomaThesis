@@ -31,7 +31,7 @@
         android:onClick="nineonclick"
         android:text="9"
         android:textColor="@android:color/black"
-        android:textSize="30dp"
+        android:textSize="0sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sixb"
@@ -47,7 +47,7 @@
         android:onClick="twoonclick"
         android:text="2"
         android:textColor="@android:color/black"
-        android:textSize="30dp"
+        android:textSize="0sp"
         app:layout_constraintEnd_toStartOf="@+id/threeb"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,7 +61,7 @@
         android:onClick="threeonclick"
         android:text="3"
         android:textColor="@android:color/black"
-        android:textSize="30dp"
+        android:textSize="0sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,7 +75,7 @@
         android:onClick="eightonclick"
         android:text="8"
         android:textColor="@android:color/black"
-        android:textSize="30dp"
+        android:textSize="0sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/nineb"
         app:layout_constraintTop_toBottomOf="@+id/fiveb"
@@ -92,7 +92,7 @@
         android:onClick="fouronclick"
         android:text="4"
         android:textColor="@android:color/black"
-        android:textSize="30dp"
+        android:textSize="0sp"
         app:layout_constraintEnd_toStartOf="@+id/fiveb"
         app:layout_constraintHorizontal_bias="0.988"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +109,7 @@
         android:onClick="sevenonclick"
         android:text="7"
         android:textColor="@android:color/black"
-        android:textSize="30dp"
+        android:textSize="0sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/eightb"
         app:layout_constraintHorizontal_bias="0.988"
@@ -127,7 +127,7 @@
         android:onClick="fiveonclick"
         android:text="5"
         android:textColor="@android:color/black"
-        android:textSize="30dp"
+        android:textSize="0sp"
         app:layout_constraintEnd_toStartOf="@+id/sixb"
         app:layout_constraintTop_toBottomOf="@+id/twob" />
 
@@ -141,7 +141,7 @@
         android:onClick="sixonclick"
         android:text="6"
         android:textColor="@android:color/black"
-        android:textSize="30dp"
+        android:textSize="0sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/threeb" />
 
@@ -156,7 +156,7 @@
         android:onClick="oneonclick"
         android:text="1"
         android:textColor="@android:color/black"
-        android:textSize="30dp"
+        android:textSize="0sp"
         app:layout_constraintEnd_toStartOf="@+id/twob"
         app:layout_constraintHorizontal_bias="0.988"
         app:layout_constraintStart_toStartOf="parent"

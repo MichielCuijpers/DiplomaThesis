@@ -383,7 +383,7 @@
         android:layout_height="84dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="checkOnClick"
-        android:text="CHECK"
+        android:text="@string/check"
         android:textColor="@android:color/black"
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -272,6 +272,7 @@
     <string name="purple">"Click on the purple images"</string>
     <string name="red">"Click on the red images"</string>
     <string name="yellow">"Click on the yellow images"</string>
+
     <!-- Game11-->
     <string name="tutorialGame11">Try to discover the shadowed squares</string>
     <string name="Corrects">Corrects</string>
@@ -291,6 +292,8 @@
 
     <!-- game13-->
     <string name="tutorialGame13">You must repeat the piano pattern </string>
+    <!-- Game14 -->
+    <string name="game14_text">Click on the heaviest item</string>
 
     <!-- game15-->
 
