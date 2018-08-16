@@ -563,7 +563,7 @@ public class Game9 extends AppCompatActivity {
 
     public void playOnClick(View v) {
         this.setContentView(R.layout.activity_game9_play);
-        popUpWindow = new PopUpWindow(this,this);
+        popUpWindow = new PopUpWindow(this, this);
         initGame();
 
     }
@@ -586,6 +586,7 @@ public class Game9 extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
     private void cleanBackgroundForPopUp() {
 
         if (popUpWindow.getmPopupWindow().isShowing()) {
@@ -614,6 +615,7 @@ public class Game9 extends AppCompatActivity {
 
 
     }
+
     public void checkOnClick(View v) {
         checkWin();
         checkEndGame();
@@ -623,7 +625,7 @@ public class Game9 extends AppCompatActivity {
             cleanBackgroundForPopUp();
             //right_color.remove(b);
             sc++;
-            score.setText(getResources().getString(R.string.scoreg6)+sc);
+            score.setText(getResources().getString(R.string.scoreg6) + sc);
             position = 0;
             right_color.removeAll(clicked);
             for (int i = 0; i < clicked.size(); i++) {
@@ -686,6 +688,7 @@ public class Game9 extends AppCompatActivity {
     }
 
     public void button1OnClick(View v) {
+
         if (!iimage1.getText().equals("")) {
             //clicked.add(position, true);
             clicked.add(position, true);

@@ -1,4 +1,5 @@
 package com.icsd.game.thesis.Game12;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -62,27 +63,27 @@ public class Game12 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game12);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        currentSession = new Session(LoginActivity.getUser().getUsername(),12);
-        currentSession.setTimeStart(System.currentTimeMillis()/1000);
+        currentSession = new Session(LoginActivity.getUser().getUsername(), 12);
+        currentSession.setTimeStart(System.currentTimeMillis() / 1000);
         soundHandler = new SoundHandler(getApplicationContext());
-        popUpWindow = new PopUpWindow(this,this);
+        popUpWindow = new PopUpWindow(this, this);
         initGraphics();
         initScreen();
     }
-    private void initGraphics()
-    {
+
+    private void initGraphics() {
         takeTextFrom1 = " ";
         takeTextFrom2 = " ";
         kwinner = " ";
         chosenwinner = " ";
-        tutorialButton = (Button)findViewById(R.id.tutorialbutton); //con button
-        tutorialButton2 = (Button)findViewById(R.id.tutorialbutton2); //back button
-        ObjectButton = (Button)findViewById(R.id.tutorialObjectIcon);
-        ObjectButton2 = (Button)findViewById(R.id.tutorialObjectIcon2);
+        tutorialButton = (Button) findViewById(R.id.tutorialbutton); //con button
+        tutorialButton2 = (Button) findViewById(R.id.tutorialbutton2); //back button
+        ObjectButton = (Button) findViewById(R.id.tutorialObjectIcon);
+        ObjectButton2 = (Button) findViewById(R.id.tutorialObjectIcon2);
         ObjectButton.setOnClickListener(null);
         ObjectButton2.setOnClickListener(null);
-        ObjectButton3 = (Button)findViewById(R.id.tutorialObjectIcon3);
-        ObjectButton4 = (Button)findViewById(R.id.tutorialObjectIcon4);
+        ObjectButton3 = (Button) findViewById(R.id.tutorialObjectIcon3);
+        ObjectButton4 = (Button) findViewById(R.id.tutorialObjectIcon4);
         tie = (Button) findViewById(R.id.tieb);
         gameplayimages = new ArrayList<Button>();
         gprock = (Button) findViewById(R.id.gameplayrock);
@@ -113,67 +114,56 @@ public class Game12 extends AppCompatActivity {
 
 
     }
+
     public void continueonClick(View view) {
         initScreen();
     }
+
     public void backonClick(View view) {
         clearScreen();
-        Log.e("MyDEbou", getTutorial()+"");
+        Log.e("MyDEbou", getTutorial() + "");
     }
-    private void initScreen()
-    {
-        if(getTutorial()==0)
-        {
-            Page1();
-        }
-        else if(getTutorial()==1)
-        {
-            Page2();
-        }
 
-        else if(getTutorial()==2)
-        {
+    private void initScreen() {
+        if (getTutorial() == 0) {
+            Page1();
+        } else if (getTutorial() == 1) {
+            Page2();
+        } else if (getTutorial() == 2) {
             Page3();
-        }
-        else if(getTutorial()==3)
-        {
+        } else if (getTutorial() == 3) {
             Page4();
-        }
-        else if(getTutorial()==4)
-        {
+        } else if (getTutorial() == 4) {
             initGameplay();
             tutorialButton.setVisibility(View.INVISIBLE);
             tutorialButton2.setVisibility(View.INVISIBLE);
         }
     }
-    private void clearScreen()
-    {
-        Log.e("MyDEbou", getTutorial()+"clear");
-         if(getTutorial()==2)
-        {
+
+    private void clearScreen() {
+        Log.e("MyDEbou", getTutorial() + "clear");
+        if (getTutorial() == 2) {
             minustutorial();
             Page1();
-        }
-        else if(getTutorial()==3)
-        {
+        } else if (getTutorial() == 3) {
             minustutorial();
             Page2();
         }
     }
-    private void plustutorial()
-    {
+
+    private void plustutorial() {
         turn_tutorial++;
     }
-    private void minustutorial()
-    {
+
+    private void minustutorial() {
         turn_tutorial--;
     }
-    private int getTutorial()
-    {
+
+    private int getTutorial() {
         return turn_tutorial;
     }
-    private void Page1()
-    {
+
+    private void Page1() {
         tutorialButton2.setVisibility(View.INVISIBLE);
         ObjectButton.setBackground(getDrawable(R.drawable.pencil));
         ObjectButton2.setBackground(getDrawable(R.drawable.paper));
@@ -181,8 +171,8 @@ public class Game12 extends AppCompatActivity {
         ObjectButton4.setVisibility(View.INVISIBLE);
         plustutorial();
     }
-    private void Page2()
-    {
+
+    private void Page2() {
         ObjectButton.setBackground(getDrawable(R.drawable.paper));
         ObjectButton.setText("PAPER");
         ObjectButton2.setBackground(getDrawable(R.drawable.rock));
@@ -190,8 +180,8 @@ public class Game12 extends AppCompatActivity {
         tutorialButton2.setVisibility(View.VISIBLE);
         plustutorial();
     }
-    private void Page3()
-    {
+
+    private void Page3() {
         ObjectButton.setBackground(getDrawable(R.drawable.rock));
         ObjectButton.setText("ROCK");
         ObjectButton2.setVisibility(View.INVISIBLE);
@@ -204,8 +194,8 @@ public class Game12 extends AppCompatActivity {
         tutorialButton2.setVisibility(View.VISIBLE);
         plustutorial();
     }
-    private void Page4()
-    {
+
+    private void Page4() {
         ObjectButton.setBackground(getDrawable(R.drawable.scissors));
         ObjectButton.setText("SCISSORS");
         ObjectButton2.setVisibility(View.INVISIBLE);
@@ -219,49 +209,49 @@ public class Game12 extends AppCompatActivity {
         tutorialButton.setText("PLAY");
         plustutorial();
     }
-    private void initGameplay()
-    {
+
+    private void initGameplay() {
         Log.e("MyDEbou", "Initgameplay called");
         winnertext.setVisibility(View.INVISIBLE);
-       ObjectButton3.setVisibility(View.INVISIBLE);
-       ObjectButton4.setVisibility(View.INVISIBLE);
-       ObjectButton.setVisibility(View.INVISIBLE);
-       ObjectButton2.setVisibility(View.INVISIBLE);
-       gameplayb1.setVisibility(View.VISIBLE);
-       gameplayb2.setVisibility(View.VISIBLE);
+        ObjectButton3.setVisibility(View.INVISIBLE);
+        ObjectButton4.setVisibility(View.INVISIBLE);
+        ObjectButton.setVisibility(View.INVISIBLE);
+        ObjectButton2.setVisibility(View.INVISIBLE);
+        gameplayb1.setVisibility(View.VISIBLE);
+        gameplayb2.setVisibility(View.VISIBLE);
 
-       Collections.shuffle(gameplayimages);
-      // do {
-           for (int i = 0; i < gameplayimages.size(); i++) { //na thumithw dowhile
-               if (gameplayimages.get(i).getText().equals("scissors")) {
-                   gameplayb1.setBackground(getDrawable(R.drawable.scissors));
-                   gameplayb1.setText("scissors");
-                   gameplayb1.setTextSize(0);
-                   //gpscissors.setVisibility(View.VISIBLE);
-                   knownwinner.add("scissors");
+        Collections.shuffle(gameplayimages);
+        // do {
+        for (int i = 0; i < gameplayimages.size(); i++) { //na thumithw dowhile
+            if (gameplayimages.get(i).getText().equals("scissors")) {
+                gameplayb1.setBackground(getDrawable(R.drawable.scissors));
+                gameplayb1.setText("scissors");
+                gameplayb1.setTextSize(0);
+                //gpscissors.setVisibility(View.VISIBLE);
+                knownwinner.add("scissors");
 
 
-               } else if (gameplayimages.get(i).getText().equals("paper")) {
-                   gameplayb1.setBackground(getDrawable(R.drawable.paper));
-                   gameplayb1.setText("paper");
-                   gameplayb1.setTextSize(0);
-                   knownwinner.add("paper");
+            } else if (gameplayimages.get(i).getText().equals("paper")) {
+                gameplayb1.setBackground(getDrawable(R.drawable.paper));
+                gameplayb1.setText("paper");
+                gameplayb1.setTextSize(0);
+                knownwinner.add("paper");
 
-               } else if (gameplayimages.get(i).getText().equals("rock")) {
-                   gameplayb1.setBackground(getDrawable(R.drawable.rock));
-                   gameplayb1.setText("rock");
-                   gameplayb1.setTextSize(0);
-                   knownwinner.add("rock");
+            } else if (gameplayimages.get(i).getText().equals("rock")) {
+                gameplayb1.setBackground(getDrawable(R.drawable.rock));
+                gameplayb1.setText("rock");
+                gameplayb1.setTextSize(0);
+                knownwinner.add("rock");
 
-               } else if (gameplayimages.get(i).getText().equals("pencil")) {
-                   gameplayb1.setBackground(getDrawable(R.drawable.pencil));
-                   gameplayb1.setText("pencil");
-                   gameplayb1.setTextSize(0);
-                   knownwinner.add("pencil");
+            } else if (gameplayimages.get(i).getText().equals("pencil")) {
+                gameplayb1.setBackground(getDrawable(R.drawable.pencil));
+                gameplayb1.setText("pencil");
+                gameplayb1.setTextSize(0);
+                knownwinner.add("pencil");
 
-               }
+            }
 
-           }
+        }
         Collections.shuffle(gameplayimages);
         for (int i = 0; i < gameplayimages.size(); i++) { //na thumithw dowhile
             if (gameplayimages.get(i).getText().equals("scissors")) {
@@ -293,128 +283,116 @@ public class Game12 extends AppCompatActivity {
             }
 
         }
-      // }while (pos<2);
-       //CheckKnownWinner();
+        // }while (pos<2);
+        //CheckKnownWinner();
         title.setText(getResources().getString(R.string.winnerg12));
-        title.setWidth(scale.width=500);
+        title.setWidth(scale.width = 500);
         tie.setVisibility(View.VISIBLE);
-        corans.setText("Corrects : "+corrects);
+        corans.setText("Corrects : " + corrects);
 
 
     }
-    public String  CheckKnownWinner(String one, String two)
-    {
-      if((one.equals("rock")) && (two.equals("pencil"))){
-          return "rock";
+
+    public String CheckKnownWinner(String one, String two) {
+        if ((one.equals("rock")) && (two.equals("pencil"))) {
+            return "rock";
+        } else if ((one.equals("rock")) && (two.equals("scissors"))) {
+            return "rock";
+        } else if ((one.equals("rock")) && (two.equals("paper"))) {
+            return "paper";
+        } else if ((one.equals("pencil")) && (two.equals("paper"))) {
+            return "pencil";
+        } else if ((one.equals("pencil")) && (two.equals("scissors"))) {
+            return "scissors";
+        } else if ((one.equals("pencil")) && (two.equals("rock"))) {
+            return "rock";
+        } else if ((one.equals("scissors")) && (two.equals("rock"))) {
+            return "rock";
+        } else if ((one.equals("scissors")) && (two.equals("pencil"))) {
+            return "scissors";
+        } else if ((one.equals("scissors")) && (two.equals("paper"))) {
+            return "scissors";
+        } else if ((one.equals("paper")) && (two.equals("scissors"))) {
+            return "scissors";
+        } else if ((one.equals("paper")) && (two.equals("pencil"))) {
+            return "pencil";
+        } else if ((one.equals("paper")) && (two.equals("rock"))) {
+            return "paper";
+        } else {
+            return "tie";
+        }
     }
-    else if((one.equals("rock")) && (two.equals("scissors"))){
-          return "rock";
-      }
-      else if((one.equals("rock")) && (two.equals("paper"))){
-         return  "paper";
-      }
-      else if((one.equals("pencil")) && (two.equals("paper"))){
-          return "pencil";
-      }
-      else if((one.equals("pencil")) && (two.equals("scissors"))){
-         return "scissors";
-      }
-      else if((one.equals("pencil")) && (two.equals("rock"))){
-          return "rock";
-      }
-      else if((one.equals("scissors")) && (two.equals("rock"))){
-          return "rock";
-      }
-      else if((one.equals("scissors")) && (two.equals("pencil"))){
-          return "scissors";
-      }
-      else if((one.equals("scissors")) && (two.equals("paper"))){
-         return "scissors";
-      }
-      else if((one.equals("paper")) && (two.equals("scissors"))){
-         return  "scissors";
-      }
-      else if((one.equals("paper")) && (two.equals("pencil"))){
-          return "pencil";
-      }
-      else if((one.equals("paper")) && (two.equals("rock"))){
-          return "paper";
-      }
-      else {
-          return "tie";
-      }
-    }
-    public void CheckWins(Button one,Button two){
-        if((gameplayb1.getText().equals("rock")) && (gameplayb2.getText().equals("scissors")))
-        {
+
+    public void CheckWins(Button one, Button two) {
+        if ((gameplayb1.getText().equals("rock")) && (gameplayb2.getText().equals("scissors"))) {
 
         }
     }
-    public void checkEndGame(){
-        if(corrects==8){
-            currentSession.setTimeEnd(System.currentTimeMillis()/1000);
+
+    public void checkEndGame() {
+        if (corrects == 8) {
+            currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
             dbHandler.addSessionToDB(currentSession);
             soundHandler.stopSound();
             Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this , Menu2.class);
+            Intent intent = new Intent(this, Menu2.class);
             startActivity(intent);
         }
     }
+
     public void p1onClick(View view) {
 
-        kwinner =  CheckKnownWinner((String) gameplayb1.getText(),(String) gameplayb2.getText());
-        Log.e("MyDEbou", "To 1 exei "+gameplayb1.getText()+"kai to kwiner :" +kwinner);
-        if(gameplayb1.getText().equals(kwinner)){
+        kwinner = CheckKnownWinner((String) gameplayb1.getText(), (String) gameplayb2.getText());
+        Log.e("MyDEbou", "To 1 exei " + gameplayb1.getText() + "kai to kwiner :" + kwinner);
+        if (gameplayb1.getText().equals(kwinner)) {
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
             currentSession.setScore(corrects);
             soundHandler.playOkSound();
             checkEndGame();
             initGameplay();
-        }
-        else{
+        } else {
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             wrongs++;
-            currentSession.setFails(currentSession.getFails()+1);
+            currentSession.setFails(currentSession.getFails() + 1);
             soundHandler.playWrongSound();
             initGameplay();
         }
     }
+
     public void p2onClick(View view) {
-        kwinner =  CheckKnownWinner((String) gameplayb1.getText(),(String) gameplayb2.getText());
-        Log.e("MyDEbou", "To 2 exei "+gameplayb2.getText()+"kai to kwiner :" +kwinner);
-        if(gameplayb2.getText().equals(kwinner)){
+        kwinner = CheckKnownWinner((String) gameplayb1.getText(), (String) gameplayb2.getText());
+        Log.e("MyDEbou", "To 2 exei " + gameplayb2.getText() + "kai to kwiner :" + kwinner);
+        if (gameplayb2.getText().equals(kwinner)) {
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
             currentSession.setScore(corrects);
             soundHandler.playOkSound();
             checkEndGame();
             initGameplay();
-        }
-        else{
+        } else {
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             wrongs++;
-            currentSession.setFails(currentSession.getFails()+1);
+            currentSession.setFails(currentSession.getFails() + 1);
             soundHandler.playWrongSound();
             initGameplay();
         }
     }
 
     public void tieonClick(View view) {
-        kwinner =  CheckKnownWinner((String) gameplayb1.getText(),(String) gameplayb2.getText());
-        Log.e("MyDEbou", "To 2 exei "+gameplayb2.getText()+"kai to kwiner :" +kwinner);
-        if(kwinner.equals("tie")){
+        kwinner = CheckKnownWinner((String) gameplayb1.getText(), (String) gameplayb2.getText());
+        Log.e("MyDEbou", "To 2 exei " + gameplayb2.getText() + "kai to kwiner :" + kwinner);
+        if (kwinner.equals("tie")) {
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
             currentSession.setScore(corrects);
             soundHandler.playOkSound();
             checkEndGame();
             initGameplay();
-        }
-        else{
+        } else {
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             wrongs++;
-            currentSession.setFails(currentSession.getFails()+1);
+            currentSession.setFails(currentSession.getFails() + 1);
             soundHandler.playWrongSound();
             initGameplay();
 
