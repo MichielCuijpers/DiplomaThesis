@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import com.icsd.game.thesis.Game10.Game10;
 import com.icsd.game.thesis.Game11.Game11;
@@ -35,12 +36,15 @@ public class Menu2 extends AppCompatActivity {
     }
 
 
-
-
     public void writeDataCSVonclick(View view) {
+        DatabaseHandler.exportDBtoCsv();
+        Toast.makeText(this, "csvs exported!!",
+                Toast.LENGTH_LONG).show();
     }
 
     public void highscoreOnClick(View view) {
+        Intent goToHighscores = new Intent(this, HighscoresActivity.class);
+        startActivity(goToHighscores);
     }
 
     public void finalSurOnClick(View view) {
@@ -51,7 +55,7 @@ public class Menu2 extends AppCompatActivity {
     }
 
     public void dbTest(View view) {
-        DatabaseHandler.exportDBtoCsv();
+
         Intent dbmanager = new Intent(this, AndroidDatabaseManager.class);
         startActivity(dbmanager);
     }

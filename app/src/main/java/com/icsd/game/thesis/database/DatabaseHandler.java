@@ -18,7 +18,9 @@ import com.icsd.game.thesis.game5.ObjectT;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class DatabaseHandler extends SQLiteOpenHelper {
@@ -236,6 +238,25 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
     }
 
+    public static HashMap<Integer, Integer> getHighscoresFromDB() {
+        HashMap<Integer, Integer> hmap = new HashMap<Integer, Integer>();
+        String question;
+        String selectQuery = "SELECT * FROM " + Highscore.HighscoreDBEntry.TABLE_NAME;
+
+        Cursor cursor = LoginActivity.getDb().rawQuery(selectQuery, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+
+            hmap.put(cursor.getInt(cursor.getColumnIndexOrThrow(Highscore.HighscoreDBEntry.GAME_ID)), cursor.getInt(cursor.getColumnIndexOrThrow(Highscore.HighscoreDBEntry.HIGHSCORE)));
+            cursor.moveToNext();
+
+
+        }
+        cursor.close();
+
+        return hmap;
+    }
+
     public static void exportDBtoCsv() {
         DatabaseHandler dh = new DatabaseHandler(AppLan.getAppContext());
         File exportDir = new File(Environment.getExternalStorageDirectory(), "");
@@ -270,7 +291,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             csvWrite.writeNext(curCSV.getColumnNames());
             while (curCSV.moveToNext()) {
                 //Which column you want to exprort
-                String arrStr[] = {curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3),curCSV.getString(4)};
+                String arrStr[] = {curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3), curCSV.getString(4)};
                 csvWrite.writeNext(arrStr);
             }
             csvWrite.close();

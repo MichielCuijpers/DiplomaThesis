@@ -104,8 +104,15 @@
             android:name=".pet.Tooltips.Tooltips"
             android:label="@string/title_activity_tooltips" />
         <activity android:name=".pet.PetActivity" />
-        <activity android:name=".commons.SurveyActivity" />
-        <activity android:name=".commons.Μenu3"></activity>
+        <activity
+            android:name=".commons.SurveyActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".commons.Μenu3"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".commons.HighscoresActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
