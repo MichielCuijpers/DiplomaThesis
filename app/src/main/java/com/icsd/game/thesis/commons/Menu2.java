@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import com.icsd.game.thesis.Game10.Game10;
 import com.icsd.game.thesis.Game11.Game11;
@@ -34,49 +35,28 @@ public class Menu2 extends AppCompatActivity {
         startActivity(c);
     }
 
-    public void Game14(View view) {
-        Intent c = new Intent(this, Game14.class);
-        startActivity(c);
+
+    public void writeDataCSVonclick(View view) {
+        DatabaseHandler.exportDBtoCsv();
+        Toast.makeText(this, "csvs exported!!",
+                Toast.LENGTH_LONG).show();
     }
 
-    public void game13(View view) {
-        Intent c = new Intent(this, Game13.class);
-        startActivity(c);
+    public void highscoreOnClick(View view) {
+        Intent goToHighscores = new Intent(this, HighscoresActivity.class);
+        startActivity(goToHighscores);
     }
 
-    public void Game12(View view) {
-        Intent c = new Intent(this, Game12.class);
-        startActivity(c);
-    }
-
-    public void Game9(View view) {
-        Intent c = new Intent(this, Game9.class);
-        startActivity(c);
+    public void finalSurOnClick(View view) {
+        Intent surv = new Intent(this, SurveyActivity.class);
+        SurveyActivity.setQuestionType(1);
+        SurveyActivity.setGameID(0);
+        startActivity(surv);
     }
 
     public void dbTest(View view) {
-        DatabaseHandler.exportDBtoCsv();
+
         Intent dbmanager = new Intent(this, AndroidDatabaseManager.class);
-
         startActivity(dbmanager);
-    }
-
-    public void game15(View view) {
-        Intent c = new Intent(this, Game15.class);
-        startActivity(c);
-    }
-    public void Game11(View view){
-        Intent c = new Intent(this,Game11.class);
-        startActivity(c);
-    }
-    public void Game10(View view){
-        Intent c = new Intent(this,Game10.class);
-        startActivity(c);
-    }
-
-    public void game16(View view) {
-        // Intent c = new Intent(this, Tooltips.class);
-        Intent c = new Intent(this, PetActivity.class);
-        startActivity(c);
     }
 }

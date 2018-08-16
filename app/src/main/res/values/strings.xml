@@ -28,6 +28,13 @@
     <string name="ok">OK</string>
     <string name="choose_lang">Παρακαλώ επέλεξε Γλώσσα</string>
     <string name="give_username">Please give username</string>
+    <string name="menouText">Games Categories</string>
+    <string name="next_page">next page</string>
+    <string name="highscore_menou">highscores</string>
+    <string name="csv_menou">write data to csv</string>
+    <string name="surv_menou">final surveys</string>
+    <string name="back_menou">back</string>
+    <string name="thanks_end">thank you for your participation </string>
 
 
     <!-- game1-->
@@ -303,10 +310,10 @@
     <string name="game14Des" translatable="false">Choose the heavier item></string>
     <string name="game15Des" translatable="false">Do the maths</string>
     <!-- Categories -->
-    <string name="categoryG1" translatable="false">Memory</string>
-    <string name="categoryG2" translatable="false">Attetion</string>
-    <string name="categoryG3" translatable="false">Brain Processing Speed</string>
-    <string name="categoryG4" translatable="false">Problem Solving</string>
+    <string name="categoryG1">Memory</string>
+    <string name="categoryG2">Attetion</string>
+    <string name="categoryG3">Brain Processing Speed</string>
+    <string name="categoryG4">Problem Solving</string>
     <string name="new_turn">New Turn Begins</string>
     <string name="choose_another_category">Choose another Category</string>
 
@@ -316,5 +323,24 @@
     <string name="an3q19">disoriented</string>
     <string name="an4q19">fatiqued</string>
 
+
+    <!--Surveys -->
+    <string name="aggree">Strongly aggree</string>
+    <string name="disaggree">Strongly disaggree</string>
+
+    <string name="q1s0">the game was to complex</string>
+    <string name="q2s0">The game have a good appearance</string>
+    <string name="q3s0">The game was interest</string>
+
+    <string name="q1s1">I think that I would like to use this app frequently</string>
+    <string name="q2s1">I found the app  unnecessarily complex</string>
+    <string name="q3s1">I thought the app was easy to use.</string>
+    <string name="q4s1">I think that I would need the support  to be able to use this app.</string>
+    <string name="q5s1">I found the various functions in this app were well integrated.</string>
+    <string name="q6s1">I thought there was too much inconsistency in this app</string>
+    <string name="q7s1">I would imagine that most people would learn to use this app very quickly.</string>
+    <string name="q8s1">I found the app very cumbersome to use.</string>
+    <string name="q9s1">I felt very confident using the app.</string>
+    <string name="q10s1">" Χρειάστηκα να μάθω πολλά πράγματα πριν μπορέσω να προχωρήσω με αυτήν την εφαρμογή"</string>
 
 </resources>

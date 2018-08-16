@@ -1,17 +1,12 @@
 package com.icsd.game.thesis.Game6;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
+
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.PopupMenu;
-import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.icsd.game.thesis.commons.LoginActivity;
 import com.icsd.game.thesis.R;
@@ -47,9 +42,6 @@ public class Game6 extends AppCompatActivity {
     private SoundHandler soundHandler;
     private PopUpWindow popUpWindow;
 
-    //bitmaps
-    BitmapDrawable pcbitMap, laptopBitMap, flower1BitMap, flower2BitMap, flower3BitMap, flower4BitMap, flower5BitMap, flower6BitMap, flower7BitMap;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,30 +53,11 @@ public class Game6 extends AppCompatActivity {
 
         soundHandler = new SoundHandler(getApplicationContext());
 
-        imagesToBitmap();
+
         initTest();
 
     }
-    private void imagesToBitmap() {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inSampleSize = 8;
-        Bitmap mBitmapInsurance1 = BitmapFactory.decodeFile("drawable/pc.jpg", options);
-        pcbitMap = new BitmapDrawable(getResources(), mBitmapInsurance1);
-        Bitmap mBitmapInsurance2 = BitmapFactory.decodeFile("drawable/laptop.jpg", options);
-        laptopBitMap = new BitmapDrawable(getResources(), mBitmapInsurance2);
-        Bitmap mBitmapInsurance3 = BitmapFactory.decodeFile("drawable/flower2.jpg", options);
-        flower1BitMap = new BitmapDrawable(getResources(), mBitmapInsurance3);
-        Bitmap mBitmapInsurance4 = BitmapFactory.decodeFile("drawable/flower3.jpg", options);
-        flower2BitMap = new BitmapDrawable(getResources(), mBitmapInsurance4);
-        Bitmap mBitmapInsurance5 = BitmapFactory.decodeFile("drawable/flower4.jpg", options);
-        flower3BitMap = new BitmapDrawable(getResources(), mBitmapInsurance5);
-        Bitmap mBitmapInsurance6 = BitmapFactory.decodeFile("drawable/flower5.jpg", options);
-        flower4BitMap = new BitmapDrawable(getResources(), mBitmapInsurance6);
-        Bitmap mBitmapInsurance7 = BitmapFactory.decodeFile("drawable/flower6.jpg", options);
-        flower5BitMap = new BitmapDrawable(getResources(), mBitmapInsurance7);
-        Bitmap mBitmapInsurance8 = BitmapFactory.decodeFile("drawable/flower7.jpg", options);
-        flower6BitMap = new BitmapDrawable(getResources(), mBitmapInsurance8);
-    }
+
 
     private void initTest() {
 
@@ -155,15 +128,15 @@ public class Game6 extends AppCompatActivity {
         smartwatch.setBackground(getDrawable(R.drawable.smartwatch));
 
 
-        pc.setBackground(pcbitMap);
-        laptop.setBackground(laptopBitMap);
+        pc.setBackground(getDrawable(R.drawable.pc));
+        laptop.setBackground(getDrawable(R.drawable.laptop));
         flower1.setBackground(getDrawable(R.drawable.flower1));
-        flower2.setBackground(flower1BitMap);
-        flower3.setBackground(flower2BitMap);
-        flower4.setBackground(flower3BitMap);
-        flower5.setBackground(flower4BitMap);
-        flower6.setBackground(flower5BitMap);
-        flower7.setBackground(flower6BitMap);
+        flower2.setBackground(getDrawable(R.drawable.flower2));
+        flower3.setBackground(getDrawable(R.drawable.flower3));
+        flower4.setBackground(getDrawable(R.drawable.flower4));
+        flower5.setBackground(getDrawable(R.drawable.flower5));
+        flower6.setBackground(getDrawable(R.drawable.flower6));
+        flower7.setBackground(getDrawable(R.drawable.flower7));
 
 
         fruits.add(melon);
@@ -356,16 +329,15 @@ public class Game6 extends AppCompatActivity {
         tablet2.setBackground(getDrawable(R.drawable.tablet2));
         smartwatch.setBackground(getDrawable(R.drawable.smartwatch));
 
-        pc.setBackground(pcbitMap);
-        laptop.setBackground(laptopBitMap);
+        pc.setBackground(getDrawable(R.drawable.pc));
+        laptop.setBackground(getDrawable(R.drawable.laptop));
         flower1.setBackground(getDrawable(R.drawable.flower1));
-        flower2.setBackground(flower1BitMap);
-        flower3.setBackground(flower2BitMap);
-        flower4.setBackground(flower3BitMap);
-        flower5.setBackground(flower4BitMap);
-        flower6.setBackground(flower5BitMap);
-        flower7.setBackground(flower6BitMap);
-
+        flower2.setBackground(getDrawable(R.drawable.flower2));
+        flower3.setBackground(getDrawable(R.drawable.flower3));
+        flower4.setBackground(getDrawable(R.drawable.flower4));
+        flower5.setBackground(getDrawable(R.drawable.flower5));
+        flower6.setBackground(getDrawable(R.drawable.flower6));
+        flower7.setBackground(getDrawable(R.drawable.flower7));
 
         fruits.add(melon);
         fruits.add(avocado);
@@ -522,7 +494,7 @@ public class Game6 extends AppCompatActivity {
 
         this.setContentView(R.layout.activity_game6_playactivity);
         score = (TextView) findViewById(R.id.text1);
-        popUpWindow = new PopUpWindow(Game6.this,Game6.this);
+        popUpWindow = new PopUpWindow(Game6.this, Game6.this);
         initGame();
 
     }//i methodo checkwinner

@@ -35,7 +35,6 @@ public class LoginActivity extends AppCompatActivity {
     public static String lan;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -50,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         dh = new DatabaseHandler(this);
         db = dh.getWritableDatabase();
         dh.onCreate(db);
+
         GameDBEntry.addGamesToDB(db, this);
         number1View = findViewById(R.id.number1View);
         number2View = findViewById(R.id.number2View);

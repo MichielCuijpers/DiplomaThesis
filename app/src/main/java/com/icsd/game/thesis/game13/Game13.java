@@ -1,6 +1,7 @@
 package com.icsd.game.thesis.game13;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import com.icsd.game.thesis.commons.LoginActivity;
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.commons.SurveyActivity;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
@@ -117,6 +119,10 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
                         popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
                         saveSessionToDB();
                         killAll();
+                        Intent surv = new Intent(getApplicationContext(), SurveyActivity.class);
+                        SurveyActivity.setQuestionType(0);
+                        SurveyActivity.setGameID(13);
+                        startActivity(surv);
                     } else {
 
                     }

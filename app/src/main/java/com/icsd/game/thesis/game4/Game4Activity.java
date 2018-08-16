@@ -13,6 +13,7 @@ import com.icsd.game.thesis.commons.LoginActivity;
 import com.icsd.game.thesis.commons.Menu;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
+import com.icsd.game.thesis.commons.SurveyActivity;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
@@ -35,6 +36,7 @@ public class Game4Activity extends AppCompatActivity {
     private String currentWord;
     private int globalTurn;
     private int secondaryTurn;
+
     private static Context context;
     private Session curSession;
     private SoundHandler soundHandler;
@@ -232,8 +234,10 @@ public class Game4Activity extends AppCompatActivity {
             dbHandler.addSessionToDB(this.curSession);
         }
 
-        Intent c = new Intent(this, Menu.class);
-        startActivity(c);
+        Intent surv = new Intent(this, SurveyActivity.class);
+        SurveyActivity.setQuestionType(0);
+        SurveyActivity.setGameID(4);
+        startActivity(surv);
     }
 
     private void changeTurn() {

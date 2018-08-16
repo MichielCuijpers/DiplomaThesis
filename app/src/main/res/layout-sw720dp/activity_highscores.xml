@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".commons.HighscoresActivity"
+    android:background="#c7a96c">
+
+    <TextView
+        android:id="@+id/h12"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="140dp"
+        android:text="Game12:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/h13"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/h13"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="140dp"
+        android:text="Game13:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/h14"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/h14"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="140dp"
+        android:text="Game14:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/h15"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/h8"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="272dp"
+        android:text="Game8:"
+        android:textColor="@android:color/background_dark"
+        android:textSize=" 35sp"
+        app:layout_constraintBottom_toTopOf="@+id/h9"
+        app:layout_constraintEnd_toStartOf="@+id/h13" />
+
+    <TextView
+        android:id="@+id/h2"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Game2:"
+        android:textColor="@android:color/background_dark"
+        android:textSize=" 35sp"
+        app:layout_constraintBottom_toTopOf="@+id/h3"
+        app:layout_constraintEnd_toStartOf="@+id/h7"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/h4"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Game4:"
+        android:textColor="@android:color/background_dark"
+        android:textSize=" 35sp"
+        app:layout_constraintBottom_toTopOf="@+id/h5"
+        app:layout_constraintEnd_toStartOf="@+id/h9"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/h3"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Game3:"
+        android:textColor="@android:color/background_dark"
+        android:textSize=" 35sp"
+        app:layout_constraintBottom_toTopOf="@+id/h4"
+        app:layout_constraintEnd_toStartOf="@+id/h8"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/h1"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Game1:"
+        android:textColor="@android:color/background_dark"
+        android:textSize=" 35sp"
+        app:layout_constraintBottom_toTopOf="@+id/h2"
+        app:layout_constraintEnd_toStartOf="@+id/h6"
+        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/h10"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="272dp"
+        android:text="Game10:"
+        android:textColor="@android:color/background_dark"
+        android:textSize=" 35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/h15" />
+
+    <TextView
+        android:id="@+id/h5"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Game5:"
+        android:textColor="@android:color/background_dark"
+        android:textSize=" 35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/h10"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/h7"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="272dp"
+        android:text="Game7:"
+        android:textColor="@android:color/background_dark"
+        android:textSize=" 35sp"
+        app:layout_constraintBottom_toTopOf="@+id/h8"
+        app:layout_constraintEnd_toStartOf="@+id/h12" />
+
+    <TextView
+        android:id="@+id/h9"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="272dp"
+        android:text="Game9:"
+        android:textColor="@android:color/background_dark"
+        android:textSize=" 35sp"
+        app:layout_constraintBottom_toTopOf="@+id/h10"
+        app:layout_constraintEnd_toStartOf="@+id/h14" />
+
+    <TextView
+        android:id="@+id/h6"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="272dp"
+        android:layout_marginTop="52dp"
+        android:text="Game6:"
+        android:textColor="@android:color/background_dark"
+        android:textSize=" 35sp"
+        app:layout_constraintBottom_toTopOf="@+id/h7"
+        app:layout_constraintEnd_toStartOf="@+id/h11"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/h15"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="140dp"
+        android:text="Game15:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/h11"
+        android:layout_width="185dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginTop="8dp"
+        android:text="Game11:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/h12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+</android.support.constraint.ConstraintLayout>

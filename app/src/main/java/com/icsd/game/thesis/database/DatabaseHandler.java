@@ -18,7 +18,9 @@ import com.icsd.game.thesis.game5.ObjectT;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class DatabaseHandler extends SQLiteOpenHelper {
@@ -56,6 +58,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(Highscore.HighscoreDBEntry.SQL_CREATE_ENTRIES);
         db.execSQL(Survey.SurveyQuestionDBEntry.SQL_CREATE_ENTRIES);
         db.execSQL(Survey.SurveyResultsDBEntry.SQL_CREATE_ENTRIES);
+        Survey.SurveyQuestionDBEntry.addSurvQuestionsToDB(db);
         Question.QuestionDBEntry.addQuestionsToDB(db);
         Word.WordDBEntry.addTestWordsToDB(db);
         ObjectT.ObjectDBEntry.addTestObjectToDB(db);
@@ -142,6 +145,35 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
+    public static void saveSurveyResultsToDB(ArrayList<Integer> answers, ArrayList<String> questions, int type, int gameID) {
+        ContentValues values = new ContentValues();
+        SQLiteDatabase db = LoginActivity.getDb();
+        String username = LoginActivity.getUser().getUsername();
+        if (type == 1) {
+
+
+            for (int i = 0; i < answers.size(); i++) {
+                values.put(Survey.SurveyResultsDBEntry.QUESTION, questions.get(i));
+                values.put(Survey.SurveyResultsDBEntry.ANSWER, answers.get(i));
+                values.put(Survey.SurveyResultsDBEntry.USER, username);
+                values.put(Survey.SurveyResultsDBEntry.GAME_ID, gameID);
+                db.insert(Survey.SurveyResultsDBEntry.TABLE_NAME, null, values);
+                values.clear();
+            }
+        }
+        if (type == 2) {
+            for (int i = 0; i < answers.size(); i++) {
+                values.put(Survey.SurveyResultsDBEntry.QUESTION, questions.get(i));
+                values.put(Survey.SurveyResultsDBEntry.ANSWER, answers.get(i));
+                values.put(Survey.SurveyResultsDBEntry.USER, username);
+                values.put(Survey.SurveyResultsDBEntry.GAME_ID, gameID);
+                db.insert(Survey.SurveyResultsDBEntry.TABLE_NAME, null, values);
+                values.clear();
+            }
+        }
+
+    }
+
     private static boolean checkIfHighScore(int newScore, int gameID, String user, SQLiteDatabase db) {
         String Query = "Select * from " + Highscore.HighscoreDBEntry.TABLE_NAME + " where " + Highscore.HighscoreDBEntry.USER_ID + " ='" + user + "' AND " + Highscore.HighscoreDBEntry.GAME_ID + " = " + gameID;
         Cursor cursor = db.rawQuery(Query, null);
@@ -206,6 +238,25 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
     }
 
+    public static HashMap<Integer, Integer> getHighscoresFromDB() {
+        HashMap<Integer, Integer> hmap = new HashMap<Integer, Integer>();
+        String question;
+        String selectQuery = "SELECT * FROM " + Highscore.HighscoreDBEntry.TABLE_NAME;
+
+        Cursor cursor = LoginActivity.getDb().rawQuery(selectQuery, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+
+            hmap.put(cursor.getInt(cursor.getColumnIndexOrThrow(Highscore.HighscoreDBEntry.GAME_ID)), cursor.getInt(cursor.getColumnIndexOrThrow(Highscore.HighscoreDBEntry.HIGHSCORE)));
+            cursor.moveToNext();
+
+
+        }
+        cursor.close();
+
+        return hmap;
+    }
+
     public static void exportDBtoCsv() {
         DatabaseHandler dh = new DatabaseHandler(AppLan.getAppContext());
         File exportDir = new File(Environment.getExternalStorageDirectory(), "");
@@ -213,7 +264,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             exportDir.mkdirs();
         }
 
-        File file = new File(exportDir, "csvname.csv");
+        File file = new File(exportDir, "sessions.csv");
         try {
             file.createNewFile();
             CSVWriter csvWrite = new CSVWriter(new FileWriter(file));
@@ -222,7 +273,25 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             csvWrite.writeNext(curCSV.getColumnNames());
             while (curCSV.moveToNext()) {
                 //Which column you want to exprort
-                String arrStr[] = {curCSV.getString(0), curCSV.getString(1), curCSV.getString(2),curCSV.getString(3),curCSV.getString(4),curCSV.getString(5),curCSV.getString(6),curCSV.getString(7)};
+                String arrStr[] = {curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3), curCSV.getString(4), curCSV.getString(5), curCSV.getString(6), curCSV.getString(7)};
+                csvWrite.writeNext(arrStr);
+            }
+            csvWrite.close();
+            curCSV.close();
+        } catch (Exception sqlEx) {
+            Log.e("MainActivity", sqlEx.getMessage(), sqlEx);
+        }
+
+        File file2 = new File(exportDir, "survey_results.csv");
+        try {
+            file2.createNewFile();
+            CSVWriter csvWrite = new CSVWriter(new FileWriter(file2));
+            SQLiteDatabase db = dh.getReadableDatabase();
+            Cursor curCSV = db.rawQuery("SELECT * FROM survey_result", null);
+            csvWrite.writeNext(curCSV.getColumnNames());
+            while (curCSV.moveToNext()) {
+                //Which column you want to exprort
+                String arrStr[] = {curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3), curCSV.getString(4)};
                 csvWrite.writeNext(arrStr);
             }
             csvWrite.close();

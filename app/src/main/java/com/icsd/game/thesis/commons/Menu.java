@@ -35,7 +35,7 @@ public class Menu extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_menu);
-        testUser = LoginActivity.getUser();
+
 
     }
 
@@ -46,43 +46,29 @@ public class Menu extends Activity {
     }
 
 
-    public void game8(View view) {
-        Intent c = new Intent(this, Game8.class);
+
+    public void c1OnCLick(View view) {
+        Intent c = new Intent(Menu.this, Μenu3.class);
+        Μenu3.setWichCate(1);
+        Μenu3.setWichCate(1);
         startActivity(c);
     }
 
-    public void game4(View view) {
-        Intent c = new Intent(this, Game4Activity.class);
+    public void c2OnCLick(View view) {
+        Intent c = new Intent(Menu.this, Μenu3.class);
+        Μenu3.setWichCate(2);
         startActivity(c);
     }
 
-    public void game1(View view) {
-        Intent c = new Intent(this, Game1Activity.class);
+    public void c3OnCLick(View view) {
+        Intent c = new Intent(Menu.this, Μenu3.class);
+        Μenu3.setWichCate(3);
         startActivity(c);
     }
 
-    public void game5(View view) {
-        Intent c = new Intent(this, Game5.class);
+    public void c4nCLick(View view) {
+        Intent c = new Intent(Menu.this, Μenu3.class);
+        Μenu3.setWichCate(4);
         startActivity(c);
     }
-
-    public void game2(View view) {
-        Intent c = new Intent(this, Game2Activity.class);
-        startActivity(c);
-    }
-
-    public void game6(View view) {
-        Intent c = new Intent(this, Game6.class);
-        startActivity(c);
-    }
-
-    public void game3(View view) {
-        Intent c = new Intent(this, Game3.class);
-        startActivity(c);
-    }
-    public void Game7(View view){
-        Intent c = new Intent(this,Game7.class);
-        startActivity(c);
-    }
-
 }

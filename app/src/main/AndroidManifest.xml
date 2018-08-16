@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.icsd.game.thesis">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".commons.AppLan"
         android:allowBackup="true"
@@ -80,7 +82,6 @@
             android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".game15.Game15"
             android:configChanges="layoutDirection|locale"
@@ -89,26 +90,29 @@
             android:name=".game3.Game3"
             android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
-
         <activity
             android:name=".commons.LoginActivity"
             android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".pet.Tooltips.Tooltips"
             android:label="@string/title_activity_tooltips" />
-
         <activity android:name=".pet.PetActivity" />
-
-        <activity android:name=".commons.SurveyActivity"></activity>
+        <activity
+            android:name=".commons.SurveyActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".commons.Μenu3"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".commons.HighscoresActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
