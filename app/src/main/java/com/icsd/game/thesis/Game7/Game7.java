@@ -172,7 +172,24 @@ private ArrayList <String> backshuffle;
             sand.setVisibility(View.VISIBLE);
 
             backgroundimg.setBackground((getDrawable(R.drawable.kitchen)));
-            quest_text.setText(new_question.return_Questions("kitchen"));
+            if(new_question.return_Questions("kitchen").equals("Can you store the ice somewhere?")) {
+                quest_text.setText(getResources().getString(R.string.ice));
+            }
+            else if(new_question.return_Questions("kitchen").equals("Please! bake some bread for breakfast")) {
+                quest_text.setText(getResources().getString(R.string.bread));
+            }
+            else if(new_question.return_Questions("kitchen").equals("It is 08:00 AM! Turn on the lights please")) {
+                quest_text.setText(getResources().getString(R.string.kitchen_lights));
+            }
+            else if(new_question.return_Questions("kitchen").equals("This water bottle is empty, please! refill it")) {
+                quest_text.setText(getResources().getString(R.string.bottle));
+            }
+            else if(new_question.return_Questions("kitchen").equals("I am hungry,cook something please")) {
+                quest_text.setText(getResources().getString(R.string.cook));
+            }
+            else if(new_question.return_Questions("kitchen").equals("Can you get rid of the cigarette smoke?")) {
+                quest_text.setText(getResources().getString(R.string.smoke));
+            }
             new_question.delete_Question_used("kitchen", quest_text.getText().toString());
             correct_answer = new_question.set_Correct_Answer(quest_text.getText().toString());
 
@@ -208,8 +225,21 @@ private ArrayList <String> backshuffle;
             mirror.setVisibility(View.VISIBLE);
             lamp_bath.setVisibility(View.VISIBLE);
             backgroundimg.setBackground(getDrawable(R.drawable.bathroom));
-
-            quest_text.setText(new_question.return_Questions("bathroom"));
+            if(new_question.return_Questions("bathroom").equals("You stink!Take a bath please")) {
+                quest_text.setText(getResources().getString(R.string.take_bath));
+            }
+            else if(new_question.return_Questions("bathroom").equals("Your hair do not look so good, take a look")) {
+                quest_text.setText(getResources().getString(R.string.hair));
+            }
+            else if(new_question.return_Questions("bathroom").equals("Give me a new soap please")) {
+                quest_text.setText(getResources().getString(R.string.soap));
+            }
+            else if(new_question.return_Questions("bathroom").equals("Too dark in the bathroom, please do something")) {
+                quest_text.setText(getResources().getString(R.string.bathroom_lights));
+            }
+            else if(new_question.return_Questions("bathroom").equals("Wash your hands after cleaning in there")) {
+                quest_text.setText(getResources().getString(R.string.wash));
+            }
             new_question.delete_Question_used("bathroom", quest_text.getText().toString());
             correct_answer = new_question.set_Correct_Answer(quest_text.getText().toString());
 
@@ -257,7 +287,18 @@ private ArrayList <String> backshuffle;
             soundleft.setVisibility(View.VISIBLE);
             backgroundimg.setBackground(getDrawable(R.drawable.din_room));
 
-            quest_text.setText(new_question.return_Questions("din"));
+            if(new_question.return_Questions("din").equals("You must be tired,Please!Have a sit")) {
+                quest_text.setText(getResources().getString(R.string.sit));
+            }
+            else if(new_question.return_Questions("din").equals("It is too dark in here, react please")) {
+                quest_text.setText(getResources().getString(R.string.din_lights));
+            }
+            else if(new_question.return_Questions("din").equals("Can you switch it on the BBC?")) {
+                quest_text.setText(getResources().getString(R.string.tv_din));
+            }
+            else if(new_question.return_Questions("din").equals("I would like to listen to music!")) {
+                quest_text.setText(getResources().getString(R.string.music));
+            }
             new_question.delete_Question_used("din", quest_text.getText().toString());
             correct_answer = new_question.set_Correct_Answer(quest_text.getText().toString());
 

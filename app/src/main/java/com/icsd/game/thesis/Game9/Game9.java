@@ -228,32 +228,32 @@ public class Game9 extends AppCompatActivity {
         rand = new Random();
         which_color = rand.nextInt(cat.size()); //choose random color
         if (which_color == 0) {
-            what_to_click.setText("Click on the blue images");
+            what_to_click.setText(getResources().getString(R.string.blue));
             for (Button b : blue) {
                 b.setText("BLUE");
             }
         } else if (which_color == 1) {
-            what_to_click.setText("Click on the black images");
+            what_to_click.setText(getResources().getString(R.string.black));
             for (Button b : black) {
                 b.setText("BLACK");
             }
         } else if (which_color == 2) {
-            what_to_click.setText("Click on the green images");
+            what_to_click.setText(getResources().getString(R.string.green));
             for (Button b : green) {
                 b.setText("GREEN");
             }
         } else if (which_color == 3) {
-            what_to_click.setText("Click on the purple images");
+            what_to_click.setText(getResources().getString(R.string.purple));
             for (Button b : purple) {
                 b.setText("PURPLE");
             }
         } else if (which_color == 4) {
-            what_to_click.setText("Click on the red images");
+            what_to_click.setText(getResources().getString(R.string.red));
             for (Button b : red) {
                 b.setText("RED");
             }
         } else if (which_color == 5) {
-            what_to_click.setText("Click on the yellow images");
+            what_to_click.setText(getResources().getString(R.string.yellow));
             for (Button b : yellow) {
                 b.setText("YELLOW");
             }
@@ -461,37 +461,37 @@ public class Game9 extends AppCompatActivity {
         //int which_cat = rand.nextInt(cat.size());
         which_color = rand.nextInt(cat.size()); //choose random color
         if (which_color == 0) {
-            what_to_click.setText("Click on the blue images");
+            what_to_click.setText(getResources().getString(R.string.blue));
             for (Button b : blue) {
                 b.setText("BLUE");
                 b.setTextSize(0);
             }
         } else if (which_color == 1) {
-            what_to_click.setText("Click on the black images");
+            what_to_click.setText(getResources().getString(R.string.black));
             for (Button b : black) {
                 b.setText("BLACK");
                 b.setTextSize(0);
             }
         } else if (which_color == 2) {
-            what_to_click.setText("Click on the green images");
+            what_to_click.setText(getResources().getString(R.string.green));
             for (Button b : green) {
                 b.setText("GREEN");
                 b.setTextSize(0);
             }
         } else if (which_color == 3) {
-            what_to_click.setText("Click on the purple images");
+            what_to_click.setText(getResources().getString(R.string.purple));
             for (Button b : purple) {
                 b.setText("PURPLE");
                 b.setTextSize(0);
             }
         } else if (which_color == 4) {
-            what_to_click.setText("Click on the red images");
+            what_to_click.setText(getResources().getString(R.string.red));
             for (Button b : red) {
                 b.setText("RED");
                 b.setTextSize(0);
             }
         } else if (which_color == 5) {
-            what_to_click.setText("Click on the yellow images");
+            what_to_click.setText(getResources().getString(R.string.yellow));
             for (Button b : yellow) {
                 b.setText("YELLOW");
                 b.setTextSize(0);
@@ -623,7 +623,7 @@ public class Game9 extends AppCompatActivity {
             cleanBackgroundForPopUp();
             //right_color.remove(b);
             sc++;
-            score.setText("Score: " + sc);
+            score.setText(getResources().getString(R.string.scoreg6)+sc);
             position = 0;
             right_color.removeAll(clicked);
             for (int i = 0; i < clicked.size(); i++) {

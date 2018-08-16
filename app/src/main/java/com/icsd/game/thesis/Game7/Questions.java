@@ -106,6 +106,39 @@ public class Questions {
         }else if(question.equals("I would like to listen to music!")){
             correct_answer = "sound";
         }
+        //ellinika
+        else if(question.equals("Μπορείς να αποθηκεύσεις κάπου τον πάγο;")){
+            correct_answer = "sands";
+        }
+        else if(question.equals("Σε παρακαλώ! Φτιάξε λίγο ψωμί")){
+            correct_answer = "sands";
+        }else if(question.equals("Είναι 08:00 το βράδυ!Άναψε τα φώτα παρακαλώ")){
+            correct_answer = "lamp";
+        }else if(question.equals("Το μπουκάλι είναι άδειο,Παρακαλώ! Γεμισέ το")){
+            correct_answer = "wash";
+        }else if(question.equals("Πεινάω αρκετά!Μαγείρεψε κάτι αν μπορείς")){
+            correct_answer = "cook";
+        }else if(question.equals("Μπορείς να ξεφορτωθείς τον καπνό του τσιγάρου;")){
+            correct_answer = "smoke_cook";
+        }else if(question.equals("Μάλλον μυρίζεις!Κάνε ένα μπανάκι")){
+            correct_answer = "bubble";
+        }else if(question.equals("Τα μαλλιά σου δεν είναι πολύ καλά.Ρίξε μια ματιά")){
+            correct_answer = "mirror";
+        }else if(question.equals("Δώσε μου ένα καινούργιο αφρόλουτρο σε παρακαλώ")){
+            correct_answer = "soap";
+        }else if(question.equals("Είναι πολύ σκοτεινά, Ανάβεις το φως;")){
+            correct_answer = "lamp_bath";
+        }else if(question.equals("Πλύνε τα χέρια σου μετά το καθάρισμα εκεί μέσα")){
+            correct_answer = "hands";
+        }else if(question.equals("Δείχνεις κουρασμένος, Γιατί δεν κάθεσαι;")){
+            correct_answer = "sofa";
+        }else if(question.equals("Είναι πολύ σκοτεινά,κάνε κάτι")){
+            correct_answer = "din_lamp";
+        }else if(question.equals("Μπορείς να βάλεις το κανάλι στο BBC;")){
+            correct_answer = "TV";
+        }else if(question.equals("Θα ήθελα να ακούσω λίγο μουσική")){
+            correct_answer = "sound";
+        }
         return correct_answer;
     }
     public void delete_Question_used(String type,String question){

@@ -55,6 +55,7 @@ public class Game12 extends AppCompatActivity {
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
     private PopUpWindow popUpWindow;
+    private TextView winnertext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +101,7 @@ public class Game12 extends AppCompatActivity {
         gameplayb2 = (Button) findViewById(R.id.gp2);
         gameplayb1.setVisibility(View.INVISIBLE);
         gameplayb2.setVisibility(View.INVISIBLE);
+        winnertext = (TextView) findViewById(R.id.textView13);
         combinefile = new StringBuilder();
         title = (TextView) findViewById(R.id.textView);
         scale = title.getLayoutParams();
@@ -220,6 +222,7 @@ public class Game12 extends AppCompatActivity {
     private void initGameplay()
     {
         Log.e("MyDEbou", "Initgameplay called");
+        winnertext.setVisibility(View.INVISIBLE);
        ObjectButton3.setVisibility(View.INVISIBLE);
        ObjectButton4.setVisibility(View.INVISIBLE);
        ObjectButton.setVisibility(View.INVISIBLE);
@@ -233,6 +236,7 @@ public class Game12 extends AppCompatActivity {
                if (gameplayimages.get(i).getText().equals("scissors")) {
                    gameplayb1.setBackground(getDrawable(R.drawable.scissors));
                    gameplayb1.setText("scissors");
+                   gameplayb1.setTextSize(0);
                    //gpscissors.setVisibility(View.VISIBLE);
                    knownwinner.add("scissors");
 
@@ -240,16 +244,19 @@ public class Game12 extends AppCompatActivity {
                } else if (gameplayimages.get(i).getText().equals("paper")) {
                    gameplayb1.setBackground(getDrawable(R.drawable.paper));
                    gameplayb1.setText("paper");
+                   gameplayb1.setTextSize(0);
                    knownwinner.add("paper");
 
                } else if (gameplayimages.get(i).getText().equals("rock")) {
                    gameplayb1.setBackground(getDrawable(R.drawable.rock));
                    gameplayb1.setText("rock");
+                   gameplayb1.setTextSize(0);
                    knownwinner.add("rock");
 
                } else if (gameplayimages.get(i).getText().equals("pencil")) {
                    gameplayb1.setBackground(getDrawable(R.drawable.pencil));
                    gameplayb1.setText("pencil");
+                   gameplayb1.setTextSize(0);
                    knownwinner.add("pencil");
 
                }
@@ -260,6 +267,7 @@ public class Game12 extends AppCompatActivity {
             if (gameplayimages.get(i).getText().equals("scissors")) {
                 gameplayb2.setBackground(getDrawable(R.drawable.scissors));
                 gameplayb2.setText("scissors");
+                gameplayb2.setTextSize(0);
                 //gpscissors.setVisibility(View.VISIBLE);
                 knownwinner.add("scissors");
 
@@ -267,16 +275,19 @@ public class Game12 extends AppCompatActivity {
             } else if (gameplayimages.get(i).getText().equals("paper")) {
                 gameplayb2.setBackground(getDrawable(R.drawable.paper));
                 gameplayb2.setText("paper");
+                gameplayb2.setTextSize(0);
                 knownwinner.add("paper");
 
             } else if (gameplayimages.get(i).getText().equals("rock")) {
                 gameplayb2.setBackground(getDrawable(R.drawable.rock));
                 gameplayb2.setText("rock");
+                gameplayb2.setTextSize(0);
                 knownwinner.add("rock");
 
             } else if (gameplayimages.get(i).getText().equals("pencil")) {
                 gameplayb2.setBackground(getDrawable(R.drawable.pencil));
                 gameplayb2.setText("pencil");
+                gameplayb2.setTextSize(0);
                 knownwinner.add("pencil");
 
             }
@@ -284,7 +295,7 @@ public class Game12 extends AppCompatActivity {
         }
       // }while (pos<2);
        //CheckKnownWinner();
-        title.setText("Click on the Winner");
+        title.setText(getResources().getString(R.string.winnerg12));
         title.setWidth(scale.width=500);
         tie.setVisibility(View.VISIBLE);
         corans.setText("Corrects : "+corrects);
