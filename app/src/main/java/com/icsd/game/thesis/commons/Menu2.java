@@ -34,24 +34,21 @@ public class Menu2 extends AppCompatActivity {
         startActivity(c);
     }
 
-    public void Game14(View view) {
-        Intent c = new Intent(this, Game14.class);
+
+
+    public void game16(View view) {
+        // Intent c = new Intent(this, Tooltips.class);
+        Intent c = new Intent(this, PetActivity.class);
         startActivity(c);
     }
 
-    public void game13(View view) {
-        Intent c = new Intent(this, Game13.class);
-        startActivity(c);
+    public void writeDataCSVonclick(View view) {
     }
 
-    public void Game12(View view) {
-        Intent c = new Intent(this, Game12.class);
-        startActivity(c);
+    public void highscoreOnClick(View view) {
     }
 
-    public void Game9(View view) {
-        Intent c = new Intent(this, Game9.class);
-        startActivity(c);
+    public void finalSurOnClick(View view) {
     }
 
     public void dbTest(View view) {
@@ -59,24 +56,5 @@ public class Menu2 extends AppCompatActivity {
         Intent dbmanager = new Intent(this, AndroidDatabaseManager.class);
 
         startActivity(dbmanager);
-    }
-
-    public void game15(View view) {
-        Intent c = new Intent(this, Game15.class);
-        startActivity(c);
-    }
-    public void Game11(View view){
-        Intent c = new Intent(this,Game11.class);
-        startActivity(c);
-    }
-    public void Game10(View view){
-        Intent c = new Intent(this,Game10.class);
-        startActivity(c);
-    }
-
-    public void game16(View view) {
-        // Intent c = new Intent(this, Tooltips.class);
-        Intent c = new Intent(this, PetActivity.class);
-        startActivity(c);
     }
 }
