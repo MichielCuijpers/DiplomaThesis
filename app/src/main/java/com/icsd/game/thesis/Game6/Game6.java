@@ -497,7 +497,7 @@ public class Game6 extends AppCompatActivity {
 
     private void userWinsTheTurn() {
         sc++;
-        score.setText("Score: " + sc);
+        score.setText(getResources().getString(R.string.scoreg6)+sc);
         currentSession.setScore(sc);
         soundHandler.playOkSound();
         popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));

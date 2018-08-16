@@ -196,9 +196,43 @@
     <string name="missed_something">Κάτι ξέχασες</string>
     <string name="try_again">Ξανα προσπάθησε</string>
     <string name="tutorialGame11">Προσπάθησε να ανακαλύψεις τα μαυρισμένα πλήκτρα</string>
+
+    <string name="scoreg6">Πόντοι :</string>
+    <string name="messageg6">Ποιό από τα παρακάτω δεν ταιριάζει;</string>
+    <string name="messageg7">Τι θα διάλεγες για να μαγειρέψεις;</string>
+    <string name="ice">Μπορείς να αποθηκεύσεις κάπου τον πάγο;</string>
+    <string name="bread">Σε παρακαλώ! Φτιάξε λίγο ψωμί</string>
+    <string name="kitchen_lights">Είναι 08:00 το βράδυ!Άναψε τα φώτα παρακαλώ</string>
+    <string name="bottle">Το μπουκάλι είναι άδειο,Παρακαλώ! Γεμισέ το</string>
+    <string name="cook">Πεινάω αρκετά!Μαγείρεψε κάτι αν μπορείς</string>
+    <string name="smoke">Μπορείς να ξεφορτωθείς τον καπνό του τσιγάρου;</string>
+    <string name="take_bath">Μάλλον μυρίζεις!Κάνε ένα μπανάκι</string>
+    <string name="hair">Τα μαλλιά σου δεν είναι πολύ καλά.Ρίξε μια ματιά</string>
+    <string name="soap">Δώσε μου ένα καινούργιο αφρόλουτρο σε παρακαλώ</string>
+    <string name="bathroom_lights">Είναι πολύ σκοτεινά, Ανάβεις το φως;</string>
+    <string name="wash">Πλύνε τα χέρια σου μετά το καθάρισμα εκεί μέσα</string>
+    <string name="sit">Δείχνεις κουρασμένος, Γιατί δεν κάθεσαι;</string>
+    <string name="din_lights">Είναι πολύ σκοτεινά,κάνε κάτι</string>
     <string name="Corrects">Σωστά</string>
     <string name="Wrongs">Λάθος</string>
-    <string name="Tip">Επανέλαβε το συνδιασμό όταν εξαφανιστεί</string>
+    <string name="Tip">Προσπάθησε να βρείς το δείγμα μόλις φύγει</string>
+    <string name="music">Θα ήθελα να ακούσω λίγο μουσική</string>
+    <string name="tv_din">Μπορείς να βάλεις το κανάλι στο BBC;</string>
+    <string name="blue">"Επέλεξε τα μπλε αντικείμενα"</string>
+    <string name="black">"Επέλεξε τα μαύρα αντικείμενα"</string>
+    <string name="green">"Επέλεξε τα πράσινα αντικείμενα"</string>
+    <string name="purple">"Επέλεξε τα μοβ αντικείμενα"</string>
+    <string name="red">"Επέλεξε τα κόκκινα αντικείμενα"</string>
+    <string name="yellow">"Επέλεξε τα κίτρινα αντικείμενα"</string>
+    <string name="winnerg12">Επέλεξε τον νικητή</string>
+    <string name="wins">Κερδίζει</string>
+    <string name="tie">Ίδια</string>
+    <string name="back">Πίσω</string>
+    <string name="con">Συνέχεια</string>
+    <string name="rock">ΠΕΤΡΑ</string>
+    <string name="paper">ΧΑΡΤΙ</string>
+    <string name="scissors">ΨΑΛΙΔΙ</string>
+    <string name="pencil">ΜΟΛΥΒΙ</string>
     <string name="aggree">Συμφωνώ απολύτως</string>
     <string name="disaggree">Διαφωνώ απόλυτα</string>
     <string name="q1s0">το παιχνίδι ήταν πολύπλοκο</string>
@@ -225,4 +259,5 @@
     <string name="surv_menou">τελικό ερωτηματολόγιο</string>
     <string name="back_menou">προηγούμενη σελίδα</string>
     <string name="thanks_end">ευχαριστουμε για την συμμετοχη σας</string>
+
 </resources>

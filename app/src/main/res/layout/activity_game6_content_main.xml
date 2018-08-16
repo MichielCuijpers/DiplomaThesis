@@ -376,7 +376,7 @@
         android:layout_marginBottom="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Which one does not belong?"
+        android:text="@string/messageg6"
         android:textColor="@android:color/black"
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/play_button"

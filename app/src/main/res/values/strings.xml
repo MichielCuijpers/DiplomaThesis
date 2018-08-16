@@ -232,8 +232,27 @@
     <string name="photo_frame">frame a photo</string>
     <string name="placemats">place a glass</string>
     <string name="book">its a book</string>
+    <!-- Game6 -->
+    <string name="scoreg6">Score: </string>
+    <string name="messageg6">Which one does not belong?</string>
     <!-- Game7-->
     <string name="tutorialGame7">Try to respond to the given actions</string>
+    <string name="messageg7">What would you choose in order to cook?</string>
+    <string name="ice">Can you store the ice somewhere?</string>
+    <string name="bread">Please! bake some bread for breakfast</string>
+    <string name="kitchen_lights">It is 08:00 AM! Turn on the lights please</string>
+    <string name="bottle">This water bottle is empty, please! refill it</string>
+    <string name="cook">I am hungry,cook something please</string>
+    <string name="smoke">Can you get rid of the cigarette smoke?</string>
+    <string name="take_bath">You stink!Take a bath please</string>
+    <string name="hair">Your hair do not look so good, take a look</string>
+    <string name="soap">Give me a new soap please</string>
+    <string name="bathroom_lights">Too dark in the bathroom, please do something</string>
+    <string name="wash">Wash your hands after cleaning in there</string>
+    <string name="sit">You must be tired,Please!Have a sit</string>
+    <string name="din_lights">It is too dark in here, react please</string>
+    <string name="tv_din">Can you switch it on the BBC?</string>
+    <string name="music">I would like to listen to music!</string>
     <!-- game8-->
     <string name="tutorialGame8">You must touch the right balls </string>
     <string name="dont_touch_red">Now,Dont touch the RED balls</string>
@@ -244,13 +263,27 @@
     <string name="clicked_more">You clicked more</string>
     <string name="missed_something">You missed something</string>
     <string name="try_again">Try again</string>
+    <string name="blue">"Click on the blue images"</string>
+    <string name="black">"Click on the black images"</string>
+    <string name="green">"Click on the green images"</string>
+    <string name="purple">"Click on the purple images"</string>
+    <string name="red">"Click on the red images"</string>
+    <string name="yellow">"Click on the yellow images"</string>
     <!-- Game11-->
     <string name="tutorialGame11">Try to discover the shadowed squares</string>
     <string name="Corrects">Corrects</string>
     <string name="Wrongs">Wrongs</string>
     <string name="Tip">"Try touching the pattern after disappear"</string>
-
-
+    <!-- Game12 -->
+    <string name="winnerg12">Click on the winner</string>
+    <string name="wins">Wins</string>
+    <string name="tie">Tie</string>
+    <string name="con">Continue</string>
+    <string name="back">Back</string>
+    <string name="rock">ROCK</string>
+    <string name="paper">PAPER</string>
+    <string name="scissors">SCISSORS</string>
+    <string name="pencil">PENCIL</string>
     <!-- game15-->
 
     <!-- game13-->
