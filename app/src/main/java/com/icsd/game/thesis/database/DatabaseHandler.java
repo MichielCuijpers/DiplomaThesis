@@ -143,7 +143,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
-    public static void saveSurveyResultsToDB(ArrayList<Integer> answers, ArrayList<String> questions, int type,int gameID) {
+    public static void saveSurveyResultsToDB(ArrayList<Integer> answers, ArrayList<String> questions, int type, int gameID) {
         ContentValues values = new ContentValues();
         SQLiteDatabase db = LoginActivity.getDb();
         String username = LoginActivity.getUser().getUsername();
@@ -243,7 +243,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             exportDir.mkdirs();
         }
 
-        File file = new File(exportDir, "csvname.csv");
+        File file = new File(exportDir, "sessions.csv");
         try {
             file.createNewFile();
             CSVWriter csvWrite = new CSVWriter(new FileWriter(file));
@@ -253,6 +253,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             while (curCSV.moveToNext()) {
                 //Which column you want to exprort
                 String arrStr[] = {curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3), curCSV.getString(4), curCSV.getString(5), curCSV.getString(6), curCSV.getString(7)};
+                csvWrite.writeNext(arrStr);
+            }
+            csvWrite.close();
+            curCSV.close();
+        } catch (Exception sqlEx) {
+            Log.e("MainActivity", sqlEx.getMessage(), sqlEx);
+        }
+
+        File file2 = new File(exportDir, "survey_results.csv");
+        try {
+            file2.createNewFile();
+            CSVWriter csvWrite = new CSVWriter(new FileWriter(file2));
+            SQLiteDatabase db = dh.getReadableDatabase();
+            Cursor curCSV = db.rawQuery("SELECT * FROM survey_result", null);
+            csvWrite.writeNext(curCSV.getColumnNames());
+            while (curCSV.moveToNext()) {
+                //Which column you want to exprort
+                String arrStr[] = {curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3),curCSV.getString(4)};
                 csvWrite.writeNext(arrStr);
             }
             csvWrite.close();

@@ -13,7 +13,7 @@ import java.util.Locale;
 public class Survey {
     public class SurveyResultsDBEntry implements BaseColumns {
 
-        public static final String TABLE_NAME = "surveyResult";
+        public static final String TABLE_NAME = "survey_result";
         public static final String QUESTION = "question";
         public static final String ANSWER = "answer";
         public static final String GAME_ID = "game_id";
