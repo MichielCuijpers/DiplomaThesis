@@ -12,6 +12,7 @@ import com.icsd.game.thesis.commons.LoginActivity;
 import com.icsd.game.thesis.commons.Menu2;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
+import com.icsd.game.thesis.commons.SurveyActivity;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
@@ -60,7 +61,7 @@ public class Game14 extends AppCompatActivity {
         titletext = (TextView) findViewById(R.id.title_14);
         fdb = (TextView) findViewById(R.id.feedback);
         instructions = (TextView) findViewById(R.id.instructions);
-        instructions.setText("Click on the heaviest item");
+        instructions.setText(getResources().getString(R.string.game14_text));
         instructions.setVisibility(View.INVISIBLE);
         heavy = new ArrayList<Button>();
         light = new ArrayList<Button>();
@@ -186,8 +187,10 @@ public class Game14 extends AppCompatActivity {
             dbHandler.addSessionToDB(currentSession);
             soundHandler.stopSound();
             Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this , Menu2.class);
-            startActivity(intent);
+            Intent surv = new Intent(this, SurveyActivity.class);
+            SurveyActivity.setQuestionType(0);
+            SurveyActivity.setGameID(14);
+            startActivity(surv);
         }
     }
 
