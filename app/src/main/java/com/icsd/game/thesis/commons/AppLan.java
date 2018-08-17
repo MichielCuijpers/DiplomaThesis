@@ -16,13 +16,7 @@ public class AppLan extends android.app.Application {
         super.onCreate();
         context = getApplicationContext();
         Configuration config = getBaseContext().getResources().getConfiguration();
-        String lang = "en";
-        if (!"".equals(lang) && !config.locale.getLanguage().equals(lang)) {
-            locale = new Locale(lang);
-            Locale.setDefault(locale);
-            config.locale = locale;
-            getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
-        }
+
 
 
     }

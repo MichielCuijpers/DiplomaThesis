@@ -172,7 +172,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void chooseEnglish(View view) {
-
+        String lang = "en";
+        Configuration config = getBaseContext().getResources().getConfiguration();
+        if (!"".equals(lang) && !config.locale.getLanguage().equals(lang)) {
+            Locale locale = new Locale(lang);
+            Locale.setDefault(locale);
+            config.locale = locale;
+            getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        }
         setContentView(R.layout.activity_login);
         initGui();
     }
