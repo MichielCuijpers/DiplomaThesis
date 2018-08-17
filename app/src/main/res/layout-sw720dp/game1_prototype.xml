@@ -31,7 +31,7 @@
         android:text="@string/question"
         android:textAllCaps="true"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
-        android:textSize="38sp"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,8 +43,8 @@
 
     <Button
         android:id="@+id/checkButton5"
-        android:layout_width="356dp"
-        android:layout_height="161dp"
+        android:layout_width="420dp"
+        android:layout_height="200dp"
         android:layout_marginBottom="104dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -55,17 +55,17 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/answer3Button"
         app:layout_constraintEnd_toStartOf="@+id/answer2Button"
-        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionView"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/answer2Button"
-        android:layout_width="356dp"
-        android:layout_height="161dp"
+        android:layout_width="420dp"
+        android:layout_height="200dp"
         android:layout_marginBottom="104dp"
-        android:layout_marginEnd="164dp"
+        android:layout_marginEnd="168dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="answer2OnClick"
@@ -73,14 +73,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/answer4Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionView"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/answer3Button"
-        android:layout_width="356dp"
-        android:layout_height="161dp"
-        android:layout_marginBottom="52dp"
+        android:layout_width="420dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@android:color/holo_orange_dark"
@@ -89,14 +89,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/answer4Button"
-        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintHorizontal_bias="0.373"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/answer4Button"
-        android:layout_width="356dp"
-        android:layout_height="161dp"
-        android:layout_marginBottom="52dp"
+        android:layout_width="420dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="164dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="answer4OnClick"

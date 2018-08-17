@@ -61,7 +61,7 @@ public class Game3 extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-        endGame();
+       // endGame();
     }
 
     private void initGui() {

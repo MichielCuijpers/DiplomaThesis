@@ -57,7 +57,7 @@ public class Game8 extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-        endGame();
+       // endGame();
 
     }
 

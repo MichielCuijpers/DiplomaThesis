@@ -43,6 +43,7 @@ public class Game4Activity extends AppCompatActivity {
     private PopUpWindow p;
     private int moves;
     private TextView tutorialText;
+    private int tempFails;
 
 
     @Override
@@ -67,7 +68,7 @@ public class Game4Activity extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-        endGame();
+        //endGame();
     }
 
     private void initGameplay() {
@@ -89,7 +90,7 @@ public class Game4Activity extends AppCompatActivity {
     }
 
     private void gameplay(int turn) {
-
+        tempFails = 0;
 
         switch (turn) {
             case 1:
@@ -324,13 +325,25 @@ public class Game4Activity extends AppCompatActivity {
             }
 
         } else {
-
+            this.tempFails++;
             soundHandler.playWrongSound();
             p.showPopUp(getResources().getString(R.string.wrong_answer2));
             this.curSession.setFails(curSession.getFails() + 1);
+            if (tempFails == 5) {
+                if (secondaryTurn > 2) {
+                    changeTurn();
+                }
 
+                if (secondaryTurn == 0 || secondaryTurn == 1 || secondaryTurn == 2) {
+
+                    gameplay(globalTurn);
+
+                }
+            }
         }
     }
+
+
 
 
     public void tutorialOkOnClick(View view) {

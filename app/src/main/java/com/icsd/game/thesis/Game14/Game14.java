@@ -204,6 +204,7 @@ public class Game14 extends AppCompatActivity {
             corrects++;
             fdb.setText("Corrects : " + corrects);
             currentSession.setScore(corrects);
+            currentSession.setStage(corrects);
             soundHandler.playOkSound();
             checkEndGame();
             initGamePlayScreen();
@@ -212,6 +213,7 @@ public class Game14 extends AppCompatActivity {
             incorrects++;
             fdb.setText("Corrects : " + corrects);
             currentSession.setFails(currentSession.getFails() + 1);
+            currentSession.setScore(currentSession.getScore() - 1);
             soundHandler.playWrongSound();
             initGamePlayScreen();
         }
@@ -222,6 +224,7 @@ public class Game14 extends AppCompatActivity {
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
             fdb.setText("Corrects : " + corrects);
+            currentSession.setStage(corrects);
             currentSession.setScore(corrects);
             soundHandler.playOkSound();
             checkEndGame();
@@ -231,6 +234,7 @@ public class Game14 extends AppCompatActivity {
             incorrects++;
             fdb.setText("Corrects : " + corrects);
             currentSession.setFails(currentSession.getFails() + 1);
+            currentSession.setScore(currentSession.getScore() - 1);
             soundHandler.playWrongSound();
             initGamePlayScreen();
         }

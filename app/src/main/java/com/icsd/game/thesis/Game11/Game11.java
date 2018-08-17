@@ -106,6 +106,7 @@ public class Game11 extends AppCompatActivity {
     private void getPattern() {
         if (Pattern == 1) {
             PickRandomButtonForShadowing(screenbuttons);
+
         } else if (Pattern == 2) {
             PickRandomTwoButtonsForShadowing(screenbuttons);
         } else {
@@ -263,6 +264,7 @@ public class Game11 extends AppCompatActivity {
                     tip.setText("Watch out for the next Pattern");
                     correct++;
                     currentSession.setScore(correct);
+
                     soundHandler.playOkSound();
                     correctans.setText("Corrects: " + correct);
                     popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
@@ -282,6 +284,7 @@ public class Game11 extends AppCompatActivity {
 
                 } else {
                     wrong++;
+                    currentSession.setScore(currentSession.getScore() - 1);
                     currentSession.setFails(currentSession.getFails() + 1);
                     soundHandler.playWrongSound();
                     wrongans.setText("Wrongs: " + wrong);
@@ -294,6 +297,7 @@ public class Game11 extends AppCompatActivity {
                 }
             }
         } else if (Pattern == 2) {
+            currentSession.setStage(currentSession.getStage() + 2);
             if (pressedbuttons == 2) {
                 Collections.sort(clicked);
                 Collections.sort(corrects);
@@ -322,6 +326,7 @@ public class Game11 extends AppCompatActivity {
                 } else {
                     wrong++;
                     currentSession.setFails(currentSession.getFails() + 1);
+                    currentSession.setScore(currentSession.getScore() - 1);
                     soundHandler.playWrongSound();
                     wrongans.setText("Wrongs: " + wrong);
                     popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
@@ -335,7 +340,7 @@ public class Game11 extends AppCompatActivity {
 
             }
         } else {
-
+            currentSession.setStage(currentSession.getStage() + 1);
             if (pressedbuttons == 3) {
                 Collections.sort(clicked);
                 Collections.sort(corrects);
@@ -357,6 +362,7 @@ public class Game11 extends AppCompatActivity {
                     initGui();
                 } else {
                     currentSession.setFails(currentSession.getFails() + 1);
+                    currentSession.setScore(currentSession.getScore() - 1);
                     soundHandler.playWrongSound();
                     wrong++;
                     wrongans.setText("Wrongs: " + wrong);

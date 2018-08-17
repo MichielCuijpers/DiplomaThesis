@@ -65,7 +65,7 @@ public class Game1Activity extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-        endGameKill();
+      //  endGameKill();
     }
 
     private void init() {
@@ -109,6 +109,14 @@ public class Game1Activity extends AppCompatActivity {
 
     private void initTheQuestion() {
         tempFails = 1;
+        if(this.questionsFinal.isEmpty()){
+            setContentView(view1);
+            pickCategoryView.setText(getResources().getString(R.string.choose_another_category));
+            if (categorieCorrects == 4) {
+                this.curSession.setScore(curSession.getScore() + 2);
+            }
+            return;
+        }
         this.questionView.setText(questionsFinal.get(0).getQuestion());
         correctAnswer = questionsFinal.get(0).getAnswers().get(0);
         Collections.shuffle(question.getAnswers());
@@ -155,7 +163,7 @@ public class Game1Activity extends AppCompatActivity {
 
         }
 
-        if (curSession.getStage() == 24) {
+        if (curSession.getStage() == 23) {
             endGameKill();
         }
     }
