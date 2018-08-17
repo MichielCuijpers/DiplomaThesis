@@ -59,15 +59,18 @@ public class SurveyActivity extends AppCompatActivity {
     }
 
     private void setQuestion() {
-        Log.e("MYDEBUG",counter+"");
-        if (counter == 9 && questionType == 1) {
-            Log.e("MYDEBUG",counter+"");
+        Log.e("MYDEBUG", counter + "");
+        if (counter == 10 && questionType == 1) {
+            Log.e("MYDEBUG", counter + "");
             endSurv();
+            return;
 
         }
 
-        if (counter == 2 && questionType == 0) {
+        if (counter == 3 && questionType == 0) {
             endSurv();
+            return;
+
         }
         questionView.setText(questions.get(counter));
 

@@ -37,7 +37,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/obj9"
-        app:layout_constraintVertical_bias="0.666" />
+        app:layout_constraintVertical_bias="0.093" />
 
     <Button
         android:id="@+id/obj11"
@@ -50,7 +50,8 @@
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/obj12"
-        app:layout_constraintTop_toBottomOf="@+id/obj8" />
+        app:layout_constraintTop_toBottomOf="@+id/obj8"
+        app:layout_constraintVertical_bias="0.093" />
 
     <Button
         android:id="@+id/obj10"
@@ -64,10 +65,10 @@
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/obj11"
-        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/obj7"
-        app:layout_constraintVertical_bias="0.666" />
+        app:layout_constraintVertical_bias="0.093" />
 
     <Button
         android:id="@+id/obj9"

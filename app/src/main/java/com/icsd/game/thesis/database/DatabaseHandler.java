@@ -109,7 +109,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(Session.GameSessionDBEntry.STAGES_COMPLETED, session.getStage());
         values.put(Session.GameSessionDBEntry.FAILS, session.getFails());
         values.put(Session.GameSessionDBEntry.TIME__PLAYED, (session.getTimeEnd() - session.getTimeStart()));
-        values.put(Session.GameSessionDBEntry.HELP_USED, session.getHelpUsed());
         values.put(Session.GameSessionDBEntry.USER_ID, session.getUserId());
         values.put(Session.GameSessionDBEntry.GAME_ID, session.getGameID());
         db.insert(Session.GameSessionDBEntry.TABLE_NAME, null, values);
@@ -149,28 +148,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         SQLiteDatabase db = LoginActivity.getDb();
         String username = LoginActivity.getUser().getUsername();
-        if (type == 1) {
-
-
-            for (int i = 0; i < answers.size(); i++) {
-                values.put(Survey.SurveyResultsDBEntry.QUESTION, questions.get(i));
-                values.put(Survey.SurveyResultsDBEntry.ANSWER, answers.get(i));
-                values.put(Survey.SurveyResultsDBEntry.USER, username);
-                values.put(Survey.SurveyResultsDBEntry.GAME_ID, gameID);
-                db.insert(Survey.SurveyResultsDBEntry.TABLE_NAME, null, values);
-                values.clear();
-            }
+        for (int i = 0; i < answers.size(); i++) {
+            values.put(Survey.SurveyResultsDBEntry.QUESTION, questions.get(i));
+            values.put(Survey.SurveyResultsDBEntry.ANSWER, answers.get(i));
+            values.put(Survey.SurveyResultsDBEntry.USER, username);
+            values.put(Survey.SurveyResultsDBEntry.GAME_ID, gameID);
+            db.insert(Survey.SurveyResultsDBEntry.TABLE_NAME, null, values);
+            values.clear();
         }
-        if (type == 2) {
-            for (int i = 0; i < answers.size(); i++) {
-                values.put(Survey.SurveyResultsDBEntry.QUESTION, questions.get(i));
-                values.put(Survey.SurveyResultsDBEntry.ANSWER, answers.get(i));
-                values.put(Survey.SurveyResultsDBEntry.USER, username);
-                values.put(Survey.SurveyResultsDBEntry.GAME_ID, gameID);
-                db.insert(Survey.SurveyResultsDBEntry.TABLE_NAME, null, values);
-                values.clear();
-            }
-        }
+
 
     }
 

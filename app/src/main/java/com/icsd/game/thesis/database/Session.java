@@ -32,7 +32,6 @@ public class Session {
         public static final String STAGES_COMPLETED = "stagesCompleted";
         public static final String FAILS = "fails";
         public static final String TIME__PLAYED = "timePlayed";
-        public static final String HELP_USED = "helpUsed";
 
         public static final String SQL_CREATE_ENTRIES =
                 "CREATE TABLE " + TABLE_NAME + " (" +
@@ -41,7 +40,6 @@ public class Session {
                         + STAGES_COMPLETED + " INTEGER, "
                         + FAILS + " INTEGER, "
                         + TIME__PLAYED + " DOUBLE, "
-                        + HELP_USED + " INTEGER, "
                         + USER_ID + " TEXT, "
                         + GAME_ID + " INTEGER, "
                         + "FOREIGN KEY(" + USER_ID + ") REFERENCES user(" + User.UserDBEntry._ID + "),"
