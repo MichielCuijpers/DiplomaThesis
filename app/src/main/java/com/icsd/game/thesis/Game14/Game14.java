@@ -39,6 +39,8 @@ public class Game14 extends AppCompatActivity {
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
     private PopUpWindow  popUpWindow;
+    private ArrayList<String> status;
+    private String statusstring;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,9 @@ public class Game14 extends AppCompatActivity {
         instructions.setVisibility(View.INVISIBLE);
         heavy = new ArrayList<Button>();
         light = new ArrayList<Button>();
+        status = new ArrayList<String>();
+        status.add("heavy");
+        status.add("light");
         corrects = 0;
         incorrects = 0;
     }
@@ -103,19 +108,46 @@ public class Game14 extends AppCompatActivity {
         fdb.setText("Corrects : "+corrects);
         fdb.setVisibility(View.VISIBLE);
         titletext.setText("GamePlay");
-        for(int i = 0; i<heavy.size();i++)
-        {
-            objgameplay.setBackground(heavy.get(i).getBackground());
-            objgameplay.setText("heavy");
-            objgameplay.setTextSize(0);
+        if(getStatus().equals("heavy")){
+            for(int i = 0; i<heavy.size();i++)
+            {
+                objgameplay.setBackground(heavy.get(i).getBackground());
+                objgameplay.setText("heavy");
+                objgameplay.setTextSize(0);
+            }
+            Collections.shuffle(light);
+            for(int i = 0; i <light.size();i++)
+            {
+                objgameplay2.setBackground(light.get(i).getBackground());
+                objgameplay2.setText("light");
+                objgameplay2.setTextSize(0);
+            }
+        }else{
+            for(int i = 0; i<light.size();i++)
+            {
+                objgameplay.setBackground(light.get(i).getBackground());
+                objgameplay.setText("light");
+                objgameplay.setTextSize(0);
+            }
+            Collections.shuffle(heavy);
+            for(int i = 0; i <heavy.size();i++)
+            {
+                objgameplay2.setBackground(heavy.get(i).getBackground());
+                objgameplay2.setText("heavy");
+                objgameplay2.setTextSize(0);
+            }
+
         }
-        Collections.shuffle(light);
-        for(int i = 0; i <light.size();i++)
-        {
-            objgameplay2.setBackground(light.get(i).getBackground());
-            objgameplay2.setText("light");
-            objgameplay2.setTextSize(0);
+
+
+    }
+    private String getStatus(){
+
+        Collections.shuffle(status);
+        for(int i = 0;i<status.size();i++){
+            statusstring = status.get(i);
         }
+        return statusstring;
     }
     private void initGamePlayImages() {
         heavy1 = (Button) findViewById(R.id.heavy);
