@@ -19,7 +19,6 @@ import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
 public class Game14 extends AppCompatActivity {
     private Button test_again;
     private Button start_game;
@@ -30,8 +29,8 @@ public class Game14 extends AppCompatActivity {
     private Button objgameplay2;
     private ArrayList<Button> heavy;
     private ArrayList<Button> light;
-    private Button heavy1, heavy2, heavy3, heavy4, heavy5, heavy6, heavy7, heavy8;
-    private Button light1, light2, light3, light4, light5, light6, light7, light8;
+    private Button heavy1,heavy2,heavy3,heavy4,heavy5,heavy6,heavy7,heavy8;
+    private Button light1,light2,light3,light4,light5,light6,light7,light8;
     private TextView fdb;
     private TextView instructions;
     private static int corrects;
@@ -39,27 +38,22 @@ public class Game14 extends AppCompatActivity {
     private Session currentSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
-<<<<<<< HEAD
     private PopUpWindow  popUpWindow;
     private ArrayList<String> status;
     private String statusstring;
-=======
-    private PopUpWindow popUpWindow;
-
->>>>>>> 58a5d2d8d08cf63aed00d95dcf956b1a3723fafb
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game14);
-        popUpWindow = new PopUpWindow(this, this);
+        popUpWindow = new PopUpWindow(this,this);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        currentSession = new Session(LoginActivity.getUser().getUsername(), 14);
-        currentSession.setTimeStart(System.currentTimeMillis() / 1000);
+        currentSession = new Session(LoginActivity.getUser().getUsername(),14);
+        currentSession.setTimeStart(System.currentTimeMillis()/1000);
         soundHandler = new SoundHandler(getApplicationContext());
         initTutorial();
     }
-
-    private void initGraphics() {
+    private void initGraphics()
+    {
         test_again = (Button) findViewById(R.id.tuto_test);
         start_game = (Button) findViewById(R.id.start_gp);
         object1 = (Button) findViewById(R.id.tutorialbutton_g14);
@@ -79,44 +73,41 @@ public class Game14 extends AppCompatActivity {
         corrects = 0;
         incorrects = 0;
     }
-
-    private void initTutorial() {
+    private void initTutorial(){
         initGraphics();
         initGamePlayImages();
         initTutorialScreen();
     }
-
-    private void initGamePlay() {
+    private void initGamePlay(){
         initGraphics();
         initGamePlayImages();
         initGamePlayScreen();
     }
-
-    private void initTutorialScreen() {
+    private void initTutorialScreen(){
         Collections.shuffle(heavy);
         fdb.setVisibility(View.INVISIBLE);
-        for (int i = 0; i < heavy.size(); i++) {
+        for(int i = 0; i<heavy.size();i++)
+        {
             object1.setBackground(heavy.get(i).getBackground());
             object1.setText("heavy");
         }
         Collections.shuffle(light);
-        for (int i = 0; i < light.size(); i++) {
+        for(int i = 0; i <light.size();i++)
+        {
             object2.setBackground(light.get(i).getBackground());
             object2.setText("light");
         }
     }
-
-    private void initGamePlayScreen() {
+    private void initGamePlayScreen(){
         test_again.setVisibility(View.INVISIBLE);
         start_game.setVisibility(View.INVISIBLE);
         object1.setVisibility(View.INVISIBLE);
         object2.setVisibility(View.INVISIBLE);
         instructions.setVisibility(View.VISIBLE);
         Collections.shuffle(heavy);
-        fdb.setText("Corrects : " + corrects);
+        fdb.setText("Corrects : "+corrects);
         fdb.setVisibility(View.VISIBLE);
         titletext.setText("GamePlay");
-<<<<<<< HEAD
         if(getStatus().equals("heavy")){
             for(int i = 0; i<heavy.size();i++)
             {
@@ -155,22 +146,9 @@ public class Game14 extends AppCompatActivity {
         Collections.shuffle(status);
         for(int i = 0;i<status.size();i++){
             statusstring = status.get(i);
-=======
-        for (int i = 0; i < heavy.size(); i++) {
-            objgameplay.setBackground(heavy.get(i).getBackground());
-            objgameplay.setText("heavy");
-            objgameplay.setTextSize(0);
-        }
-        Collections.shuffle(light);
-        for (int i = 0; i < light.size(); i++) {
-            objgameplay2.setBackground(light.get(i).getBackground());
-            objgameplay2.setText("light");
-            objgameplay2.setTextSize(0);
->>>>>>> 58a5d2d8d08cf63aed00d95dcf956b1a3723fafb
         }
         return statusstring;
     }
-
     private void initGamePlayImages() {
         heavy1 = (Button) findViewById(R.id.heavy);
         heavy2 = (Button) findViewById(R.id.heavy2);
@@ -227,7 +205,6 @@ public class Game14 extends AppCompatActivity {
         light.add(light8);
 
     }
-
     public void tutoonClick(View view) {
         initTutorial();
     }
@@ -236,9 +213,9 @@ public class Game14 extends AppCompatActivity {
         initGamePlay();
     }
 
-    public void checkEndGame() {
-        if (corrects == 10) {
-            currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+    public void checkEndGame(){
+        if(corrects==10){
+            currentSession.setTimeEnd(System.currentTimeMillis()/1000);
             dbHandler.addSessionToDB(currentSession);
             soundHandler.stopSound();
             Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();
@@ -250,42 +227,40 @@ public class Game14 extends AppCompatActivity {
     }
 
     public void gameplayonClick2(View view) {
-        if (objgameplay2.getText().equals("heavy")) {
+        if(objgameplay2.getText().equals("heavy")){
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
-            fdb.setText("Corrects : " + corrects);
+            fdb.setText("Corrects : "+corrects);
             currentSession.setScore(corrects);
-            currentSession.setStage(corrects);
             soundHandler.playOkSound();
             checkEndGame();
             initGamePlayScreen();
-        } else {
+        }
+        else{
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             incorrects++;
-            fdb.setText("Corrects : " + corrects);
-            currentSession.setFails(currentSession.getFails() + 1);
-            currentSession.setScore(currentSession.getScore() - 1);
+            fdb.setText("Corrects : "+corrects);
+            currentSession.setFails(currentSession.getFails()+1);
             soundHandler.playWrongSound();
             initGamePlayScreen();
         }
     }
 
     public void gameplayonClick1(View view) {
-        if (objgameplay.getText().equals("heavy")) {
+        if(objgameplay.getText().equals("heavy")){
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
-            fdb.setText("Corrects : " + corrects);
-            currentSession.setStage(corrects);
+            fdb.setText("Corrects : "+corrects);
             currentSession.setScore(corrects);
             soundHandler.playOkSound();
             checkEndGame();
             initGamePlayScreen();
-        } else {
+        }
+        else{
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             incorrects++;
-            fdb.setText("Corrects : " + corrects);
-            currentSession.setFails(currentSession.getFails() + 1);
-            currentSession.setScore(currentSession.getScore() - 1);
+            fdb.setText("Corrects : "+corrects);
+            currentSession.setFails(currentSession.getFails()+1);
             soundHandler.playWrongSound();
             initGamePlayScreen();
         }
