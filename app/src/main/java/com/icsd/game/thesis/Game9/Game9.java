@@ -55,6 +55,10 @@ public class Game9 extends AppCompatActivity {
     private SoundHandler soundHandler;
     private PopUpWindow popUpWindow;
     private ImageView border;
+    private ImageView borderb2;
+    private ImageView borderb3;
+    private ImageView borderb4;
+    private ImageView borderb5;
 
 
     @Override
@@ -304,7 +308,16 @@ public class Game9 extends AppCompatActivity {
         right_color = new ArrayList<Button>();
         clicked = new ArrayList<Boolean>();
         lose = new ArrayList<>();
-        border = new ImageView(this); /*EDWWWWWWW*/
+        border = (ImageView) findViewById(R.id.border_b1); /*EDWWWWWWW*/
+        borderb2 = (ImageView) findViewById(R.id.border_b3); /*EDWWWWWWW*/
+        borderb3 = (ImageView) findViewById(R.id.border_b4); /*EDWWWWWWW*/
+        borderb4 = (ImageView) findViewById(R.id.border_b2); /*EDWWWWWWW*/
+        borderb5 = (ImageView) findViewById(R.id.border_b); /*EDWWWWWWW*/
+        border.setVisibility(View.INVISIBLE);
+        borderb5.setVisibility(View.INVISIBLE);
+        borderb2.setVisibility(View.INVISIBLE);
+        borderb3.setVisibility(View.INVISIBLE);
+        borderb4.setVisibility(View.INVISIBLE);
 
         score = (TextView) findViewById(R.id.text1);
 
@@ -650,6 +663,11 @@ public class Game9 extends AppCompatActivity {
             position1 = 0;
             position = 0;
             popUpWindow.showPopUp(getResources().getString(R.string.clicked_more));
+            border.setVisibility(View.INVISIBLE);
+            borderb5.setVisibility(View.INVISIBLE);
+            borderb2.setVisibility(View.INVISIBLE);
+            borderb3.setVisibility(View.INVISIBLE);
+            borderb4.setVisibility(View.INVISIBLE);
             cleanBackgroundForPopUp();
         } else if (clicked.size() < right_color.size()) {
             currentSession.setFails(currentSession.getFails() + 1);
@@ -663,6 +681,11 @@ public class Game9 extends AppCompatActivity {
             position1 = 0;
             position = 0;
             popUpWindow.showPopUp(getResources().getString(R.string.missed_something));
+            border.setVisibility(View.INVISIBLE);
+            borderb5.setVisibility(View.INVISIBLE);
+            borderb2.setVisibility(View.INVISIBLE);
+            borderb3.setVisibility(View.INVISIBLE);
+            borderb4.setVisibility(View.INVISIBLE);
             cleanBackgroundForPopUp();
         } else if (clicked.size() > right_color.size()) {
             for (int i = 0; i < clicked.size(); i++) {
@@ -671,6 +694,11 @@ public class Game9 extends AppCompatActivity {
             position1 = 0;
             position = 0;
             popUpWindow.showPopUp(getResources().getString(R.string.try_again));
+            border.setVisibility(View.INVISIBLE);
+            borderb5.setVisibility(View.INVISIBLE);
+            borderb2.setVisibility(View.INVISIBLE);
+            borderb3.setVisibility(View.INVISIBLE);
+            borderb4.setVisibility(View.INVISIBLE);
             cleanBackgroundForPopUp();
             //Toast.makeText(this, String.valueOf(clicked.size()), Toast.LENGTH_SHORT).show();
             //Toast.makeText(this, String.valueOf(right_color.size()), Toast.LENGTH_SHORT).show();
@@ -695,12 +723,18 @@ public class Game9 extends AppCompatActivity {
     }
 
     public void button1OnClick(View v) {
-
+        if(border.getVisibility()==View.VISIBLE){
+            border.setVisibility(View.INVISIBLE);
+        }else{
+            border.setVisibility(View.VISIBLE);
+        }
         if (!iimage1.getText().equals("")) {
+
             //clicked.add(position, true);
             clicked.add(position, true);
             position++;
         } else {
+
             lose.add(position1, iimage1);
             position1++;
             //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
@@ -708,10 +742,18 @@ public class Game9 extends AppCompatActivity {
     }
 
     public void button2OnClick(View v) {
+
+        if(borderb2.getVisibility()==View.VISIBLE){
+            borderb2.setVisibility(View.INVISIBLE);
+        }else{
+            borderb2.setVisibility(View.VISIBLE);
+        }
         if (!iimage2.getText().equals("")) {
+
             clicked.add(position, true);
             position++;
         } else {
+
             lose.add(position1, iimage2);
             position1++;
             //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
@@ -719,11 +761,18 @@ public class Game9 extends AppCompatActivity {
     }
 
     public void button3OnClick(View v) {
+        if(borderb3.getVisibility()==View.VISIBLE){
+            borderb3.setVisibility(View.INVISIBLE);
+        }else{
+            borderb3.setVisibility(View.VISIBLE);
+        }
         if (!iimage3.getText().equals("")) {
+
             //clicked.add(2, true);
             clicked.add(position, true);
             position++;
         } else {
+
             lose.add(position1, iimage3);
             position1++;
             //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
@@ -731,10 +780,17 @@ public class Game9 extends AppCompatActivity {
     }
 
     public void button4OnClick(View v) {
+        if(borderb4.getVisibility()==View.VISIBLE){
+            borderb4.setVisibility(View.INVISIBLE);
+        }else{
+            borderb4.setVisibility(View.VISIBLE);
+        }
         if (!iimage4.getText().equals("")) {
+
             clicked.add(position, true);
             position++;
         } else {
+
             lose.add(position1, iimage4);
             position1++;
             //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
@@ -742,10 +798,17 @@ public class Game9 extends AppCompatActivity {
     }
 
     public void button5OnClick(View v) {
+        if(borderb5.getVisibility()==View.VISIBLE){
+            borderb5.setVisibility(View.INVISIBLE);
+        }else{
+            borderb5.setVisibility(View.VISIBLE);
+        }
         if (!iimage5.getText().equals("")) {
+
             clicked.add(position, true);
             position++;
         } else {
+
             lose.add(position1, iimage5);
             position1++;
             //Toast.makeText(this, "WRONG ANSWER", Toast.LENGTH_SHORT).show();
