@@ -48,6 +48,7 @@ public class Game2Activity extends AppCompatActivity {
     private SoundHandler soundHandler;
     private PopUpWindow popUpWindow;
     private TextView tutorialText;
+    private int tempFails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +72,7 @@ public class Game2Activity extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-        endGameKill();
+        // endGameKill();
     }
 
     private void init() throws IOException {
@@ -122,8 +123,9 @@ public class Game2Activity extends AppCompatActivity {
     }
 
     private void initTurn() {
-
+        tempFails = 0;
         if (turn == 1 || turn == 2) {
+
             //Europe Turn
             mapImageView.setImageResource(R.drawable.europe_map);
 
@@ -326,12 +328,15 @@ public class Game2Activity extends AppCompatActivity {
             initTurn();
         } else {
             soundHandler.playWrongSound();
-
+            tempFails++;
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             cleanBackgroundForPopUp();
             curSession.setScore(curSession.getScore() - 1);
 
             curSession.setFails(curSession.getFails() + 1);
+            if(tempFails==2){
+                initTurn();
+            }
             //initTurn();
 
         }

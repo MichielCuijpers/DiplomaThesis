@@ -90,7 +90,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
     public void onStop() {
         super.onStop();
-        killAll();
+       // killAll();
     }
 
     public void onPrepared(MediaPlayer player) {
@@ -115,8 +115,8 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
                     curSession.setScore(turn);
                     curSession.setStage(turn);
                     turn++;
-                    if (turn == 10) {
-                        popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
+                    if (turn == 9) {
+//                        popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
                         saveSessionToDB();
                         killAll();
                         Intent surv = new Intent(getApplicationContext(), SurveyActivity.class);

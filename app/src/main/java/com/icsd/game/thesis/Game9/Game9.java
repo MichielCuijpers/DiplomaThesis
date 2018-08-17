@@ -652,10 +652,12 @@ public class Game9 extends AppCompatActivity {
                 clicked.remove(i);
             }
             currentSession.setScore(sc);
+            currentSession.setStage(currentSession.getStage() + 1);
             soundHandler.playOkSound();
             initGame();
         } else if (lose.size() != 0) {
             currentSession.setFails(currentSession.getFails() + 1);
+            currentSession.setScore(currentSession.getScore() - 1);
             soundHandler.playWrongSound();
             for (int i = 0; i < lose.size(); i++) {
                 lose.remove(i);
@@ -671,6 +673,7 @@ public class Game9 extends AppCompatActivity {
             cleanBackgroundForPopUp();
         } else if (clicked.size() < right_color.size()) {
             currentSession.setFails(currentSession.getFails() + 1);
+            currentSession.setScore(currentSession.getScore() - 1);
             soundHandler.playWrongSound();
             //Toast.makeText(this, String.valueOf(clicked.size()), Toast.LENGTH_SHORT).show();
             //Toast.makeText(this, String.valueOf(right_color.size()), Toast.LENGTH_SHORT).show();
@@ -694,11 +697,15 @@ public class Game9 extends AppCompatActivity {
             position1 = 0;
             position = 0;
             popUpWindow.showPopUp(getResources().getString(R.string.try_again));
+
+            currentSession.setScore(currentSession.getScore() - 1);
+
             border.setVisibility(View.INVISIBLE);
             borderb5.setVisibility(View.INVISIBLE);
             borderb2.setVisibility(View.INVISIBLE);
             borderb3.setVisibility(View.INVISIBLE);
             borderb4.setVisibility(View.INVISIBLE);
+
             cleanBackgroundForPopUp();
             //Toast.makeText(this, String.valueOf(clicked.size()), Toast.LENGTH_SHORT).show();
             //Toast.makeText(this, String.valueOf(right_color.size()), Toast.LENGTH_SHORT).show();

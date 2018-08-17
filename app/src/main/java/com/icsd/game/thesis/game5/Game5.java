@@ -59,7 +59,7 @@ public class Game5 extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-        endGameKill();
+       // endGameKill();
 
     }
 

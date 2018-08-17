@@ -353,6 +353,7 @@ public class Game12 extends AppCompatActivity {
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
             currentSession.setScore(corrects);
+            currentSession.setStage(corrects);
             soundHandler.playOkSound();
             checkEndGame();
             initGameplay();
@@ -360,6 +361,7 @@ public class Game12 extends AppCompatActivity {
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             wrongs++;
             currentSession.setFails(currentSession.getFails() + 1);
+            currentSession.setScore(currentSession.getScore() - 1);
             soundHandler.playWrongSound();
             initGameplay();
         }
@@ -372,6 +374,7 @@ public class Game12 extends AppCompatActivity {
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
             currentSession.setScore(corrects);
+            currentSession.setStage(corrects);
             soundHandler.playOkSound();
             checkEndGame();
             initGameplay();
@@ -379,6 +382,7 @@ public class Game12 extends AppCompatActivity {
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             wrongs++;
             currentSession.setFails(currentSession.getFails() + 1);
+            currentSession.setScore(currentSession.getScore() - 1);
             soundHandler.playWrongSound();
             initGameplay();
         }
@@ -390,6 +394,7 @@ public class Game12 extends AppCompatActivity {
         if (kwinner.equals("tie")) {
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             corrects++;
+            currentSession.setStage(corrects);
             currentSession.setScore(corrects);
             soundHandler.playOkSound();
             checkEndGame();
@@ -398,6 +403,7 @@ public class Game12 extends AppCompatActivity {
             popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
             wrongs++;
             currentSession.setFails(currentSession.getFails() + 1);
+            currentSession.setScore(currentSession.getScore() - 1);
             soundHandler.playWrongSound();
             initGameplay();
 

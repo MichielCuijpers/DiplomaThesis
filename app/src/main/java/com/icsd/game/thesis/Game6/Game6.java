@@ -499,24 +499,27 @@ public class Game6 extends AppCompatActivity {
 
     private void userWinsTheTurn() {
         sc++;
-        score.setText(getResources().getString(R.string.scoreg6)+sc);
+        score.setText(getResources().getString(R.string.scoreg6) + sc);
         currentSession.setScore(sc);
+        currentSession.setStage(currentSession.getStage() + 1);
         soundHandler.playOkSound();
         popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
-        if(sc==7){
+        if (sc == 7) {
             Intent surv = new Intent(this, SurveyActivity.class);
             SurveyActivity.setQuestionType(0);
             SurveyActivity.setGameID(6);
             startActivity(surv);
-        }else{
+        } else {
             initGame();
         }
 
     }
 
     private void userLoosesTheTurn() {
+        sc--;
+        score.setText(getResources().getString(R.string.scoreg6) + sc);
         currentSession.setFails(currentSession.getFails() + 1);
-        currentSession.setScore(currentSession.getScore()-1);
+        currentSession.setScore(currentSession.getScore() - 1);
         soundHandler.playWrongSound();
         popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
         initGame();
