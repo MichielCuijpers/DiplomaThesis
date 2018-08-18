@@ -52,12 +52,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Survey.SurveyQuestionDBEntry.TABLE_NAME);
 
         //  db.execSQL(Question.QuestionDBEntry.SQL_CREATE_ENTRIES);
-       // db.execSQL(GameDBEntry.SQL_CREATE_ENTRIES);
-       // db.execSQL(User.UserDBEntry.SQL_CREATE_ENTRIES);
-       // db.execSQL(Session.GameSessionDBEntry.SQL_CREATE_ENTRIES);
-      //  db.execSQL(Highscore.HighscoreDBEntry.SQL_CREATE_ENTRIES);
+        // db.execSQL(GameDBEntry.SQL_CREATE_ENTRIES);
+        // db.execSQL(User.UserDBEntry.SQL_CREATE_ENTRIES);
+        // db.execSQL(Session.GameSessionDBEntry.SQL_CREATE_ENTRIES);
+        //  db.execSQL(Highscore.HighscoreDBEntry.SQL_CREATE_ENTRIES);
         db.execSQL(Survey.SurveyQuestionDBEntry.SQL_CREATE_ENTRIES);
-       // db.execSQL(Survey.SurveyResultsDBEntry.SQL_CREATE_ENTRIES);
+        // db.execSQL(Survey.SurveyResultsDBEntry.SQL_CREATE_ENTRIES);
         Survey.SurveyQuestionDBEntry.addSurvQuestionsToDB(db);
         Question.QuestionDBEntry.addQuestionsToDB(db);
         Word.WordDBEntry.addTestWordsToDB(db);
@@ -245,7 +245,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public static void exportDBtoCsv() {
         DatabaseHandler dh = new DatabaseHandler(AppLan.getAppContext());
-        File exportDir = new File(Environment.getExternalStorageDirectory(), "");
+        File exportDir = new File(Environment.getExternalStorageDirectory(), "/csvs");
         if (!exportDir.exists()) {
             exportDir.mkdirs();
         }
@@ -267,23 +267,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         } catch (Exception sqlEx) {
             Log.e("MainActivity", sqlEx.getMessage(), sqlEx);
         }
-//        File file3 = new File(exportDir, "ses_results.csv");
-//        try {
-//            file3.createNewFile();
-//            CSVWriter csvWrite = new CSVWriter(new FileWriter(file3));
-//            SQLiteDatabase db = dh.getReadableDatabase();
-//            Cursor curCSV = db.rawQuery("SELECT * FROM  gameSession", null);
-//            csvWrite.writeNext(curCSV.getColumnNames());
-//            while (curCSV.moveToNext()) {
-//                //Which column you want to exprort
-//                String arrStr[] = {curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3), curCSV.getString(4)};
-//                csvWrite.writeNext(arrStr);
-//            }
-//            csvWrite.close();
-//            curCSV.close();
-//        } catch (Exception sqlEx) {
-//            Log.e("MainActivity", sqlEx.getMessage(), sqlEx);
-//        }
 
         File file2 = new File(exportDir, "survey_results.csv");
         try {
