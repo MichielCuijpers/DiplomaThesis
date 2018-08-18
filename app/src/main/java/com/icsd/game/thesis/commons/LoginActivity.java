@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen_layout);
         popUpWindow = new PopUpWindow(this, this);
-
+        checkLocationPermission();
 
     }
 

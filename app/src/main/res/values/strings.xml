@@ -288,6 +288,7 @@
     <string name="cherries">cherries</string>
     <string name="bike">bike</string>
     <string name="car">car</string>
+    <string name="touch">find</string>
     <!-- Game11-->
     <string name="tutorialGame11">Try to discover the shadowed squares</string>
     <string name="Corrects">Corrects</string>

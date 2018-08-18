@@ -97,7 +97,7 @@ public class Game10 extends AppCompatActivity {
         obj12 = (Button) findViewById(R.id.obj12);
         text = (TextView) findViewById(R.id.textView11);
         standard = (TextView) findViewById(R.id.textView10);
-        standard.setText("Touch the");
+        standard.setText(getResources().getString(R.string.touch));
         text.setVisibility(View.INVISIBLE);
         standard.setVisibility(View.INVISIBLE);
         buttons = new ArrayList<>();
