@@ -17,6 +17,8 @@ import com.icsd.game.thesis.game4.Word;
 import com.icsd.game.thesis.game5.ObjectT;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -245,12 +247,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public static void exportDBtoCsv() {
         DatabaseHandler dh = new DatabaseHandler(AppLan.getAppContext());
-        File exportDir = new File(Environment.getExternalStorageDirectory(), "/csvs");
+        File exportDir = new File(Environment.getRootDirectory(), "/csvs");
         if (!exportDir.exists()) {
             exportDir.mkdirs();
         }
-
+        FileOutputStream outputStream;
         File file = new File(exportDir, "game_ses.csv");
+
         try {
             file.createNewFile();
             CSVWriter csvWrite = new CSVWriter(new FileWriter(file));
