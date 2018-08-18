@@ -35,8 +35,8 @@
     <string name="surv_menou">final surveys</string>
     <string name="back_menou">back</string>
     <string name="thanks_end">thank you for your participation </string>
-    <string name="title_location_permission">title_storage_permission</string>
-    <string name="text_location_permission">text_storage_permission</string>
+    <string name="title_location_permission" translatable="false">title_storage_permission</string>
+    <string name="text_location_permission" translatable="false">text_storage_permission</string>
 
 
     <!-- game1-->
@@ -274,7 +274,8 @@
     <string name="purple">"Click on the purple images"</string>
     <string name="red">"Click on the red images"</string>
     <string name="yellow">"Click on the yellow images"</string>
-
+    <!-- Game10-->
+    <string name="tutorialGame10">Remember Where the item is  </string>
     <!-- Game11-->
     <string name="tutorialGame11">Try to discover the shadowed squares</string>
     <string name="Corrects">Corrects</string>
@@ -350,5 +351,20 @@
     <string name="q8s1">I found the app very cumbersome to use.</string>
     <string name="q9s1">I felt very confident using the app.</string>
     <string name="q10s1">" Χρειάστηκα να μάθω πολλά πράγματα πριν μπορέσω να προχωρήσω με αυτήν την εφαρμογή"</string>
-
+    <!--game names  -->
+    <string name="game1name">Trivial</string>
+    <string name="game2name">Find The Country</string>
+    <string name="game3name">Ascending the numbers</string>
+    <string name="game4name">Worlds Puzzle</string>
+    <string name="game5name">Regognize the item</string>
+    <string name="game6name">Spot the different</string>
+    <string name="game7name">Do tasks</string>
+    <string name="game8name">Catch the balls</string>
+    <string name="game9name">Colors</string>
+    <string name="game10name">Hide and Find </string>
+    <string name="game11name">Hide and find2</string>
+    <string name="game12name">Rock Paper Scissor</string>
+    <string name="game13name">Piano</string>
+    <string name="game14name">Weigths</string>
+    <string name="game15name">Maths</string>
 </resources>

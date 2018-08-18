@@ -263,5 +263,21 @@
     <string name="play">Παίξε</string>
     <string name="tutorialg6">Επεξήγηση Παιχνιδιού</string>
     <string name="game14_text">Επέλεξε το πιο βαρύ αντικείμενο</string>
+    <string name="tutorialGame10">Πρέπει να θυμηθείς σε ποια θέση ήταν το αντικείμενο που θα σου ζητηθεί</string>
+    <string name="game1name">Ερωτήσεις Γνώσεων</string>
+    <string name="game2name">Βρες την χώρα</string>
+    <string name="game3name">αύξουσα σειρά</string>
+    <string name="game4name">Παζλ λέξεων</string>
+    <string name="game5name">Αναγνώριση Αντικειμένων</string>
+    <string name="game6name">Βρες τι διαφορετικό</string>
+    <string name="game7name">Κάνε τα καθήκοντα</string>
+    <string name="game8name">Πίασε τις μπάλες</string>
+    <string name="game9name">Χρώματα</string>
+    <string name="game10name">Απόκρυψη και Εύρεση αντικειμένων</string>
+    <string name="game11name">Απόκρυψη και Εύρεση συνδιασμών</string>
+    <string name="game12name">Πετρα Ψαλίδι Χαρτί</string>
+    <string name="game13name">Πιάνο</string>
+    <string name="game14name">" βάρη"</string>
+    <string name="game15name">Μαθηματικές Πράξεις</string>
 
 </resources>

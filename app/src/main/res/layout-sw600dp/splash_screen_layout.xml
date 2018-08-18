@@ -19,7 +19,7 @@
         android:onClick="chooseEnglish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button51"
-        app:layout_constraintHorizontal_bias="0.376"
+        app:layout_constraintHorizontal_bias="0.277"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.497" />
@@ -29,7 +29,7 @@
         android:layout_width="433dp"
         android:layout_height="227dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="60dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/greek_flag"
         android:onClick="chooseGreek"
@@ -40,7 +40,7 @@
     <TextView
         android:id="@+id/textView10"
         android:layout_width="486dp"
-        android:layout_height="49dp"
+        android:layout_height="54dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"

@@ -72,13 +72,12 @@ public class Μenu3 extends AppCompatActivity {
         b2 = findViewById(R.id.menu3_b2);
         b3 = findViewById(R.id.menu3_b3);
         b4 = findViewById(R.id.menu3_b4);
-        b5 = findViewById(R.id.menu3_b5);
+
 
         buttons.add(b1);
         buttons.add(b2);
         buttons.add(b3);
         buttons.add(b4);
-        buttons.add(b5);
         hideButtons();
 
 
@@ -101,25 +100,23 @@ public class Μenu3 extends AppCompatActivity {
     private void setGui(int cat) {
         switch (cat) {
             case 1:
-                b1.setText("game1");
-                b2.setText("game2");
-                b3.setText("game11");
-                b4.setText("game10");
-                b5.setText("game14");
+                b1.setText(getResources().getString(R.string.game1name));
+                b2.setText(getResources().getString(R.string.game11name));
+                b3.setText(getResources().getString(R.string.game10name));
+                b4.setText(getResources().getString(R.string.game14name));
                 hideButtons();
-                showButtons(5);
+                showButtons(4);
                 b1.setOnClickListener(game1);
-                b2.setOnClickListener(game2);
-                b3.setOnClickListener(game11);
-                b4.setOnClickListener(game10);
-                b5.setOnClickListener(game14);
+                b2.setOnClickListener(game11);
+                b3.setOnClickListener(game10);
+                b4.setOnClickListener(game14);
                 break;
             case 2:
                 hideButtons();
                 showButtons(3);
-                b1.setText("game6");
-                b2.setText("game7");
-                b3.setText("game12");
+                b1.setText(getResources().getString(R.string.game6name));
+                b2.setText(getResources().getString(R.string.game7name));
+                b3.setText(getResources().getString(R.string.game12name));
                 b1.setOnClickListener(game6);
                 b2.setOnClickListener(game7);
                 b3.setOnClickListener(game12);
@@ -127,21 +124,23 @@ public class Μenu3 extends AppCompatActivity {
             case 3:
                 hideButtons();
                 showButtons(3);
-                b1.setText("game13");
-                b2.setText("game9");
-                b3.setText("game8");
+                b1.setText(getResources().getString(R.string.game13name));
+                b2.setText(getResources().getString(R.string.game9name));
+                b3.setText(getResources().getString(R.string.game8name));
+                b4.setText(getResources().getString(R.string.game2name));
 
                 b1.setOnClickListener(game13);
                 b2.setOnClickListener(game9);
+                b4.setOnClickListener(game2);
                 b3.setOnClickListener(game8);
                 break;
             case 4:
                 hideButtons();
                 showButtons(4);
-                b1.setText("game3");
-                b2.setText("game4");
-                b3.setText("game5");
-                b4.setText("game15");
+                b1.setText(getResources().getString(R.string.game3name));
+                b2.setText(getResources().getString(R.string.game4name));
+                b3.setText(getResources().getString(R.string.game5name));
+                b4.setText(getResources().getString(R.string.game15name));
                 b1.setOnClickListener(game3);
                 b2.setOnClickListener(game4);
                 b3.setOnClickListener(game5);

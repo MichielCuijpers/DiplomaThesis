@@ -8,77 +8,57 @@
     tools:context=".commons.Μenu3">
 
     <Button
-        android:id="@+id/menu3_b5"
-        android:layout_width="224dp"
-        android:layout_height="193dp"
+        android:id="@+id/menu3_b3"
+        android:layout_width="572dp"
+        android:layout_height="115dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/holo_orange_dark"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/menu3_b4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/menu3_b1"
+        android:layout_width="572dp"
+        android:layout_height="115dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
         android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/menu3_b2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.911" />
-
-    <Button
-        android:id="@+id/menu3_b3"
-        android:layout_width="224dp"
-        android:layout_height="193dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginTop="140dp"
-        android:background="@android:color/holo_orange_dark"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/menu3_b4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127" />
-
-    <Button
-        android:id="@+id/menu3_b1"
-        android:layout_width="224dp"
-        android:layout_height="193dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/holo_orange_dark"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/menu3_b2"
-        app:layout_constraintHorizontal_bias="0.583"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369" />
+        app:layout_constraintVertical_bias="0.496" />
 
     <Button
         android:id="@+id/menu3_b2"
-        android:layout_width="224dp"
-        android:layout_height="193dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="572dp"
+        android:layout_height="115dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:background="@android:color/holo_orange_dark"
         android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/menu3_b3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369" />
+        app:layout_constraintBottom_toTopOf="@+id/menu3_b3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/menu3_b4"
-        android:layout_width="224dp"
-        android:layout_height="193dp"
+        android:layout_width="572dp"
+        android:layout_height="115dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="124dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:background="@android:color/holo_orange_dark"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378" />
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

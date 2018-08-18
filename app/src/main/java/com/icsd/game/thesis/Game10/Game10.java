@@ -40,11 +40,14 @@ public class Game10 extends AppCompatActivity {
     private PopUpWindow popUpWindow;
     private Session currentSession;
     private int tempFails;
+    private TextView tutorialText;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game10);
-        init();
+        setContentView(R.layout.activity_tutorial);
+        tutorialText = findViewById(R.id.tutorialTextView);
+        tutorialText.setText(getResources().getString(R.string.tutorialGame10));
+
 
     }
 
@@ -237,8 +240,6 @@ public class Game10 extends AppCompatActivity {
             if (tempFails == 4) {
                 tempFails = 0;
                 which_level++;
-
-
                 gameplay(which_level);
             }
             for (int i = 0; i < which_level * 3; i++) {
@@ -294,5 +295,11 @@ public class Game10 extends AppCompatActivity {
 
     public void obj12onclick(View view) {
         check((Button) view);
+    }
+
+    public void tutorialOkOnClick(View view) {
+
+        setContentView(R.layout.activity_game10);
+        init();
     }
 }
