@@ -9,19 +9,6 @@
 
 
     <Button
-        android:id="@+id/help_button4"
-        android:layout_width="214dp"
-        android:layout_height="92dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/help_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
         android:id="@+id/button1"
         android:layout_width="80dp"
         android:layout_height="80dp"
