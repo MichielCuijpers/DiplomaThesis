@@ -127,10 +127,9 @@
         android:onClick="number1OnClick"
         app:layout_constraintBottom_toTopOf="@+id/number6Button"
         app:layout_constraintEnd_toStartOf="@+id/number2Button"
-        app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.675" />
+        app:layout_constraintVertical_bias="0.486" />
 
     <Button
         android:id="@+id/number6Button"
@@ -143,7 +142,6 @@
         android:onClick="number6OnClick"
         app:layout_constraintBottom_toTopOf="@+id/number11Button"
         app:layout_constraintEnd_toStartOf="@+id/number7Button"
-        app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -157,7 +155,6 @@
         android:onClick="number11OnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/number12Button"
-        app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button

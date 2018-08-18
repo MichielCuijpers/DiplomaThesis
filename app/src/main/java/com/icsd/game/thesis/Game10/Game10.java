@@ -56,7 +56,6 @@ public class Game10 extends AppCompatActivity {
         tempFails = 0;
         which_level = 1;
         soundHandler = new SoundHandler(this);
-
         currentSession = new Session(LoginActivity.getUser().getUsername(), 10);
         initImages();
         initGui();
@@ -135,7 +134,7 @@ public class Game10 extends AppCompatActivity {
                         buttons.get(i).setTag(getDrawable(tempImages.get(i)));
                     }
                 }
-                resetButtons(turn,4000);
+                resetButtons(turn, 4000);
                 break;
             case 2:
                 addToTemp(turn);
@@ -148,7 +147,7 @@ public class Game10 extends AppCompatActivity {
                         buttons.get(i).setTag(getDrawable(tempImages.get(i)));
                     }
                 }
-                resetButtons(turn,4000);
+                resetButtons(turn, 4000);
 
                 break;
             case 3:
@@ -162,7 +161,7 @@ public class Game10 extends AppCompatActivity {
                         buttons.get(i).setTag(getDrawable(tempImages.get(i)));
                     }
                 }
-                resetButtons(turn,4000);
+                resetButtons(turn, 4000);
                 break;
             case 4:
                 addToTemp(turn);
@@ -175,7 +174,7 @@ public class Game10 extends AppCompatActivity {
                         buttons.get(i).setTag(getDrawable(tempImages.get(i)));
                     }
                 }
-                resetButtons(turn,4000);
+                resetButtons(turn, 4000);
                 break;
         }
     }
@@ -194,6 +193,9 @@ public class Game10 extends AppCompatActivity {
     }
 
 
+    private void toStrings() {
+
+    }
 
     private void resetButtons(final int i, int delay) {
 
@@ -242,7 +244,7 @@ public class Game10 extends AppCompatActivity {
             for (int i = 0; i < which_level * 3; i++) {
                 buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
             }
-            resetButtons(which_level,600);
+            resetButtons(which_level, 600);
 
         }
     }
