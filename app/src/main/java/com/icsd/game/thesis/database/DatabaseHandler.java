@@ -247,7 +247,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public static void exportDBtoCsv() {
         DatabaseHandler dh = new DatabaseHandler(AppLan.getAppContext());
-        File exportDir = new File(Environment.getRootDirectory(), "/csvs");
+        File exportDir = new File(Environment.getExternalStorageDirectory(), "/DCIM/csvs");
+
         if (!exportDir.exists()) {
             exportDir.mkdirs();
         }
