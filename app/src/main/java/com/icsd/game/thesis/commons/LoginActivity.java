@@ -227,7 +227,7 @@ public class LoginActivity extends AppCompatActivity {
             else {
                 // No explanation needed, we can request the permission.
                 ActivityCompat.requestPermissions(this,
-                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                        new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE},
                         11);
             }
             return false;

@@ -49,6 +49,7 @@ public class Game2Activity extends AppCompatActivity {
     private PopUpWindow popUpWindow;
     private TextView tutorialText;
     private int tempFails;
+    private int toKill;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +88,7 @@ public class Game2Activity extends AppCompatActivity {
     }
 
     private void initGameplay() {
-
+        toKill = 0;
         countriesEurope = new ArrayList<>();
         countriesAfrica = new ArrayList<>();
         countriesAsia = new ArrayList<>();
@@ -123,6 +124,7 @@ public class Game2Activity extends AppCompatActivity {
     }
 
     private void initTurn() {
+
         tempFails = 0;
         if (turn == 1 || turn == 2) {
 
@@ -334,7 +336,7 @@ public class Game2Activity extends AppCompatActivity {
             curSession.setScore(curSession.getScore() - 1);
 
             curSession.setFails(curSession.getFails() + 1);
-            if(tempFails==2){
+            if (tempFails == 2) {
                 initTurn();
                 initTurn();
             }

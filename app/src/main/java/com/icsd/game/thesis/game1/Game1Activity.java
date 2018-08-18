@@ -49,6 +49,7 @@ public class Game1Activity extends AppCompatActivity {
     private ArrayList<Question> questionsFinal;
     private int tempFails;
     private int categorieCorrects;
+    private int stage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,10 +80,8 @@ public class Game1Activity extends AppCompatActivity {
         questions = new ArrayList<>();
         soundHandler = new SoundHandler(getApplicationContext());
         popUpWindow = new PopUpWindow(this, this);
-      
-
+        stage = 0;
         questionsFinal = new ArrayList<>();
-
 
     }
 
@@ -129,7 +128,7 @@ public class Game1Activity extends AppCompatActivity {
     }
 
     private void checkAnswer(Button button) {
-
+        stage++;
         if (button.getText().equals(correctAnswer)) {
 
             soundHandler.playOkSound();
@@ -164,7 +163,7 @@ public class Game1Activity extends AppCompatActivity {
 
         }
 
-        if (curSession.getStage() == 23) {
+        if (this.stage == 30) {
             endGameKill();
         }
     }

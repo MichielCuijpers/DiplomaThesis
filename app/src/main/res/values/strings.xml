@@ -35,8 +35,8 @@
     <string name="surv_menou">final surveys</string>
     <string name="back_menou">back</string>
     <string name="thanks_end">thank you for your participation </string>
-    <string name="title_location_permission" translatable="false">title_storage_permission</string>
-    <string name="text_location_permission" translatable="false">text_storage_permission</string>
+    <string name="title_location_permission" translatable="false"> storage_permission request</string>
+    <string name="text_location_permission" translatable="false">please give storage_permission</string>
 
 
     <!-- game1-->
