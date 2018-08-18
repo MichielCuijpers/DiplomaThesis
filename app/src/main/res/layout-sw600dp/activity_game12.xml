@@ -216,7 +216,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:text="Tutorial"
+        android:text="@string/tutorialg6"
         android:textColor="@android:color/black"
         android:textSize="40dp"
         app:layout_constraintEnd_toStartOf="@+id/help_button9"
