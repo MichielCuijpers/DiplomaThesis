@@ -41,7 +41,6 @@ public class Game1Activity extends AppCompatActivity {
     private static final String CATEGORY6 = "general";
     private Question question;
     private String correctAnswer;
-    private int miniTurn;
     private Session curSession;
     private DatabaseHandler dbHandler;
     private ArrayList<String> questions;
@@ -65,7 +64,7 @@ public class Game1Activity extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-      //  endGameKill();
+        //  endGameKill();
     }
 
     private void init() {
@@ -80,7 +79,7 @@ public class Game1Activity extends AppCompatActivity {
         questions = new ArrayList<>();
         soundHandler = new SoundHandler(getApplicationContext());
         popUpWindow = new PopUpWindow(this, this);
-        miniTurn = 0;
+      
 
         questionsFinal = new ArrayList<>();
 
@@ -109,7 +108,7 @@ public class Game1Activity extends AppCompatActivity {
 
     private void initTheQuestion() {
         tempFails = 1;
-        if(this.questionsFinal.isEmpty()){
+        if (this.questionsFinal.isEmpty()) {
             setContentView(view1);
             pickCategoryView.setText(getResources().getString(R.string.choose_another_category));
             if (categorieCorrects == 4) {
@@ -132,6 +131,7 @@ public class Game1Activity extends AppCompatActivity {
     private void checkAnswer(Button button) {
 
         if (button.getText().equals(correctAnswer)) {
+
             soundHandler.playOkSound();
             popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
             curSession.setScore(curSession.getScore() + 1);
@@ -149,6 +149,7 @@ public class Game1Activity extends AppCompatActivity {
 
 
         } else {
+
             soundHandler.playWrongSound();
             curSession.setScore(curSession.getScore() - 1);
             if (tempFails == 2) {

@@ -279,5 +279,17 @@
     <string name="game13name">Πιάνο</string>
     <string name="game14name">" βάρη"</string>
     <string name="game15name">Μαθηματικές Πράξεις</string>
+    <string name="banana">μπανανα</string>
+    <string name="avocado">αβοκάντο</string>
+    <string name="kiwi">ακτινίδιο</string>
+    <string name="melon">πεπόνι</string>
+    <string name="strawberry">φράουλα</string>
+    <string name="orange">πορτοκάλι</string>
+    <string name="apple">μήλο</string>
+    <string name="grapfruit">γκρέιπφρουτ</string>
+    <string name="flower1">λουλούδι</string>
+    <string name="cherries">κεράσια</string>
+    <string name="bike">ποδήλατο</string>
+    <string name="car">αυτοκινητο</string>
 
 </resources>

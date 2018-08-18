@@ -196,8 +196,44 @@ public class Game10 extends AppCompatActivity {
     }
 
 
-    private void toStrings() {
+    private void toStrings(String string) {
+        if (string.equals("banana")) {
+            text.setText(getResources().getString(R.string.banana));
 
+        } else if (string.equals("avocado")) {
+            text.setText(getResources().getString(R.string.avocado));
+
+        } else if (string.equals("kiwi")) {
+            text.setText(getResources().getString(R.string.kiwi));
+
+        } else if (string.equals("melon")) {
+            text.setText(getResources().getString(R.string.melon));
+
+        } else if (string.equals("strawberry")) {
+            text.setText(getResources().getString(R.string.strawberry));
+
+        } else if (string.equals("orange")) {
+            text.setText(getResources().getString(R.string.orange));
+
+        } else if (string.equals("apple")) {
+            text.setText(getResources().getString(R.string.apple));
+
+        } else if (string.equals("grapfruit")) {
+            text.setText(getResources().getString(R.string.grapfruit));
+
+        } else if (string.equals("flower1")) {
+            text.setText(getResources().getString(R.string.flower1));
+
+        } else if (string.equals("cherries")) {
+            text.setText(getResources().getString(R.string.cherries));
+
+        } else if (string.equals("bike")) {
+            text.setText(getResources().getString(R.string.bike));
+
+        } else if (string.equals("car")) {
+            text.setText(getResources().getString(R.string.car));
+
+        }
     }
 
     private void resetButtons(final int i, int delay) {
@@ -210,7 +246,7 @@ public class Game10 extends AppCompatActivity {
                 }
                 standard.setVisibility(View.VISIBLE);
                 text.setVisibility(View.VISIBLE);
-                text.setText(corArray2[0]);
+                toStrings(corArray2[0]);
 
             }
         };

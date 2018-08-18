@@ -276,6 +276,18 @@
     <string name="yellow">"Click on the yellow images"</string>
     <!-- Game10-->
     <string name="tutorialGame10">Remember Where the item is  </string>
+    <string name="banana">banana</string>
+    <string name="avocado">avocado</string>
+    <string name="kiwi">kiwi</string>
+    <string name="melon">melon</string>
+    <string name="strawberry">strawberry</string>
+    <string name="orange">orange</string>
+    <string name="apple">apple</string>
+    <string name="grapfruit">grapfruit</string>
+    <string name="flower1">flower</string>
+    <string name="cherries">cherries</string>
+    <string name="bike">bike</string>
+    <string name="car">car</string>
     <!-- Game11-->
     <string name="tutorialGame11">Try to discover the shadowed squares</string>
     <string name="Corrects">Corrects</string>

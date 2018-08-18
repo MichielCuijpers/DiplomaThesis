@@ -32,15 +32,17 @@ public class SoundHandler {
     }
 
     public void playOkSound() {
-
+        sound.release();
         sound = MediaPlayer.create(cont, okSoundId);
         sound.start();
 
     }
 
     public void playWrongSound() {
+        sound.release();
         sound = MediaPlayer.create(cont, wrongSoundId);
         sound.start();
+
 
     }
 

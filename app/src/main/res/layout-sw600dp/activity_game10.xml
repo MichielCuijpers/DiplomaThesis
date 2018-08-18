@@ -12,7 +12,6 @@
         android:layout_width="225dp"
         android:layout_height="75dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="448dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textColor="@android:color/black"
@@ -20,15 +19,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.986"
+        app:layout_constraintVertical_bias="0.86"
         tools:text="Hit the " />
 
     <Button
         android:id="@+id/obj12"
         android:layout_width="150dp"
-        android:layout_height="130dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="276dp"
+        android:layout_marginEnd="360dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="obj12onclick"
@@ -36,14 +35,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/obj9"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.741" />
 
     <Button
         android:id="@+id/obj11"
         android:layout_width="150dp"
-        android:layout_height="130dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="136dp"
+        android:layout_marginEnd="96dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="obj11onclick"
@@ -51,12 +50,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/obj12"
         app:layout_constraintTop_toBottomOf="@+id/obj8"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.636" />
 
     <Button
         android:id="@+id/obj10"
         android:layout_width="150dp"
-        android:layout_height="130dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -65,17 +64,17 @@
         android:textSize="0sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/obj11"
-        app:layout_constraintHorizontal_bias="0.751"
+        app:layout_constraintHorizontal_bias="0.663"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/obj7"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.703" />
 
     <Button
         android:id="@+id/obj9"
         android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginEnd="276dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="360dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="obj9onclick"
         android:textSize="0sp"
@@ -85,8 +84,8 @@
     <Button
         android:id="@+id/obj8"
         android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginEnd="136dp"
+        android:layout_height="101dp"
+        android:layout_marginEnd="96dp"
         android:layout_marginTop="12dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="obj8onclick"
@@ -97,24 +96,24 @@
     <Button
         android:id="@+id/obj7"
         android:layout_width="150dp"
-        android:layout_height="130dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="obj7onclick"
         android:textSize="0sp"
         app:layout_constraintEnd_toStartOf="@+id/obj8"
-        app:layout_constraintHorizontal_bias="0.751"
+        app:layout_constraintHorizontal_bias="0.665"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/obj4" />
 
     <Button
         android:id="@+id/obj6"
         android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginEnd="276dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="360dp"
+        android:layout_marginTop="12dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="obj6onclick"
         android:textSize="0sp"
@@ -124,9 +123,9 @@
     <Button
         android:id="@+id/obj5"
         android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginEnd="136dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginTop="12dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="obj5onclick"
         android:textSize="0sp"
@@ -136,9 +135,9 @@
     <Button
         android:id="@+id/obj4"
         android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginTop="4dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="20dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="obj4onclick"
         android:textSize="0sp"
@@ -148,8 +147,8 @@
     <Button
         android:id="@+id/obj3"
         android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginEnd="276dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="360dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="obj3onclick"
         android:textSize="0sp"
@@ -159,8 +158,8 @@
     <Button
         android:id="@+id/obj2"
         android:layout_width="150dp"
-        android:layout_height="130dp"
-        android:layout_marginEnd="136dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="96dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="obj2onclick"
         android:textSize="0sp"
@@ -170,15 +169,14 @@
     <Button
         android:id="@+id/obj1"
         android:layout_width="150dp"
-        android:layout_height="130dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="obj1onclick"
         android:textSize="0sp"
         app:layout_constraintEnd_toStartOf="@+id/obj2"
-        app:layout_constraintHorizontal_bias="0.751"
+        app:layout_constraintHorizontal_bias="0.687"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -186,18 +184,10 @@
         android:id="@+id/textView10"
         android:layout_width="199dp"
         android:layout_height="75dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="TextView"
         android:textColor="@android:color/black"
         android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.986"
+        tools:layout_editor_absoluteX="799dp"
+        tools:layout_editor_absoluteY="253dp"
         tools:text="Hit the " />
 </android.support.constraint.ConstraintLayout>
