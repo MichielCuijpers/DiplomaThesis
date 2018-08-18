@@ -39,6 +39,7 @@ public class Game6 extends AppCompatActivity {
     private Button melon, avocado, strawberry, banana, cherries, kiwi, orange, bicycle, bike, car, jeep, truck, golf, suv, phone, phone2, tablet, tablet2,
             smartwatch, pc, laptop, flower1, flower2, flower3, flower4, flower5, flower6, flower7, shuffle;
     private int sc = 0;
+    private int wrongs = 0;
     private Session currentSession;
     private DatabaseHandler dbHandler;
     private SoundHandler soundHandler;
@@ -504,7 +505,7 @@ public class Game6 extends AppCompatActivity {
         currentSession.setStage(currentSession.getStage() + 1);
         soundHandler.playOkSound();
         popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
-        if (sc == 7) {
+        if (sc == 7 || wrongs ==6) {
             Intent surv = new Intent(this, SurveyActivity.class);
             SurveyActivity.setQuestionType(0);
             SurveyActivity.setGameID(6);
@@ -516,8 +517,8 @@ public class Game6 extends AppCompatActivity {
     }
 
     private void userLoosesTheTurn() {
-        sc--;
-        score.setText(getResources().getString(R.string.scoreg6) + sc);
+        wrongs--;
+        score.setText(getResources().getString(R.string.scoreg6) + wrongs);
         currentSession.setFails(currentSession.getFails() + 1);
         currentSession.setScore(currentSession.getScore() - 1);
         soundHandler.playWrongSound();

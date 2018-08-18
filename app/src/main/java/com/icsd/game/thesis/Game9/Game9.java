@@ -44,6 +44,7 @@ public class Game9 extends AppCompatActivity {
     private ArrayList<ArrayList> cat;
     private Button b1, b2, b3, b4, b5, bl1, bl2, bl3, bl4, bl5, g1, g2, g3, g4, g5, p1, p2, p3, p4, p5, r1, r2, r3, r4, r5, y1, y2, y3, y4, y5, shuffle;
     private int sc = 0;
+    private int wrongs = 0;
     private ArrayList<Button> win;
     private ArrayList<Button> lose;
     private ArrayList<Button> right_color;
@@ -595,7 +596,7 @@ public class Game9 extends AppCompatActivity {
     }
 
     public void checkEndGame() {
-        if (sc == 15) {
+        if (sc == 15 || wrongs==6) {
             currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
             dbHandler.addSessionToDB(currentSession);
             soundHandler.stopSound();
@@ -656,6 +657,7 @@ public class Game9 extends AppCompatActivity {
             soundHandler.playOkSound();
             initGame();
         } else if (lose.size() != 0) {
+            wrongs++;
             currentSession.setFails(currentSession.getFails() + 1);
             currentSession.setScore(currentSession.getScore() - 1);
             soundHandler.playWrongSound();

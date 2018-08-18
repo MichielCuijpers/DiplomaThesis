@@ -214,7 +214,7 @@ public class Game14 extends AppCompatActivity {
     }
 
     public void checkEndGame(){
-        if(corrects==10){
+        if(corrects==10 || incorrects==6){
             currentSession.setTimeEnd(System.currentTimeMillis()/1000);
             dbHandler.addSessionToDB(currentSession);
             soundHandler.stopSound();
