@@ -6,12 +6,11 @@
 
     <TextView
         android:id="@+id/text_view_dropdown"
-        android:layout_width="335dp"
-        android:layout_height="134dp"
-        android:layout_alignParentEnd="true"
+        android:layout_width="341dp"
+        android:layout_height="141dp"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="84dp"
-        android:layout_marginTop="63dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
         android:gravity="center"
         android:text="Correct"
         android:textColor="@android:color/background_dark"
@@ -22,19 +21,19 @@
         android:id="@+id/imageView12"
         android:layout_width="306dp"
         android:layout_height="342dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_marginBottom="153dp"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="174dp"
         app:srcCompat="@drawable/cat_pet" />
 
     <ImageView
         android:id="@+id/imageView15"
-        android:layout_width="354dp"
-        android:layout_height="272dp"
+        android:layout_width="388dp"
+        android:layout_height="292dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="104dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginTop="15dp"
         android:src="@drawable/dialog" />
 </RelativeLayout>

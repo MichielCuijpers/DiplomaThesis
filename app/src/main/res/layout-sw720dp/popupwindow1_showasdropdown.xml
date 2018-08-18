@@ -6,11 +6,12 @@
 
     <TextView
         android:id="@+id/text_view_dropdown"
-        android:layout_width="366dp"
-        android:layout_height="148dp"
+        android:layout_width="396dp"
+        android:layout_height="160dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="56dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="55dp"
         android:gravity="center"
         android:text=""
         android:textColor="@android:color/background_dark"
@@ -28,11 +29,11 @@
 
     <ImageView
         android:id="@+id/bubbleView"
-        android:layout_width="441dp"
-        android:layout_height="340dp"
+        android:layout_width="473dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="1dp"
+        android:layout_marginEnd="0dp"
         android:src="@drawable/dialog"
         android:visibility="visible" />
 </RelativeLayout>
