@@ -315,8 +315,8 @@
 
     <Button
         android:id="@+id/start_gp"
-        android:layout_width="185dp"
-        android:layout_height="84dp"
+        android:layout_width="194dp"
+        android:layout_height="103dp"
         android:layout_marginBottom="36dp"
         android:layout_marginEnd="92dp"
         android:background="@android:color/holo_orange_dark"
@@ -388,8 +388,8 @@
 
     <Button
         android:id="@+id/tuto_test"
-        android:layout_width="185dp"
-        android:layout_height="84dp"
+        android:layout_width="190dp"
+        android:layout_height="105dp"
         android:layout_marginBottom="36dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="252dp"

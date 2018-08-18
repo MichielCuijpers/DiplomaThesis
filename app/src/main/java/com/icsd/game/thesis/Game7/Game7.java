@@ -459,7 +459,7 @@ private ArrayList <String> backshuffle;
         }
     }
     public void checkEndGame(){
-        if(correct_answers==8){
+        if(correct_answers==8 || wrong_answers==6){
             currentSession.setTimeEnd(System.currentTimeMillis()/1000);
             dbHandler.addSessionToDB(currentSession);
             soundHandler.stopSound();

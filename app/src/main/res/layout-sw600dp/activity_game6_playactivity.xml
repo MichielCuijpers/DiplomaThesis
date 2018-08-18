@@ -288,7 +288,7 @@
         android:onClick="image1OnClick"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toStartOf="@+id/image2"
-        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintHorizontal_bias="0.868"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text1"
         app:layout_constraintVertical_bias="0.0" />
@@ -298,7 +298,7 @@
         android:layout_width="160dp"
         android:layout_height="140dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="112dp"
         android:onClick="image2OnClick"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
@@ -312,13 +312,13 @@
         android:layout_width="160dp"
         android:layout_height="140dp"
         android:layout_marginBottom="36dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginTop="8dp"
         android:onClick="image3OnClick"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toStartOf="@+id/image4"
         app:layout_constraintTop_toBottomOf="@+id/text1"
-        app:layout_constraintVertical_bias="0.915" />
+        app:layout_constraintVertical_bias="0.83" />
 
 
     <Button
@@ -332,31 +332,31 @@
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toStartOf="@+id/image5"
         app:layout_constraintTop_toBottomOf="@+id/text1"
-        app:layout_constraintVertical_bias="0.095" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/image5"
         android:layout_width="160dp"
         android:layout_height="140dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginEnd="48dp"
         android:layout_marginTop="112dp"
         android:onClick="image5OnClick"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text1"
-        app:layout_constraintVertical_bias="0.095" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="815dp"
-        android:layout_height="88dp"
+        android:layout_width="642dp"
+        android:layout_height="94dp"
         android:layout_marginBottom="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/messageg6"
         android:textColor="@android:color/black"
-        android:textSize="60dp"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.632"

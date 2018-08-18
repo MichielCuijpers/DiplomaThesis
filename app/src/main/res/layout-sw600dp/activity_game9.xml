@@ -290,8 +290,8 @@
 
     <TextView
         android:id="@+id/text1"
-        android:layout_width="258dp"
-        android:layout_height="83dp"
+        android:layout_width="275dp"
+        android:layout_height="109dp"
         android:layout_marginBottom="8dp"
         android:text="@string/tutorialg6"
         android:textColor="@android:color/black"

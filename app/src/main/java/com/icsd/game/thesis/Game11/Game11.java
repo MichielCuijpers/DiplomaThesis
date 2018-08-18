@@ -240,7 +240,7 @@ public class Game11 extends AppCompatActivity {
     }
 
     private void checkEndGame() {
-        if (correct == 8) {
+        if (correct == 8 || wrong==6) {
             currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
             dbHandler.addSessionToDB(currentSession);
             soundHandler.stopSound();

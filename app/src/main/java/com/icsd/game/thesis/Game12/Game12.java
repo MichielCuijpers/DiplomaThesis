@@ -331,7 +331,7 @@ public class Game12 extends AppCompatActivity {
     }
 
     public void checkEndGame() {
-        if (corrects == 8) {
+        if (corrects == 8 || wrongs==6) {
             currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
             dbHandler.addSessionToDB(currentSession);
             soundHandler.stopSound();
