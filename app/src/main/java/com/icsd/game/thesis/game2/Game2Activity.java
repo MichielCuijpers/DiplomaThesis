@@ -336,6 +336,7 @@ public class Game2Activity extends AppCompatActivity {
             curSession.setFails(curSession.getFails() + 1);
             if(tempFails==2){
                 initTurn();
+                initTurn();
             }
             //initTurn();
 

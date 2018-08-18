@@ -4,40 +4,84 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.commons.LoginActivity;
+import com.icsd.game.thesis.commons.SoundHandler;
+import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.pet.PopUpWindow;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
 import static android.graphics.Color.parseColor;
 
-public class Game10  extends AppCompatActivity{
+public class Game10 extends AppCompatActivity {
 
-    private Button objl,obj2,obj3,obj4,obj5,obj6,obj7,obj8,obj9,obj10,obj11,obj12;
-    private Button level_1_button;
+    private Button objl, obj2, obj3, obj4, obj5, obj6, obj7, obj8, obj9, obj10, obj11, obj12;
     private static int which_level;
-    private ArrayList<Button> level_1_buttons;
-    private ArrayList<String> objects_for_game;
     private Runnable timer;
     private final Handler defaultButtons = new Handler();
-    private String correct_answer;
-    private ArrayList<String> correct_answers;
-    private ArrayList<String> clicked_answers;
-    private static int pressedButtons;
+    private int correct_answer;
     private TextView text;
     private TextView standard;
-    public void onCreate(Bundle savedInstanceState){
+    private ArrayList<Integer> images;
+    private ArrayList<Integer> tempImages;
+    private ArrayList<Button> buttons;
+    private String[] corArray;
+    private String[] corArray2;
+    private SoundHandler soundHandler;
+    private PopUpWindow popUpWindow;
+    private Session currentSession;
+    private int tempFails;
+
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game10);
-        initGui();
+        init();
+
     }
-    private void initGui(){
-        objl= (Button) findViewById(R.id.obj1);
+
+    private void init() {
+        tempImages = new ArrayList<>();
+        images = new ArrayList<>();
+        corArray = new String[20];
+        corArray2 = new String[20];
+        tempFails = 0;
+        which_level = 1;
+        soundHandler = new SoundHandler(this);
+
+        currentSession = new Session(LoginActivity.getUser().getUsername(), 10);
+        initImages();
+        initGui();
+        popUpWindow = new PopUpWindow(this, this);
+
+    }
+
+    private void initImages() {
+        images = new ArrayList<>();
+        images.add(R.drawable.banana);
+        images.add(R.drawable.avocado);
+        images.add(R.drawable.kiwi);
+        images.add(R.drawable.melon);
+        images.add(R.drawable.strawberry);
+        images.add(R.drawable.orange);
+        images.add(R.drawable.apple);
+        images.add(R.drawable.grapefruit);
+        images.add(R.drawable.flower1);
+        images.add(R.drawable.cherries);
+        images.add(R.drawable.bike);
+        images.add(R.drawable.car);
+    }
+
+    private void initGui() {
+        objl = (Button) findViewById(R.id.obj1);
         obj2 = (Button) findViewById(R.id.obj2);
         obj3 = (Button) findViewById(R.id.obj3);
         obj4 = (Button) findViewById(R.id.obj4);
@@ -50,158 +94,203 @@ public class Game10  extends AppCompatActivity{
         obj11 = (Button) findViewById(R.id.obj11);
         obj12 = (Button) findViewById(R.id.obj12);
         text = (TextView) findViewById(R.id.textView11);
-        standard = (TextView)findViewById(R.id.textView10);
+        standard = (TextView) findViewById(R.id.textView10);
         standard.setText("Touch the");
         text.setVisibility(View.INVISIBLE);
         standard.setVisibility(View.INVISIBLE);
-        objects_for_game = new ArrayList<String>();
-        objects_for_game.add("banana");
-        objects_for_game.add("avocado");
-        objects_for_game.add("kiwi");
-        objects_for_game.add("melon");
-        objects_for_game.add("orange");
-        objects_for_game.add("strawberry");
-        level_1_buttons = new ArrayList<Button>();
-        which_level = 0;
-        pressedButtons = 0;
+        buttons = new ArrayList<>();
+        buttons.add(objl);
+        buttons.add(obj2);
+        buttons.add(obj3);
+        buttons.add(obj4);
+        buttons.add(obj5);
+        buttons.add(obj6);
+        buttons.add(obj7);
+        buttons.add(obj8);
+        buttons.add(obj9);
+        buttons.add(obj10);
+        buttons.add(obj11);
+        buttons.add(obj12);
         startGame();
     }
-    private void Check_Level(){
-        correct_answers = new ArrayList<String>();
-        clicked_answers = new ArrayList<String>();
-        if(which_level==0){
-            obj12.setVisibility(View.INVISIBLE);
-            obj11.setVisibility(View.INVISIBLE);
-            obj10.setVisibility(View.INVISIBLE);
-            obj9.setVisibility(View.INVISIBLE);
-            obj8.setVisibility(View.INVISIBLE);
-            obj7.setVisibility(View.INVISIBLE);
-            obj3.setVisibility(View.INVISIBLE);
-            obj2.setVisibility(View.INVISIBLE);
-            objl.setVisibility(View.INVISIBLE);
-            level_1_buttons.add(obj4);
-            level_1_buttons.add(obj5);
-            level_1_buttons.add(obj6);
-            Collections.shuffle(objects_for_game);
-            for(int i = 0;i<objects_for_game.size();i++){
-                if(objects_for_game.get(i).equals("banana")){
-                    correct_answers.add("banana");
-                    text.setText("Banana");
-                    Collections.shuffle(level_1_buttons);
-                    level_1_buttons.get(0).setBackground(getDrawable(R.drawable.banana));
-                    level_1_buttons.get(1).setBackground(getDrawable(R.drawable.avocado));
-                    level_1_buttons.get(2).setBackground(getDrawable(R.drawable.kiwi));
-                    resetButtons(level_1_buttons.get(0),level_1_buttons.get(1),level_1_buttons.get(2));
-                }else if(objects_for_game.get(i).equals("avocado")){
-                    correct_answers.add("avocado");
-                    text.setText("Avocado");
-                    Collections.shuffle(level_1_buttons);
-                    level_1_buttons.get(0).setBackground(getDrawable(R.drawable.avocado));
-                    level_1_buttons.get(1).setBackground(getDrawable(R.drawable.banana));
-                    level_1_buttons.get(2).setBackground(getDrawable(R.drawable.kiwi));
-                    resetButtons(level_1_buttons.get(0),level_1_buttons.get(1),level_1_buttons.get(2));
-                }
-                else if(objects_for_game.get(i).equals("kiwi")){
-                    correct_answers.add("kiwi");
-                    text.setText("Kiwi");
-                    Collections.shuffle(level_1_buttons);
-                    level_1_buttons.get(0).setBackground(getDrawable(R.drawable.kiwi));
-                    level_1_buttons.get(1).setBackground(getDrawable(R.drawable.melon));
-                    level_1_buttons.get(2).setBackground(getDrawable(R.drawable.strawberry));
-                    resetButtons(level_1_buttons.get(0),level_1_buttons.get(1),level_1_buttons.get(2));
-                }
-                else if(objects_for_game.get(i).equals("melon")){
-                    correct_answers.add("melon");
-                    text.setText("Melon");
-                    Collections.shuffle(level_1_buttons);
-                    level_1_buttons.get(0).setBackground(getDrawable(R.drawable.melon));
-                    level_1_buttons.get(1).setBackground(getDrawable(R.drawable.orange));
-                    level_1_buttons.get(2).setBackground(getDrawable(R.drawable.banana));
-                    resetButtons(level_1_buttons.get(0),level_1_buttons.get(1),level_1_buttons.get(2));
-                }
-                else if(objects_for_game.get(i).equals("orange")){
-                    correct_answers.add("orange");
-                    text.setText("Orange");
-                    Collections.shuffle(level_1_buttons);
-                    level_1_buttons.get(0).setBackground(getDrawable(R.drawable.orange));
-                    level_1_buttons.get(1).setBackground(getDrawable(R.drawable.avocado));
-                    level_1_buttons.get(2).setBackground(getDrawable(R.drawable.strawberry));
-                    resetButtons(level_1_buttons.get(0),level_1_buttons.get(1),level_1_buttons.get(2));
-                }
-                else if(objects_for_game.get(i).equals("strawberry")){
-                    correct_answers.add("strawberry");
-                    text.setText("Strawberry");
-                    Collections.shuffle(level_1_buttons);
-                    level_1_buttons.get(0).setBackground(getDrawable(R.drawable.strawberry));
-                    level_1_buttons.get(1).setBackground(getDrawable(R.drawable.orange));
-                    level_1_buttons.get(2).setBackground(getDrawable(R.drawable.melon));
-                    resetButtons(level_1_buttons.get(0),level_1_buttons.get(1),level_1_buttons.get(2));
-                }
-            }
 
-        }
-        else if(which_level==2){
+    private void gameplay(int turn) {
+        Collections.shuffle(images);
+        tempImages.clear();
+        setAllInvisible();
 
-        }
-        else if(which_level==3){
+        correct_answer = images.get(0);
+        text.setText(correct_answer);
+        corArray = text.getText().toString().split("/");
+        corArray2 = corArray[2].split("\\.");
+        switch (turn) {
+            case 1:
+                addToTemp(turn);
+                Collections.shuffle(tempImages);
+                text.setVisibility(View.INVISIBLE);
+                for (int i = 0; i < 3; i++) {
+                    buttons.get(i).setVisibility(View.VISIBLE);
+                    buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                    if (correct_answer == tempImages.get(i)) {
+                        buttons.get(i).setTag(getDrawable(tempImages.get(i)));
+                    }
+                }
+                resetButtons(turn,4000);
+                break;
+            case 2:
+                addToTemp(turn);
+                Collections.shuffle(tempImages);
+                text.setVisibility(View.INVISIBLE);
+                for (int i = 0; i < 6; i++) {
+                    buttons.get(i).setVisibility(View.VISIBLE);
+                    buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                    if (correct_answer == tempImages.get(i)) {
+                        buttons.get(i).setTag(getDrawable(tempImages.get(i)));
+                    }
+                }
+                resetButtons(turn,4000);
 
+                break;
+            case 3:
+                addToTemp(turn);
+                Collections.shuffle(tempImages);
+                text.setVisibility(View.INVISIBLE);
+                for (int i = 0; i < 9; i++) {
+                    buttons.get(i).setVisibility(View.VISIBLE);
+                    buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                    if (correct_answer == tempImages.get(i)) {
+                        buttons.get(i).setTag(getDrawable(tempImages.get(i)));
+                    }
+                }
+                resetButtons(turn,4000);
+                break;
+            case 4:
+                addToTemp(turn);
+                Collections.shuffle(tempImages);
+                text.setVisibility(View.INVISIBLE);
+                for (int i = 0; i < 12; i++) {
+                    buttons.get(i).setVisibility(View.VISIBLE);
+                    buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                    if (correct_answer == tempImages.get(i)) {
+                        buttons.get(i).setTag(getDrawable(tempImages.get(i)));
+                    }
+                }
+                resetButtons(turn,4000);
+                break;
         }
     }
-    private void resetButtons(final Button a,final Button b,final Button c) {
+
+    private void addToTemp(int turn) {
+        for (int i = 0; i < turn * 3; i++) {
+            tempImages.add(images.get(i));
+        }
+    }
+
+    private void setAllInvisible() {
+        for (int i = 0; i < buttons.size(); i++) {
+            buttons.get(i).setVisibility(View.INVISIBLE);
+            buttons.get(i).setTag(null);
+        }
+    }
+
+
+
+    private void resetButtons(final int i, int delay) {
 
         timer = new Runnable() {
             @Override
             public void run() {
-
-                a.setBackgroundColor(parseColor("#FFFF8800"));
-                b.setBackgroundColor(parseColor("#FFFF8800"));
-                c.setBackgroundColor(parseColor("#FFFF8800"));
+                for (int j = 0; j < i * 3; j++) {
+                    buttons.get(j).setBackgroundColor(parseColor("#FFFF8800"));
+                }
                 standard.setVisibility(View.VISIBLE);
                 text.setVisibility(View.VISIBLE);
-
+                text.setText(corArray2[0]);
 
             }
         };
-        defaultButtons.postDelayed(timer, 5000);
+        defaultButtons.postDelayed(timer, delay);
     }
-    private void startGame(){
-        Check_Level();
+
+    private void startGame() {
+        gameplay(which_level);
     }
-    private void CheckIfMatch(ArrayList<String> clicked,ArrayList<String> corrects,int pressedButtons){
-        if(which_level == 0 && pressedButtons==1){
-            Collections.sort(clicked);
-            Collections.sort(corrects);
-            if(clicked.toString().contentEquals(corrects.toString())){
-                Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-                startGame();
+
+    private void check(Button button) {
+        if (button.getTag() != null) {
+
+            soundHandler.playOkSound();
+            //popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
+            currentSession.setStage(currentSession.getStage() + 1);
+            currentSession.setScore(currentSession.getScore() + 1);
+            which_level++;
+            gameplay(which_level);
+
+        } else {
+            currentSession.setScore(currentSession.getScore() - 1);
+            currentSession.setFails(currentSession.getFails() + 1);
+            tempFails++;
+            soundHandler.playWrongSound();
+            // popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer2));
+            if (tempFails == 4) {
+                tempFails = 0;
+                which_level++;
+
+
+                gameplay(which_level);
             }
-            else{
-                Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show();
-                startGame();
+            for (int i = 0; i < which_level * 3; i++) {
+                buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
             }
+            resetButtons(which_level,600);
+
         }
+    }
 
-    }
-    private void isPressed(){
-        pressedButtons+=1;
-        CheckIfMatch(clicked_answers,correct_answers,pressedButtons);
-
-    }
-    private void unPress(){
-        pressedButtons-=1;
-    }
     public void obj5onclick(View view) {
-        clicked_answers.add(obj5.getText().toString());
-        isPressed();
+        check((Button) view);
+
     }
 
     public void obj6onclick(View view) {
-        clicked_answers.add(obj6.getText().toString());
-        isPressed();
+        check((Button) view);
+
     }
 
     public void obj4onclick(View view) {
-        clicked_answers.add(obj4.getText().toString());
-        isPressed();
+        check((Button) view);
+
+    }
+
+    public void obj3onclick(View view) {
+        check((Button) view);
+    }
+
+    public void obj2onclick(View view) {
+        check((Button) view);
+    }
+
+    public void obj1onclick(View view) {
+        check((Button) view);
+    }
+
+    public void obj7onclick(View view) {
+        check((Button) view);
+    }
+
+    public void obj8onclick(View view) {
+        check((Button) view);
+    }
+
+    public void obj9onclick(View view) {
+        check((Button) view);
+    }
+
+    public void obj11onclick(View view) {
+        check((Button) view);
+    }
+
+    public void obj12onclick(View view) {
+        check((Button) view);
     }
 }
