@@ -407,6 +407,7 @@ public class Game7 extends AppCompatActivity {
             if (answered.equals(chosed)) {
                 correct_answers++;
                 currentSession.setScore(correct_answers);
+                currentSession.setStage(currentSession.getStage()+1);
                 soundHandler.playOkSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
@@ -424,6 +425,7 @@ public class Game7 extends AppCompatActivity {
             if (answered.equals(chosed)) {
                 correct_answers++;
                 currentSession.setScore(correct_answers);
+                currentSession.setStage(currentSession.getStage()+1);
                 soundHandler.playOkSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
@@ -440,6 +442,7 @@ public class Game7 extends AppCompatActivity {
             if (answered.equals(chosed)) {
                 correct_answers++;
                 currentSession.setScore(correct_answers);
+                currentSession.setStage(currentSession.getStage()+1);
                 soundHandler.playOkSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));

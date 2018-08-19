@@ -236,6 +236,7 @@ public class Game14 extends AppCompatActivity {
             corrects++;
             fdb.setText("Corrects : "+corrects);
             currentSession.setScore(corrects);
+            currentSession.setStage(currentSession.getStage()+1);
             soundHandler.playOkSound();
             checkEndGame();
             initGamePlayScreen();

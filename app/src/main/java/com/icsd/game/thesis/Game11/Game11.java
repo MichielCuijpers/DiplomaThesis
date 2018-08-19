@@ -64,6 +64,7 @@ public class Game11 extends AppCompatActivity {
         currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
         dbHandler.addSessionToDB(currentSession);
         dbHandler.close();
+        dbHandler.close();
     }
 
     private void initGui() {

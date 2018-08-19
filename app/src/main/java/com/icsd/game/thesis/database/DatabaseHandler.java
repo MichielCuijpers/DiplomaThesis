@@ -246,12 +246,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public static void exportDBtoCsv() {
         DatabaseHandler dh = new DatabaseHandler(AppLan.getAppContext());
-        File exportDir = new File(Environment.getExternalStorageDirectory(), "/DCIM/csvs");
+        File exportDir = new File(Environment.getExternalStorageDirectory(), "");
 
         if (!exportDir.exists()) {
             exportDir.mkdirs();
         }
-        FileOutputStream outputStream;
         File file = new File(exportDir, "game_ses.csv");
 
         try {
@@ -265,7 +264,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 String arrStr[] = {curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3), curCSV.getString(4), curCSV.getString(5), curCSV.getString(6)};
                 csvWrite.writeNext(arrStr);
             }
-            csvWrite.close();
+           csvWrite.close();
             curCSV.close();
         } catch (Exception sqlEx) {
             Log.e("MainActivity", sqlEx.getMessage(), sqlEx);

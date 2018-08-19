@@ -330,6 +330,7 @@ public class Game2Activity extends AppCompatActivity {
             }
             countriesDone.add(currectCorrect);
             curSession.setScore(turn);
+            curSession.setStage(curSession.getStage()+1);
 
             initTurn();
         } else {

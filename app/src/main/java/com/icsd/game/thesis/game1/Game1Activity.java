@@ -168,7 +168,7 @@ public class Game1Activity extends AppCompatActivity {
 
         }
 
-        if (this.stage == 32) {
+        if (this.stage == 28 ) {
             endGameKill();
         }
     }

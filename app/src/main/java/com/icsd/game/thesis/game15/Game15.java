@@ -221,6 +221,7 @@ public class Game15 extends AppCompatActivity {
         if (button.getText().toString().equals(correctAnswerStr)) {
             soundHandler.playOkSound();
             currentSession.setScore(currentSession.getScore() + 1);
+            currentSession.setStage(currentSession.getStage() + 1);
             correctsInTurn++;
             p.showPopUp(getResources().getString(R.string.correct_answer2));
             if (tempTurn < 4) {
