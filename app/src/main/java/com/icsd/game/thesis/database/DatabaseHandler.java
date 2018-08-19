@@ -264,7 +264,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 String arrStr[] = {curCSV.getString(0), curCSV.getString(1), curCSV.getString(2), curCSV.getString(3), curCSV.getString(4), curCSV.getString(5), curCSV.getString(6)};
                 csvWrite.writeNext(arrStr);
             }
-           csvWrite.close();
+            csvWrite.close();
             curCSV.close();
         } catch (Exception sqlEx) {
             Log.e("MainActivity", sqlEx.getMessage(), sqlEx);

@@ -60,7 +60,7 @@ public class Game5 extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         if (curSession != null) {
-            curSession.setTimeEnd(System.currentTimeMillis());
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
             curSession.setScore(this.turn);
             dbHandler.addSessionToDB(this.curSession);
         }
@@ -72,7 +72,7 @@ public class Game5 extends AppCompatActivity {
 
         dbHandler = new DatabaseHandler(this.getApplicationContext());
         curSession = new Session(LoginActivity.getUser().getUsername(), 5);
-        curSession.setTimeStart(System.currentTimeMillis());
+        curSession.setTimeStart(System.currentTimeMillis() / 1000);
         soundHandler = new SoundHandler(getApplicationContext());
 
         this.answer1Button = findViewById(R.id.choise1Button);
