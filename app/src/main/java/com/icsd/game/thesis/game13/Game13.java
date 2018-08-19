@@ -90,7 +90,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
 
     public void onStop() {
         super.onStop();
-       // killAll();
+        saveSessionToDB();
     }
 
     public void onPrepared(MediaPlayer player) {
@@ -117,7 +117,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
                     turn++;
                     if (turn == 9) {
 //                        popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
-                        saveSessionToDB();
+                        // saveSessionToDB();
                         killAll();
                         Intent surv = new Intent(getApplicationContext(), SurveyActivity.class);
                         SurveyActivity.setQuestionType(0);
@@ -388,8 +388,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
             waitPlayer.removeCallbacks(runCheck);
         }
 
-        dbHandler.addSessionToDB(this.curSession);
-        curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+
     }
 
     private void saveSessionToDB() {

@@ -59,8 +59,11 @@ public class Game5 extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-       // endGameKill();
-
+        if (curSession != null) {
+            curSession.setTimeEnd(System.currentTimeMillis());
+            curSession.setScore(this.turn);
+            dbHandler.addSessionToDB(this.curSession);
+        }
     }
 
 
@@ -108,11 +111,7 @@ public class Game5 extends AppCompatActivity {
         if (soundHandler != null) {
             soundHandler.stopSound();
         }
-        if (curSession != null) {
-            curSession.setTimeEnd(System.currentTimeMillis());
-            curSession.setScore(this.turn);
-            dbHandler.addSessionToDB(this.curSession);
-        }
+
 
         Intent surv = new Intent(this, SurveyActivity.class);
         SurveyActivity.setQuestionType(0);

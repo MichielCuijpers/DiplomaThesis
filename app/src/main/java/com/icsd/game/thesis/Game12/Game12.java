@@ -71,6 +71,12 @@ public class Game12 extends AppCompatActivity {
         initGraphics();
         initScreen();
     }
+    public void onStop(){
+        super.onStop();
+        currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+        dbHandler.addSessionToDB(currentSession);
+        dbHandler.close();
+    }
 
     private void initGraphics() {
         takeTextFrom1 = " ";
@@ -332,8 +338,7 @@ public class Game12 extends AppCompatActivity {
 
     public void checkEndGame() {
         if (corrects == 8 || wrongs==6) {
-            currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
-            dbHandler.addSessionToDB(currentSession);
+
             soundHandler.stopSound();
             Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();
 

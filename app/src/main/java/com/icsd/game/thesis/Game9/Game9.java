@@ -74,6 +74,12 @@ public class Game9 extends AppCompatActivity {
         initTest();
     }
 
+    public void onStop() {
+        super.onStop();
+        currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+        dbHandler.addSessionToDB(currentSession);
+    }
+
     private void initTest() {
 
         images = new ArrayList<Button>();
@@ -596,9 +602,8 @@ public class Game9 extends AppCompatActivity {
     }
 
     public void checkEndGame() {
-        if (sc == 15 || wrongs==6) {
-            currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
-            dbHandler.addSessionToDB(currentSession);
+        if (sc == 15 || wrongs == 8) {
+
             soundHandler.stopSound();
             Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();
             Intent surv = new Intent(this, SurveyActivity.class);
@@ -732,9 +737,9 @@ public class Game9 extends AppCompatActivity {
     }
 
     public void button1OnClick(View v) {
-        if(border.getVisibility()==View.VISIBLE){
+        if (border.getVisibility() == View.VISIBLE) {
             border.setVisibility(View.INVISIBLE);
-        }else{
+        } else {
             border.setVisibility(View.VISIBLE);
         }
         if (!iimage1.getText().equals("")) {
@@ -752,9 +757,9 @@ public class Game9 extends AppCompatActivity {
 
     public void button2OnClick(View v) {
 
-        if(borderb2.getVisibility()==View.VISIBLE){
+        if (borderb2.getVisibility() == View.VISIBLE) {
             borderb2.setVisibility(View.INVISIBLE);
-        }else{
+        } else {
             borderb2.setVisibility(View.VISIBLE);
         }
         if (!iimage2.getText().equals("")) {
@@ -770,9 +775,9 @@ public class Game9 extends AppCompatActivity {
     }
 
     public void button3OnClick(View v) {
-        if(borderb3.getVisibility()==View.VISIBLE){
+        if (borderb3.getVisibility() == View.VISIBLE) {
             borderb3.setVisibility(View.INVISIBLE);
-        }else{
+        } else {
             borderb3.setVisibility(View.VISIBLE);
         }
         if (!iimage3.getText().equals("")) {
@@ -789,9 +794,9 @@ public class Game9 extends AppCompatActivity {
     }
 
     public void button4OnClick(View v) {
-        if(borderb4.getVisibility()==View.VISIBLE){
+        if (borderb4.getVisibility() == View.VISIBLE) {
             borderb4.setVisibility(View.INVISIBLE);
-        }else{
+        } else {
             borderb4.setVisibility(View.VISIBLE);
         }
         if (!iimage4.getText().equals("")) {
@@ -807,9 +812,9 @@ public class Game9 extends AppCompatActivity {
     }
 
     public void button5OnClick(View v) {
-        if(borderb5.getVisibility()==View.VISIBLE){
+        if (borderb5.getVisibility() == View.VISIBLE) {
             borderb5.setVisibility(View.INVISIBLE);
-        }else{
+        } else {
             borderb5.setVisibility(View.VISIBLE);
         }
         if (!iimage5.getText().equals("")) {

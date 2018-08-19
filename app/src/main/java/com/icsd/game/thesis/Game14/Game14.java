@@ -52,6 +52,11 @@ public class Game14 extends AppCompatActivity {
         soundHandler = new SoundHandler(getApplicationContext());
         initTutorial();
     }
+    public void onStop(){
+        super.onStop();
+        currentSession.setTimeEnd(System.currentTimeMillis()/1000);
+        dbHandler.addSessionToDB(currentSession);
+    }
     private void initGraphics()
     {
         test_again = (Button) findViewById(R.id.tuto_test);
@@ -215,8 +220,7 @@ public class Game14 extends AppCompatActivity {
 
     public void checkEndGame(){
         if(corrects==10 || incorrects==6){
-            currentSession.setTimeEnd(System.currentTimeMillis()/1000);
-            dbHandler.addSessionToDB(currentSession);
+
             soundHandler.stopSound();
             Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();
             Intent surv = new Intent(this, SurveyActivity.class);

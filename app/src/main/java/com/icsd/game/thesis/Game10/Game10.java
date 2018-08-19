@@ -1,5 +1,6 @@
 package com.icsd.game.thesis.Game10;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.LoginActivity;
 import com.icsd.game.thesis.commons.SoundHandler;
+import com.icsd.game.thesis.commons.SurveyActivity;
+import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
@@ -41,6 +44,7 @@ public class Game10 extends AppCompatActivity {
     private Session currentSession;
     private int tempFails;
     private TextView tutorialText;
+    private DatabaseHandler dbHandler;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +53,16 @@ public class Game10 extends AppCompatActivity {
         tutorialText.setText(getResources().getString(R.string.tutorialGame10));
 
 
+    }
+
+
+    public void onStop() {
+        super.onStop();
+        if (currentSession != null) {
+            currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            dbHandler = new DatabaseHandler(this);
+            dbHandler.addSessionToDB(this.currentSession);
+        }
     }
 
     private void init() {
@@ -60,6 +74,7 @@ public class Game10 extends AppCompatActivity {
         which_level = 1;
         soundHandler = new SoundHandler(this);
         currentSession = new Session(LoginActivity.getUser().getUsername(), 10);
+        currentSession.setTimeStart(System.currentTimeMillis() / 1000);
         initImages();
         initGui();
         popUpWindow = new PopUpWindow(this, this);
@@ -97,7 +112,7 @@ public class Game10 extends AppCompatActivity {
         obj12 = (Button) findViewById(R.id.obj12);
         text = (TextView) findViewById(R.id.textView11);
         standard = (TextView) findViewById(R.id.textView10);
-        standard.setText(getResources().getString(R.string.touch ));
+        standard.setText(getResources().getString(R.string.touch));
         text.setVisibility(View.INVISIBLE);
         standard.setVisibility(View.INVISIBLE);
         buttons = new ArrayList<>();
@@ -179,7 +194,22 @@ public class Game10 extends AppCompatActivity {
                 }
                 resetButtons(turn, 4000);
                 break;
+            case 5: {
+                endGame();
+                break;
+            }
         }
+    }
+
+    public void endGame() {
+        if (soundHandler != null) {
+            soundHandler.stopSound();
+        }
+
+        Intent surv = new Intent(this, SurveyActivity.class);
+        SurveyActivity.setQuestionType(0);
+        SurveyActivity.setGameID(10);
+        startActivity(surv);
     }
 
     private void addToTemp(int turn) {

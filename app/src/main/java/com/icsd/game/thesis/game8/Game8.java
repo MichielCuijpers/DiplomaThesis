@@ -57,7 +57,11 @@ public class Game8 extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-       // endGame();
+        if (this.curSession != null) {
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            dbHandler.addSessionToDB(this.curSession);
+            dbHandler.close();
+        }
 
     }
 
@@ -296,11 +300,7 @@ public class Game8 extends AppCompatActivity {
         if (soundHandler != null) {
             soundHandler.stopSound();
         }
-        if (this.curSession != null) {
-            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-            dbHandler.addSessionToDB(this.curSession);
-            dbHandler.close();
-        }
+
 
         if (handler1 != null && handler2 != null) {
             handler1.removeCallbacks(null);

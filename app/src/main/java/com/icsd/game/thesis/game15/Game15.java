@@ -65,7 +65,11 @@ public class Game15 extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-        // endGame();
+        if (currentSession != null) {
+            currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
+            dbHandler.addSessionToDB(this.currentSession);
+        }
     }
 
     private void initGui() {

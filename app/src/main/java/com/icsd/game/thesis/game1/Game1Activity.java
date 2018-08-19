@@ -65,7 +65,12 @@ public class Game1Activity extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-        //  endGameKill();
+        if (this.curSession != null) {
+            dbHandler = new DatabaseHandler(this.getApplicationContext());
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            dbHandler.addSessionToDB(this.curSession);
+        }
+
     }
 
     private void init() {
@@ -163,17 +168,12 @@ public class Game1Activity extends AppCompatActivity {
 
         }
 
-        if (this.stage == 30) {
+        if (this.stage == 32) {
             endGameKill();
         }
     }
 
     private void endGameKill() {
-        if (this.curSession != null) {
-            dbHandler = new DatabaseHandler(this.getApplicationContext());
-            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-            dbHandler.addSessionToDB(this.curSession);
-        }
 
         if (soundHandler != null) {
             soundHandler.stopSound();

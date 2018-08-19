@@ -59,6 +59,13 @@ public class Game11 extends AppCompatActivity {
 
     }
 
+    public void onStop() {
+        super.onStop();
+        currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+        dbHandler.addSessionToDB(currentSession);
+        dbHandler.close();
+    }
+
     private void initGui() {
         shadows = new ArrayList<String>();
         shadowsclicked = new ArrayList<String>();
@@ -240,9 +247,8 @@ public class Game11 extends AppCompatActivity {
     }
 
     private void checkEndGame() {
-        if (correct == 8 || wrong==6) {
-            currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
-            dbHandler.addSessionToDB(currentSession);
+        if (correct == 8 || wrong == 6) {
+
             soundHandler.stopSound();
             Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();
             Intent surv = new Intent(this, SurveyActivity.class);

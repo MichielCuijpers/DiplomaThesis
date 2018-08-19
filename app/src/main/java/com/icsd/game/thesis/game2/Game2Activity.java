@@ -73,7 +73,11 @@ public class Game2Activity extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-        // endGameKill();
+        if (curSession != null) {
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            dbHandler.addSessionToDB(this.curSession);
+        }
+
     }
 
     private void init() throws IOException {
@@ -350,11 +354,6 @@ public class Game2Activity extends AppCompatActivity {
         if (soundHandler != null) {
             soundHandler.stopSound();
         }
-        if (curSession != null) {
-            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-            dbHandler.addSessionToDB(this.curSession);
-        }
-
 
         Intent surv = new Intent(this, SurveyActivity.class);
         SurveyActivity.setQuestionType(0);

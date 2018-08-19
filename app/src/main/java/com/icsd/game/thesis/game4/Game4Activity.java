@@ -68,7 +68,16 @@ public class Game4Activity extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-        //endGame();
+        if (curSession != null) {
+            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            if (moves != 0) {
+                curSession.setScore(curSession.getScore() / moves);
+
+            }
+
+            DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
+            dbHandler.addSessionToDB(this.curSession);
+        }
     }
 
     private void initGameplay() {
@@ -222,19 +231,6 @@ public class Game4Activity extends AppCompatActivity {
         if (soundHandler != null) {
             soundHandler.stopSound();
         }
-
-//        p.getmPopupWindow().dismiss();
-        if (curSession != null) {
-            curSession.setTimeEnd(System.currentTimeMillis() / 1000);
-            if (moves != 0) {
-                curSession.setScore(curSession.getScore() / moves);
-
-            }
-
-            DatabaseHandler dbHandler = new DatabaseHandler(this.getApplicationContext());
-            dbHandler.addSessionToDB(this.curSession);
-        }
-
         Intent surv = new Intent(this, SurveyActivity.class);
         SurveyActivity.setQuestionType(0);
         SurveyActivity.setGameID(4);
@@ -342,8 +338,6 @@ public class Game4Activity extends AppCompatActivity {
             }
         }
     }
-
-
 
 
     public void tutorialOkOnClick(View view) {

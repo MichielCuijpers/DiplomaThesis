@@ -113,13 +113,15 @@ public class Μenu3 extends AppCompatActivity {
                 break;
             case 2:
                 hideButtons();
-                showButtons(3);
+                showButtons(4);
                 b1.setText(getResources().getString(R.string.game6name));
                 b2.setText(getResources().getString(R.string.game7name));
                 b3.setText(getResources().getString(R.string.game12name));
+                b4.setText(getResources().getString(R.string.game2name));
                 b1.setOnClickListener(game6);
                 b2.setOnClickListener(game7);
                 b3.setOnClickListener(game12);
+                b4.setOnClickListener(game2);
                 break;
             case 3:
                 hideButtons();
@@ -127,11 +129,10 @@ public class Μenu3 extends AppCompatActivity {
                 b1.setText(getResources().getString(R.string.game13name));
                 b2.setText(getResources().getString(R.string.game9name));
                 b3.setText(getResources().getString(R.string.game8name));
-                b4.setText(getResources().getString(R.string.game2name));
+
 
                 b1.setOnClickListener(game13);
                 b2.setOnClickListener(game9);
-                b4.setOnClickListener(game2);
                 b3.setOnClickListener(game8);
                 break;
             case 4:

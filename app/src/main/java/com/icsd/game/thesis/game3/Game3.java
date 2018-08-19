@@ -61,7 +61,10 @@ public class Game3 extends AppCompatActivity {
 
     public void onStop() {
         super.onStop();
-       // endGame();
+        if (currentSession != null) {
+            currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+            dbHandler.addSessionToDB(this.currentSession);
+        }
     }
 
     private void initGui() {
@@ -251,9 +254,8 @@ public class Game3 extends AppCompatActivity {
         if (moves != 0) {
             currentSession.setScore(currentSession.getScore() / moves);
         }
-        if (currentSession != null) {
-            currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
-            dbHandler.addSessionToDB(this.currentSession);
+        if(soundHandler!=null){
+            soundHandler.stopSound();
         }
 
         Intent surv = new Intent(this, SurveyActivity.class);

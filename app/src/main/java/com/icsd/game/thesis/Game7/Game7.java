@@ -24,9 +24,9 @@ import com.icsd.game.thesis.pet.PopUpWindow;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Game7 extends AppCompatActivity{
-private ImageView backgroundimg;
-private ArrayList <String> backshuffle;
+public class Game7 extends AppCompatActivity {
+    private ImageView backgroundimg;
+    private ArrayList<String> backshuffle;
     private Button fridge;
     private Button kit_lamp;
     private Button wash_dish;
@@ -59,20 +59,29 @@ private ArrayList <String> backshuffle;
     private PopUpWindow popUpWindow;
     Questions new_question;
     private TextView tutorialText;
+
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
         tutorialText = findViewById(R.id.tutorialTextView);
         tutorialText.setText(getResources().getString(R.string.tutorialGame7));
 
     }
-    public void initGui(){
+
+    public void onStop() {
+        super.onStop();
+        currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
+        dbHandler.addSessionToDB(currentSession);
+        dbHandler.close();
+    }
+
+    public void initGui() {
         new_question = new Questions();
         initQuestions();
         backgroundimg = (ImageView) findViewById(R.id.background_g7);
         quest_text = (TextView) findViewById(R.id.question_text);
-        backshuffle = new ArrayList<String> ();
+        backshuffle = new ArrayList<String>();
         backshuffle.add("kitchen");
         backshuffle.add("bathroom");
         backshuffle.add("din");
@@ -122,43 +131,41 @@ private ArrayList <String> backshuffle;
         soundright.setVisibility(View.INVISIBLE);
 
     }
-    public void pickBackground(){ //elengxei an exei paixtei mia othoni kai arxikopoiei antistoixa to background
+
+    public void pickBackground() { //elengxei an exei paixtei mia othoni kai arxikopoiei antistoixa to background
         Collections.shuffle(backshuffle);
-        for(int i = 0;i<backshuffle.size();i++){
+        for (int i = 0; i < backshuffle.size(); i++) {
             chosen_background = backshuffle.get(i);
         }
-        if(chosen_background.equals("kitchen")){
-            if(kitchen_played==0){
+        if (chosen_background.equals("kitchen")) {
+            if (kitchen_played == 0) {
                 initKitchen();
-            }
-            else {
+            } else {
                 backshuffle.remove("kitchen");
                 pickBackground();
             }
-        }
-        else if(chosen_background.equals("bathroom")){
-            if(bathroom_played==0){
+        } else if (chosen_background.equals("bathroom")) {
+            if (bathroom_played == 0) {
                 initBathroom();
-            }
-            else{
+            } else {
                 backshuffle.remove("bathroom");
                 pickBackground();
             }
-        }
-        else if(chosen_background.equals("din")){
-            if(dinroom_played==0){
+        } else if (chosen_background.equals("din")) {
+            if (dinroom_played == 0) {
                 initDinroom();
-            }
-            else{
+            } else {
                 backshuffle.remove("din");
-                pickBackground();;
+                pickBackground();
+                ;
             }
         }
     }
-    public void initKitchen(){
+
+    public void initKitchen() {
         //arxikopoisi koumpiwn kouzinas
-        if(new_question.check_empty_list(new_question.get_kitchen())==true){
-            kitchen_played=1;
+        if (new_question.check_empty_list(new_question.get_kitchen()) == true) {
+            kitchen_played = 1;
             fridge.setVisibility(View.INVISIBLE);
             kit_lamp.setVisibility(View.INVISIBLE);
             wash_dish.setVisibility(View.INVISIBLE);
@@ -166,7 +173,7 @@ private ArrayList <String> backshuffle;
             smoker.setVisibility(View.INVISIBLE);
             sand.setVisibility(View.INVISIBLE);
             pickBackground();
-        }else {
+        } else {
             fridge.setVisibility(View.VISIBLE);
             kit_lamp.setVisibility(View.VISIBLE);
             wash_dish.setVisibility(View.VISIBLE);
@@ -176,22 +183,17 @@ private ArrayList <String> backshuffle;
 
 
             backgroundimg.setBackground((getDrawable(R.drawable.kitchen)));
-            if(new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.ice))) {
+            if (new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.ice))) {
                 quest_text.setText(getResources().getString(R.string.ice));
-            }
-            else if(new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.bread))) {
+            } else if (new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.bread))) {
                 quest_text.setText(getResources().getString(R.string.bread));
-            }
-            else if(new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.kitchen_lights))) {
+            } else if (new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.kitchen_lights))) {
                 quest_text.setText(getResources().getString(R.string.kitchen_lights));
-            }
-            else if(new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.bottle))) {
+            } else if (new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.bottle))) {
                 quest_text.setText(getResources().getString(R.string.bottle));
-            }
-            else if(new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.cook))) {
+            } else if (new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.cook))) {
                 quest_text.setText(getResources().getString(R.string.cook));
-            }
-            else if(new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.smoke))) {
+            } else if (new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.smoke))) {
                 quest_text.setText(getResources().getString(R.string.smoke));
             }
             new_question.delete_Question_used("kitchen", quest_text.getText().toString());
@@ -218,30 +220,26 @@ private ArrayList <String> backshuffle;
         }
     }
 
-    public void initBathroom(){
-        if(new_question.check_empty_list(new_question.get_bathroom())==true) {
-        bathroom_played=1;
-        pickBackground();
-        }else {
+    public void initBathroom() {
+        if (new_question.check_empty_list(new_question.get_bathroom()) == true) {
+            bathroom_played = 1;
+            pickBackground();
+        } else {
             soap.setVisibility(View.VISIBLE);
             bubble.setVisibility(View.VISIBLE);
             hands.setVisibility(View.VISIBLE);
             mirror.setVisibility(View.VISIBLE);
             lamp_bath.setVisibility(View.VISIBLE);
             backgroundimg.setBackground(getDrawable(R.drawable.bathroom));
-            if(new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.take_bath))) {
+            if (new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.take_bath))) {
                 quest_text.setText(getResources().getString(R.string.take_bath));
-            }
-            else if(new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.hair))) {
+            } else if (new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.hair))) {
                 quest_text.setText(getResources().getString(R.string.hair));
-            }
-            else if(new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.soap))) {
+            } else if (new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.soap))) {
                 quest_text.setText(getResources().getString(R.string.soap));
-            }
-            else if(new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.bathroom_lights))) {
+            } else if (new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.bathroom_lights))) {
                 quest_text.setText(getResources().getString(R.string.bathroom_lights));
-            }
-            else if(new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.wash))) {
+            } else if (new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.wash))) {
                 quest_text.setText(getResources().getString(R.string.wash));
             }
             new_question.delete_Question_used("bathroom", quest_text.getText().toString());
@@ -264,26 +262,28 @@ private ArrayList <String> backshuffle;
 
         }
     }
+
     public void tutorialOkOnClick(View view) {
         setContentView(R.layout.activity_game7);
         dbHandler = new DatabaseHandler(this.getApplicationContext());
-        currentSession = new Session(LoginActivity.getUser().getUsername(),7);
-        currentSession.setTimeStart(System.currentTimeMillis()/1000);
+        currentSession = new Session(LoginActivity.getUser().getUsername(), 7);
+        currentSession.setTimeStart(System.currentTimeMillis() / 1000);
         soundHandler = new SoundHandler(getApplicationContext());
-        popUpWindow = new PopUpWindow(this,this);
+        popUpWindow = new PopUpWindow(this, this);
         initGui();
         pickBackground();
     }
-    public void initDinroom(){
-        if(new_question.check_empty_list(new_question.get_dinroom())==true) {
-            dinroom_played=1;
+
+    public void initDinroom() {
+        if (new_question.check_empty_list(new_question.get_dinroom()) == true) {
+            dinroom_played = 1;
             sofa.setVisibility(View.INVISIBLE);
             tv.setVisibility(View.INVISIBLE);
             dinlamp.setVisibility(View.INVISIBLE);
             soundright.setVisibility(View.INVISIBLE);
             soundleft.setVisibility(View.INVISIBLE);
             pickBackground();
-        }else {
+        } else {
             sofa.setVisibility(View.VISIBLE);
             tv.setVisibility(View.VISIBLE);
             dinlamp.setVisibility(View.VISIBLE);
@@ -291,16 +291,13 @@ private ArrayList <String> backshuffle;
             soundleft.setVisibility(View.VISIBLE);
             backgroundimg.setBackground(getDrawable(R.drawable.din_room));
 
-            if(new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.sit))) {
+            if (new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.sit))) {
                 quest_text.setText(getResources().getString(R.string.sit));
-            }
-            else if(new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.din_lights))) {
+            } else if (new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.din_lights))) {
                 quest_text.setText(getResources().getString(R.string.din_lights));
-            }
-            else if(new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.tv_din))) {
+            } else if (new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.tv_din))) {
                 quest_text.setText(getResources().getString(R.string.tv_din));
-            }
-            else if(new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.music))) {
+            } else if (new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.music))) {
                 quest_text.setText(getResources().getString(R.string.music));
             }
             new_question.delete_Question_used("din", quest_text.getText().toString());
@@ -324,89 +321,89 @@ private ArrayList <String> backshuffle;
         }
     }
 
-    public void initQuestions(){
+    public void initQuestions() {
         new_question.set_Questions();
     }
 
     public void fridgeonClick(View view) {
         answer_chosen = fridge.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
     public void kit_lamponClick(View view) {
         answer_chosen = kit_lamp.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
     public void wash_dishonClick(View view) {
         answer_chosen = wash_dish.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
     public void cookeronClick(View view) {
         answer_chosen = cooker.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
     public void smokeronClick(View view) {
         answer_chosen = smoker.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
     public void sandonClick(View view) {
         answer_chosen = sand.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
     public void handsonclick(View view) {
         answer_chosen = hands.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
     public void mirroronclick(View view) {
         answer_chosen = mirror.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
     public void bubbleonclick(View view) {
         answer_chosen = bubble.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
     public void lampbathonclick(View view) {
         answer_chosen = lamp_bath.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
 
     }
 
     public void soaponclick(View view) {
         answer_chosen = soap.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
     public void soundonclick(View view) {
         answer_chosen = soundright.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
     public void tvonclick(View view) {
         answer_chosen = tv.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
     public void sofaonclick(View view) {
         answer_chosen = sofa.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
     public void dinlamponclick(View view) {
         answer_chosen = dinlamp.getText().toString();
-        checkifWon(answer_chosen,correct_answer);
+        checkifWon(answer_chosen, correct_answer);
     }
 
-    private void checkifWon(String answered,String chosed){
+    private void checkifWon(String answered, String chosed) {
 
-        if(chosen_background.equals("kitchen")) {
+        if (chosen_background.equals("kitchen")) {
             if (answered.equals(chosed)) {
                 correct_answers++;
                 currentSession.setScore(correct_answers);
@@ -416,41 +413,40 @@ private ArrayList <String> backshuffle;
                 initKitchen();
             } else {
                 wrong_answers++;
-                currentSession.setFails(currentSession.getFails()+1);
+                currentSession.setFails(currentSession.getFails() + 1);
                 soundHandler.playWrongSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
                 initKitchen();
             }
 
-        }else if(chosen_background.equals("bathroom")){
-            if(answered.equals(chosed)){
+        } else if (chosen_background.equals("bathroom")) {
+            if (answered.equals(chosed)) {
                 correct_answers++;
                 currentSession.setScore(correct_answers);
                 soundHandler.playOkSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
                 initBathroom();
-            }else{
+            } else {
                 wrong_answers++;
-                currentSession.setFails(currentSession.getFails()+1);
+                currentSession.setFails(currentSession.getFails() + 1);
                 soundHandler.playWrongSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
                 initBathroom();
             }
-        }else if(chosen_background.equals("din")){
-            if(answered.equals(chosed)){
+        } else if (chosen_background.equals("din")) {
+            if (answered.equals(chosed)) {
                 correct_answers++;
                 currentSession.setScore(correct_answers);
                 soundHandler.playOkSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
                 initDinroom();
-            }
-            else{
+            } else {
                 wrong_answers++;
-                currentSession.setFails(currentSession.getFails()+1);
+                currentSession.setFails(currentSession.getFails() + 1);
                 soundHandler.playWrongSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
@@ -458,10 +454,10 @@ private ArrayList <String> backshuffle;
             }
         }
     }
-    public void checkEndGame(){
-        if(correct_answers==8 || wrong_answers==6){
-            currentSession.setTimeEnd(System.currentTimeMillis()/1000);
-            dbHandler.addSessionToDB(currentSession);
+
+    public void checkEndGame() {
+        if (correct_answers == 8 || wrong_answers == 6) {
+
             soundHandler.stopSound();
             Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();
             Intent surv = new Intent(this, SurveyActivity.class);
@@ -470,10 +466,10 @@ private ArrayList <String> backshuffle;
             startActivity(surv);
         }
     }
+
     public void test(View view) {
         pickBackground();
     }
-
 
 
 }
