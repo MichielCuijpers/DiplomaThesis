@@ -42,7 +42,6 @@ public class ObjectT {
 
         public static void addTestObjectToDB(SQLiteDatabase db) {
             db = db;
-
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             db.execSQL(SQL_CREATE_ENTRIES);
             ContentValues values = new ContentValues();

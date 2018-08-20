@@ -56,15 +56,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         //  db.execSQL("DROP TABLE IF EXISTS " + User.UserDBEntry.TABLE_NAME);
         //  db.execSQL("DROP TABLE IF EXISTS " + GameDBEntry.TABLE_NAME);
-        //   db.execSQL("DROP TABLE IF EXISTS " + Session.GameSessionDBEntry.TABLE_NAME);
+        //  db.execSQL("DROP TABLE IF EXISTS " + Session.GameSessionDBEntry.TABLE_NAME);
         //  db.execSQL("DROP TABLE IF EXISTS " + Highscore.HighscoreDBEntry.TABLE_NAME);
         //  db.execSQL("DROP TABLE IF EXISTS " + Survey.SurveyResultsDBEntry.TABLE_NAME);
         //  db.execSQL(GameDBEntry.SQL_CREATE_ENTRIES);
-        // db.execSQL(User.UserDBEntry.SQL_CREATE_ENTRIES);
-        //   db.execSQL(Session.GameSessionDBEntry.SQL_CREATE_ENTRIES);
-        //    db.execSQL(Highscore.HighscoreDBEntry.SQL_CREATE_ENTRIES);
+        //  db.execSQL(User.UserDBEntry.SQL_CREATE_ENTRIES);
+        //  db.execSQL(Session.GameSessionDBEntry.SQL_CREATE_ENTRIES);
+        //   db.execSQL(Highscore.HighscoreDBEntry.SQL_CREATE_ENTRIES);
         //  db.execSQL(Survey.SurveyResultsDBEntry.SQL_CREATE_ENTRIES);
-
 
 
     }
