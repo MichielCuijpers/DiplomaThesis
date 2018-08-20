@@ -115,7 +115,7 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
                     curSession.setScore(turn);
                     curSession.setStage(turn);
                     turn++;
-                    if (turn == 9) {
+                    if (turn == 9 || curSession.getFails() == 5) {
 //                        popUpWindow.showPopUp(getResources().getString(R.string.end_game_congrats2));
                         // saveSessionToDB();
                         killAll();

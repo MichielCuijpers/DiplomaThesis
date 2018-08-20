@@ -288,6 +288,11 @@ public class Game10 extends AppCompatActivity {
     }
 
     private void check(Button button) {
+
+        if (this.currentSession.getFails() == 6) {
+            endGame();
+            return;
+        }
         if (button.getTag() != null) {
 
             soundHandler.playOkSound();
