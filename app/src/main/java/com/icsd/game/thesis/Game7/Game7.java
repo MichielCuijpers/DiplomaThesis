@@ -1,8 +1,10 @@
 package com.icsd.game.thesis.Game7;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -182,7 +184,11 @@ public class Game7 extends AppCompatActivity {
             sand.setVisibility(View.VISIBLE);
 
 
-            backgroundimg.setBackground((getDrawable(R.drawable.kitchen)));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                backgroundimg.setBackground((getDrawable(R.drawable.kitchen)));
+            } else {
+                backgroundimg.setBackground((ResourcesCompat.getDrawable(getResources(), R.drawable.kitchen, null)));
+            }
             if (new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.ice))) {
                 quest_text.setText(getResources().getString(R.string.ice));
             } else if (new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.bread))) {
@@ -230,7 +236,11 @@ public class Game7 extends AppCompatActivity {
             hands.setVisibility(View.VISIBLE);
             mirror.setVisibility(View.VISIBLE);
             lamp_bath.setVisibility(View.VISIBLE);
-            backgroundimg.setBackground(getDrawable(R.drawable.bathroom));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                backgroundimg.setBackground(getDrawable(R.drawable.bathroom));
+            } else {
+                backgroundimg.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.bathroom, null));
+            }
             if (new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.take_bath))) {
                 quest_text.setText(getResources().getString(R.string.take_bath));
             } else if (new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.hair))) {
@@ -289,7 +299,11 @@ public class Game7 extends AppCompatActivity {
             dinlamp.setVisibility(View.VISIBLE);
             soundright.setVisibility(View.VISIBLE);
             soundleft.setVisibility(View.VISIBLE);
-            backgroundimg.setBackground(getDrawable(R.drawable.din_room));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                backgroundimg.setBackground(getDrawable(R.drawable.din_room));
+            } else {
+                backgroundimg.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.din_room, null));
+            }
 
             if (new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.sit))) {
                 quest_text.setText(getResources().getString(R.string.sit));
@@ -407,7 +421,7 @@ public class Game7 extends AppCompatActivity {
             if (answered.equals(chosed)) {
                 correct_answers++;
                 currentSession.setScore(correct_answers);
-                currentSession.setStage(currentSession.getStage()+1);
+                currentSession.setStage(currentSession.getStage() + 1);
                 soundHandler.playOkSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
@@ -425,7 +439,7 @@ public class Game7 extends AppCompatActivity {
             if (answered.equals(chosed)) {
                 correct_answers++;
                 currentSession.setScore(correct_answers);
-                currentSession.setStage(currentSession.getStage()+1);
+                currentSession.setStage(currentSession.getStage() + 1);
                 soundHandler.playOkSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
@@ -442,7 +456,7 @@ public class Game7 extends AppCompatActivity {
             if (answered.equals(chosed)) {
                 correct_answers++;
                 currentSession.setScore(correct_answers);
-                currentSession.setStage(currentSession.getStage()+1);
+                currentSession.setStage(currentSession.getStage() + 1);
                 soundHandler.playOkSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));

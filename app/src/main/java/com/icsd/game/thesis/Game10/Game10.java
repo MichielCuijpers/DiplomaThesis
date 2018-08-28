@@ -1,9 +1,11 @@
 package com.icsd.game.thesis.Game10;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -147,9 +149,17 @@ public class Game10 extends AppCompatActivity {
                 text.setVisibility(View.INVISIBLE);
                 for (int i = 0; i < 3; i++) {
                     buttons.get(i).setVisibility(View.VISIBLE);
-                    buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                    } else {
+                        buttons.get(i).setBackground(ResourcesCompat.getDrawable(getResources(), tempImages.get(i), null));
+                    }
                     if (correct_answer == tempImages.get(i)) {
-                        buttons.get(i).setTag(getDrawable(tempImages.get(i)));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            buttons.get(i).setTag(getDrawable(tempImages.get(i)));
+                        } else {
+                            buttons.get(i).setTag(ResourcesCompat.getDrawable(getResources(), tempImages.get(i), null));
+                        }
                     }
                 }
                 resetButtons(turn, 4000);
@@ -160,9 +170,18 @@ public class Game10 extends AppCompatActivity {
                 text.setVisibility(View.INVISIBLE);
                 for (int i = 0; i < 6; i++) {
                     buttons.get(i).setVisibility(View.VISIBLE);
-                    buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                   // buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                    } else {
+                        buttons.get(i).setBackground(ResourcesCompat.getDrawable(getResources(), tempImages.get(i), null));
+                    }
                     if (correct_answer == tempImages.get(i)) {
-                        buttons.get(i).setTag(getDrawable(tempImages.get(i)));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            buttons.get(i).setTag(getDrawable(tempImages.get(i)));
+                        } else {
+                            buttons.get(i).setTag(ResourcesCompat.getDrawable(getResources(), tempImages.get(i), null));
+                        }
                     }
                 }
                 resetButtons(turn, 4000);
@@ -174,9 +193,18 @@ public class Game10 extends AppCompatActivity {
                 text.setVisibility(View.INVISIBLE);
                 for (int i = 0; i < 9; i++) {
                     buttons.get(i).setVisibility(View.VISIBLE);
-                    buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                   // buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                    } else {
+                        buttons.get(i).setBackground(ResourcesCompat.getDrawable(getResources(), tempImages.get(i), null));
+                    }
                     if (correct_answer == tempImages.get(i)) {
-                        buttons.get(i).setTag(getDrawable(tempImages.get(i)));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            buttons.get(i).setTag(getDrawable(tempImages.get(i)));
+                        } else {
+                            buttons.get(i).setTag(ResourcesCompat.getDrawable(getResources(), tempImages.get(i), null));
+                        }
                     }
                 }
                 resetButtons(turn, 4000);
@@ -187,9 +215,18 @@ public class Game10 extends AppCompatActivity {
                 text.setVisibility(View.INVISIBLE);
                 for (int i = 0; i < 12; i++) {
                     buttons.get(i).setVisibility(View.VISIBLE);
-                    buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                  //  buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        buttons.get(i).setBackground(getDrawable(tempImages.get(i)));
+                    } else {
+                        buttons.get(i).setBackground(ResourcesCompat.getDrawable(getResources(), tempImages.get(i), null));
+                    }
                     if (correct_answer == tempImages.get(i)) {
-                        buttons.get(i).setTag(getDrawable(tempImages.get(i)));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            buttons.get(i).setTag(getDrawable(tempImages.get(i)));
+                        } else {
+                            buttons.get(i).setTag(ResourcesCompat.getDrawable(getResources(), tempImages.get(i), null));
+                        }
                     }
                 }
                 resetButtons(turn, 4000);

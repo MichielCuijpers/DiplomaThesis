@@ -3,7 +3,9 @@ package com.icsd.game.thesis.Game6;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -66,55 +68,57 @@ public class Game6 extends AppCompatActivity {
         }
     }
 
-        private void initTest () {
+    private void initTest() {
 
-            images = new ArrayList<Button>();
-            fruits = new ArrayList<Button>();
-            vehicles = new ArrayList<Button>();
-            smart_devices = new ArrayList<Button>();
-            food = new ArrayList<Button>();
-            flowers = new ArrayList<Button>();
-            cat = new ArrayList<ArrayList>();
-
-
-            iimage1 = (Button) findViewById(R.id.image1);
-            iimage2 = (Button) findViewById(R.id.image2);
-            iimage3 = (Button) findViewById(R.id.image3);
-            iimage4 = (Button) findViewById(R.id.image4);
-            iimage5 = (Button) findViewById(R.id.image5);
+        images = new ArrayList<Button>();
+        fruits = new ArrayList<Button>();
+        vehicles = new ArrayList<Button>();
+        smart_devices = new ArrayList<Button>();
+        food = new ArrayList<Button>();
+        flowers = new ArrayList<Button>();
+        cat = new ArrayList<ArrayList>();
 
 
-            melon = (Button) findViewById(R.id.button46);
-            shuffle = findViewById(R.id.button18);
-            avocado = (Button) findViewById(R.id.button19);
-            strawberry = (Button) findViewById(R.id.button20);
-            banana = (Button) findViewById(R.id.button21);
-            cherries = (Button) findViewById(R.id.button22);
-            kiwi = (Button) findViewById(R.id.button23);
-            orange = (Button) findViewById(R.id.button24);
-            bicycle = (Button) findViewById(R.id.button25);
-            bike = (Button) findViewById(R.id.button26);
-            car = (Button) findViewById(R.id.button27);
-            jeep = (Button) findViewById(R.id.button28);
-            truck = (Button) findViewById(R.id.button29);
-            golf = (Button) findViewById(R.id.button30);
-            suv = (Button) findViewById(R.id.button31);
-            phone = (Button) findViewById(R.id.button32);
-            phone2 = (Button) findViewById(R.id.button33);
-            tablet = (Button) findViewById(R.id.button34);
-            tablet2 = (Button) findViewById(R.id.button35);
-            smartwatch = (Button) findViewById(R.id.button36);
-            pc = (Button) findViewById(R.id.button37);
-            laptop = (Button) findViewById(R.id.button38);
-            flower1 = (Button) findViewById(R.id.button39);
-            flower2 = (Button) findViewById(R.id.button40);
-            flower3 = (Button) findViewById(R.id.button41);
-            flower4 = (Button) findViewById(R.id.button42);
-            flower5 = (Button) findViewById(R.id.button43);
-            flower6 = (Button) findViewById(R.id.button44);
-            flower7 = (Button) findViewById(R.id.button45);
+        iimage1 = (Button) findViewById(R.id.image1);
+        iimage2 = (Button) findViewById(R.id.image2);
+        iimage3 = (Button) findViewById(R.id.image3);
+        iimage4 = (Button) findViewById(R.id.image4);
+        iimage5 = (Button) findViewById(R.id.image5);
 
+
+        melon = (Button) findViewById(R.id.button46);
+        shuffle = findViewById(R.id.button18);
+        avocado = (Button) findViewById(R.id.button19);
+        strawberry = (Button) findViewById(R.id.button20);
+        banana = (Button) findViewById(R.id.button21);
+        cherries = (Button) findViewById(R.id.button22);
+        kiwi = (Button) findViewById(R.id.button23);
+        orange = (Button) findViewById(R.id.button24);
+        bicycle = (Button) findViewById(R.id.button25);
+        bike = (Button) findViewById(R.id.button26);
+        car = (Button) findViewById(R.id.button27);
+        jeep = (Button) findViewById(R.id.button28);
+        truck = (Button) findViewById(R.id.button29);
+        golf = (Button) findViewById(R.id.button30);
+        suv = (Button) findViewById(R.id.button31);
+        phone = (Button) findViewById(R.id.button32);
+        phone2 = (Button) findViewById(R.id.button33);
+        tablet = (Button) findViewById(R.id.button34);
+        tablet2 = (Button) findViewById(R.id.button35);
+        smartwatch = (Button) findViewById(R.id.button36);
+        pc = (Button) findViewById(R.id.button37);
+        laptop = (Button) findViewById(R.id.button38);
+        flower1 = (Button) findViewById(R.id.button39);
+        flower2 = (Button) findViewById(R.id.button40);
+        flower3 = (Button) findViewById(R.id.button41);
+        flower4 = (Button) findViewById(R.id.button42);
+        flower5 = (Button) findViewById(R.id.button43);
+        flower6 = (Button) findViewById(R.id.button44);
+        flower7 = (Button) findViewById(R.id.button45);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             melon.setBackground(getDrawable(R.drawable.melon));
+
             avocado.setBackground(getDrawable(R.drawable.avocado));
             strawberry.setBackground(getDrawable(R.drawable.strawberry));
             banana.setBackground(getDrawable(R.drawable.banana));
@@ -144,442 +148,475 @@ public class Game6 extends AppCompatActivity {
             flower5.setBackground(getDrawable(R.drawable.flower5));
             flower6.setBackground(getDrawable(R.drawable.flower6));
             flower7.setBackground(getDrawable(R.drawable.flower7));
+        } else {
+
+            melon.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.melon, null));
+
+            avocado.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.avocado, null));
+            strawberry.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.strawberry, null));
+            banana.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.banana, null));
+            cherries.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.cherries, null));
+            kiwi.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.kiwi, null));
+            orange.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.orange, null));
+            bicycle.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.bicycle, null));
+            bike.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.bike, null));
+            car.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.car, null));
+            jeep.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.jeep, null));
+            truck.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.truck, null));
+            golf.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.golf_cart, null));
+            suv.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.suv, null));
+            phone.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.phone, null));
+            phone2.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.phone2, null));
+            tablet.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.tablet, null));
+            tablet2.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.tablet2, null));
+            smartwatch.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.smartwatch, null));
 
 
-            fruits.add(melon);
-            fruits.add(avocado);
-            fruits.add(strawberry);
-            fruits.add(banana);
-            fruits.add(cherries);
-            fruits.add(kiwi);
-            fruits.add(strawberry);
+            pc.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.pc, null));
+            laptop.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.laptop, null));
+            flower1.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.flower1, null));
+            flower2.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.flower2, null));
+            flower3.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.flower3, null));
+            flower4.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.flower4, null));
+            flower5.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.flower5, null));
+            flower6.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.flower6, null));
+            flower7.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.flower7, null));
+        }
 
-            vehicles.add(bicycle);
-            vehicles.add(bike);
-            vehicles.add(car);
-            vehicles.add(jeep);
-            vehicles.add(truck);
-            vehicles.add(golf);
-            vehicles.add(suv);
+        fruits.add(melon);
+        fruits.add(avocado);
+        fruits.add(strawberry);
+        fruits.add(banana);
+        fruits.add(cherries);
+        fruits.add(kiwi);
+        fruits.add(strawberry);
 
-            smart_devices.add(phone);
-            smart_devices.add(phone2);
-            smart_devices.add(tablet);
-            smart_devices.add(tablet2);
-            smart_devices.add(smartwatch);
-            smart_devices.add(pc);
-            smart_devices.add(laptop);
+        vehicles.add(bicycle);
+        vehicles.add(bike);
+        vehicles.add(car);
+        vehicles.add(jeep);
+        vehicles.add(truck);
+        vehicles.add(golf);
+        vehicles.add(suv);
 
-            flowers.add(flower1);
-            flowers.add(flower2);
-            flowers.add(flower3);
-            flowers.add(flower4);
-            flowers.add(flower5);
-            flowers.add(flower6);
-            flowers.add(flower7);
+        smart_devices.add(phone);
+        smart_devices.add(phone2);
+        smart_devices.add(tablet);
+        smart_devices.add(tablet2);
+        smart_devices.add(smartwatch);
+        smart_devices.add(pc);
+        smart_devices.add(laptop);
 
-            images.add(iimage1);
-            images.add(iimage2);
-            images.add(iimage3);
-            images.add(iimage4);
-            images.add(iimage5);
+        flowers.add(flower1);
+        flowers.add(flower2);
+        flowers.add(flower3);
+        flowers.add(flower4);
+        flowers.add(flower5);
+        flowers.add(flower6);
+        flowers.add(flower7);
 
-            //category = new Categories();
-            //flowers=category.getFlowers();
-            //fruits=category.getFruits();
-            // vehicles=category.getVehicles();
-            //smart_devices=category.getSmart_devices();
+        images.add(iimage1);
+        images.add(iimage2);
+        images.add(iimage3);
+        images.add(iimage4);
+        images.add(iimage5);
+
+        //category = new Categories();
+        //flowers=category.getFlowers();
+        //fruits=category.getFruits();
+        // vehicles=category.getVehicles();
+        //smart_devices=category.getSmart_devices();
 
 
-            cat.add(flowers);
-            cat.add(fruits);
-            cat.add(vehicles);
-            cat.add(smart_devices);
+        cat.add(flowers);
+        cat.add(fruits);
+        cat.add(vehicles);
+        cat.add(smart_devices);
 
-            rand = new Random();
-            int which_cat = rand.nextInt(4);
+        rand = new Random();
+        int which_cat = rand.nextInt(4);
 
 
-            for (int i = 0; i < 4; i++) {
-                int which_image = rand.nextInt(flowers.size()); //choose a random number from the list that was chosen
-                if (which_cat == 0) {
-                    images.get(i).setBackground(fruits.get(which_image).getBackground());
-                    //cat.remove(which_cat);
-                    int doesnt_fit = rand.nextInt(cat.size());
-                    int which_image1 = rand.nextInt((vehicles.size()));
-                    if (doesnt_fit == 0) {
-                        images.get(4).setBackground(vehicles.get(3).getBackground());
+        for (int i = 0; i < 4; i++) {
+            int which_image = rand.nextInt(flowers.size()); //choose a random number from the list that was chosen
+            if (which_cat == 0) {
+                images.get(i).setBackground(fruits.get(which_image).getBackground());
+                //cat.remove(which_cat);
+                int doesnt_fit = rand.nextInt(cat.size());
+                int which_image1 = rand.nextInt((vehicles.size()));
+                if (doesnt_fit == 0) {
+                    images.get(4).setBackground(vehicles.get(3).getBackground());
 
-                    } else if (doesnt_fit == 1) {
-                        images.get(4).setBackground(flowers.get(which_image1).getBackground());
-                    } else if (doesnt_fit == 2) {
-                        images.get(4).setBackground(smart_devices.get(which_image1).getBackground());
-                    }
-                    //Button wrong = (Button)cat.get(doesnt_fit).get(which_image); //keeps the wrong image
-
-                } else if (which_cat == 1) {
-                    images.get(i).setBackground((Drawable) vehicles.get(which_image).getBackground());
-                    //cat.remove(which_cat);
-                    int doesnt_fit = rand.nextInt(3);
-                    int which_image1 = rand.nextInt(cat.size());
-                    if (doesnt_fit == 0) {
-                        images.get(4).setBackground(flowers.get(which_image1).getBackground());
-                    } else if (doesnt_fit == 1) {
-                        images.get(4).setBackground(fruits.get(which_image1).getBackground());
-                    } else if (doesnt_fit == 2) {
-                        images.get(4).setBackground(smart_devices.get(which_image1).getBackground());
-                    }
-                    //images.get(4).setBackground((Drawable) cat.get(doesnt_fit).get(which_image));
-                    //Button wrong = (Button)cat.get(doesnt_fit).get(which_image); //keeps the wrong image
-                    //Collections.shuffle(images);
-                } else if (which_cat == 2) {
-                    images.get(i).setBackground((Drawable) fruits.get(which_image).getBackground());
-                    //cat.remove(which_cat);
-                    int doesnt_fit = rand.nextInt(3);
-                    int which_image1 = rand.nextInt(cat.size());
-                    if (doesnt_fit == 0) {
-                        images.get(4).setBackground(smart_devices.get(which_image1).getBackground());
-                        //images.get(4)
-                    } else if (doesnt_fit == 1) {
-                        images.get(4).setBackground(flowers.get(which_image1).getBackground());
-                    } else if (doesnt_fit == 2) {
-                        images.get(4).setBackground(vehicles.get(which_image1).getBackground());
-                    }
-                    //images.get(4).setBackground((Drawable) cat.get(doesnt_fit).get(which_image));
-                    //Button wrong = (Button)cat.get(doesnt_fit).get(which_image); //keeps the wrong image
-                    // Collections.shuffle(images);
-                } else if (which_cat == 3) {
-                    images.get(i).setBackground(smart_devices.get(which_image).getBackground());
-                    //cat.remove(which_cat);
-                    int doesnt_fit = rand.nextInt(3);
-                    int which_image1 = rand.nextInt(cat.size());
-                    if (doesnt_fit == 0) {
-                        images.get(4).setBackground(fruits.get(which_image1).getBackground());
-                    } else if (doesnt_fit == 1) {
-                        images.get(4).setBackground(flowers.get(which_image1).getBackground());
-                    } else if (doesnt_fit == 2) {
-                        images.get(4).setBackground(vehicles.get(which_image1).getBackground());
-                    }
-                    //Collections.shuffle(images);
+                } else if (doesnt_fit == 1) {
+                    images.get(4).setBackground(flowers.get(which_image1).getBackground());
+                } else if (doesnt_fit == 2) {
+                    images.get(4).setBackground(smart_devices.get(which_image1).getBackground());
                 }
+                //Button wrong = (Button)cat.get(doesnt_fit).get(which_image); //keeps the wrong image
 
-            }
-            shuffle();
-
-
-        }
-
-        private void initGame () {
-
-            images = new ArrayList<Button>();
-            fruits = new ArrayList<Button>();
-            vehicles = new ArrayList<Button>();
-            smart_devices = new ArrayList<Button>();
-            food = new ArrayList<Button>();
-            flowers = new ArrayList<Button>();
-            cat = new ArrayList<ArrayList>();
-
-
-            iimage1 = (Button) findViewById(R.id.image1);
-            iimage2 = (Button) findViewById(R.id.image2);
-            iimage3 = (Button) findViewById(R.id.image3);
-            iimage4 = (Button) findViewById(R.id.image4);
-            iimage5 = (Button) findViewById(R.id.image5);
-
-            melon = (Button) findViewById(R.id.button46);
-            shuffle = findViewById(R.id.button18);
-            avocado = (Button) findViewById(R.id.button19);
-            strawberry = (Button) findViewById(R.id.button20);
-            banana = (Button) findViewById(R.id.button21);
-            cherries = (Button) findViewById(R.id.button22);
-            kiwi = (Button) findViewById(R.id.button23);
-            orange = (Button) findViewById(R.id.button24);
-            bicycle = (Button) findViewById(R.id.button25);
-            bike = (Button) findViewById(R.id.button26);
-            car = (Button) findViewById(R.id.button27);
-            jeep = (Button) findViewById(R.id.button28);
-            truck = (Button) findViewById(R.id.button29);
-            golf = (Button) findViewById(R.id.button30);
-            suv = (Button) findViewById(R.id.button31);
-            phone = (Button) findViewById(R.id.button32);
-            phone2 = (Button) findViewById(R.id.button33);
-            tablet = (Button) findViewById(R.id.button34);
-            tablet2 = (Button) findViewById(R.id.button35);
-            smartwatch = (Button) findViewById(R.id.button36);
-            pc = (Button) findViewById(R.id.button37);
-            laptop = (Button) findViewById(R.id.button38);
-            flower1 = (Button) findViewById(R.id.button39);
-            flower2 = (Button) findViewById(R.id.button40);
-            flower3 = (Button) findViewById(R.id.button41);
-            flower4 = (Button) findViewById(R.id.button42);
-            flower5 = (Button) findViewById(R.id.button43);
-            flower6 = (Button) findViewById(R.id.button44);
-            flower7 = (Button) findViewById(R.id.button45);
-
-            melon.setBackground(getDrawable(R.drawable.melon));
-            avocado.setBackground(getDrawable(R.drawable.avocado));
-            strawberry.setBackground(getDrawable(R.drawable.strawberry));
-            banana.setBackground(getDrawable(R.drawable.banana));
-            cherries.setBackground(getDrawable(R.drawable.cherries));
-            kiwi.setBackground(getDrawable(R.drawable.kiwi));
-            orange.setBackground(getDrawable(R.drawable.orange));
-            bicycle.setBackground(getDrawable(R.drawable.bicycle));
-            bike.setBackground(getDrawable(R.drawable.bike));
-            car.setBackground(getDrawable(R.drawable.car));
-            jeep.setBackground(getDrawable(R.drawable.jeep));
-            truck.setBackground(getDrawable(R.drawable.truck));
-            golf.setBackground(getDrawable(R.drawable.golf_cart));
-            suv.setBackground(getDrawable(R.drawable.suv));
-            phone.setBackground(getDrawable(R.drawable.phone));
-            phone2.setBackground(getDrawable(R.drawable.phone2));
-            tablet.setBackground(getDrawable(R.drawable.tablet));
-            tablet2.setBackground(getDrawable(R.drawable.tablet2));
-            smartwatch.setBackground(getDrawable(R.drawable.smartwatch));
-
-            pc.setBackground(getDrawable(R.drawable.pc));
-            laptop.setBackground(getDrawable(R.drawable.laptop));
-            flower1.setBackground(getDrawable(R.drawable.flower1));
-            flower2.setBackground(getDrawable(R.drawable.flower2));
-            flower3.setBackground(getDrawable(R.drawable.flower3));
-            flower4.setBackground(getDrawable(R.drawable.flower4));
-            flower5.setBackground(getDrawable(R.drawable.flower5));
-            flower6.setBackground(getDrawable(R.drawable.flower6));
-            flower7.setBackground(getDrawable(R.drawable.flower7));
-
-            fruits.add(melon);
-            fruits.add(avocado);
-            fruits.add(strawberry);
-            fruits.add(banana);
-            fruits.add(cherries);
-            fruits.add(kiwi);
-            fruits.add(strawberry);
-
-            vehicles.add(bicycle);
-            vehicles.add(bike);
-            vehicles.add(car);
-            vehicles.add(jeep);
-            vehicles.add(truck);
-            vehicles.add(golf);
-            vehicles.add(suv);
-
-            smart_devices.add(phone);
-            smart_devices.add(phone2);
-            smart_devices.add(tablet);
-            smart_devices.add(tablet2);
-            smart_devices.add(smartwatch);
-            smart_devices.add(pc);
-            smart_devices.add(laptop);
-
-            flowers.add(flower1);
-            flowers.add(flower2);
-            flowers.add(flower3);
-            flowers.add(flower4);
-            flowers.add(flower5);
-            flowers.add(flower6);
-            flowers.add(flower7);
-
-            images.add(iimage1);
-            images.add(iimage2);
-            images.add(iimage3);
-            images.add(iimage4);
-            images.add(iimage5);
-
-            //category = new Categories();
-            //flowers=category.getFlowers();
-            //fruits=category.getFruits();
-            // vehicles=category.getVehicles();
-            //smart_devices=category.getSmart_devices();
-
-
-            cat.add(flowers);
-            cat.add(fruits);
-            cat.add(vehicles);
-            cat.add(smart_devices);
-
-            rand = new Random();
-            int which_cat = rand.nextInt(4);
-
-
-            for (int i = 0; i < 4; i++) {
-                int which_image = rand.nextInt(flowers.size()); //choose a random number from the list that was chosen
-                if (which_cat == 0) {
-                    images.get(i).setBackground(fruits.get(which_image).getBackground());
-                    //cat.remove(which_cat);
-                    int doesnt_fit = rand.nextInt(cat.size());
-                    int which_image1 = rand.nextInt((vehicles.size()));
-                    if (doesnt_fit == 0) {
-                        images.get(4).setBackground(vehicles.get(3).getBackground());
-
-                    } else if (doesnt_fit == 1) {
-                        images.get(4).setBackground(flowers.get(which_image1).getBackground());
-                    } else if (doesnt_fit == 2) {
-                        images.get(4).setBackground(smart_devices.get(which_image1).getBackground());
-                    }
-                    //Button wrong = (Button)cat.get(doesnt_fit).get(which_image); //keeps the wrong image
-
-                } else if (which_cat == 1) {
-                    images.get(i).setBackground((Drawable) vehicles.get(which_image).getBackground());
-                    //cat.remove(which_cat);
-                    int doesnt_fit = rand.nextInt(3);
-                    int which_image1 = rand.nextInt(cat.size());
-                    if (doesnt_fit == 0) {
-                        images.get(4).setBackground(flowers.get(which_image1).getBackground());
-                    } else if (doesnt_fit == 1) {
-                        images.get(4).setBackground(fruits.get(which_image1).getBackground());
-                    } else if (doesnt_fit == 2) {
-                        images.get(4).setBackground(smart_devices.get(which_image1).getBackground());
-                    }
-                    //images.get(4).setBackground((Drawable) cat.get(doesnt_fit).get(which_image));
-                    //Button wrong = (Button)cat.get(doesnt_fit).get(which_image); //keeps the wrong image
-                    //Collections.shuffle(images);
-                } else if (which_cat == 2) {
-                    images.get(i).setBackground((Drawable) fruits.get(which_image).getBackground());
-                    //cat.remove(which_cat);
-                    int doesnt_fit = rand.nextInt(3);
-                    int which_image1 = rand.nextInt(cat.size());
-                    if (doesnt_fit == 0) {
-                        images.get(4).setBackground(smart_devices.get(which_image1).getBackground());
-                        //images.get(4)
-                    } else if (doesnt_fit == 1) {
-                        images.get(4).setBackground(flowers.get(which_image1).getBackground());
-                    } else if (doesnt_fit == 2) {
-                        images.get(4).setBackground(vehicles.get(which_image1).getBackground());
-                    }
-                    //images.get(4).setBackground((Drawable) cat.get(doesnt_fit).get(which_image));
-                    //Button wrong = (Button)cat.get(doesnt_fit).get(which_image); //keeps the wrong image
-                    // Collections.shuffle(images);
-                } else if (which_cat == 3) {
-                    images.get(i).setBackground(smart_devices.get(which_image).getBackground());
-                    //cat.remove(which_cat);
-                    int doesnt_fit = rand.nextInt(3);
-                    int which_image1 = rand.nextInt(cat.size());
-                    if (doesnt_fit == 0) {
-                        images.get(4).setBackground(fruits.get(which_image1).getBackground());
-                    } else if (doesnt_fit == 1) {
-                        images.get(4).setBackground(flowers.get(which_image1).getBackground());
-                    } else if (doesnt_fit == 2) {
-                        images.get(4).setBackground(vehicles.get(which_image1).getBackground());
-                    }
-                    //Collections.shuffle(images);
+            } else if (which_cat == 1) {
+                images.get(i).setBackground((Drawable) vehicles.get(which_image).getBackground());
+                //cat.remove(which_cat);
+                int doesnt_fit = rand.nextInt(3);
+                int which_image1 = rand.nextInt(cat.size());
+                if (doesnt_fit == 0) {
+                    images.get(4).setBackground(flowers.get(which_image1).getBackground());
+                } else if (doesnt_fit == 1) {
+                    images.get(4).setBackground(fruits.get(which_image1).getBackground());
+                } else if (doesnt_fit == 2) {
+                    images.get(4).setBackground(smart_devices.get(which_image1).getBackground());
                 }
-
+                //images.get(4).setBackground((Drawable) cat.get(doesnt_fit).get(which_image));
+                //Button wrong = (Button)cat.get(doesnt_fit).get(which_image); //keeps the wrong image
+                //Collections.shuffle(images);
+            } else if (which_cat == 2) {
+                images.get(i).setBackground((Drawable) fruits.get(which_image).getBackground());
+                //cat.remove(which_cat);
+                int doesnt_fit = rand.nextInt(3);
+                int which_image1 = rand.nextInt(cat.size());
+                if (doesnt_fit == 0) {
+                    images.get(4).setBackground(smart_devices.get(which_image1).getBackground());
+                    //images.get(4)
+                } else if (doesnt_fit == 1) {
+                    images.get(4).setBackground(flowers.get(which_image1).getBackground());
+                } else if (doesnt_fit == 2) {
+                    images.get(4).setBackground(vehicles.get(which_image1).getBackground());
+                }
+                //images.get(4).setBackground((Drawable) cat.get(doesnt_fit).get(which_image));
+                //Button wrong = (Button)cat.get(doesnt_fit).get(which_image); //keeps the wrong image
+                // Collections.shuffle(images);
+            } else if (which_cat == 3) {
+                images.get(i).setBackground(smart_devices.get(which_image).getBackground());
+                //cat.remove(which_cat);
+                int doesnt_fit = rand.nextInt(3);
+                int which_image1 = rand.nextInt(cat.size());
+                if (doesnt_fit == 0) {
+                    images.get(4).setBackground(fruits.get(which_image1).getBackground());
+                } else if (doesnt_fit == 1) {
+                    images.get(4).setBackground(flowers.get(which_image1).getBackground());
+                } else if (doesnt_fit == 2) {
+                    images.get(4).setBackground(vehicles.get(which_image1).getBackground());
+                }
+                //Collections.shuffle(images);
             }
-            shuffle1();
-
 
         }
+        shuffle();
 
-        public void shuffle () {
-            int which_image2 = rand.nextInt(images.size());
 
-            shuffle.setBackground(images.get(4).getBackground());
-            images.get(4).setBackground(images.get(which_image2).getBackground());
-            images.get(which_image2).setBackground(shuffle.getBackground());
-            images.get(which_image2).setText("WRONG");
-            shuffle = images.get(which_image2);
+    }
 
-        }
+    private void initGame() {
 
-        public void shuffle1 () {
-            int which_image2 = rand.nextInt(images.size());
+        images = new ArrayList<Button>();
+        fruits = new ArrayList<Button>();
+        vehicles = new ArrayList<Button>();
+        smart_devices = new ArrayList<Button>();
+        food = new ArrayList<Button>();
+        flowers = new ArrayList<Button>();
+        cat = new ArrayList<ArrayList>();
 
-            shuffle.setBackground(images.get(4).getBackground());
-            images.get(4).setBackground(images.get(which_image2).getBackground());
-            images.get(which_image2).setBackground(shuffle.getBackground());
-            shuffle = images.get(which_image2);
 
-        }
+        iimage1 = (Button) findViewById(R.id.image1);
+        iimage2 = (Button) findViewById(R.id.image2);
+        iimage3 = (Button) findViewById(R.id.image3);
+        iimage4 = (Button) findViewById(R.id.image4);
+        iimage5 = (Button) findViewById(R.id.image5);
 
-        public void testOnClick (View View){
-            for (int i = 0; i < images.size(); i++) {
-                images.get(i).setText("");
+        melon = (Button) findViewById(R.id.button46);
+        shuffle = findViewById(R.id.button18);
+        avocado = (Button) findViewById(R.id.button19);
+        strawberry = (Button) findViewById(R.id.button20);
+        banana = (Button) findViewById(R.id.button21);
+        cherries = (Button) findViewById(R.id.button22);
+        kiwi = (Button) findViewById(R.id.button23);
+        orange = (Button) findViewById(R.id.button24);
+        bicycle = (Button) findViewById(R.id.button25);
+        bike = (Button) findViewById(R.id.button26);
+        car = (Button) findViewById(R.id.button27);
+        jeep = (Button) findViewById(R.id.button28);
+        truck = (Button) findViewById(R.id.button29);
+        golf = (Button) findViewById(R.id.button30);
+        suv = (Button) findViewById(R.id.button31);
+        phone = (Button) findViewById(R.id.button32);
+        phone2 = (Button) findViewById(R.id.button33);
+        tablet = (Button) findViewById(R.id.button34);
+        tablet2 = (Button) findViewById(R.id.button35);
+        smartwatch = (Button) findViewById(R.id.button36);
+        pc = (Button) findViewById(R.id.button37);
+        laptop = (Button) findViewById(R.id.button38);
+        flower1 = (Button) findViewById(R.id.button39);
+        flower2 = (Button) findViewById(R.id.button40);
+        flower3 = (Button) findViewById(R.id.button41);
+        flower4 = (Button) findViewById(R.id.button42);
+        flower5 = (Button) findViewById(R.id.button43);
+        flower6 = (Button) findViewById(R.id.button44);
+        flower7 = (Button) findViewById(R.id.button45);
+
+        melon.setBackground(getDrawable(R.drawable.melon));
+        avocado.setBackground(getDrawable(R.drawable.avocado));
+        strawberry.setBackground(getDrawable(R.drawable.strawberry));
+        banana.setBackground(getDrawable(R.drawable.banana));
+        cherries.setBackground(getDrawable(R.drawable.cherries));
+        kiwi.setBackground(getDrawable(R.drawable.kiwi));
+        orange.setBackground(getDrawable(R.drawable.orange));
+        bicycle.setBackground(getDrawable(R.drawable.bicycle));
+        bike.setBackground(getDrawable(R.drawable.bike));
+        car.setBackground(getDrawable(R.drawable.car));
+        jeep.setBackground(getDrawable(R.drawable.jeep));
+        truck.setBackground(getDrawable(R.drawable.truck));
+        golf.setBackground(getDrawable(R.drawable.golf_cart));
+        suv.setBackground(getDrawable(R.drawable.suv));
+        phone.setBackground(getDrawable(R.drawable.phone));
+        phone2.setBackground(getDrawable(R.drawable.phone2));
+        tablet.setBackground(getDrawable(R.drawable.tablet));
+        tablet2.setBackground(getDrawable(R.drawable.tablet2));
+        smartwatch.setBackground(getDrawable(R.drawable.smartwatch));
+
+        pc.setBackground(getDrawable(R.drawable.pc));
+        laptop.setBackground(getDrawable(R.drawable.laptop));
+        flower1.setBackground(getDrawable(R.drawable.flower1));
+        flower2.setBackground(getDrawable(R.drawable.flower2));
+        flower3.setBackground(getDrawable(R.drawable.flower3));
+        flower4.setBackground(getDrawable(R.drawable.flower4));
+        flower5.setBackground(getDrawable(R.drawable.flower5));
+        flower6.setBackground(getDrawable(R.drawable.flower6));
+        flower7.setBackground(getDrawable(R.drawable.flower7));
+
+        fruits.add(melon);
+        fruits.add(avocado);
+        fruits.add(strawberry);
+        fruits.add(banana);
+        fruits.add(cherries);
+        fruits.add(kiwi);
+        fruits.add(strawberry);
+
+        vehicles.add(bicycle);
+        vehicles.add(bike);
+        vehicles.add(car);
+        vehicles.add(jeep);
+        vehicles.add(truck);
+        vehicles.add(golf);
+        vehicles.add(suv);
+
+        smart_devices.add(phone);
+        smart_devices.add(phone2);
+        smart_devices.add(tablet);
+        smart_devices.add(tablet2);
+        smart_devices.add(smartwatch);
+        smart_devices.add(pc);
+        smart_devices.add(laptop);
+
+        flowers.add(flower1);
+        flowers.add(flower2);
+        flowers.add(flower3);
+        flowers.add(flower4);
+        flowers.add(flower5);
+        flowers.add(flower6);
+        flowers.add(flower7);
+
+        images.add(iimage1);
+        images.add(iimage2);
+        images.add(iimage3);
+        images.add(iimage4);
+        images.add(iimage5);
+
+        //category = new Categories();
+        //flowers=category.getFlowers();
+        //fruits=category.getFruits();
+        // vehicles=category.getVehicles();
+        //smart_devices=category.getSmart_devices();
+
+
+        cat.add(flowers);
+        cat.add(fruits);
+        cat.add(vehicles);
+        cat.add(smart_devices);
+
+        rand = new Random();
+        int which_cat = rand.nextInt(4);
+
+
+        for (int i = 0; i < 4; i++) {
+            int which_image = rand.nextInt(flowers.size()); //choose a random number from the list that was chosen
+            if (which_cat == 0) {
+                images.get(i).setBackground(fruits.get(which_image).getBackground());
+                //cat.remove(which_cat);
+                int doesnt_fit = rand.nextInt(cat.size());
+                int which_image1 = rand.nextInt((vehicles.size()));
+                if (doesnt_fit == 0) {
+                    images.get(4).setBackground(vehicles.get(3).getBackground());
+
+                } else if (doesnt_fit == 1) {
+                    images.get(4).setBackground(flowers.get(which_image1).getBackground());
+                } else if (doesnt_fit == 2) {
+                    images.get(4).setBackground(smart_devices.get(which_image1).getBackground());
+                }
+                //Button wrong = (Button)cat.get(doesnt_fit).get(which_image); //keeps the wrong image
+
+            } else if (which_cat == 1) {
+                images.get(i).setBackground((Drawable) vehicles.get(which_image).getBackground());
+                //cat.remove(which_cat);
+                int doesnt_fit = rand.nextInt(3);
+                int which_image1 = rand.nextInt(cat.size());
+                if (doesnt_fit == 0) {
+                    images.get(4).setBackground(flowers.get(which_image1).getBackground());
+                } else if (doesnt_fit == 1) {
+                    images.get(4).setBackground(fruits.get(which_image1).getBackground());
+                } else if (doesnt_fit == 2) {
+                    images.get(4).setBackground(smart_devices.get(which_image1).getBackground());
+                }
+                //images.get(4).setBackground((Drawable) cat.get(doesnt_fit).get(which_image));
+                //Button wrong = (Button)cat.get(doesnt_fit).get(which_image); //keeps the wrong image
+                //Collections.shuffle(images);
+            } else if (which_cat == 2) {
+                images.get(i).setBackground((Drawable) fruits.get(which_image).getBackground());
+                //cat.remove(which_cat);
+                int doesnt_fit = rand.nextInt(3);
+                int which_image1 = rand.nextInt(cat.size());
+                if (doesnt_fit == 0) {
+                    images.get(4).setBackground(smart_devices.get(which_image1).getBackground());
+                    //images.get(4)
+                } else if (doesnt_fit == 1) {
+                    images.get(4).setBackground(flowers.get(which_image1).getBackground());
+                } else if (doesnt_fit == 2) {
+                    images.get(4).setBackground(vehicles.get(which_image1).getBackground());
+                }
+                //images.get(4).setBackground((Drawable) cat.get(doesnt_fit).get(which_image));
+                //Button wrong = (Button)cat.get(doesnt_fit).get(which_image); //keeps the wrong image
+                // Collections.shuffle(images);
+            } else if (which_cat == 3) {
+                images.get(i).setBackground(smart_devices.get(which_image).getBackground());
+                //cat.remove(which_cat);
+                int doesnt_fit = rand.nextInt(3);
+                int which_image1 = rand.nextInt(cat.size());
+                if (doesnt_fit == 0) {
+                    images.get(4).setBackground(fruits.get(which_image1).getBackground());
+                } else if (doesnt_fit == 1) {
+                    images.get(4).setBackground(flowers.get(which_image1).getBackground());
+                } else if (doesnt_fit == 2) {
+                    images.get(4).setBackground(vehicles.get(which_image1).getBackground());
+                }
+                //Collections.shuffle(images);
             }
-            initTest();
+
         }
+        shuffle1();
 
-        public void playOnClick (View View){
 
-            this.setContentView(R.layout.activity_game6_playactivity);
-            score = (TextView) findViewById(R.id.text1);
-            popUpWindow = new PopUpWindow(Game6.this, Game6.this);
+    }
+
+    public void shuffle() {
+        int which_image2 = rand.nextInt(images.size());
+
+        shuffle.setBackground(images.get(4).getBackground());
+        images.get(4).setBackground(images.get(which_image2).getBackground());
+        images.get(which_image2).setBackground(shuffle.getBackground());
+        images.get(which_image2).setText("WRONG");
+        shuffle = images.get(which_image2);
+
+    }
+
+    public void shuffle1() {
+        int which_image2 = rand.nextInt(images.size());
+
+        shuffle.setBackground(images.get(4).getBackground());
+        images.get(4).setBackground(images.get(which_image2).getBackground());
+        images.get(which_image2).setBackground(shuffle.getBackground());
+        shuffle = images.get(which_image2);
+
+    }
+
+    public void testOnClick(View View) {
+        for (int i = 0; i < images.size(); i++) {
+            images.get(i).setText("");
+        }
+        initTest();
+    }
+
+    public void playOnClick(View View) {
+
+        this.setContentView(R.layout.activity_game6_playactivity);
+        score = (TextView) findViewById(R.id.text1);
+        popUpWindow = new PopUpWindow(Game6.this, Game6.this);
+        initGame();
+
+    }//i methodo checkwinner
+
+    private void userWinsTheTurn() {
+        sc++;
+        score.setText(getResources().getString(R.string.scoreg6) + sc);
+        currentSession.setScore(sc);
+        currentSession.setStage(currentSession.getStage() + 1);
+        soundHandler.playOkSound();
+        popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
+        if (sc == 7 || wrongs == 6) {
+            Intent surv = new Intent(this, SurveyActivity.class);
+            SurveyActivity.setQuestionType(0);
+            SurveyActivity.setGameID(6);
+            startActivity(surv);
+        } else {
             initGame();
-
-        }//i methodo checkwinner
-
-        private void userWinsTheTurn () {
-            sc++;
-            score.setText(getResources().getString(R.string.scoreg6) + sc);
-            currentSession.setScore(sc);
-            currentSession.setStage(currentSession.getStage() + 1);
-            soundHandler.playOkSound();
-            popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
-            if (sc == 7 || wrongs == 6) {
-                Intent surv = new Intent(this, SurveyActivity.class);
-                SurveyActivity.setQuestionType(0);
-                SurveyActivity.setGameID(6);
-                startActivity(surv);
-            } else {
-                initGame();
-            }
-
         }
 
-        private void userLoosesTheTurn () {
-            wrongs--;
-            score.setText(getResources().getString(R.string.scoreg6) + wrongs);
-            currentSession.setFails(currentSession.getFails() + 1);
-            currentSession.setScore(currentSession.getScore() - 1);
-            soundHandler.playWrongSound();
-            popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
-            initGame();
-        }
+    }
 
-        public void image1OnClick (View v){
-            if (iimage1 == shuffle) {
-                userWinsTheTurn();
-            } else {
-                userLoosesTheTurn();
-            }
+    private void userLoosesTheTurn() {
+        wrongs--;
+        score.setText(getResources().getString(R.string.scoreg6) + wrongs);
+        currentSession.setFails(currentSession.getFails() + 1);
+        currentSession.setScore(currentSession.getScore() - 1);
+        soundHandler.playWrongSound();
+        popUpWindow.showPopUp(getResources().getString(R.string.wrong_answer1));
+        initGame();
+    }
 
-
-        }
-
-        public void image5OnClick (View v){
-
-            if (iimage5 == shuffle) {
-                userWinsTheTurn();
-            } else {
-                userLoosesTheTurn();
-            }
-
-        }
-
-        public void image2OnClick (View v){
-
-            if (iimage2 == shuffle) {
-                userWinsTheTurn();
-            } else {
-                userLoosesTheTurn();
-            }
-        }
-
-        public void image3OnClick (View v){
-
-            if (iimage3 == shuffle) {
-                userWinsTheTurn();
-            } else {
-                userLoosesTheTurn();
-            }
-        }
-
-        public void image4OnClick (View v){
-
-            if (iimage4 == shuffle) {
-                userWinsTheTurn();
-            } else {
-                userLoosesTheTurn();
-            }
+    public void image1OnClick(View v) {
+        if (iimage1 == shuffle) {
+            userWinsTheTurn();
+        } else {
+            userLoosesTheTurn();
         }
 
 
     }
+
+    public void image5OnClick(View v) {
+
+        if (iimage5 == shuffle) {
+            userWinsTheTurn();
+        } else {
+            userLoosesTheTurn();
+        }
+
+    }
+
+    public void image2OnClick(View v) {
+
+        if (iimage2 == shuffle) {
+            userWinsTheTurn();
+        } else {
+            userLoosesTheTurn();
+        }
+    }
+
+    public void image3OnClick(View v) {
+
+        if (iimage3 == shuffle) {
+            userWinsTheTurn();
+        } else {
+            userLoosesTheTurn();
+        }
+    }
+
+    public void image4OnClick(View v) {
+
+        if (iimage4 == shuffle) {
+            userWinsTheTurn();
+        } else {
+            userLoosesTheTurn();
+        }
+    }
+
+
+}
