@@ -22,6 +22,8 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 
@@ -47,11 +49,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 //        db.execSQL("DROP TABLE IF EXISTS " + Session.GameSessionDBEntry.TABLE_NAME);
 //        db.execSQL("DROP TABLE IF EXISTS " + Highscore.HighscoreDBEntry.TABLE_NAME);
 //        db.execSQL("DROP TABLE IF EXISTS " + Survey.SurveyResultsDBEntry.TABLE_NAME);
+//        db.execSQL("DROP TABLE IF EXISTS " + User.UsersLogin.TABLE_NAME);
 //        db.execSQL(GameDBEntry.SQL_CREATE_ENTRIES);
 //        db.execSQL(User.UserDBEntry.SQL_CREATE_ENTRIES);
 //        db.execSQL(Session.GameSessionDBEntry.SQL_CREATE_ENTRIES);
 //        db.execSQL(Highscore.HighscoreDBEntry.SQL_CREATE_ENTRIES);
 //        db.execSQL(Survey.SurveyResultsDBEntry.SQL_CREATE_ENTRIES);
+//        db.execSQL(User.UsersLogin.SQL_CREATE_ENTRIES);
 
         Log.e("MYDEBUG", "onCreate Start DB");
         db.execSQL("DROP TABLE IF EXISTS " + Question.QuestionDBEntry.TABLE_NAME);
@@ -72,6 +76,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
+
+    public void addUsersLoginToDb(String username, SQLiteDatabase db) {
+        ContentValues values = new ContentValues();
+        Date c = Calendar.getInstance().getTime();
+        values.put(User.UsersLogin.DATE, c.toString());
+        values.put(User.UsersLogin.USER_ID, username);
+        db.insert(User.UsersLogin.TABLE_NAME, null, values);
+        Log.e("MYDEBUG", "users login added to db");
+
+    }
+
 
     public Boolean addUserToDB(User user, SQLiteDatabase db) {
         if (checkIfUserExists(db, user.getUsername())) {

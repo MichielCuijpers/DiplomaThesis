@@ -52,4 +52,17 @@ public class User {
 
     }
 
+    public static class UsersLogin implements BaseColumns {
+        public static final String TABLE_NAME = "login";
+        public static final String DATE = "date";
+        public static final String USER_ID = "userId";
+
+        public static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + UsersLogin.TABLE_NAME + " ("
+                + UsersLogin._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + UsersLogin.DATE + " TEXT,"
+                + USER_ID + " TEXT, "
+                + "FOREIGN KEY(" + USER_ID + ") REFERENCES user(" + User.UserDBEntry._ID + "))";
+
+    }
+
 }

@@ -11,6 +11,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -72,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         user.setAge(Integer.parseInt(nameText.getText().toString()));
         user.setSex(this.spinner.getSelectedItem().toString());
         Log.e("MYDEBUG", "New user created:  useraname:" + user.getUsername() + "_ Age:" + user.getAge() + "__ Sex:" + user.getSex());
+        dh.addUsersLoginToDb(user.getUsername(), db);
         dh.addUserToDB(user, db);
     }
 
@@ -92,12 +94,14 @@ public class LoginActivity extends AppCompatActivity {
                 this.nameText.setHint(R.string.give_age);
                 this.spinner.setVisibility(View.VISIBLE);
                 this.textView.setText(R.string.give_sex_age);
+                this.nameText.setInputType(InputType.TYPE_CLASS_NUMBER);
                 this.isNew = true;
                 // popUpWindow.showPopUp("Welcome Back");
 
 
             } else {
                 user = new User(nameText.getText().toString());
+                dh.addUsersLoginToDb(user.getUsername(), db);
                 Log.e("MYDEBUG", "WELCOME back");
                 //popUpWindow.showPopUp("Have Fun in The Games ");
                 goToMenu();

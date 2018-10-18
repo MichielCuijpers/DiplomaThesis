@@ -68,10 +68,10 @@
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="964dp"
-        android:layout_height="109dp"
+        android:layout_height="129dp"
         android:layout_marginEnd="8dp"
-        android:textSize="45sp"
         android:layout_marginBottom="164dp"
+        android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.112"
