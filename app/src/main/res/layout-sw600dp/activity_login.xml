@@ -7,187 +7,55 @@
     tools:context=".commons.LoginActivity"
     android:background="#c7a96c">
 
-    <Button
-        android:id="@+id/downButton5"
-        android:layout_width="69dp"
-        android:layout_height="76dp"
-        android:layout_marginBottom="120dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/down_button"
-        android:onClick="downButton5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/downButton2"
-        android:layout_width="69dp"
-        android:layout_height="76dp"
-        android:layout_marginBottom="128dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="72dp"
-        android:background="@drawable/down_button"
-        android:onClick="downButton2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/downButton3"
-        app:layout_constraintHorizontal_bias="0.426"
-        app:layout_constraintStart_toEndOf="@+id/downButton1" />
-
-    <Button
-        android:id="@+id/upButton4"
-        android:layout_width="69dp"
-        android:layout_height="76dp"
-        android:layout_marginEnd="116dp"
-        android:background="@drawable/up_button"
-        android:onClick="upButton4"
-        app:layout_constraintBottom_toTopOf="@+id/downButton4"
-        app:layout_constraintEnd_toStartOf="@+id/upButotn5" />
-
-    <Button
-        android:id="@+id/upButotn5"
-        android:layout_width="69dp"
-        android:layout_height="83dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/up_button"
-        android:onClick="upButotn5"
-        app:layout_constraintBottom_toTopOf="@+id/downButton5"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/upButton3"
-        android:layout_width="69dp"
-        android:layout_height="76dp"
-        android:layout_marginEnd="124dp"
-        android:background="@drawable/up_button"
-        android:onClick="upButton3"
-        app:layout_constraintBottom_toTopOf="@+id/downButton3"
-        app:layout_constraintEnd_toStartOf="@+id/upButton4" />
-
-    <Button
-        android:id="@+id/upButton2"
-        android:layout_width="69dp"
-        android:layout_height="76dp"
-        android:layout_marginEnd="132dp"
-        android:background="@drawable/up_button"
-        android:onClick="upButton2"
-        app:layout_constraintBottom_toTopOf="@+id/downButton2"
-        app:layout_constraintEnd_toStartOf="@+id/upButton3" />
-
-    <Button
-        android:id="@+id/upButton1"
-        android:layout_width="69dp"
-        android:layout_height="76dp"
-        android:layout_marginEnd="120dp"
+    <EditText
+        android:id="@+id/nameText2"
+        android:layout_width="387dp"
+        android:layout_height="109dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/up_button"
-        android:onClick="upButton1"
-        app:layout_constraintBottom_toTopOf="@+id/downButton1"
-        app:layout_constraintEnd_toStartOf="@+id/upButton2"
-        app:layout_constraintHorizontal_bias="0.766"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/number5View"
-        android:layout_width="129dp"
-        android:layout_height="283dp"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginTop="8dp"
-        android:text="A"
-        android:textSize="200sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:ems="10"
+        android:hint="Enter Name"
+        android:inputType="textPersonName"
+        android:onClick="nameTextOnClick"
+        android:text=""
+        android:textSize="55sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951" />
-
-    <TextView
-        android:id="@+id/number4View"
-        android:layout_width="129dp"
-        android:layout_height="283dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginTop="164dp"
-        android:text="A"
-        android:textSize="200sp"
-        app:layout_constraintEnd_toStartOf="@+id/number5View"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/downButton4"
-        android:layout_width="69dp"
-        android:layout_height="76dp"
-        android:layout_marginBottom="128dp"
-        android:layout_marginEnd="116dp"
-        android:background="@drawable/down_button"
-        android:onClick="downButton4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/downButton5" />
-
-    <Button
-        android:id="@+id/downButton3"
-        android:layout_width="69dp"
-        android:layout_height="76dp"
-        android:layout_marginBottom="128dp"
-        android:layout_marginEnd="120dp"
-        android:background="@drawable/down_button"
-        android:onClick="downButton3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/downButton4" />
-
-    <TextView
-        android:id="@+id/number2View"
-        android:layout_width="129dp"
-        android:layout_height="283dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginTop="164dp"
-        android:text="A"
-        android:textSize="200sp"
-        app:layout_constraintEnd_toStartOf="@+id/number3View"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/number1View"
-        android:layout_width="129dp"
-        android:layout_height="283dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="A"
-        android:textSize="200sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/number2View"
-        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintHorizontal_bias="0.031"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975" />
+        app:layout_constraintVertical_bias="0.162" />
 
-    <TextView
-        android:id="@+id/number3View"
-        android:layout_width="129dp"
-        android:layout_height="283dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginTop="164dp"
-        android:text="A"
-        android:textSize="200sp"
-        app:layout_constraintEnd_toStartOf="@+id/number4View"
-        app:layout_constraintTop_toTopOf="parent" />
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="387dp"
+        android:layout_height="109dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/doneButtonLogin"
         android:layout_width="171dp"
         android:layout_height="87dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="doneOnClick"
         android:text="@string/ok"
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="0.99"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.204" />
+        app:layout_constraintVertical_bias="0.977" />
 
     <TextView
         android:id="@+id/editText"
@@ -208,16 +76,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/downButton1"
-        android:layout_width="69dp"
-        android:layout_height="76dp"
-        android:layout_marginBottom="128dp"
-        android:layout_marginStart="132dp"
-        android:background="@drawable/down_button"
-        android:onClick="downButton1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

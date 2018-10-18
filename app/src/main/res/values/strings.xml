@@ -27,7 +27,6 @@
     <string name="tutorial">TUTORIAL</string>
     <string name="ok">OK</string>
     <string name="choose_lang">Παρακαλώ επέλεξε Γλώσσα</string>
-    <string name="give_username">Please give username</string>
     <string name="menouText">Games Categories</string>
     <string name="next_page">next page</string>
     <string name="highscore_menou">highscores</string>
@@ -37,6 +36,15 @@
     <string name="thanks_end">thank you for your participation </string>
     <string name="title_location_permission" translatable="false"> storage_permission request</string>
     <string name="text_location_permission" translatable="false">please give storage_permission</string>
+    <string name="enter_name_login">Enter Name</string>
+    <string name="give_sex_age">You are a new user.\nPlease give your sex and your age</string>
+    <string name="give_username">Please give username</string>
+    <string name="enter_name">enter username</string>
+    <string name="give_age">enter age</string>
+    <string-array name="sexs_array">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 
 
     <!-- game1-->

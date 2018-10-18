@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -45,9 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen_layout);
         popUpWindow = new PopUpWindow(this, this);
-
-
-        checkLocationPermission();
+        checkStoragePermission();
 
     }
 
@@ -59,12 +56,28 @@ public class LoginActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         this.spinner.setAdapter(adapter);
         this.spinner.setVisibility(View.INVISIBLE);
+
+
+    }
+
+    private void initDb() {
         dh = new DatabaseHandler(this);
         db = dh.getWritableDatabase();
         dh.onCreate(db);
         GameDBEntry.addGamesToDB(db, this);
+        Log.e("MYDEBUG", "Database initilized");
+    }
 
+    private void createNewUser() {
+        user.setAge(Integer.parseInt(nameText.getText().toString()));
+        user.setSex(this.spinner.getSelectedItem().toString());
+        Log.e("MYDEBUG", "New user created:  useraname:" + user.getUsername() + "_ Age:" + user.getAge() + "__ Sex:" + user.getSex());
+        dh.addUserToDB(user, db);
+    }
 
+    private void goToMenu() {
+        Intent c = new Intent(LoginActivity.this, Menu.class);
+        startActivity(c);
     }
 
 
@@ -76,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 Log.e("MYDEBUG", "WELCOME ");
                 this.nameText.setText("");
-                this.nameText.setHint("Give age");
+                this.nameText.setHint(R.string.give_age);
                 this.spinner.setVisibility(View.VISIBLE);
                 this.textView.setText(R.string.give_sex_age);
                 this.isNew = true;
@@ -84,17 +97,15 @@ public class LoginActivity extends AppCompatActivity {
 
 
             } else {
+                user = new User(nameText.getText().toString());
                 Log.e("MYDEBUG", "WELCOME back");
                 //popUpWindow.showPopUp("Have Fun in The Games ");
-                Intent c = new Intent(LoginActivity.this, Menu.class);
-                startActivity(c);
+                goToMenu();
+
             }
         } else {
-            user.setAge(Integer.parseInt(nameText.getText().toString()));
-            user.setSex(this.spinner.getSelectedItem().toString());
-            dh.addUserToDB(user, db);
-            Intent c = new Intent(LoginActivity.this, Menu.class);
-            startActivity(c);
+            createNewUser();
+            goToMenu();
         }
 
 
@@ -118,7 +129,9 @@ public class LoginActivity extends AppCompatActivity {
             getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         }
         setContentView(R.layout.activity_login);
+        Log.e("MYDEBUG", "English choosed");
         initGui();
+        initDb();
     }
 
     public void chooseGreek(View view) {
@@ -131,13 +144,14 @@ public class LoginActivity extends AppCompatActivity {
             config.locale = locale;
             getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         }
-
+        Log.e("MYDEBUG", "Greek  choosed");
         setContentView(R.layout.activity_login);
         initGui();
+        initDb();
 
     }
 
-    public boolean checkLocationPermission() {
+    public boolean checkStoragePermission() {
         if (ContextCompat.checkSelfPermission(this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {

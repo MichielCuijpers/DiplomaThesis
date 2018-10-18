@@ -42,6 +42,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+//        db.execSQL("DROP TABLE IF EXISTS " + User.UserDBEntry.TABLE_NAME);
+//        db.execSQL("DROP TABLE IF EXISTS " + GameDBEntry.TABLE_NAME);
+//        db.execSQL("DROP TABLE IF EXISTS " + Session.GameSessionDBEntry.TABLE_NAME);
+//        db.execSQL("DROP TABLE IF EXISTS " + Highscore.HighscoreDBEntry.TABLE_NAME);
+//        db.execSQL("DROP TABLE IF EXISTS " + Survey.SurveyResultsDBEntry.TABLE_NAME);
+//        db.execSQL(GameDBEntry.SQL_CREATE_ENTRIES);
+//        db.execSQL(User.UserDBEntry.SQL_CREATE_ENTRIES);
+//        db.execSQL(Session.GameSessionDBEntry.SQL_CREATE_ENTRIES);
+//        db.execSQL(Highscore.HighscoreDBEntry.SQL_CREATE_ENTRIES);
+//        db.execSQL(Survey.SurveyResultsDBEntry.SQL_CREATE_ENTRIES);
 
         Log.e("MYDEBUG", "onCreate Start DB");
         db.execSQL("DROP TABLE IF EXISTS " + Question.QuestionDBEntry.TABLE_NAME);
@@ -53,17 +63,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Word.WordDBEntry.addTestWordsToDB(db);
         ObjectT.ObjectDBEntry.addTestObjectToDB(db);
         Log.e("MYDEBUG", "onCreate END DB");
-
-        //  db.execSQL("DROP TABLE IF EXISTS " + User.UserDBEntry.TABLE_NAME);
-        //  db.execSQL("DROP TABLE IF EXISTS " + GameDBEntry.TABLE_NAME);
-        //  db.execSQL("DROP TABLE IF EXISTS " + Session.GameSessionDBEntry.TABLE_NAME);
-        //  db.execSQL("DROP TABLE IF EXISTS " + Highscore.HighscoreDBEntry.TABLE_NAME);
-        //  db.execSQL("DROP TABLE IF EXISTS " + Survey.SurveyResultsDBEntry.TABLE_NAME);
-        //  db.execSQL(GameDBEntry.SQL_CREATE_ENTRIES);
-        //  db.execSQL(User.UserDBEntry.SQL_CREATE_ENTRIES);
-        //  db.execSQL(Session.GameSessionDBEntry.SQL_CREATE_ENTRIES);
-        //   db.execSQL(Highscore.HighscoreDBEntry.SQL_CREATE_ENTRIES);
-        //  db.execSQL(Survey.SurveyResultsDBEntry.SQL_CREATE_ENTRIES);
 
 
     }
@@ -78,10 +77,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (checkIfUserExists(db, user.getUsername())) {
             //SQLiteDatabase db = getWritableDatabase();
             ContentValues values = new ContentValues();
+
+            values.put(User.UserDBEntry.AGE, user.getAge());
+            values.put(User.UserDBEntry.SEX, user.getSex());
             values.put(User.UserDBEntry.NICKNAME, user.getUsername());
 
             db.insert(User.UserDBEntry.TABLE_NAME, null, values);
-            Log.e("MYDEBUG", "user saved to dbn");
+            Log.e("MYDEBUG", "user added to database");
             // db.close();
             return true;
         }
@@ -106,6 +108,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         SQLiteDatabase db = LoginActivity.getDb();
+        db.execSQL("DROP TABLE IF EXISTS " + User.UserDBEntry.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + GameDBEntry.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + Session.GameSessionDBEntry.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + Highscore.HighscoreDBEntry.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + Survey.SurveyResultsDBEntry.TABLE_NAME);
+        db.execSQL(GameDBEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(User.UserDBEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(Session.GameSessionDBEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(Highscore.HighscoreDBEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(Survey.SurveyResultsDBEntry.SQL_CREATE_ENTRIES);
         values.put(Session.GameSessionDBEntry.SCORE, session.getScore());
         values.put(Session.GameSessionDBEntry.STAGES_COMPLETED, session.getStage());
         values.put(Session.GameSessionDBEntry.FAILS, session.getFails());

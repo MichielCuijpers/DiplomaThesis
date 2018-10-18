@@ -292,5 +292,13 @@
     <string name="bike">την μηχανή</string>
     <string name="car">το αυτοκινητο</string>
     <string name="touch">βρές</string>
+    <string name="enter_name_login">Ονομα</string>
+    <string name="give_sex_age">Είσαι νέος χρήστης. \nΠαρακαλώ δώσε την ηλικία σου και το φύλο σου</string>
+    <string name="enter_name">δώσε όνομα χρήστη</string>
+    <string name="give_age">Ηλικία</string>
+    <string-array name="sexs_array">
+        <item>Αντρας</item>
+        <item>Γυναίκα</item>
+    </string-array>
 
 </resources>
