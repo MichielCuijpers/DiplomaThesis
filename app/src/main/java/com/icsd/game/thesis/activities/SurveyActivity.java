@@ -1,24 +1,19 @@
-package com.icsd.game.thesis.commons;
+package com.icsd.game.thesis.activities;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.GetChars;
 import android.util.Log;
 import android.view.View;
-import android.widget.PopupWindow;
 import android.widget.TextView;
-
 import com.icsd.game.thesis.R;
+import com.icsd.game.thesis.commons.AppLan;
 import com.icsd.game.thesis.database.DatabaseHandler;
-import com.icsd.game.thesis.database.Survey;
-import com.icsd.game.thesis.game1.Game1Activity;
+import com.icsd.game.thesis.commons.Survey;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class SurveyActivity extends AppCompatActivity {
