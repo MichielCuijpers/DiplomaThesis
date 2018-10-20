@@ -22,15 +22,15 @@ public class Word {
 
     //START INNER CLASS
     public static class WordDBEntry implements BaseColumns {
-        static DatabaseHandler dh;
-        static SQLiteDatabase db;
+        private static DatabaseHandler dh;
+        private static SQLiteDatabase db;
         public static final String TABLE_NAME = "word";
         public static final String WORD = "word";
         public static final String SQL_CREATE_ENTRIES =
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         WORD + " TEXT)";
-        ;
+
 
         public static void addTestWordsToDB(SQLiteDatabase db) {
 

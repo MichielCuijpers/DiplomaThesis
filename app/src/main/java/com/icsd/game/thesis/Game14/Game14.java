@@ -7,14 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.icsd.game.thesis.commons.LoginActivity;
-import com.icsd.game.thesis.commons.Menu2;
+import com.icsd.game.thesis.activities.LoginActivity;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
-import com.icsd.game.thesis.commons.SurveyActivity;
+import com.icsd.game.thesis.activities.SurveyActivity;
 import com.icsd.game.thesis.database.DatabaseHandler;
-import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.commons.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.icsd.game.thesis.commons;
+package com.icsd.game.thesis.activities;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -22,7 +22,7 @@ import android.widget.TextView;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.database.GameDBEntry;
-import com.icsd.game.thesis.database.User;
+import com.icsd.game.thesis.commons.User;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.Locale;

@@ -1,4 +1,4 @@
-package com.icsd.game.thesis.commons;
+package com.icsd.game.thesis.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

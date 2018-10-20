@@ -15,11 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
         <activity
-            android:name=".commons.Menu"
+            android:name=".activities.Menu"
             android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".commons.Menu2"
+            android:name=".activities.Menu2"
             android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
@@ -91,7 +91,7 @@
             android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".commons.LoginActivity"
+            android:name=".activities.LoginActivity"
             android:configChanges="layoutDirection|locale"
             android:screenOrientation="landscape">
             <intent-filter>
@@ -105,13 +105,13 @@
             android:label="@string/title_activity_tooltips" />
         <activity android:name=".pet.PetActivity" />
         <activity
-            android:name=".commons.SurveyActivity"
+            android:name=".activities.SurveyActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".commons.Μenu3"
+            android:name=".activities.Μenu3"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".commons.HighscoresActivity"
+            android:name=".activities.HighscoresActivity"
             android:screenOrientation="landscape"></activity>
     </application>
 

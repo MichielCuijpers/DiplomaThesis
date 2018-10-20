@@ -7,20 +7,20 @@ import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
-import android.provider.ContactsContract;
 import android.util.Log;
 
 import com.icsd.game.thesis.commons.AppLan;
-import com.icsd.game.thesis.commons.LoginActivity;
+import com.icsd.game.thesis.activities.LoginActivity;
+import com.icsd.game.thesis.commons.Highscore;
+import com.icsd.game.thesis.commons.Session;
+import com.icsd.game.thesis.commons.Survey;
+import com.icsd.game.thesis.commons.User;
 import com.icsd.game.thesis.game1.Question;
 import com.icsd.game.thesis.game4.Word;
 import com.icsd.game.thesis.game5.ObjectT;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;

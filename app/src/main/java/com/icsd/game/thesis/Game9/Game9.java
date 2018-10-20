@@ -1,7 +1,6 @@
 package com.icsd.game.thesis.Game9;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,13 +10,12 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.icsd.game.thesis.commons.LoginActivity;
-import com.icsd.game.thesis.commons.Menu2;
+import com.icsd.game.thesis.activities.LoginActivity;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
-import com.icsd.game.thesis.commons.SurveyActivity;
+import com.icsd.game.thesis.activities.SurveyActivity;
 import com.icsd.game.thesis.database.DatabaseHandler;
-import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.commons.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
@@ -80,56 +78,56 @@ public class Game9 extends AppCompatActivity {
         dbHandler.addSessionToDB(currentSession);
     }
 
-    private void initTest() {
+    private void initButtons() {
 
-        images = new ArrayList<Button>();
-        blue = new ArrayList<Button>();
-        black = new ArrayList<Button>();
-        green = new ArrayList<Button>();
-        purple = new ArrayList<Button>();
-        red = new ArrayList<Button>();
-        yellow = new ArrayList<Button>();
+        images = new ArrayList<>();
+        blue = new ArrayList<>();
+        black = new ArrayList<>();
+        green = new ArrayList<>();
+        purple = new ArrayList<>();
+        red = new ArrayList<>();
+        yellow = new ArrayList<>();
         cat = new ArrayList<ArrayList>();
 
 
-        iimage1 = (Button) findViewById(R.id.button);
-        iimage2 = (Button) findViewById(R.id.button2);
-        iimage3 = (Button) findViewById(R.id.button3);
-        iimage4 = (Button) findViewById(R.id.button4);
-        iimage5 = (Button) findViewById(R.id.button5);
+        iimage1 = findViewById(R.id.button);
+        iimage2 = findViewById(R.id.button2);
+        iimage3 = findViewById(R.id.button3);
+        iimage4 = findViewById(R.id.button4);
+        iimage5 = findViewById(R.id.button5);
 
         what_to_click = (TextView) findViewById(R.id.textView);
 
 
-        b1 = (Button) findViewById(R.id.button46);
+        b1 = findViewById(R.id.button46);
         b2 = findViewById(R.id.button8);
-        b3 = (Button) findViewById(R.id.button19);
-        b4 = (Button) findViewById(R.id.button20);
-        b5 = (Button) findViewById(R.id.button21);
-        bl1 = (Button) findViewById(R.id.button22);
-        bl2 = (Button) findViewById(R.id.button23);
-        bl3 = (Button) findViewById(R.id.button24);
-        bl4 = (Button) findViewById(R.id.button25);
-        bl5 = (Button) findViewById(R.id.button26);
-        g1 = (Button) findViewById(R.id.button27);
-        g2 = (Button) findViewById(R.id.button28);
-        g3 = (Button) findViewById(R.id.button29);
-        g4 = (Button) findViewById(R.id.button30);
-        g5 = (Button) findViewById(R.id.button31);
-        p1 = (Button) findViewById(R.id.button32);
-        p2 = (Button) findViewById(R.id.button33);
-        p3 = (Button) findViewById(R.id.button34);
-        p4 = (Button) findViewById(R.id.button35);
-        p5 = (Button) findViewById(R.id.button36);
-        r1 = (Button) findViewById(R.id.button37);
-        r2 = (Button) findViewById(R.id.button38);
-        r3 = (Button) findViewById(R.id.button39);
-        r4 = (Button) findViewById(R.id.button40);
-        r5 = (Button) findViewById(R.id.button41);
-        y1 = (Button) findViewById(R.id.button42);
-        y2 = (Button) findViewById(R.id.button43);
-        y3 = (Button) findViewById(R.id.button44);
-        y4 = (Button) findViewById(R.id.button45);
+        b3 = findViewById(R.id.button19);
+        b4 = findViewById(R.id.button20);
+        b5 = findViewById(R.id.button21);
+        bl1 = findViewById(R.id.button22);
+        bl2 = findViewById(R.id.button23);
+        bl3 = findViewById(R.id.button24);
+        bl4 = findViewById(R.id.button25);
+        bl5 = findViewById(R.id.button26);
+        g1 = findViewById(R.id.button27);
+        g2 = findViewById(R.id.button28);
+        g3 = findViewById(R.id.button29);
+        g4 = findViewById(R.id.button30);
+        g5 = findViewById(R.id.button31);
+        p1 = findViewById(R.id.button32);
+        p2 = findViewById(R.id.button33);
+        p3 = findViewById(R.id.button34);
+        p4 = findViewById(R.id.button35);
+        p5 = findViewById(R.id.button36);
+        r1 = findViewById(R.id.button37);
+        r2 = findViewById(R.id.button38);
+        r3 = findViewById(R.id.button39);
+        r4 = findViewById(R.id.button40);
+        r5 = findViewById(R.id.button41);
+        y1 = findViewById(R.id.button42);
+        y2 = findViewById(R.id.button43);
+        y3 = findViewById(R.id.button44);
+        y4 = findViewById(R.id.button45);
         y5 = findViewById(R.id.button9);
         shuffle = findViewById(R.id.button10);
 
@@ -165,6 +163,9 @@ public class Game9 extends AppCompatActivity {
         y4.setBackground(getDrawable(R.drawable.yl4));
         y5.setBackground(getDrawable(R.drawable.yl5));
 
+    }
+
+    private void addButtonsToLists() {
 
         blue.add(b1);
         blue.add(b2);
@@ -208,19 +209,25 @@ public class Game9 extends AppCompatActivity {
         images.add(iimage4);
         images.add(iimage5);
 
-        //category = new Categories();
-        //flowers=category.getFlowers();
-        //fruits=category.getFruits();
-        // vehicles=category.getVehicles();
-        //smart_devices=category.getSmart_devices();
-
-
         cat.add(blue);
         cat.add(black);
         cat.add(green);
         cat.add(purple);
         cat.add(red);
         cat.add(yellow);
+
+    }
+
+    private void initTest() {
+        initButtons();
+        addButtonsToLists();
+
+        //category = new Categories();
+        //flowers=category.getFlowers();
+        //fruits=category.getFruits();
+        // vehicles=category.getVehicles();
+        //smart_devices=category.getSmart_devices();
+
 
         for (Button b : blue) {
             b.setText("");
@@ -304,69 +311,69 @@ public class Game9 extends AppCompatActivity {
 
     private void initGame() {
 
-        images = new ArrayList<Button>();
-        blue = new ArrayList<Button>();
-        black = new ArrayList<Button>();
-        green = new ArrayList<Button>();
-        purple = new ArrayList<Button>();
-        red = new ArrayList<Button>();
-        yellow = new ArrayList<Button>();
-        cat = new ArrayList<ArrayList>();
-        right_color = new ArrayList<Button>();
-        clicked = new ArrayList<Boolean>();
+        images = new ArrayList<>();
+        blue = new ArrayList<>();
+        black = new ArrayList<>();
+        green = new ArrayList<>();
+        purple = new ArrayList<>();
+        red = new ArrayList<>();
+        yellow = new ArrayList<>();
+        cat = new ArrayList<>();
+        right_color = new ArrayList<>();
+        clicked = new ArrayList<>();
         lose = new ArrayList<>();
-        border = (ImageView) findViewById(R.id.border_b1); /*EDWWWWWWW*/
-        borderb2 = (ImageView) findViewById(R.id.border_b3); /*EDWWWWWWW*/
-        borderb3 = (ImageView) findViewById(R.id.border_b4); /*EDWWWWWWW*/
-        borderb4 = (ImageView) findViewById(R.id.border_b2); /*EDWWWWWWW*/
-        borderb5 = (ImageView) findViewById(R.id.border_b); /*EDWWWWWWW*/
+        border = findViewById(R.id.border_b1); /*EDWWWWWWW*/
+        borderb2 = findViewById(R.id.border_b3); /*EDWWWWWWW*/
+        borderb3 = findViewById(R.id.border_b4); /*EDWWWWWWW*/
+        borderb4 = findViewById(R.id.border_b2); /*EDWWWWWWW*/
+        borderb5 = findViewById(R.id.border_b); /*EDWWWWWWW*/
         border.setVisibility(View.INVISIBLE);
         borderb5.setVisibility(View.INVISIBLE);
         borderb2.setVisibility(View.INVISIBLE);
         borderb3.setVisibility(View.INVISIBLE);
         borderb4.setVisibility(View.INVISIBLE);
 
-        score = (TextView) findViewById(R.id.text1);
+        score = findViewById(R.id.text1);
 
 
-        iimage1 = (Button) findViewById(R.id.button);
-        iimage2 = (Button) findViewById(R.id.button2);
-        iimage3 = (Button) findViewById(R.id.button3);
-        iimage4 = (Button) findViewById(R.id.button4);
-        iimage5 = (Button) findViewById(R.id.button5);
+        iimage1 = findViewById(R.id.button);
+        iimage2 = findViewById(R.id.button2);
+        iimage3 = findViewById(R.id.button3);
+        iimage4 = findViewById(R.id.button4);
+        iimage5 = findViewById(R.id.button5);
 
         what_to_click = (TextView) findViewById(R.id.textView);
 
 
-        b1 = (Button) findViewById(R.id.button46);
+        b1 = findViewById(R.id.button46);
         b2 = findViewById(R.id.button8);
-        b3 = (Button) findViewById(R.id.button19);
-        b4 = (Button) findViewById(R.id.button20);
-        b5 = (Button) findViewById(R.id.button21);
-        bl1 = (Button) findViewById(R.id.button22);
-        bl2 = (Button) findViewById(R.id.button23);
-        bl3 = (Button) findViewById(R.id.button24);
-        bl4 = (Button) findViewById(R.id.button25);
-        bl5 = (Button) findViewById(R.id.button26);
-        g1 = (Button) findViewById(R.id.button27);
-        g2 = (Button) findViewById(R.id.button28);
-        g3 = (Button) findViewById(R.id.button29);
-        g4 = (Button) findViewById(R.id.button30);
-        g5 = (Button) findViewById(R.id.button31);
-        p1 = (Button) findViewById(R.id.button32);
-        p2 = (Button) findViewById(R.id.button33);
-        p3 = (Button) findViewById(R.id.button34);
-        p4 = (Button) findViewById(R.id.button35);
-        p5 = (Button) findViewById(R.id.button36);
-        r1 = (Button) findViewById(R.id.button37);
-        r2 = (Button) findViewById(R.id.button38);
-        r3 = (Button) findViewById(R.id.button39);
-        r4 = (Button) findViewById(R.id.button40);
-        r5 = (Button) findViewById(R.id.button41);
-        y1 = (Button) findViewById(R.id.button42);
-        y2 = (Button) findViewById(R.id.button43);
-        y3 = (Button) findViewById(R.id.button44);
-        y4 = (Button) findViewById(R.id.button45);
+        b3 = findViewById(R.id.button19);
+        b4 = findViewById(R.id.button20);
+        b5 = findViewById(R.id.button21);
+        bl1 = findViewById(R.id.button22);
+        bl2 = findViewById(R.id.button23);
+        bl3 = findViewById(R.id.button24);
+        bl4 = findViewById(R.id.button25);
+        bl5 = findViewById(R.id.button26);
+        g1 = findViewById(R.id.button27);
+        g2 = findViewById(R.id.button28);
+        g3 = findViewById(R.id.button29);
+        g4 = findViewById(R.id.button30);
+        g5 = findViewById(R.id.button31);
+        p1 = findViewById(R.id.button32);
+        p2 = findViewById(R.id.button33);
+        p3 = findViewById(R.id.button34);
+        p4 = findViewById(R.id.button35);
+        p5 = findViewById(R.id.button36);
+        r1 = findViewById(R.id.button37);
+        r2 = findViewById(R.id.button38);
+        r3 = findViewById(R.id.button39);
+        r4 = findViewById(R.id.button40);
+        r5 = findViewById(R.id.button41);
+        y1 = findViewById(R.id.button42);
+        y2 = findViewById(R.id.button43);
+        y3 = findViewById(R.id.button44);
+        y4 = findViewById(R.id.button45);
         y5 = findViewById(R.id.button9);
 
 

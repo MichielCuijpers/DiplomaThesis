@@ -17,9 +17,9 @@ public class Questions {
     private String correct_answer;
 
     public Questions() {
-        questions_kitchen = new ArrayList<String>();
-        questions_bathroom = new ArrayList<String>();
-        questions_dinroom = new ArrayList<String>();
+        questions_kitchen = new ArrayList<>();
+        questions_bathroom = new ArrayList<>();
+        questions_dinroom = new ArrayList<>();
     }
 
     public Questions(String question, String correct_answer) {
@@ -45,7 +45,7 @@ public class Questions {
         questions_dinroom.add(AppLan.getAppContext().getResources().getString(R.string.music));
     }
 
-    public String return_Questions(String type) {
+   public String return_Questions(String type) {
         if (type.equals("kitchen")) {
             for (int i = 0; i < questions_kitchen.size(); i++) {
                 question = questions_kitchen.get(i);
@@ -77,7 +77,7 @@ public class Questions {
         return questions_bathroom;
     }
 
-    public ArrayList<String> get_dinroom() {
+    public ArrayList<String> getDinroom() {
         return questions_dinroom;
     }
 

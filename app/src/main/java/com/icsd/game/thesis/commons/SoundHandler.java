@@ -10,8 +10,8 @@ public class SoundHandler {
     private final int okSoundId;
     private final int wrongSoundId;
     private SoundPool soundPool;
-    int coreSound;
-    int falsSound;
+    private int coreSound;
+    private int falsSound;
 
     public MediaPlayer getSound() {
         return sound;

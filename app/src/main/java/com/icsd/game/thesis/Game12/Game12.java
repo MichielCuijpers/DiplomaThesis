@@ -12,13 +12,12 @@ import android.widget.Toast;
 
 import java.util.Collections;
 
-import com.icsd.game.thesis.commons.LoginActivity;
-import com.icsd.game.thesis.commons.Menu2;
+import com.icsd.game.thesis.activities.LoginActivity;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
-import com.icsd.game.thesis.commons.SurveyActivity;
+import com.icsd.game.thesis.activities.SurveyActivity;
 import com.icsd.game.thesis.database.DatabaseHandler;
-import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.commons.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
@@ -37,7 +36,6 @@ public class Game12 extends AppCompatActivity {
     private Button gppaper;
     private Button gppencil;
     private Button tie;
-    private Button RandomPosition;
     private Button gameplayb1;
     private Button gameplayb2;
     private TextView title;
@@ -71,7 +69,8 @@ public class Game12 extends AppCompatActivity {
         initGraphics();
         initScreen();
     }
-    public void onStop(){
+
+    public void onStop() {
         super.onStop();
         currentSession.setTimeEnd(System.currentTimeMillis() / 1000);
         dbHandler.addSessionToDB(currentSession);
@@ -137,7 +136,7 @@ public class Game12 extends AppCompatActivity {
         } else if (getTutorial() == 1) {
             Page2();
         } else if (getTutorial() == 2) {
-            Page3();
+            page3();
         } else if (getTutorial() == 3) {
             Page4();
         } else if (getTutorial() == 4) {
@@ -188,7 +187,7 @@ public class Game12 extends AppCompatActivity {
         plustutorial();
     }
 
-    private void Page3() {
+    private void page3() {
         ObjectButton.setBackground(getDrawable(R.drawable.rock));
         ObjectButton.setText("ROCK");
         ObjectButton2.setVisibility(View.INVISIBLE);
@@ -337,7 +336,7 @@ public class Game12 extends AppCompatActivity {
     }
 
     public void checkEndGame() {
-        if (corrects == 8 || wrongs==6) {
+        if (corrects == 8 || wrongs == 6) {
 
             soundHandler.stopSound();
             Toast.makeText(this, "GAME END", Toast.LENGTH_SHORT).show();

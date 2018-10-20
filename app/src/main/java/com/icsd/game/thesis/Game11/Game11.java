@@ -11,13 +11,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.icsd.game.thesis.commons.LoginActivity;
-import com.icsd.game.thesis.commons.Menu2;
+import com.icsd.game.thesis.activities.LoginActivity;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
-import com.icsd.game.thesis.commons.SurveyActivity;
+import com.icsd.game.thesis.activities.SurveyActivity;
 import com.icsd.game.thesis.database.DatabaseHandler;
-import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.commons.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
@@ -113,7 +112,7 @@ public class Game11 extends AppCompatActivity {
 
     private void getPattern() {
         if (Pattern == 1) {
-            PickRandomButtonForShadowing(screenbuttons);
+            pickRandomButtonForShadowing(screenbuttons);
 
         } else if (Pattern == 2) {
             PickRandomTwoButtonsForShadowing(screenbuttons);
@@ -122,7 +121,7 @@ public class Game11 extends AppCompatActivity {
         }
     }
 
-    private void PickRandomButtonForShadowing(ArrayList<Button> Buttons) {
+    private void pickRandomButtonForShadowing(ArrayList<Button> Buttons) {
         Collections.shuffle(Buttons);
         for (int i = 0; i < Buttons.size(); i++) {
             Buttonforpick1 = (Button) Buttons.get(i);

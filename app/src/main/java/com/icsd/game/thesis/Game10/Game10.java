@@ -3,23 +3,19 @@ package com.icsd.game.thesis.Game10;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.icsd.game.thesis.R;
-import com.icsd.game.thesis.commons.LoginActivity;
+import com.icsd.game.thesis.activities.LoginActivity;
 import com.icsd.game.thesis.commons.SoundHandler;
-import com.icsd.game.thesis.commons.SurveyActivity;
+import com.icsd.game.thesis.activities.SurveyActivity;
 import com.icsd.game.thesis.database.DatabaseHandler;
-import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.commons.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -43,12 +39,12 @@ public class Game10 extends AppCompatActivity {
     private PopUpWindow popUpWindow;
     private Session currentSession;
     private int tempFails;
-    private TextView tutorialText;
     private DatabaseHandler dbHandler;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
+        TextView tutorialText;
         tutorialText = findViewById(R.id.tutorialTextView);
         tutorialText.setText(getResources().getString(R.string.tutorialGame10));
 
@@ -98,20 +94,20 @@ public class Game10 extends AppCompatActivity {
     }
 
     private void initGui() {
-        objl = (Button) findViewById(R.id.obj1);
-        obj2 = (Button) findViewById(R.id.obj2);
-        obj3 = (Button) findViewById(R.id.obj3);
-        obj4 = (Button) findViewById(R.id.obj4);
-        obj5 = (Button) findViewById(R.id.obj5);
-        obj6 = (Button) findViewById(R.id.obj6);
-        obj7 = (Button) findViewById(R.id.obj7);
-        obj8 = (Button) findViewById(R.id.obj8);
-        obj9 = (Button) findViewById(R.id.obj9);
-        obj10 = (Button) findViewById(R.id.obj10);
-        obj11 = (Button) findViewById(R.id.obj11);
-        obj12 = (Button) findViewById(R.id.obj12);
-        text = (TextView) findViewById(R.id.textView11);
-        standard = (TextView) findViewById(R.id.textView10);
+        objl = findViewById(R.id.obj1);
+        obj2 = findViewById(R.id.obj2);
+        obj3 = findViewById(R.id.obj3);
+        obj4 = findViewById(R.id.obj4);
+        obj5 = findViewById(R.id.obj5);
+        obj6 = findViewById(R.id.obj6);
+        obj7 = findViewById(R.id.obj7);
+        obj8 = findViewById(R.id.obj8);
+        obj9 = findViewById(R.id.obj9);
+        obj10 = findViewById(R.id.obj10);
+        obj11 = findViewById(R.id.obj11);
+        obj12 = findViewById(R.id.obj12);
+        text = findViewById(R.id.textView11);
+        standard = findViewById(R.id.textView10);
         standard.setText(getResources().getString(R.string.touch));
         text.setVisibility(View.INVISIBLE);
         standard.setVisibility(View.INVISIBLE);

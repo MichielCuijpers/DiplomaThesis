@@ -12,11 +12,11 @@ import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.icsd.game.thesis.commons.LoginActivity;
+import com.icsd.game.thesis.activities.LoginActivity;
 import com.icsd.game.thesis.R;
-import com.icsd.game.thesis.commons.SurveyActivity;
+import com.icsd.game.thesis.activities.SurveyActivity;
 import com.icsd.game.thesis.database.DatabaseHandler;
-import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.commons.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
@@ -52,7 +52,6 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
     private Button buttonL;
     private Random r;
     private int noteNumnber;
-    private int delay;
     private Runnable run1;
     private Runnable run2;
     private Runnable run3;
@@ -235,7 +234,6 @@ Game13 extends AppCompatActivity implements MediaPlayer.OnPreparedListener {
         checkList = new ArrayList<>();
         patternList = new ArrayList<>();
         r = new Random();
-        delay = 800;
         initRunnables();
 
     }

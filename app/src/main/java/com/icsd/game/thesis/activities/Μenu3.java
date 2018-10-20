@@ -1,4 +1,4 @@
-package com.icsd.game.thesis.commons;
+package com.icsd.game.thesis.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -14,8 +14,6 @@ import com.icsd.game.thesis.Game6.Game6;
 import com.icsd.game.thesis.Game7.Game7;
 import com.icsd.game.thesis.Game9.Game9;
 import com.icsd.game.thesis.R;
-import com.icsd.game.thesis.database.AndroidDatabaseManager;
-import com.icsd.game.thesis.database.DatabaseHandler;
 import com.icsd.game.thesis.game1.Game1Activity;
 import com.icsd.game.thesis.game13.Game13;
 import com.icsd.game.thesis.game15.Game15;

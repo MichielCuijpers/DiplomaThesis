@@ -1,4 +1,4 @@
-package com.icsd.game.thesis.database;
+package com.icsd.game.thesis.commons;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;

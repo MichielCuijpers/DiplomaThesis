@@ -1,6 +1,8 @@
-package com.icsd.game.thesis.database;
+package com.icsd.game.thesis.commons;
 
 import android.provider.BaseColumns;
+
+import com.icsd.game.thesis.database.GameDBEntry;
 
 public class Highscore {
 

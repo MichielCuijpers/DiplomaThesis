@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -12,13 +11,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.icsd.game.thesis.commons.AppLan;
-import com.icsd.game.thesis.commons.LoginActivity;
-import com.icsd.game.thesis.commons.Menu2;
+import com.icsd.game.thesis.activities.LoginActivity;
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.SoundHandler;
-import com.icsd.game.thesis.commons.SurveyActivity;
+import com.icsd.game.thesis.activities.SurveyActivity;
 import com.icsd.game.thesis.database.DatabaseHandler;
-import com.icsd.game.thesis.database.Session;
+import com.icsd.game.thesis.commons.Session;
 import com.icsd.game.thesis.pet.PopUpWindow;
 
 import java.util.ArrayList;
@@ -58,12 +56,13 @@ public class Game7 extends AppCompatActivity {
     private SoundHandler soundHandler;
     private PopUpWindow popUpWindow;
     Questions new_question;
-    private TextView tutorialText;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
+        TextView tutorialText;
         tutorialText = findViewById(R.id.tutorialTextView);
         tutorialText.setText(getResources().getString(R.string.tutorialGame7));
 
@@ -92,24 +91,24 @@ public class Game7 extends AppCompatActivity {
         correct_answers = 0;
         wrong_answers = 0;
 
-        fridge = (Button) findViewById(R.id.fridge);
-        kit_lamp = (Button) findViewById(R.id.kit_lamp);
-        wash_dish = (Button) findViewById(R.id.wash_dish);
-        cooker = (Button) findViewById(R.id.cooker);
-        smoker = (Button) findViewById(R.id.smoker);
-        sand = (Button) findViewById(R.id.sand);
+        fridge = findViewById(R.id.fridge);
+        kit_lamp = findViewById(R.id.kit_lamp);
+        wash_dish = findViewById(R.id.wash_dish);
+        cooker = findViewById(R.id.cooker);
+        smoker = findViewById(R.id.smoker);
+        sand = findViewById(R.id.sand);
 
-        soap = (Button) findViewById(R.id.soap);
-        bubble = (Button) findViewById(R.id.bubble);
-        hands = (Button) findViewById(R.id.hands);
-        mirror = (Button) findViewById(R.id.mirror);
-        lamp_bath = (Button) findViewById(R.id.lamp_bath);
+        soap = findViewById(R.id.soap);
+        bubble = findViewById(R.id.bubble);
+        hands = findViewById(R.id.hands);
+        mirror = findViewById(R.id.mirror);
+        lamp_bath = findViewById(R.id.lamp_bath);
 
-        tv = (Button) findViewById(R.id.tv);
-        sofa = (Button) findViewById(R.id.sofa);
-        dinlamp = (Button) findViewById(R.id.din_lamp);
-        soundleft = (Button) findViewById(R.id.sound_left);
-        soundright = (Button) findViewById(R.id.sound_right);
+        tv = findViewById(R.id.tv);
+        sofa = findViewById(R.id.sofa);
+        dinlamp = findViewById(R.id.din_lamp);
+        soundleft = findViewById(R.id.sound_left);
+        soundright = findViewById(R.id.sound_right);
 
         fridge.setVisibility(View.INVISIBLE);
         kit_lamp.setVisibility(View.INVISIBLE);
@@ -275,7 +274,7 @@ public class Game7 extends AppCompatActivity {
     }
 
     public void initDinroom() {
-        if (new_question.check_empty_list(new_question.get_dinroom()) == true) {
+        if (new_question.check_empty_list(new_question.getDinroom()) == true) {
             dinroom_played = 1;
             sofa.setVisibility(View.INVISIBLE);
             tv.setVisibility(View.INVISIBLE);
@@ -407,7 +406,7 @@ public class Game7 extends AppCompatActivity {
             if (answered.equals(chosed)) {
                 correct_answers++;
                 currentSession.setScore(correct_answers);
-                currentSession.setStage(currentSession.getStage()+1);
+                currentSession.setStage(currentSession.getStage() + 1);
                 soundHandler.playOkSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
@@ -425,7 +424,7 @@ public class Game7 extends AppCompatActivity {
             if (answered.equals(chosed)) {
                 correct_answers++;
                 currentSession.setScore(correct_answers);
-                currentSession.setStage(currentSession.getStage()+1);
+                currentSession.setStage(currentSession.getStage() + 1);
                 soundHandler.playOkSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));
@@ -442,7 +441,7 @@ public class Game7 extends AppCompatActivity {
             if (answered.equals(chosed)) {
                 correct_answers++;
                 currentSession.setScore(correct_answers);
-                currentSession.setStage(currentSession.getStage()+1);
+                currentSession.setStage(currentSession.getStage() + 1);
                 soundHandler.playOkSound();
                 checkEndGame();
                 popUpWindow.showPopUp(getResources().getString(R.string.correct_answer1));

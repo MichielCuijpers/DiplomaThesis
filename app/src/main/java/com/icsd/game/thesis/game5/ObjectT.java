@@ -94,7 +94,7 @@ public class ObjectT {
 
         }
 
-        static ArrayList<ObjectT> takeObjectsFromDB() {
+        public static ArrayList<ObjectT> takeObjectsFromDB() {
 
             //Query from db
             ArrayList<ObjectT> queryResultsList = new ArrayList<>();
