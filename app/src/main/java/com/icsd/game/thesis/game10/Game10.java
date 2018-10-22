@@ -1,4 +1,4 @@
-package com.icsd.game.thesis.Game10;
+package com.icsd.game.thesis.game10;
 
 import android.content.Intent;
 import android.os.Bundle;

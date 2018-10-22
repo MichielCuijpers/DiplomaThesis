@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#c7a96c"
-    tools:context=".commons.Μenu3">
+    tools:context=".activities.Μenu3">
 
     <Button
         android:id="@+id/menu3_b3"

@@ -1,4 +1,4 @@
-package com.icsd.game.thesis.Game6;
+package com.icsd.game.thesis.game6;
 
 
 import android.content.Intent;
@@ -68,51 +68,51 @@ public class Game6 extends AppCompatActivity {
 
     private void initTest() {
 
-        images = new ArrayList<Button>();
-        fruits = new ArrayList<Button>();
-        vehicles = new ArrayList<Button>();
-        smart_devices = new ArrayList<Button>();
-        food = new ArrayList<Button>();
-        flowers = new ArrayList<Button>();
-        cat = new ArrayList<ArrayList>();
+        images = new ArrayList<>();
+        fruits = new ArrayList<>();
+        vehicles = new ArrayList<>();
+        smart_devices = new ArrayList<>();
+        food = new ArrayList<>();
+        flowers = new ArrayList<>();
+        cat = new ArrayList<>();
 
 
-        iimage1 = (Button) findViewById(R.id.image1);
-        iimage2 = (Button) findViewById(R.id.image2);
-        iimage3 = (Button) findViewById(R.id.image3);
-        iimage4 = (Button) findViewById(R.id.image4);
-        iimage5 = (Button) findViewById(R.id.image5);
+        iimage1 = findViewById(R.id.image1);
+        iimage2 = findViewById(R.id.image2);
+        iimage3 = findViewById(R.id.image3);
+        iimage4 = findViewById(R.id.image4);
+        iimage5 = findViewById(R.id.image5);
 
 
-        melon = (Button) findViewById(R.id.button46);
+        melon = findViewById(R.id.button46);
         shuffle = findViewById(R.id.button18);
-        avocado = (Button) findViewById(R.id.button19);
-        strawberry = (Button) findViewById(R.id.button20);
-        banana = (Button) findViewById(R.id.button21);
-        cherries = (Button) findViewById(R.id.button22);
-        kiwi = (Button) findViewById(R.id.button23);
-        orange = (Button) findViewById(R.id.button24);
-        bicycle = (Button) findViewById(R.id.button25);
-        bike = (Button) findViewById(R.id.button26);
-        car = (Button) findViewById(R.id.button27);
-        jeep = (Button) findViewById(R.id.button28);
-        truck = (Button) findViewById(R.id.button29);
-        golf = (Button) findViewById(R.id.button30);
-        suv = (Button) findViewById(R.id.button31);
-        phone = (Button) findViewById(R.id.button32);
-        phone2 = (Button) findViewById(R.id.button33);
-        tablet = (Button) findViewById(R.id.button34);
-        tablet2 = (Button) findViewById(R.id.button35);
-        smartwatch = (Button) findViewById(R.id.button36);
-        pc = (Button) findViewById(R.id.button37);
-        laptop = (Button) findViewById(R.id.button38);
-        flower1 = (Button) findViewById(R.id.button39);
-        flower2 = (Button) findViewById(R.id.button40);
-        flower3 = (Button) findViewById(R.id.button41);
-        flower4 = (Button) findViewById(R.id.button42);
-        flower5 = (Button) findViewById(R.id.button43);
-        flower6 = (Button) findViewById(R.id.button44);
-        flower7 = (Button) findViewById(R.id.button45);
+        avocado = findViewById(R.id.button19);
+        strawberry = findViewById(R.id.button20);
+        banana = findViewById(R.id.button21);
+        cherries = findViewById(R.id.button22);
+        kiwi = findViewById(R.id.button23);
+        orange = findViewById(R.id.button24);
+        bicycle = findViewById(R.id.button25);
+        bike = findViewById(R.id.button26);
+        car = findViewById(R.id.button27);
+        jeep = findViewById(R.id.button28);
+        truck = findViewById(R.id.button29);
+        golf = findViewById(R.id.button30);
+        suv = findViewById(R.id.button31);
+        phone = findViewById(R.id.button32);
+        phone2 = findViewById(R.id.button33);
+        tablet = findViewById(R.id.button34);
+        tablet2 = findViewById(R.id.button35);
+        smartwatch = findViewById(R.id.button36);
+        pc = findViewById(R.id.button37);
+        laptop = findViewById(R.id.button38);
+        flower1 = findViewById(R.id.button39);
+        flower2 = findViewById(R.id.button40);
+        flower3 = findViewById(R.id.button41);
+        flower4 = findViewById(R.id.button42);
+        flower5 = findViewById(R.id.button43);
+        flower6 = findViewById(R.id.button44);
+        flower7 = findViewById(R.id.button45);
 
         melon.setBackground(getDrawable(R.drawable.melon));
         avocado.setBackground(getDrawable(R.drawable.avocado));
@@ -281,41 +281,41 @@ public class Game6 extends AppCompatActivity {
     }
 
     private void initButtons() {
-        iimage1 =  findViewById(R.id.image1);
-        iimage2 =  findViewById(R.id.image2);
-        iimage3 =  findViewById(R.id.image3);
-        iimage4 =  findViewById(R.id.image4);
-        iimage5 =  findViewById(R.id.image5);
+        iimage1 = findViewById(R.id.image1);
+        iimage2 = findViewById(R.id.image2);
+        iimage3 = findViewById(R.id.image3);
+        iimage4 = findViewById(R.id.image4);
+        iimage5 = findViewById(R.id.image5);
 
-        melon =  findViewById(R.id.button46);
+        melon = findViewById(R.id.button46);
         shuffle = findViewById(R.id.button18);
-        avocado =  findViewById(R.id.button19);
-        strawberry =  findViewById(R.id.button20);
-        banana =  findViewById(R.id.button21);
-        cherries =  findViewById(R.id.button22);
-        kiwi =  findViewById(R.id.button23);
-        orange =  findViewById(R.id.button24);
-        bicycle =  findViewById(R.id.button25);
-        bike =  findViewById(R.id.button26);
-        car =  findViewById(R.id.button27);
-        jeep =  findViewById(R.id.button28);
-        truck =  findViewById(R.id.button29);
-        golf =  findViewById(R.id.button30);
-        suv =  findViewById(R.id.button31);
-        phone =  findViewById(R.id.button32);
-        phone2 =  findViewById(R.id.button33);
-        tablet =  findViewById(R.id.button34);
+        avocado = findViewById(R.id.button19);
+        strawberry = findViewById(R.id.button20);
+        banana = findViewById(R.id.button21);
+        cherries = findViewById(R.id.button22);
+        kiwi = findViewById(R.id.button23);
+        orange = findViewById(R.id.button24);
+        bicycle = findViewById(R.id.button25);
+        bike = findViewById(R.id.button26);
+        car = findViewById(R.id.button27);
+        jeep = findViewById(R.id.button28);
+        truck = findViewById(R.id.button29);
+        golf = findViewById(R.id.button30);
+        suv = findViewById(R.id.button31);
+        phone = findViewById(R.id.button32);
+        phone2 = findViewById(R.id.button33);
+        tablet = findViewById(R.id.button34);
         tablet2 = findViewById(R.id.button35);
         smartwatch = findViewById(R.id.button36);
-        pc =  findViewById(R.id.button37);
+        pc = findViewById(R.id.button37);
         laptop = findViewById(R.id.button38);
-        flower1 =  findViewById(R.id.button39);
-        flower2 =  findViewById(R.id.button40);
-        flower3 =  findViewById(R.id.button41);
-        flower4 =  findViewById(R.id.button42);
-        flower5 =  findViewById(R.id.button43);
-        flower6 =  findViewById(R.id.button44);
-        flower7 =  findViewById(R.id.button45);
+        flower1 = findViewById(R.id.button39);
+        flower2 = findViewById(R.id.button40);
+        flower3 = findViewById(R.id.button41);
+        flower4 = findViewById(R.id.button42);
+        flower5 = findViewById(R.id.button43);
+        flower6 = findViewById(R.id.button44);
+        flower7 = findViewById(R.id.button45);
 
         melon.setBackground(getDrawable(R.drawable.melon));
         avocado.setBackground(getDrawable(R.drawable.avocado));

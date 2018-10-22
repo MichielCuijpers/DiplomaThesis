@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".commons.HighscoresActivity"
+    tools:context=".activities.HighscoresActivity"
     android:background="#c7a96c">
 
     <TextView
@@ -51,7 +51,7 @@
         android:layout_marginEnd="272dp"
         android:text="Game8:"
         android:textColor="@android:color/background_dark"
-        android:textSize=" 35sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/h9"
         app:layout_constraintEnd_toStartOf="@+id/h13" />
 
@@ -64,7 +64,7 @@
         android:layout_marginStart="8dp"
         android:text="Game2:"
         android:textColor="@android:color/background_dark"
-        android:textSize=" 35sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/h3"
         app:layout_constraintEnd_toStartOf="@+id/h7"
         app:layout_constraintHorizontal_bias="0.019"
@@ -79,7 +79,7 @@
         android:layout_marginStart="8dp"
         android:text="Game4:"
         android:textColor="@android:color/background_dark"
-        android:textSize=" 35sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/h5"
         app:layout_constraintEnd_toStartOf="@+id/h9"
         app:layout_constraintHorizontal_bias="0.03"
@@ -94,7 +94,7 @@
         android:layout_marginStart="8dp"
         android:text="Game3:"
         android:textColor="@android:color/background_dark"
-        android:textSize=" 35sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/h4"
         app:layout_constraintEnd_toStartOf="@+id/h8"
         app:layout_constraintHorizontal_bias="0.025"
@@ -110,7 +110,7 @@
         android:layout_marginTop="8dp"
         android:text="Game1:"
         android:textColor="@android:color/background_dark"
-        android:textSize=" 35sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/h2"
         app:layout_constraintEnd_toStartOf="@+id/h6"
         app:layout_constraintHorizontal_bias="0.026"
@@ -126,7 +126,7 @@
         android:layout_marginEnd="272dp"
         android:text="Game10:"
         android:textColor="@android:color/background_dark"
-        android:textSize=" 35sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/h15" />
 
@@ -139,7 +139,7 @@
         android:layout_marginStart="8dp"
         android:text="Game5:"
         android:textColor="@android:color/background_dark"
-        android:textSize=" 35sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/h10"
         app:layout_constraintHorizontal_bias="0.025"
@@ -153,7 +153,7 @@
         android:layout_marginEnd="272dp"
         android:text="Game7:"
         android:textColor="@android:color/background_dark"
-        android:textSize=" 35sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/h8"
         app:layout_constraintEnd_toStartOf="@+id/h12" />
 
@@ -165,7 +165,7 @@
         android:layout_marginEnd="272dp"
         android:text="Game9:"
         android:textColor="@android:color/background_dark"
-        android:textSize=" 35sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/h10"
         app:layout_constraintEnd_toStartOf="@+id/h14" />
 
@@ -178,7 +178,7 @@
         android:layout_marginTop="52dp"
         android:text="Game6:"
         android:textColor="@android:color/background_dark"
-        android:textSize=" 35sp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/h7"
         app:layout_constraintEnd_toStartOf="@+id/h11"
         app:layout_constraintTop_toTopOf="parent"

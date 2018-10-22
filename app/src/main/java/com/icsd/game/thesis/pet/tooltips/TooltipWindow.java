@@ -1,4 +1,4 @@
-package com.icsd.game.thesis.pet.Tooltips;
+package com.icsd.game.thesis.pet.tooltips;
 
 
 import android.app.ActionBar;

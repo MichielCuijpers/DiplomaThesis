@@ -1,4 +1,4 @@
-package com.icsd.game.thesis.Game11;
+package com.icsd.game.thesis.game11;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -115,9 +115,9 @@ public class Game11 extends AppCompatActivity {
             pickRandomButtonForShadowing(screenbuttons);
 
         } else if (Pattern == 2) {
-            PickRandomTwoButtonsForShadowing(screenbuttons);
+            pickRandomTwoButtonsForShadowing(screenbuttons);
         } else {
-            PickRandomButtonsForShadowing(screenbuttons);
+            pickRandomButtonsForShadowing(screenbuttons);
         }
     }
 
@@ -128,11 +128,11 @@ public class Game11 extends AppCompatActivity {
             Buttons.remove(i);
         }
         if (Buttons.size() < 8) {
-            ShadowoneButton(Buttonforpick1);
+            shadowoneButton(Buttonforpick1);
         }
     }
 
-    private void PickRandomTwoButtonsForShadowing(ArrayList<Button> Buttons) {
+    private void pickRandomTwoButtonsForShadowing(ArrayList<Button> Buttons) {
         Collections.shuffle(Buttons);
         for (int i = 0; i < Buttons.size(); i++) {
             Buttonforpick1 = (Button) Buttons.get(i);
@@ -144,11 +144,11 @@ public class Game11 extends AppCompatActivity {
             Buttons.remove(i);
         }
         if (Buttons.size() < 8) {
-            ShadowingtwoButtons(Buttonforpick1, Buttonforpick2);
+            shadowingtwoButtons(Buttonforpick1, Buttonforpick2);
         }
     }
 
-    private void PickRandomButtonsForShadowing(ArrayList<Button> Buttons) {
+    private void pickRandomButtonsForShadowing  (ArrayList<Button> Buttons) {
         Collections.shuffle(Buttons);
         for (int i = 0; i < Buttons.size(); i++) {
             Buttonforpick1 = (Button) Buttons.get(i);
@@ -166,12 +166,12 @@ public class Game11 extends AppCompatActivity {
         }
 
         if (Buttons.size() < 8) {
-            ShadowingButtons(Buttonforpick1, Buttonforpick2, Buttonforpick3);
+            shadowingButtons(Buttonforpick1, Buttonforpick2, Buttonforpick3);
         }
 
     }
 
-    private void ShadowingButtons(Button onee, Button twoo, Button threee) {
+    private void shadowingButtons(Button onee, Button twoo, Button threee) {
         onee.setBackgroundColor(parseColor("#778899"));
         twoo.setBackgroundColor(parseColor("#778899"));
         threee.setBackgroundColor(parseColor("#778899"));
@@ -182,13 +182,13 @@ public class Game11 extends AppCompatActivity {
 
     }
 
-    private void ShadowoneButton(Button onee) {
+    private void shadowoneButton(Button onee) {
         onee.setBackgroundColor(parseColor("#778899"));
         shadows.add(onee.getText().toString());
         resetoneButton(onee);
     }
 
-    private void ShadowingtwoButtons(Button onee, Button twoo) {
+    private void shadowingtwoButtons(Button onee, Button twoo) {
         onee.setBackgroundColor(parseColor("#778899"));
         twoo.setBackgroundColor(parseColor("#778899"));
         shadows.add(onee.getText().toString());
@@ -238,7 +238,7 @@ public class Game11 extends AppCompatActivity {
 
     private void isPressed() {
         buttonpressed += 1;
-        CheckifMatch(shadowsclicked, shadows, buttonpressed);
+        checkifMatch(shadowsclicked, shadows, buttonpressed);
 
     }
 
@@ -258,7 +258,7 @@ public class Game11 extends AppCompatActivity {
         }
     }
 
-    private void CheckifMatch(ArrayList<String> clicked, ArrayList<String> corrects, int pressedbuttons) {
+    private void checkifMatch(ArrayList<String> clicked, ArrayList<String> corrects, int pressedbuttons) {
         if (Pattern == 1) {
             if (pressedbuttons == 1) {
                 Collections.sort(clicked);

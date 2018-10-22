@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#c7a96c"
-    tools:context="com.icsd.game.thesis.Game6.Game6">
+    tools:context="com.icsd.game.thesis.game6.Game6">
 
     <Button
         android:id="@+id/button46"

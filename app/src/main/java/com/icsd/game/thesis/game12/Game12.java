@@ -1,4 +1,4 @@
-package com.icsd.game.thesis.Game12;
+package com.icsd.game.thesis.game12;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -82,20 +82,20 @@ public class Game12 extends AppCompatActivity {
         takeTextFrom2 = " ";
         kwinner = " ";
         chosenwinner = " ";
-        tutorialButton = (Button) findViewById(R.id.tutorialbutton); //con button
-        tutorialButton2 = (Button) findViewById(R.id.tutorialbutton2); //back button
-        ObjectButton = (Button) findViewById(R.id.tutorialObjectIcon);
-        ObjectButton2 = (Button) findViewById(R.id.tutorialObjectIcon2);
+        tutorialButton = findViewById(R.id.tutorialbutton); //con button
+        tutorialButton2 = findViewById(R.id.tutorialbutton2); //back button
+        ObjectButton = findViewById(R.id.tutorialObjectIcon);
+        ObjectButton2 = findViewById(R.id.tutorialObjectIcon2);
         ObjectButton.setOnClickListener(null);
         ObjectButton2.setOnClickListener(null);
-        ObjectButton3 = (Button) findViewById(R.id.tutorialObjectIcon3);
-        ObjectButton4 = (Button) findViewById(R.id.tutorialObjectIcon4);
-        tie = (Button) findViewById(R.id.tieb);
-        gameplayimages = new ArrayList<Button>();
-        gprock = (Button) findViewById(R.id.gameplayrock);
-        gppencil = (Button) findViewById(R.id.gameplaypencil);
-        gpscissors = (Button) findViewById(R.id.gameplayscissors);
-        gppaper = (Button) findViewById(R.id.gameplaypaper);
+        ObjectButton3 = findViewById(R.id.tutorialObjectIcon3);
+        ObjectButton4 = findViewById(R.id.tutorialObjectIcon4);
+        tie = findViewById(R.id.tieb);
+        gameplayimages = new ArrayList<>();
+        gprock = findViewById(R.id.gameplayrock);
+        gppencil = findViewById(R.id.gameplaypencil);
+        gpscissors = findViewById(R.id.gameplayscissors);
+        gppaper = findViewById(R.id.gameplaypaper);
         gprock.setText("rock");
         gppencil.setText("pencil");
         gpscissors.setText("scissors");
@@ -104,18 +104,18 @@ public class Game12 extends AppCompatActivity {
         gameplayimages.add(gppencil);
         gameplayimages.add(gpscissors);
         gameplayimages.add(gppaper);
-        gameplayb1 = (Button) findViewById(R.id.gp1);
-        gameplayb2 = (Button) findViewById(R.id.gp2);
+        gameplayb1 = findViewById(R.id.gp1);
+        gameplayb2 = findViewById(R.id.gp2);
         gameplayb1.setVisibility(View.INVISIBLE);
         gameplayb2.setVisibility(View.INVISIBLE);
-        winnertext = (TextView) findViewById(R.id.textView13);
+        winnertext = findViewById(R.id.textView13);
         combinefile = new StringBuilder();
-        title = (TextView) findViewById(R.id.textView);
+        title = findViewById(R.id.textView);
         scale = title.getLayoutParams();
         wrongs = 0;
         corrects = 0;
-        knownwinner = new ArrayList<String>();
-        corans = (TextView) findViewById(R.id.correctans);
+        knownwinner = new ArrayList<>();
+        corans = findViewById(R.id.correctans);
         corans.setVisibility(View.INVISIBLE);
 
 
@@ -132,13 +132,13 @@ public class Game12 extends AppCompatActivity {
 
     private void initScreen() {
         if (getTutorial() == 0) {
-            Page1();
+            page1();
         } else if (getTutorial() == 1) {
-            Page2();
+            page2();
         } else if (getTutorial() == 2) {
             page3();
         } else if (getTutorial() == 3) {
-            Page4();
+            page4();
         } else if (getTutorial() == 4) {
             initGameplay();
             tutorialButton.setVisibility(View.INVISIBLE);
@@ -150,10 +150,10 @@ public class Game12 extends AppCompatActivity {
         Log.e("MyDEbou", getTutorial() + "clear");
         if (getTutorial() == 2) {
             minustutorial();
-            Page1();
+            page1();
         } else if (getTutorial() == 3) {
             minustutorial();
-            Page2();
+            page2();
         }
     }
 
@@ -169,7 +169,7 @@ public class Game12 extends AppCompatActivity {
         return turn_tutorial;
     }
 
-    private void Page1() {
+    private void page1() {
         tutorialButton2.setVisibility(View.INVISIBLE);
         ObjectButton.setBackground(getDrawable(R.drawable.pencil));
         ObjectButton2.setBackground(getDrawable(R.drawable.paper));
@@ -178,7 +178,7 @@ public class Game12 extends AppCompatActivity {
         plustutorial();
     }
 
-    private void Page2() {
+    private void page2() {
         ObjectButton.setBackground(getDrawable(R.drawable.paper));
         ObjectButton.setText("PAPER");
         ObjectButton2.setBackground(getDrawable(R.drawable.rock));
@@ -201,7 +201,7 @@ public class Game12 extends AppCompatActivity {
         plustutorial();
     }
 
-    private void Page4() {
+    private void page4() {
         ObjectButton.setBackground(getDrawable(R.drawable.scissors));
         ObjectButton.setText("SCISSORS");
         ObjectButton2.setVisibility(View.INVISIBLE);
@@ -329,7 +329,7 @@ public class Game12 extends AppCompatActivity {
         }
     }
 
-    public void CheckWins(Button one, Button two) {
+    public void checkWins(Button one, Button two) {
         if ((gameplayb1.getText().equals("rock")) && (gameplayb2.getText().equals("scissors"))) {
 
         }

@@ -1,4 +1,4 @@
-package com.icsd.game.thesis.Game7;
+package com.icsd.game.thesis.game7;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -163,7 +163,7 @@ public class Game7 extends AppCompatActivity {
 
     public void initKitchen() {
         //arxikopoisi koumpiwn kouzinas
-        if (new_question.check_empty_list(new_question.get_kitchen()) == true) {
+        if (new_question.check_empty_list(new_question.getKitchen()) == true) {
             kitchen_played = 1;
             fridge.setVisibility(View.INVISIBLE);
             kit_lamp.setVisibility(View.INVISIBLE);
@@ -195,8 +195,8 @@ public class Game7 extends AppCompatActivity {
             } else if (new_question.return_Questions("kitchen").equals(AppLan.getAppContext().getResources().getString(R.string.smoke))) {
                 quest_text.setText(getResources().getString(R.string.smoke));
             }
-            new_question.delete_Question_used("kitchen", quest_text.getText().toString());
-            correct_answer = new_question.set_Correct_Answer(quest_text.getText().toString());
+            new_question.deleteQuestionUsed("kitchen", quest_text.getText().toString());
+            correct_answer = new_question.setCorrectAnswer(quest_text.getText().toString());
 
             fridge.setBackground(null);
             fridge.setTextSize(0);
@@ -220,7 +220,7 @@ public class Game7 extends AppCompatActivity {
     }
 
     public void initBathroom() {
-        if (new_question.check_empty_list(new_question.get_bathroom()) == true) {
+        if (new_question.check_empty_list(new_question.getBathroom()) == true) {
             bathroom_played = 1;
             pickBackground();
         } else {
@@ -241,8 +241,8 @@ public class Game7 extends AppCompatActivity {
             } else if (new_question.return_Questions("bathroom").equals(AppLan.getAppContext().getResources().getString(R.string.wash))) {
                 quest_text.setText(getResources().getString(R.string.wash));
             }
-            new_question.delete_Question_used("bathroom", quest_text.getText().toString());
-            correct_answer = new_question.set_Correct_Answer(quest_text.getText().toString());
+            new_question.deleteQuestionUsed("bathroom", quest_text.getText().toString());
+            correct_answer = new_question.setCorrectAnswer(quest_text.getText().toString());
 
             soap.setBackground(null);
             soap.setTextSize(0);
@@ -299,8 +299,8 @@ public class Game7 extends AppCompatActivity {
             } else if (new_question.return_Questions("din").equals(AppLan.getAppContext().getResources().getString(R.string.music))) {
                 quest_text.setText(getResources().getString(R.string.music));
             }
-            new_question.delete_Question_used("din", quest_text.getText().toString());
-            correct_answer = new_question.set_Correct_Answer(quest_text.getText().toString());
+            new_question.deleteQuestionUsed("din", quest_text.getText().toString());
+            correct_answer = new_question.setCorrectAnswer(quest_text.getText().toString());
 
             sofa.setBackground(null);
             sofa.setTextSize(0);
@@ -321,7 +321,7 @@ public class Game7 extends AppCompatActivity {
     }
 
     public void initQuestions() {
-        new_question.set_Questions();
+        new_question.setQuestions();
     }
 
     public void fridgeonClick(View view) {
@@ -329,17 +329,17 @@ public class Game7 extends AppCompatActivity {
         checkifWon(answer_chosen, correct_answer);
     }
 
-    public void kit_lamponClick(View view) {
+    public void kitLamponClick(View view) {
         answer_chosen = kit_lamp.getText().toString();
         checkifWon(answer_chosen, correct_answer);
     }
 
-    public void wash_dishonClick(View view) {
+    public void washDishonClick(View view) {
         answer_chosen = wash_dish.getText().toString();
         checkifWon(answer_chosen, correct_answer);
     }
 
-    public void cookeronClick(View view) {
+    public void cookeronclick(View view) {
         answer_chosen = cooker.getText().toString();
         checkifWon(answer_chosen, correct_answer);
     }

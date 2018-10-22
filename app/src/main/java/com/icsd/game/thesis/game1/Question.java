@@ -14,8 +14,8 @@ import com.icsd.game.thesis.database.DatabaseHandler;
 import java.util.ArrayList;
 
 public class Question {
-    final ArrayList<String> answers;
-    final String question;
+    private final ArrayList<String> answers;
+    private String question;
 
 
     protected Question(ArrayList<String> temp) {
@@ -39,8 +39,8 @@ public class Question {
 
     //START INNER CLASS
     public static class QuestionDBEntry implements BaseColumns {
-        static DatabaseHandler dh;
-        static SQLiteDatabase db;
+        private static DatabaseHandler dh;
+        private static SQLiteDatabase db;
         public static final String TABLE_NAME = "question";
         public static final String TABLE_NAME2 = "question_gr";
         public static final String QUESTION = "question";

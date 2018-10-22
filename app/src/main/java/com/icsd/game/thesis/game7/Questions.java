@@ -1,7 +1,5 @@
-package com.icsd.game.thesis.Game7;
+package com.icsd.game.thesis.game7;
 
-
-import android.util.Log;
 
 import com.icsd.game.thesis.R;
 import com.icsd.game.thesis.commons.AppLan;
@@ -27,7 +25,7 @@ public class Questions {
         this.correct_answer = correct_answer;
     }
 
-    public void set_Questions() {
+    public void setQuestions() {
         questions_kitchen.add(AppLan.getAppContext().getResources().getString(R.string.ice));
         questions_kitchen.add(AppLan.getAppContext().getResources().getString(R.string.bread));
         questions_kitchen.add(AppLan.getAppContext().getResources().getString(R.string.kitchen_lights));
@@ -69,11 +67,11 @@ public class Questions {
         return correct_answer;
     }
 
-    public ArrayList<String> get_kitchen() {
+    public ArrayList<String> getKitchen() {
         return questions_kitchen;
     }
 
-    public ArrayList<String> get_bathroom() {
+    public ArrayList<String> getBathroom() {
         return questions_bathroom;
     }
 
@@ -91,7 +89,7 @@ public class Questions {
         return val;
     }
 
-    public String set_Correct_Answer(String question) {
+    public String setCorrectAnswer(String question) {
         if (question.equals("Can you store the ice somewhere?")) {
             correct_answer = "fridge";
         } else if (question.equals("Please! bake some bread for breakfast")) {
@@ -158,7 +156,7 @@ public class Questions {
         return correct_answer;
     }
 
-    public void delete_Question_used(String type, String question) {
+    public void deleteQuestionUsed(String type, String question) {
         if (type.equals("kitchen")) {
             questions_kitchen.remove(question);
         } else if (type.equals("bathroom")) {
