@@ -78,7 +78,7 @@ public class Game9 extends AppCompatActivity {
         dbHandler.addSessionToDB(currentSession);
     }
 
-    private void initButtons() {
+    private void initLists() {
 
         images = new ArrayList<>();
         blue = new ArrayList<>();
@@ -87,7 +87,11 @@ public class Game9 extends AppCompatActivity {
         purple = new ArrayList<>();
         red = new ArrayList<>();
         yellow = new ArrayList<>();
-        cat = new ArrayList<ArrayList>();
+        cat = new ArrayList<>();
+    }
+
+    private void initButtons() {
+        initLists();
 
 
         iimage1 = findViewById(R.id.button);
@@ -131,7 +135,11 @@ public class Game9 extends AppCompatActivity {
         y5 = findViewById(R.id.button9);
         shuffle = findViewById(R.id.button10);
 
+        setBackgrounds();
 
+    }
+
+    private void setBackgrounds() {
         b1.setBackground(getDrawable(R.drawable.bl1));
         b2.setBackground(getDrawable(R.drawable.bl2));
         b3.setBackground(getDrawable(R.drawable.bl3));
@@ -227,26 +235,8 @@ public class Game9 extends AppCompatActivity {
         //fruits=category.getFruits();
         // vehicles=category.getVehicles();
         //smart_devices=category.getSmart_devices();
-
-
-        for (Button b : blue) {
-            b.setText("");
-        }
-        for (Button b : black) {
-            b.setText("");
-        }
-        for (Button b : green) {
-            b.setText("");
-        }
-        for (Button b : purple) {
-            b.setText("");
-        }
-        for (Button b : red) {
-            b.setText("");
-        }
-        for (Button b : yellow) {
-            b.setText("");
-        }
+        
+        clearTexts();
 
         rand = new Random();
         which_color = rand.nextInt(cat.size()); //choose random color
@@ -334,122 +324,9 @@ public class Game9 extends AppCompatActivity {
         borderb4.setVisibility(View.INVISIBLE);
 
         score = findViewById(R.id.text1);
-
-
-        iimage1 = findViewById(R.id.button);
-        iimage2 = findViewById(R.id.button2);
-        iimage3 = findViewById(R.id.button3);
-        iimage4 = findViewById(R.id.button4);
-        iimage5 = findViewById(R.id.button5);
-
-        what_to_click = (TextView) findViewById(R.id.textView);
-
-
-        b1 = findViewById(R.id.button46);
-        b2 = findViewById(R.id.button8);
-        b3 = findViewById(R.id.button19);
-        b4 = findViewById(R.id.button20);
-        b5 = findViewById(R.id.button21);
-        bl1 = findViewById(R.id.button22);
-        bl2 = findViewById(R.id.button23);
-        bl3 = findViewById(R.id.button24);
-        bl4 = findViewById(R.id.button25);
-        bl5 = findViewById(R.id.button26);
-        g1 = findViewById(R.id.button27);
-        g2 = findViewById(R.id.button28);
-        g3 = findViewById(R.id.button29);
-        g4 = findViewById(R.id.button30);
-        g5 = findViewById(R.id.button31);
-        p1 = findViewById(R.id.button32);
-        p2 = findViewById(R.id.button33);
-        p3 = findViewById(R.id.button34);
-        p4 = findViewById(R.id.button35);
-        p5 = findViewById(R.id.button36);
-        r1 = findViewById(R.id.button37);
-        r2 = findViewById(R.id.button38);
-        r3 = findViewById(R.id.button39);
-        r4 = findViewById(R.id.button40);
-        r5 = findViewById(R.id.button41);
-        y1 = findViewById(R.id.button42);
-        y2 = findViewById(R.id.button43);
-        y3 = findViewById(R.id.button44);
-        y4 = findViewById(R.id.button45);
-        y5 = findViewById(R.id.button9);
-
-
-        b1.setBackground(getDrawable(R.drawable.bl1));
-        b2.setBackground(getDrawable(R.drawable.bl2));
-        b3.setBackground(getDrawable(R.drawable.bl3));
-        b4.setBackground(getDrawable(R.drawable.bl4));
-        b5.setBackground(getDrawable(R.drawable.bl5));
-        bl1.setBackground(getDrawable(R.drawable.blc1));
-        bl2.setBackground(getDrawable(R.drawable.blc2));
-        bl3.setBackground(getDrawable(R.drawable.blc3));
-        bl4.setBackground(getDrawable(R.drawable.blc4));
-        bl5.setBackground(getDrawable(R.drawable.blc5));
-        g1.setBackground(getDrawable(R.drawable.gr1));
-        g2.setBackground(getDrawable(R.drawable.gr2));
-        g3.setBackground(getDrawable(R.drawable.gr3));
-        g4.setBackground(getDrawable(R.drawable.gr4));
-        g5.setBackground(getDrawable(R.drawable.gr5));
-        p1.setBackground(getDrawable(R.drawable.pr1));
-        p2.setBackground(getDrawable(R.drawable.pr2));
-        p3.setBackground(getDrawable(R.drawable.pr3));
-        p4.setBackground(getDrawable(R.drawable.pr4));
-        p5.setBackground(getDrawable(R.drawable.pr5));
-        r1.setBackground(getDrawable(R.drawable.r1));
-        r2.setBackground(getDrawable(R.drawable.r2));
-        r3.setBackground(getDrawable(R.drawable.r3));
-        r4.setBackground(getDrawable(R.drawable.r4));
-        r5.setBackground(getDrawable(R.drawable.r5));
-        y1.setBackground(getDrawable(R.drawable.yl1));
-        y2.setBackground(getDrawable(R.drawable.yl2));
-        y3.setBackground(getDrawable(R.drawable.yl3));
-        y4.setBackground(getDrawable(R.drawable.yl4));
-        y5.setBackground(getDrawable(R.drawable.yl5));
-
-
-        blue.add(b1);
-        blue.add(b2);
-        blue.add(b3);
-        blue.add(b4);
-        blue.add(b5);
-
-        black.add(bl1);
-        black.add(bl2);
-        black.add(bl3);
-        black.add(bl4);
-        black.add(bl5);
-
-        green.add(g1);
-        green.add(g2);
-        green.add(g3);
-        green.add(g4);
-        green.add(g5);
-
-        purple.add(p1);
-        purple.add(p2);
-        purple.add(p3);
-        purple.add(p4);
-        purple.add(p5);
-
-        red.add(r1);
-        red.add(r2);
-        red.add(r3);
-        red.add(r4);
-        red.add(r5);
-
-        yellow.add(y1);
-        yellow.add(y2);
-        yellow.add(y3);
-        yellow.add(y4);
-        yellow.add(y5);
-
-        images.add(iimage1);
-        images.add(iimage2);
-        images.add(iimage3);
-        images.add(iimage4);
-        images.add(iimage5);
+        initButtons();
+        setBackgrounds();
+        addButtonsToLists();
 
         //category = new Categories();
         //flowers=category.getFlowers();
@@ -457,31 +334,7 @@ public class Game9 extends AppCompatActivity {
         // vehicles=category.getVehicles();
         //smart_devices=category.getSmart_devices();
 
-
-        cat.add(blue);
-        cat.add(black);
-        cat.add(green);
-        cat.add(purple);
-        cat.add(red);
-        cat.add(yellow);
-        for (Button b : blue) {
-            b.setText("");
-        }
-        for (Button b : black) {
-            b.setText("");
-        }
-        for (Button b : green) {
-            b.setText("");
-        }
-        for (Button b : purple) {
-            b.setText("");
-        }
-        for (Button b : red) {
-            b.setText("");
-        }
-        for (Button b : yellow) {
-            b.setText("");
-        }
+        clearTexts();
 
         iimage1.setTextSize(0);
         iimage2.setTextSize(0);
@@ -571,7 +424,7 @@ public class Game9 extends AppCompatActivity {
 
     }
 
-    public void testOnClick(View v) {
+    private void clearTexts() {
         for (Button b : blue) {
             b.setText("");
         }
@@ -590,6 +443,11 @@ public class Game9 extends AppCompatActivity {
         for (Button b : yellow) {
             b.setText("");
         }
+
+    }
+
+    public void testOnClick(View v) {
+        clearTexts();
         initTest();
     }
 

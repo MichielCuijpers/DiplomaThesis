@@ -148,7 +148,7 @@ public class Game11 extends AppCompatActivity {
         }
     }
 
-    private void pickRandomButtonsForShadowing  (ArrayList<Button> Buttons) {
+    private void pickRandomButtonsForShadowing(ArrayList<Button> Buttons) {
         Collections.shuffle(Buttons);
         for (int i = 0; i < Buttons.size(); i++) {
             Buttonforpick1 = (Button) Buttons.get(i);
@@ -256,6 +256,14 @@ public class Game11 extends AppCompatActivity {
             SurveyActivity.setGameID(11);
             startActivity(surv);
         }
+    }
+
+    private void correctAnswer() {
+
+    }
+
+    private void wrongAnswer() {
+
     }
 
     private void checkifMatch(ArrayList<String> clicked, ArrayList<String> corrects, int pressedbuttons) {
