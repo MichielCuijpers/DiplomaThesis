@@ -192,18 +192,25 @@
     <string name="tutorialGame3">Please put the numbers from the smaller to the bigger</string>
     <!-- game4-->
     <string name="tutorialGame4">Put the letters in the right order to make words</string>
-    <string name="happy">happy</string>
-    <string name="action">action</string>
     <string name="desk">desk</string>
     <string name="jazz">jazz</string>
     <string name="quiz">quiz</string>
-    <string name="computer">computer</string>
-    <string name="chair">chair</string>
-    <string name="benefit">benefit</string>
-    <string name="science">science</string>
-    <string name="secretary">secretary</string>
-    <string name="security">security</string>
     <string name="zero">zero</string>
+    <string name="ball">ball</string>
+    <string name="body">body</string>
+
+    <string name="happy">happy</string>
+    <string name="action">action</string>
+    <string name="chair">chair</string>
+    <string name="about">about</string>
+    <string name="again">again</string>
+    <string name="chief">chief</string>
+
+    <string name="computer">puzzle</string>
+    <string name="benefit">active</string>
+    <string name="science">bottle</string>
+    <string name="secretary">client</string>
+    <string name="security">coffee</string>
     <!-- game5-->
     <string name="tutorialGame5">Find the usage of every object shown</string>
 

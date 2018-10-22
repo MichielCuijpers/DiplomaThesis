@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -35,7 +36,6 @@ public class Game4Activity extends AppCompatActivity {
     private String currentWord;
     private int globalTurn;
     private int secondaryTurn;
-
     private static Context context;
     private Session curSession;
     private SoundHandler soundHandler;
@@ -49,7 +49,6 @@ public class Game4Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_tutorial);
         context = getApplicationContext();
 
@@ -88,7 +87,6 @@ public class Game4Activity extends AppCompatActivity {
         wordsListTurn2 = new ArrayList<>();
         wordsListTurn3 = new ArrayList<>();
         takeWordsFromDB();
-
         Collections.shuffle(this.wordsListTurn1);
         Collections.shuffle(this.wordsListTurn2);
         Collections.shuffle(this.wordsListTurn3);
@@ -102,24 +100,29 @@ public class Game4Activity extends AppCompatActivity {
 
         switch (turn) {
             case 1:
-
+                Log.e("MYDEBUG", "turn1");
                 currentWord = wordsListTurn1.get(secondaryTurn);
+                Log.e("MYDEBUG", "current word is : " + currentWord);
                 setWordInGui(shuffleWord(currentWord));
                 secondaryTurn++;
 
                 break;
             case 2:
+                Log.e("MYDEBUG", "turn2");
                 p.getmPopupWindow().dismiss();
                 p.showPopUp(getResources().getString(R.string.new_turn));
                 currentWord = wordsListTurn2.get(secondaryTurn);
+                Log.e("MYDEBUG", "current word is : " + currentWord);
                 setWordInGui(shuffleWord(currentWord));
                 secondaryTurn++;
 
                 break;
             case 3:
+                Log.e("MYDEBUG", "turn3");
                 p.getmPopupWindow().dismiss();
                 p.showPopUp(getResources().getString(R.string.new_turn));
                 currentWord = wordsListTurn3.get(secondaryTurn);
+                Log.e("MYDEBUG", "current word is : " + currentWord);
                 setWordInGui(shuffleWord(currentWord));
                 secondaryTurn++;
 
@@ -131,14 +134,10 @@ public class Game4Activity extends AppCompatActivity {
     }
 
     private void setWordInGui(String word) {
-
-
         for (int i = 0; i < word.length(); i++) {
             buttonsList.get(i).setText(word.charAt(i) + "");
             buttonsList.get(i).setVisibility(View.VISIBLE);
         }
-
-
     }
 
     private String shuffleWord(String input) {
@@ -191,25 +190,30 @@ public class Game4Activity extends AppCompatActivity {
     }
 
     private void takeWordsFromDB() {
-
         ArrayList<String> tempWordsList;
         tempWordsList = Word.WordDBEntry.takeWorldsFromDB();
         for (int i = 0; i < tempWordsList.size(); i++) {
-            if (tempWordsList.get(i).length() <= 4) {
-                wordsListTurn1.add(tempWordsList.get(i));
-            } else if (tempWordsList.get(i).length() > 4 && tempWordsList.get(i).length() <= 6) {
-                wordsListTurn2.add(tempWordsList.get(i));
+            if (tempWordsList.get(i).length() == 4) {
 
-            } else {
+                wordsListTurn1.add(tempWordsList.get(i));
+                Collections.shuffle(wordsListTurn1);
+            } else if (tempWordsList.get(i).length() == 5) {
+                wordsListTurn2.add(tempWordsList.get(i));
+                Collections.shuffle(wordsListTurn2);
+            } else if (tempWordsList.get(i).length() == 6) {
                 wordsListTurn3.add(tempWordsList.get(i));
+                Collections.shuffle(wordsListTurn3);
 
             }
+
         }
+        Log.e("MYDEBUG", "4 letters list: " + wordsListTurn1.size());
+        Log.e("MYDEBUG", "5 letters list: " + wordsListTurn2.size());
+        Log.e("MYDEBUG", "6 letters list: " + wordsListTurn3.size());
     }
 
     private void buttonIsClick(View view) {
         Button b = (Button) view;
-
         if (!isSecondButton) {
             b.setBackgroundColor(Color.parseColor("#FFC56C07"));
             previewsButtonText = b.getText().toString();
@@ -236,14 +240,45 @@ public class Game4Activity extends AppCompatActivity {
         startActivity(surv);
     }
 
-    private void changeTurn() {
-
-        secondaryTurn = 0;
-        globalTurn++;
-        if (this.globalTurn == 4) {
-            endGame();
+    private StringBuilder takeWordFromGui() {
+        StringBuilder world = new StringBuilder();
+        for (int i = 0; i < currentWord.length(); i++) {
+            world.append(buttonsList.get(i).getText());
         }
-        gameplay(globalTurn);
+        Log.e("MYDEBUG", "Word user made: " + world.toString());
+        return world;
+    }
+
+    private void changeTurn() {
+        Log.e("MYDEBUG", "in change turn");
+        if (secondaryTurn > 4) {
+            secondaryTurn = 0;
+            globalTurn++;
+            if (this.globalTurn == 4) {
+                endGame();
+            }
+            gameplay(globalTurn);
+        }
+
+        if (secondaryTurn == 0 || secondaryTurn == 1 || secondaryTurn == 2 || secondaryTurn == 3 || secondaryTurn == 4 ) {
+
+            gameplay(globalTurn);
+
+        }
+
+    }
+
+    private void correctTurn() {
+        soundHandler.playOkSound();
+        this.curSession.setScore(this.globalTurn);
+        p.showPopUp(getResources().getString(R.string.correct_answer2));
+    }
+
+    private void wrongTurn() {
+        this.tempFails++;
+        soundHandler.playWrongSound();
+        p.showPopUp(getResources().getString(R.string.wrong_answer2));
+        this.curSession.setFails(curSession.getFails() + 1);
     }
 
     public static Context getContext() {
@@ -251,6 +286,21 @@ public class Game4Activity extends AppCompatActivity {
     }
 
     //OnCLicks
+    public void checkOnClick(View view) {
+        String word = takeWordFromGui().toString();
+        if (currentWord.equals(word)) {
+            correctTurn();
+            clearGui();
+            changeTurn();
+
+        } else {
+            wrongTurn();
+            if (tempFails == 5) {
+                changeTurn();
+            }
+        }
+    }
+
     public void button1OnClick(View view) {
         buttonIsClick(view);
     }
@@ -298,46 +348,6 @@ public class Game4Activity extends AppCompatActivity {
     public void button12OnClick(View view) {
         buttonIsClick(view);
     }
-
-    public void checkOnClick(View view) {
-        StringBuilder world = new StringBuilder();
-        for (int i = 0; i < currentWord.length(); i++) {
-            world.append(buttonsList.get(i).getText());
-        }
-        if (currentWord.equals(world.toString())) {
-            soundHandler.playOkSound();
-            this.curSession.setScore(this.globalTurn);
-            p.showPopUp(getResources().getString(R.string.correct_answer2));
-            clearGui();
-            if (secondaryTurn > 2) {
-                changeTurn();
-            }
-
-            if (secondaryTurn == 0 || secondaryTurn == 1 || secondaryTurn == 2) {
-
-                gameplay(globalTurn);
-
-            }
-
-        } else {
-            this.tempFails++;
-            soundHandler.playWrongSound();
-            p.showPopUp(getResources().getString(R.string.wrong_answer2));
-            this.curSession.setFails(curSession.getFails() + 1);
-            if (tempFails == 5) {
-                if (secondaryTurn > 2) {
-                    changeTurn();
-                }
-
-                if (secondaryTurn == 0 || secondaryTurn == 1 || secondaryTurn == 2) {
-
-                    gameplay(globalTurn);
-
-                }
-            }
-        }
-    }
-
 
     public void tutorialOkOnClick(View view) {
         setContentView(R.layout.game4protype);

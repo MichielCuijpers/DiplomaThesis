@@ -49,11 +49,10 @@
     <string name="zero">πένα</string>
     <string name="desk">κάρτα</string>
     <string name="quiz">τύχη</string>
-    <string name="computer">αγρότης</string>
-    <string name="benefit">αποθήκη</string>
-    <string name="science">πρόσωπο</string>
-    <string name="secretary">πρόσκοπος</string>
-    <string name="security">φλιτζάνι</string>
+    <string name="computer">τασάκι</string>
+    <string name="benefit">βαρέλι</string>
+    <string name="science">κοπάδι</string>
+    <string name="security">χάρτης</string>
     <string name="make_toasts">ψήσιμο τόστ</string>
     <string name="roast">ψήσιμο κρέατος</string>
     <string name="call">τηλεφώνο σε φίλο</string>
@@ -300,5 +299,11 @@
         <item>Αντρας</item>
         <item>Γυναίκα</item>
     </string-array>
+    <string name="about">άτομο</string>
+    <string name="again">κακός</string>
+    <string name="chief">κάδος</string>
+    <string name="secretary">φυλακή</string>
+    <string name="ball">ρόδι</string>
+    <string name="body">φάβα</string>
 
 </resources>
